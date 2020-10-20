@@ -52,6 +52,8 @@
 
 Лабораторная работа и практическая задания №2 выполнются в ErwinDataModeler. 
 
+Примеры для леции [тут](https://docs.google.com/spreadsheets/d/182phrpIydQo6lQ88Dh5xFRHDBbEd1u4H8nigP3VtCfw/edit?usp=sharing)
+
 #### Практическая часть 1
 
 Реализовать модель мойки автомобилей в нотачии питера-чена (см. пример в [презентации](https://drive.google.com/file/d/16z4BTl73LWxXZ9npZYeelcGYfsK6TKHn/view?usp=sharing)).
