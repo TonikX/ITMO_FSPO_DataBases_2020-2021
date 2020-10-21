@@ -56,7 +56,9 @@
 
 #### Практическая часть 1
 
-Реализовать модель мойки автомобилей в нотачии питера-чена (см. пример в [презентации](https://drive.google.com/file/d/16z4BTl73LWxXZ9npZYeelcGYfsK6TKHn/view?usp=sharing)).
+Реализовать модель мойки автомобилей в нотации Питера-Чена (см. пример в [презентации](https://drive.google.com/file/d/16z4BTl73LWxXZ9npZYeelcGYfsK6TKHn/view?usp=sharing)).
+
+Набор терминов по теме: Клиент, автомобиль, тип мойки, доп. услуги...
 
 Средства реализации: [draw.io](https://app.diagrams.net/). Шаблон **basic**.
 
