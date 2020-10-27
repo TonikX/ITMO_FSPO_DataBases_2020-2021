@@ -78,7 +78,8 @@
 
 (текстовое описание работы с программой) [тут](https://drive.google.com/file/d/1Lu34zIJZQOH1-eYCZAHF7VzyMblarDXk/view?usp=sharing)
 
-(программа) [тут](https://drive.google.com/file/d/1LRL-rS4t0o56vw42xmhe7CI_-KYzLC_x/view?usp=sharing). пользователи Unix систем, могут использовать [dbdiagram.io/](https://dbdiagram.io/) как альтертаиву.
+(программа) [тут](https://drive.google.com/file/d/1LRL-rS4t0o56vw42xmhe7CI_-KYzLC_x/view?usp=sharing). 
+Пользователи Unix систем, могут использовать [dbdiagram.io/](https://dbdiagram.io/) как альтертаиву.
 
 (видео-лекция) Пример и объяснение того, как сделать функциональную модель, можно посмотреть [тут](https://www.youtube.com/watch?v=L_uQeX3zT3I)
 
