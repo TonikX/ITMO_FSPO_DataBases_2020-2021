@@ -87,7 +87,7 @@
 
 #### Лабораторная часть
 
-[Текст работы тут](https://drive.google.com/file/d/164HkXU-XYM1xvm-vr3ybl5UQIAYwlEjH/view?usp=sharing)
+[Текст работы тут](https://drive.google.com/file/d/164HkXU-XYM1xvm-vr3ybl5UQIAYwlEjH/view?usp=sharing) (Групповой мини проект делать не нужно)
 
 Вариант соответствует Вашему порядковому номеру в журнале на ггул диске. Если Ваш номер более 15, счет начинается с начала. Если у студента 16 номер, он выполняет варианрт 1.
 
