@@ -1,0 +1,5 @@
+https://ru.wikipedia.org/wiki/OLAP
+https://habr.com/ru/post/126810/
+https://ru.wikipedia.org/wiki/OLAP-%D0%BA%D1%83%D0%B1
+https://ru.wikipedia.org/wiki/OLTP
+https://asav.hse.ru/documentation/DATAMILL/B060DA486C38410292C99785914910AB.html
