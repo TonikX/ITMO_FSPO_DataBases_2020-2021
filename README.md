@@ -4,6 +4,8 @@
 
 [Учебный журнал](https://docs.google.com/spreadsheets/d/1k71sJcYyiZF1uwEFcRt_R7RyZIVw-MtyMmiqFLP4Bm8/edit?usp=sharing) по дисциплине. Здесь доступна информация о сроках сдачи работ, о текущей успеваемости студентов и описаны все материалы, необходимые для реализации курса.
 
+[Силабус](https://drive.google.com/file/d/1e8B_UtyC3uSBD60gZsfVkgupADwLPnQy/view?usp=sharing)
+
 [Лекционные материалы](https://drive.google.com/drive/folders/1-xtMz1V1sXno7OQmVdRXnx1N_Ru-Lrze?usp=sharing)
 
 [Лабораторные работы](https://drive.google.com/open?id=1p1iBROaV6hcRC9uCLMxAdRDz01V6qCMv) - задания, оцениваемые преподавателем.
