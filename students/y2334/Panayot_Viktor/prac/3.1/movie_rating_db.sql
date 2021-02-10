@@ -1,10 +1,27 @@
 BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS "rewiewer" (
+	"rID"	INTEGER NOT NULL,
+	"name"	TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS "movie" (
+	"mID"	INTEGER NOT NULL,
+	"title"	TEXT NOT NULL,
+	"year"	INTEGER NOT NULL,
+	"director"	TEXT NOT NULL
+);
 CREATE TABLE IF NOT EXISTS "rating" (
 	"rID"	INTEGER NOT NULL,
 	"mID"	INTEGER NOT NULL,
 	"stars"	INTEGER NOT NULL,
 	"ratingDate"	TEXT
 );
+INSERT INTO "movie" VALUES (101,'Gone with the Wind',1939,'Victor Fleming');
+INSERT INTO "movie" VALUES (102,'Star Wars',1977,'George Lucas');
+INSERT INTO "movie" VALUES (103,'The Sound of Music',1965,'Robert Wise');
+INSERT INTO "movie" VALUES (104,'E.T.',1982,'Steven Spielberg');
+INSERT INTO "movie" VALUES (106,'Snow White',1937,'<null>');
+INSERT INTO "movie" VALUES (108,'Raiders of the Lost Ark',1981,'Steven Spielberg');
+INSERT INTO "movie" VALUES (109,'Seven',1995,'David Fincher');
 INSERT INTO "rating" VALUES (201,101,1,'22.01.2011');
 INSERT INTO "rating" VALUES (201,101,1,'27.01.2011');
 INSERT INTO "rating" VALUES (202,106,1,'<null>');
