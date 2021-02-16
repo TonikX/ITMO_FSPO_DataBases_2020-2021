@@ -1,0 +1,30 @@
+1. insert into "Client" ("name", phone, email)
+values ('Vasya', '+74565678970', 'vasya@mail.ru');
+2. insert into "Client" ("name", last_name, phone, email)
+values ('Nik', 'Chernov', '+76785678970', 'chernov@mail.ru');
+3. insert into "TimeLimit" (admission, completion, payment)
+values ('2005-06-10', '2006-07-20', '2005-06-10');
+
+1. select * from "Order"
+where "Client_ID" = (select id from "Client" where name = 'Vasya');
+2. select * from "Order"
+where "TimeLimit_ID" = (select id from "TimeLimit" where extract(year from admission) < 2005);
+3. select * from "Implementer"
+where id = (SELECT "implementer_ID" FROM "Implementation" where "order_ID" = 1);
+
+1.update "Client"
+set name = 'Vasily'
+where name = 'Vasya';
+2.update "TimeLimit"
+set payment = '2006-10-10'
+where id = (select id from "Order" where id = 1);
+3.update "Implementation"
+set "order_ID" = 2
+where "order_ID" = 1;
+
+1.delete from "Implementation"
+where "order_ID" = 1;
+2.delete from "Order"
+where "Client_ID" = (select "id" from "Client" where name = 'Vasya');
+3.delete from "MaterialsInService"
+where "Material_ID" = (select id from "Material" where cost > 60);
