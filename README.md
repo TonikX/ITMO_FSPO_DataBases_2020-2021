@@ -140,7 +140,7 @@
 
 До лекции можно посмотреть первых 4 видео урока из [этого](https://www.youtube.com/playlist?list=PLtULzFUr0kI5YKdBKKAzt7AFjjoMnGX_a) плейлиста. Этого достаточно, чтобы понять суть нормализации и выполнить лабораторную работу.
 
-Лабораторная работа и практическая задания выполнются в DBprom. Текст работы [тут](https://drive.google.com/open?id=0B7AOfG5ohMyAU1Iydl9kN1VRVW84eThHd19sd3E5cjFlcEc4).
+Лабораторная работа и практическая задания выполнются в [DBprom](https://drive.google.com/file/d/1o3bp_AqgMGEqpw-UuWzoGGvGbcFMOYP0/view?usp=sharing). Текст работы [тут](https://drive.google.com/open?id=0B7AOfG5ohMyAU1Iydl9kN1VRVW84eThHd19sd3E5cjFlcEc4).
 
 #### Лабораторная часть
 
