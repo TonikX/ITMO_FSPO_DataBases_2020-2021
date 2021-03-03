@@ -146,7 +146,7 @@
 Полезные материалы:
 - [Создание БД](https://postgrespro.ru/docs/postgresql/9.6/sql-createdatabase). Если Вы подключились через **SQL Shell(psql)**, в нем создать новую БД можно средствами команды CREATE DATABASE, далее в нее будет необходимо подключиться из нового окна **SQL Shell(psql)**
 - [Презентация с лекции о создании таблиц](https://docs.google.com/presentation/d/1j_FPrEshUUeqh_v6J5pLyGUnhIx4nrBK/edit#slide=id.p23)
-- [Оффициальная документация postgresql](https://www.postgresql.org/docs/11/ddl.html) - в первую очередь необходимо использовать разделы 5.1-5.3
+- [Оффициальная документация postgresql о создании таблиц](https://www.postgresql.org/docs/11/ddl.html) - в первую очередь необходимо использовать разделы 5.1-5.3
 
 
 ##### Часть 2. Документация к коду
