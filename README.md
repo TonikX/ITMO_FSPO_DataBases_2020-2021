@@ -144,6 +144,7 @@
 Работать только с командной строкой **SQL Shell(psql)**
 
 Полезные материалы:
+- [Создание БД](https://www.postgresql.org/docs/11/tutorial-createdb.html)
 - [Презентация с лекции о создании таблиц](https://docs.google.com/presentation/d/1j_FPrEshUUeqh_v6J5pLyGUnhIx4nrBK/edit#slide=id.p23)
 - [Оффициальная документация postgresql](https://www.postgresql.org/docs/11/ddl.html) - в первую очередь необходимо использовать разделы 5.1-5.3
 
