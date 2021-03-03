@@ -1,0 +1,597 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 12.5 (Ubuntu 12.5-1.pgdg20.04+1)
+-- Dumped by pg_dump version 12.5 (Ubuntu 12.5-1.pgdg20.04+1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: car; Type: TABLE; Schema: public; Owner: yotra
+--
+
+CREATE TABLE public.car (
+    id integer NOT NULL,
+    car_model character varying(15),
+    reg_number character varying(15),
+    garage_id integer
+);
+
+
+ALTER TABLE public.car OWNER TO yotra;
+
+--
+-- Name: car_id_seq; Type: SEQUENCE; Schema: public; Owner: yotra
+--
+
+ALTER TABLE public.car ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.car_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: driver; Type: TABLE; Schema: public; Owner: yotra
+--
+
+CREATE TABLE public.driver (
+    id integer NOT NULL,
+    name character varying(15) NOT NULL,
+    exp integer NOT NULL
+);
+
+
+ALTER TABLE public.driver OWNER TO yotra;
+
+--
+-- Name: driver_id_seq; Type: SEQUENCE; Schema: public; Owner: yotra
+--
+
+ALTER TABLE public.driver ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.driver_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: fuel; Type: TABLE; Schema: public; Owner: yotra
+--
+
+CREATE TABLE public.fuel (
+    id integer NOT NULL,
+    fuel_name character varying(10) NOT NULL,
+    liter integer NOT NULL,
+    kilogram integer NOT NULL
+);
+
+
+ALTER TABLE public.fuel OWNER TO yotra;
+
+--
+-- Name: fuel_id_seq; Type: SEQUENCE; Schema: public; Owner: yotra
+--
+
+ALTER TABLE public.fuel ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.fuel_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: garage; Type: TABLE; Schema: public; Owner: yotra
+--
+
+CREATE TABLE public.garage (
+    id integer NOT NULL,
+    address character varying(25) NOT NULL,
+    motor_depot_id integer NOT NULL,
+    refueller_id integer NOT NULL
+);
+
+
+ALTER TABLE public.garage OWNER TO yotra;
+
+--
+-- Name: garage_id_seq; Type: SEQUENCE; Schema: public; Owner: yotra
+--
+
+ALTER TABLE public.garage ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.garage_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: handout_sheet; Type: TABLE; Schema: public; Owner: yotra
+--
+
+CREATE TABLE public.handout_sheet (
+    id integer NOT NULL,
+    car_id integer NOT NULL,
+    driver_id integer NOT NULL,
+    sheet_date date NOT NULL,
+    waybill_id integer NOT NULL,
+    refueller_id integer NOT NULL
+);
+
+
+ALTER TABLE public.handout_sheet OWNER TO yotra;
+
+--
+-- Name: hadout_sheet_id_seq; Type: SEQUENCE; Schema: public; Owner: yotra
+--
+
+ALTER TABLE public.handout_sheet ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.hadout_sheet_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: motor_depot; Type: TABLE; Schema: public; Owner: yotra
+--
+
+CREATE TABLE public.motor_depot (
+    id integer NOT NULL,
+    name character varying(15) NOT NULL,
+    address character varying(25) NOT NULL
+);
+
+
+ALTER TABLE public.motor_depot OWNER TO yotra;
+
+--
+-- Name: motor_depot_id_seq; Type: SEQUENCE; Schema: public; Owner: yotra
+--
+
+ALTER TABLE public.motor_depot ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.motor_depot_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: refueller; Type: TABLE; Schema: public; Owner: yotra
+--
+
+CREATE TABLE public.refueller (
+    id integer NOT NULL,
+    name character varying(15) NOT NULL,
+    exp integer NOT NULL
+);
+
+
+ALTER TABLE public.refueller OWNER TO yotra;
+
+--
+-- Name: refueller_id_seq; Type: SEQUENCE; Schema: public; Owner: yotra
+--
+
+ALTER TABLE public.refueller ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.refueller_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: trip; Type: TABLE; Schema: public; Owner: yotra
+--
+
+CREATE TABLE public.trip (
+    id integer NOT NULL,
+    car_id integer NOT NULL,
+    driver_id integer NOT NULL,
+    fuel_id integer NOT NULL,
+    trip_date date NOT NULL
+);
+
+
+ALTER TABLE public.trip OWNER TO yotra;
+
+--
+-- Name: trip_id_seq; Type: SEQUENCE; Schema: public; Owner: yotra
+--
+
+ALTER TABLE public.trip ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.trip_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: waybill; Type: TABLE; Schema: public; Owner: yotra
+--
+
+CREATE TABLE public.waybill (
+    id integer NOT NULL,
+    point_of_loading character varying(15) NOT NULL,
+    point_of_unloading character varying(15) NOT NULL,
+    mileage_total integer NOT NULL,
+    mileage_cargo integer NOT NULL,
+    consognor character varying(15) NOT NULL,
+    consignee character varying(15) NOT NULL,
+    order_time_h integer NOT NULL,
+    trip_id integer NOT NULL
+);
+
+
+ALTER TABLE public.waybill OWNER TO yotra;
+
+--
+-- Name: waybill_id_seq; Type: SEQUENCE; Schema: public; Owner: yotra
+--
+
+ALTER TABLE public.waybill ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.waybill_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Data for Name: car; Type: TABLE DATA; Schema: public; Owner: yotra
+--
+
+COPY public.car (id, car_model, reg_number, garage_id) FROM stdin;
+2	Bamblbee	02934b34234	1
+1	Optimus Prime	938nnbkb55	1
+\.
+
+
+--
+-- Data for Name: driver; Type: TABLE DATA; Schema: public; Owner: yotra
+--
+
+COPY public.driver (id, name, exp) FROM stdin;
+1	Mike Vazovsky	2
+2	Kile Fire	3
+\.
+
+
+--
+-- Data for Name: fuel; Type: TABLE DATA; Schema: public; Owner: yotra
+--
+
+COPY public.fuel (id, fuel_name, liter, kilogram) FROM stdin;
+1	gazoline	9	10
+2	gazoline	9	10
+3	gazoline	18	20
+4	diesel	13	16
+5	diesel	20	23
+\.
+
+
+--
+-- Data for Name: garage; Type: TABLE DATA; Schema: public; Owner: yotra
+--
+
+COPY public.garage (id, address, motor_depot_id, refueller_id) FROM stdin;
+3	Duck street 60	1	2
+1	Money street 19	2	1
+2	Money street 19	2	1
+\.
+
+
+--
+-- Data for Name: handout_sheet; Type: TABLE DATA; Schema: public; Owner: yotra
+--
+
+COPY public.handout_sheet (id, car_id, driver_id, sheet_date, waybill_id, refueller_id) FROM stdin;
+2	1	2	2020-09-08	2	1
+\.
+
+
+--
+-- Data for Name: motor_depot; Type: TABLE DATA; Schema: public; Owner: yotra
+--
+
+COPY public.motor_depot (id, name, address) FROM stdin;
+1	Honey	Honey street, 25
+2	Star	Star street, 54
+\.
+
+
+--
+-- Data for Name: refueller; Type: TABLE DATA; Schema: public; Owner: yotra
+--
+
+COPY public.refueller (id, name, exp) FROM stdin;
+1	Jhon Jhonovich	3
+2	Carl Mikovich	2
+\.
+
+
+--
+-- Data for Name: trip; Type: TABLE DATA; Schema: public; Owner: yotra
+--
+
+COPY public.trip (id, car_id, driver_id, fuel_id, trip_date) FROM stdin;
+1	1	2	1	2020-09-09
+\.
+
+
+--
+-- Data for Name: waybill; Type: TABLE DATA; Schema: public; Owner: yotra
+--
+
+COPY public.waybill (id, point_of_loading, point_of_unloading, mileage_total, mileage_cargo, consognor, consignee, order_time_h, trip_id) FROM stdin;
+2	Garbage st. 27	Clean square	70	35	Mr. Hopkins	Mr. Ulala	4	1
+\.
+
+
+--
+-- Name: car_id_seq; Type: SEQUENCE SET; Schema: public; Owner: yotra
+--
+
+SELECT pg_catalog.setval('public.car_id_seq', 2, true);
+
+
+--
+-- Name: driver_id_seq; Type: SEQUENCE SET; Schema: public; Owner: yotra
+--
+
+SELECT pg_catalog.setval('public.driver_id_seq', 6, true);
+
+
+--
+-- Name: fuel_id_seq; Type: SEQUENCE SET; Schema: public; Owner: yotra
+--
+
+SELECT pg_catalog.setval('public.fuel_id_seq', 5, true);
+
+
+--
+-- Name: garage_id_seq; Type: SEQUENCE SET; Schema: public; Owner: yotra
+--
+
+SELECT pg_catalog.setval('public.garage_id_seq', 3, true);
+
+
+--
+-- Name: hadout_sheet_id_seq; Type: SEQUENCE SET; Schema: public; Owner: yotra
+--
+
+SELECT pg_catalog.setval('public.hadout_sheet_id_seq', 2, true);
+
+
+--
+-- Name: motor_depot_id_seq; Type: SEQUENCE SET; Schema: public; Owner: yotra
+--
+
+SELECT pg_catalog.setval('public.motor_depot_id_seq', 2, true);
+
+
+--
+-- Name: refueller_id_seq; Type: SEQUENCE SET; Schema: public; Owner: yotra
+--
+
+SELECT pg_catalog.setval('public.refueller_id_seq', 2, true);
+
+
+--
+-- Name: trip_id_seq; Type: SEQUENCE SET; Schema: public; Owner: yotra
+--
+
+SELECT pg_catalog.setval('public.trip_id_seq', 1, true);
+
+
+--
+-- Name: waybill_id_seq; Type: SEQUENCE SET; Schema: public; Owner: yotra
+--
+
+SELECT pg_catalog.setval('public.waybill_id_seq', 2, true);
+
+
+--
+-- Name: car car_pkey; Type: CONSTRAINT; Schema: public; Owner: yotra
+--
+
+ALTER TABLE ONLY public.car
+    ADD CONSTRAINT car_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: driver driver_pkey; Type: CONSTRAINT; Schema: public; Owner: yotra
+--
+
+ALTER TABLE ONLY public.driver
+    ADD CONSTRAINT driver_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: fuel fuel_pkey; Type: CONSTRAINT; Schema: public; Owner: yotra
+--
+
+ALTER TABLE ONLY public.fuel
+    ADD CONSTRAINT fuel_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: garage garage_pkey; Type: CONSTRAINT; Schema: public; Owner: yotra
+--
+
+ALTER TABLE ONLY public.garage
+    ADD CONSTRAINT garage_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: handout_sheet hadout_sheet_pkey; Type: CONSTRAINT; Schema: public; Owner: yotra
+--
+
+ALTER TABLE ONLY public.handout_sheet
+    ADD CONSTRAINT hadout_sheet_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: motor_depot motor_depot_pkey; Type: CONSTRAINT; Schema: public; Owner: yotra
+--
+
+ALTER TABLE ONLY public.motor_depot
+    ADD CONSTRAINT motor_depot_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: refueller refueller_pkey; Type: CONSTRAINT; Schema: public; Owner: yotra
+--
+
+ALTER TABLE ONLY public.refueller
+    ADD CONSTRAINT refueller_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: trip trip_pkey; Type: CONSTRAINT; Schema: public; Owner: yotra
+--
+
+ALTER TABLE ONLY public.trip
+    ADD CONSTRAINT trip_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: waybill waybill_pkey; Type: CONSTRAINT; Schema: public; Owner: yotra
+--
+
+ALTER TABLE ONLY public.waybill
+    ADD CONSTRAINT waybill_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: trip car_id; Type: FK CONSTRAINT; Schema: public; Owner: yotra
+--
+
+ALTER TABLE ONLY public.trip
+    ADD CONSTRAINT car_id FOREIGN KEY (car_id) REFERENCES public.car(id);
+
+
+--
+-- Name: handout_sheet car_id; Type: FK CONSTRAINT; Schema: public; Owner: yotra
+--
+
+ALTER TABLE ONLY public.handout_sheet
+    ADD CONSTRAINT car_id FOREIGN KEY (car_id) REFERENCES public.car(id);
+
+
+--
+-- Name: trip driver_id; Type: FK CONSTRAINT; Schema: public; Owner: yotra
+--
+
+ALTER TABLE ONLY public.trip
+    ADD CONSTRAINT driver_id FOREIGN KEY (driver_id) REFERENCES public.driver(id);
+
+
+--
+-- Name: handout_sheet driver_id; Type: FK CONSTRAINT; Schema: public; Owner: yotra
+--
+
+ALTER TABLE ONLY public.handout_sheet
+    ADD CONSTRAINT driver_id FOREIGN KEY (driver_id) REFERENCES public.driver(id);
+
+
+--
+-- Name: trip fuel_id; Type: FK CONSTRAINT; Schema: public; Owner: yotra
+--
+
+ALTER TABLE ONLY public.trip
+    ADD CONSTRAINT fuel_id FOREIGN KEY (fuel_id) REFERENCES public.fuel(id);
+
+
+--
+-- Name: car garage_id; Type: FK CONSTRAINT; Schema: public; Owner: yotra
+--
+
+ALTER TABLE ONLY public.car
+    ADD CONSTRAINT garage_id FOREIGN KEY (garage_id) REFERENCES public.garage(id) NOT VALID;
+
+
+--
+-- Name: garage motor_depot_id; Type: FK CONSTRAINT; Schema: public; Owner: yotra
+--
+
+ALTER TABLE ONLY public.garage
+    ADD CONSTRAINT motor_depot_id FOREIGN KEY (motor_depot_id) REFERENCES public.motor_depot(id);
+
+
+--
+-- Name: handout_sheet refueller_id; Type: FK CONSTRAINT; Schema: public; Owner: yotra
+--
+
+ALTER TABLE ONLY public.handout_sheet
+    ADD CONSTRAINT refueller_id FOREIGN KEY (refueller_id) REFERENCES public.refueller(id);
+
+
+--
+-- Name: garage refueller_id; Type: FK CONSTRAINT; Schema: public; Owner: yotra
+--
+
+ALTER TABLE ONLY public.garage
+    ADD CONSTRAINT refueller_id FOREIGN KEY (refueller_id) REFERENCES public.refueller(id);
+
+
+--
+-- Name: waybill trip_id; Type: FK CONSTRAINT; Schema: public; Owner: yotra
+--
+
+ALTER TABLE ONLY public.waybill
+    ADD CONSTRAINT trip_id FOREIGN KEY (trip_id) REFERENCES public.trip(id);
+
+
+--
+-- Name: handout_sheet waybill_id; Type: FK CONSTRAINT; Schema: public; Owner: yotra
+--
+
+ALTER TABLE ONLY public.handout_sheet
+    ADD CONSTRAINT waybill_id FOREIGN KEY (waybill_id) REFERENCES public.waybill(id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
