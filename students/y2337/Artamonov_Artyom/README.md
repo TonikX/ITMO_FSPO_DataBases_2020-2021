@@ -6,9 +6,9 @@
   i. Pr1.2
 1. L2 Лабораторная работа 2
   i. Pr2.1
-  i. Pr2.2
+  ii. Pr2.2
 1. L3 Лабораторная работа 3
   i. Pr3.1
-  i. Pr3.2
-  i. Pr3.3 [Документация к базе данных](https://artyomartamonov.github.io/ITMO_FSPO_DataBases_2020-2021/)
+  ii. Pr3.2
+  iii. Pr3.3 [Документация к базе данных](https://artyomartamonov.github.io/ITMO_FSPO_DataBases_2020-2021/)
 1. L4 Лабораторная работа 4
