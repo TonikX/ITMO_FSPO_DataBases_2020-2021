@@ -144,7 +144,7 @@
 - Текстовое описание папки в репозитории
 - Список работ в виде таблица (нумерованный) со ссылками в папки с работами
 
-[Ссылка не презентацию](https://drive.google.com/file/d/1nncKv8brj18lF-dYD2IbK7bCD-ExFJCs/view?usp=sharing)
+[Ссылка на презентацию](https://drive.google.com/file/d/1nncKv8brj18lF-dYD2IbK7bCD-ExFJCs/view?usp=sharing)
 
 #### Лабораторная часть
 
