@@ -27,3 +27,10 @@
 | ЛР3 Ч.2| [mkdocs](https://maryaana.github.io/mkdocs/)            |
 | ПР 3.1 | [SQLite](./Pr3.1_sqlite)                                | 
 | ПР 3.2 | [PostgreSQL](./Pr3.2_PostgreSQL)                        | 
+
+
+### ЛР4
+
+| Работа | Ссылка на работу                                        | 
+|:-------|:--------------------------------------------------------|
+| ЛР4    | [DBProm](./Lab4/Lab4.pdf)                               |
