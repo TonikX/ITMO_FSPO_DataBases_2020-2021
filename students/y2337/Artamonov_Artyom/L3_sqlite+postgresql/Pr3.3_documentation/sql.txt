@@ -1,0 +1,4 @@
+insert into room values(0, null, 213, 'a');
+select equipment from room;
+update room set equipment='Принтер' where id = 0;
+delete from room where id = 0;
