@@ -12,11 +12,11 @@ POSTGRE version `13.1`
 
 ## **Breed**
 
-| name           | type           | primary key    | references          |
-|:-------------- |:-----------    |:-------------- |:------------------- |
-| breed_id       | `int`          | `true`         | `null`              |
-| average_kpd    | `int`          | `false`        | `null`              |
-| average_weight | `int`          | `false`        | `null`              |
+| name           | type           | primary key    | unique  | not null | references          |
+|:-------------- |:-----------    |:-------------- |:--------|:---------|:------------------- |
+| breed_id       | `int`          | `true`         |`true`   | `true`   | `null`              |
+| average_kpd    | `int`          |`false`         |`false`  | `false`  | `null`              |
+| average_weight | `int`          |`false`         | `false` | `false`  | `null`              |
 
 ### **Creation**
 
@@ -28,12 +28,12 @@ POSTGRE version `13.1`
 
 ## **Diet**
 
-| name           | type           | primary key    | references          |
-|:-------------- |:-----------    |:-------------- |:------------------- |
-| diet_id        | `int`          | `true`         | `null`              |
-| content        | `varchar(40)`  | `false`        | `null`              |
-| season         | `varchar(40)`  | `false`        | `null`              |
-| breed          | `int`          | `false`        | `Breed.breed_id`    |
+| name           | type           | primary key    | unique  | not null | references          |
+|:-------------- |:-----------    |:-------------- |:--------|:---------|:------------------- |
+| diet_id        | `int`          | `true`         |`true`   | `true`   | `null`              |
+| content        | `varchar(40)`  | `false`        |`false`  | `false`  | `null`              |
+| season         | `varchar(40)`  | `false`        |`false`  | `false`  | `null`              |
+| breed          | `int`          | `false`        |`false`  | `false`  | `Breed.breed_id`    |
 
 ### **Creation**
 
@@ -45,14 +45,14 @@ POSTGRE version `13.1`
 
 ## **Chicken**
 
-| name           | type           | primary key    | references          |
-|:-------------- |:-----------    |:-------------- |:------------------- |
-| chicken_id     | `int`          | `true`         | `null`              |
-| weight         | `int`          | `false`        | `null`              |
-| age            | `int`          | `false`        | `null`              |
-| kpd            | `int`          | `false`        | `null`              |
-| place          | `varchar(40)`  | `false`        | `null`              |
-| breed          | `int`          | `false`        | `Breed.breed_id`    |
+| name           | type           | primary key    | unique  | not null | references          |
+|:-------------- |:-----------    |:-------------- |:--------|:---------|:------------------- |
+| chicken_id     | `int`          | `true`         |`true`   | `true`   | `null`              |
+| weight         | `int`          | `false`        |`false`  | `false`  | `null`              |
+| age            | `int`          | `false`        |`false`  | `false`  | `null`              |
+| kpd            | `int`          | `false`        |`false`  | `false`  | `null`              |
+| place          | `varchar(40)`  | `false`        |`false`  | `false`  | `null`              |
+| breed          | `int`          | `false`        |`false`  | `false`  | `Breed.breed_id`    |
 
 ### **Creation**
 
@@ -64,17 +64,17 @@ POSTGRE version `13.1`
 
 ## **Worker**
 
-| name           | type           | primary key    | references          |
-|:-------------- |:-----------    |:-------------- |:------------------- |
-| worker_id      | `int`          | `true`         | `null`              |
-| passport       | `varchar(40)`  | `false`        | `null`              |
-| passport_timing| `varchar(40)`  | `false`        | `null`              |
-| fio            | `varchar(80)`  | `false`        | `null`              |
-| work_place     | `varchar(40)`  | `false`        | `null`              |
-| salary         | `int`          | `false`        | `null`              |
-| doc            | `int`          | `false`        | `null`              |
-| fire           | `boolean`      | `false`        | `null`              |
-| hire           | `date`         | `false`        | `null`              |
+| name           | type           | primary key    | unique  | not null | references          |
+|:-------------- |:-----------    |:-------------- |:--------|:---------|:------------------- |
+| worker_id      | `int`          | `true`         |`true`   | `true`   | `null`              |
+| passport       | `varchar(40)`  | `false`        |`false`  | `false`  | `null`              |
+| passport_timing| `varchar(40)`  | `false`        |`false`  | `false`  | `null`              |
+| fio            | `varchar(80)`  | `false`        |`false`  | `false`  | `null`              |
+| work_place     | `varchar(40)`  | `false`        |`false`  | `false`  | `null`              |
+| salary         | `int`          | `false`        |`false`  | `false`  | `null`              |
+| doc            | `int`          | `false`        |`false`  | `false`  | `null`              |
+| fire           | `boolean`      | `false`        |`false`  | `false`  | `null`              |
+| hire           | `date`         | `false`        |`false`  | `false`  | `null`              |
 
 ### **Creation**
 
@@ -86,11 +86,11 @@ POSTGRE version `13.1`
 
 ## **Department**
 
-| name           | type           | primary key    | references          |
-|:-------------- |:-----------    |:-------------- |:------------------- |
-| department_id  | `int`          | `true`         | `null`              |
-| capacity       | `int`          | `false`        | `null`              |
-| address        | `varchar(40)`  | `false`        | `null`              |
+| name           | type           | primary key    | unique  | not null | references          |
+|:-------------- |:-----------    |:-------------- |:--------|:---------|:------------------- |
+| department_id  | `int`          | `true`         |`true`   | `true`   | `null`              |
+| capacity       | `int`          | `false`        |`false`  | `false`  | `null`              |
+| address        | `varchar(40)`  | `false`        |`false`  | `false`  | `null`              |
 
 ### **Creation**
 
@@ -102,12 +102,12 @@ POSTGRE version `13.1`
 
 ## **Cell**
 
-| name           | type           | primary key    | references                 |
-|:-------------- |:-----------    |:-------------- |:-------------------        |
-| cell_id        | `int`          | `true`         | `null`                     |
-| row            | `int`          | `false`        | `null`                     |
-| cell           | `int`          | `false`        | `null`                     |
-| department     | `int`          | `false`        | `Department.department_id` |
+| name           | type           | primary key    | unique  | not null | references                 |
+|:-------------- |:-----------    |:-------------- |:--------|:---------|:-------------------        |
+| cell_id        | `int`          | `true`         |`true`   | `true`   | `null`                     |
+| row            | `int`          | `false`        |`false`  | `false`  | `null`                     |
+| cell           | `int`          | `false`        |`false`  | `false`  | `null`                     |
+| department     | `int`          | `false`        |`false`  | `false`  | `Department.department_id` |
 
 ### **Creation**
 
@@ -119,11 +119,11 @@ POSTGRE version `13.1`
 
 ## **Cleaning**
 
-| name           | type           | primary key    | references                 |
-|:-------------- |:-----------    |:-------------- |:-------------------        |
-| cleaning_id    | `int`          | `true`         | `null`                     |
-| cell           | `int`          | `false`        | `Cell.cell_id`             |
-| worker         | `int`          | `false`        | `Worker.worker_id`         |
+| name           | type           | primary key    | unique  | not null | references                 |
+|:-------------- |:-----------    |:-------------- |:--------|:---------|:-------------------        |
+| cleaning_id    | `int`          | `true`         |`true`   | `true`   | `null`                     |
+| cell           | `int`          | `false`        |`false`  | `false`  | `Cell.cell_id`             |
+| worker         | `int`          | `false`        |`false`  | `false`  | `Worker.worker_id`         |
 
 ### **Creation**
 
@@ -135,13 +135,13 @@ POSTGRE version `13.1`
 
 ## **Maintenance**
 
-| name           | type           | primary key    | references                 |
-|:-------------- |:-----------    |:-------------- |:-------------------        |
-| maintenance_id | `int`          | `true`         | `null`                     |
-| in_d           | `date`         | `false`        | `null`                     |
-| out_d          | `date`         | `false`        | `null`                     |
-| cell           | `int`          | `false`        | `Cell.cell_id`             |
-| chicken        | `int`          | `false`        | `Chicken.chicken_id`       |
+| name           | type           | primary key    | unique  | not null | references                 |
+|:-------------- |:-----------    |:-------------- |:--------|:---------|:-------------------        |
+| maintenance_id | `int`          | `true`         |`true`   | `true`   | `null`                     |
+| in_d           | `date`         | `false`        |`false`  | `false`  | `null`                     |
+| out_d          | `date`         | `false`        |`false`  | `false`  | `null`                     |
+| cell           | `int`          | `false`        |`false`  | `false`  | `Cell.cell_id`             |
+| chicken        | `int`          | `false`        |`false`  | `false`  | `Chicken.chicken_id`       |
 
 ### **Creation**
 
