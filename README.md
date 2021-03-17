@@ -172,6 +172,7 @@
         - Указатель на внешний ключ
     - Код создания таблиц
     - Код заполнения данных
+ 
 Полезные материалы:
     - Пункт 3 [из практической работы №3.2](https://docs.google.com/document/d/1rIfREFvCB4pp8uF990Tz3PLXRJ5u_w-Y3vLxfXWKoxg/edit?usp=sharing)
 
