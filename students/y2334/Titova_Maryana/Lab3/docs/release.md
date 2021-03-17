@@ -24,4 +24,25 @@
 **Foreign key** : `ID_newspaper_FK integer REFERENCES newspaper (ID_newspaper)`
 
 
+## Create table
+
+```
+CREATE TABLE release (
+	ID_release integer PRIMARY KEY,
+	date_of_issue_release date,
+	publication_index_release integer,
+	cost_copy float,
+	ID_printing_office_FK integer REFERENCES printing_office (ID_printing_office),
+	ID_newspaper_FK integer REFERENCES newspaper (ID_newspaper)
+); 
+```
+
+## Commands
+
+```
+INSERT INTO release VALUES (1, '2020-01-01', 2435, 100, 2, 2), (2, '2020-05-01', 24635, 120, 1, 1);
+```
+
+
+
 

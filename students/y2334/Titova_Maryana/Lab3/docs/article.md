@@ -17,3 +17,19 @@
 **Foreign key** : `ID_release_FK integer REFERENCES release (ID_release)`
 
 
+## Create table
+
+```
+CREATE TABLE article (
+	ID_article integer PRIMARY KEY, 
+	ID_release_FK integer REFERENCES release (ID_release)
+);
+```
+
+## Commands
+
+```
+INSERT INTO article VALUES (1, 2), (2, 2), (3, 1);
+```
+
+

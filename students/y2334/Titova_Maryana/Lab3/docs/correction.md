@@ -21,4 +21,24 @@
 **Foreign key** : `ID_article_FK integer REFERENCES article (ID_article)`
 
 
+## Create table
+
+```
+CREATE TABLE correction (
+	ID_correction integer PRIMARY KEY,
+	content text NOT NULL,
+	publication_index_release integer,
+	cost_copy float,
+	ID_editorial_office_FK integer REFERENCES editorial_office (ID_editorial_office),
+	ID_article_FK integer REFERENCES article (ID_article)
+);
+```
+
+## Commands
+
+```
+INSERT INTO correction VALUES (1, 'rgfhjthtbf', 1), (2, 'thtburghrn', 1), (3, 'gbgnyjy', 2);
+```
+
+
 

@@ -22,3 +22,22 @@
 **Foreign key** : `ID_post_office_FK integer REFERENCES post_office (ID_post_office)`
 
 
+## Create table
+
+```
+CREATE TABLE newspaper_distribution (
+	ID_newspaper_distribution integer PRIMARY KEY,
+	number_of_copies integer,
+	cost_release float,
+	ID_printing_office_FK integer REFERENCES printing_office (ID_printing_office),
+	ID_post_office_FK integer REFERENCES post_office (ID_post_office)
+);
+```
+
+## Commands
+
+```
+INSERT INTO newspaper_distribution VALUES (1, 100000, 150, 1, 2), (2, 400000, 100, 2, 2);
+```
+
+
