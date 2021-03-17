@@ -1,3 +1,3 @@
-#my readme.md file
+# my readme.md file
 
-1.LAB 1
+1. LAB 1
