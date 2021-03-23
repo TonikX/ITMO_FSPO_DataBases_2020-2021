@@ -3,5 +3,6 @@
 
 
 ### Список лабороторных работ за курс:
-* Лабороторная работа №1 [файлы с работами]
+* [Лабароторная работа №1](https://github.com/Sonya-Vishneva/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Striuchkova_Sonya/lr_1).
+* 
 * 
