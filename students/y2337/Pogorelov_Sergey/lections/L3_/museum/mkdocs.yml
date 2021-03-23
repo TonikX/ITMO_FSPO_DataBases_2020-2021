@@ -1,0 +1,12 @@
+site_name: Museum
+
+nav:
+  - Home: home.md 
+  - Description:
+    - Tables: tables.md
+    - Creation code: create.md
+    - Data filling: fill.md
+
+theme:
+  name: material
+
