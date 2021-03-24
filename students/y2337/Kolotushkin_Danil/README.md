@@ -17,3 +17,9 @@
 |№| Работа | Описание |
 |-|--------|----------|
 |1|[Практическая 1](https://github.com/TonikX/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Kolotushkin_Danil/Pr3.1)| Практическая по sqlite|
+|2|[Практическая 2](https://github.com/vrodedanya/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Kolotushkin_Danil/Pr3.2)| Практическая по PgAdmin|
+|3|[Лабораторная 3](https://github.com/vrodedanya/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Kolotushkin_Danil/Lab_03)| Лабораторная часть|
+### Лабораторная №4
+|№| Работа | Описание |
+|-|--------|----------|
+|1|[Лабораторная 4](https://github.com/vrodedanya/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Kolotushkin_Danil/Lab_04)| Лабораторная часть|
