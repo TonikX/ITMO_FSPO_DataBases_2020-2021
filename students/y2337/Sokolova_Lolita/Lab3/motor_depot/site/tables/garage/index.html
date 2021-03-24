@@ -448,6 +448,8 @@
 <th>Type</th>
 <th>Primary key</th>
 <th>Foreign key</th>
+<th>Unique</th>
+<th>Integrity constraints</th>
 </tr>
 </thead>
 <tbody>
@@ -456,24 +458,32 @@
 <td>int</td>
 <td>+</td>
 <td></td>
+<td>+</td>
+<td></td>
 </tr>
 <tr>
 <td>address</td>
 <td>varchar</td>
 <td></td>
 <td></td>
+<td></td>
+<td>not null</td>
 </tr>
 <tr>
 <td>refueller_id</td>
 <td>int</td>
 <td></td>
 <td>refueller.id</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td>motor_deport_id</td>
 <td>int</td>
 <td></td>
 <td>motor_depot.id</td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>

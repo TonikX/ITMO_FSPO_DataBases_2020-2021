@@ -448,6 +448,8 @@
 <th>Type</th>
 <th>Primary key</th>
 <th>Foreign key</th>
+<th>Unique</th>
+<th>Integrity constraints</th>
 </tr>
 </thead>
 <tbody>
@@ -456,34 +458,46 @@
 <td>int</td>
 <td>+</td>
 <td></td>
+<td>+</td>
+<td></td>
 </tr>
 <tr>
 <td>point_of_loading</td>
 <td>varchar</td>
 <td></td>
 <td></td>
+<td></td>
+<td>not null</td>
 </tr>
 <tr>
 <td>point_of_unloading</td>
 <td>varchar</td>
 <td></td>
 <td></td>
+<td></td>
+<td>not null</td>
 </tr>
 <tr>
 <td>mileage_total</td>
 <td>int</td>
 <td></td>
 <td></td>
+<td></td>
+<td>not null</td>
 </tr>
 <tr>
 <td>mileage_cargo</td>
 <td>int</td>
 <td></td>
 <td></td>
+<td></td>
+<td>not null</td>
 </tr>
 <tr>
 <td>consignor</td>
 <td>varchar</td>
+<td></td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -492,18 +506,24 @@
 <td>varchar</td>
 <td></td>
 <td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td>order_time_h</td>
 <td>int</td>
 <td></td>
 <td></td>
+<td></td>
+<td>not null</td>
 </tr>
 <tr>
 <td>trip_id</td>
 <td>int</td>
 <td></td>
 <td>trip.id</td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
