@@ -1,12 +1,13 @@
 site_name: My Docs
 nav:
   - Home: index.md
-  - Edition: edition.md
-  - Issues: issues.md
-  - Papers_in_posts: papers_in_posts.md
-  - Posts: posts.md
-  - Printings: printings.md
-  - Redactors: redactors.md
+  - Tables:
+      - Edition: edition.md
+      - Issues: issues.md
+      - Papers_in_posts: papers_in_posts.md
+      - Posts: posts.md
+      - Printings: printings.md
+      - Redactors: redactors.md
 
 theme:
   name: material
