@@ -176,8 +176,8 @@
     - Код заполнения данных
  
 Полезные материалы:<br>
-    - [Краткое руководство по Маркдауну](https://paulradzkov.com/2014/markdown_cheatsheet/)
-    - Пункт 3 [из практической работы №3.2](https://docs.google.com/document/d/1rIfREFvCB4pp8uF990Tz3PLXRJ5u_w-Y3vLxfXWKoxg/edit?usp=sharing)
+- Краткое [руководство по Маркдауну](https://paulradzkov.com/2014/markdown_cheatsheet/)
+- Пункт 3 [из практической работы №3.2](https://docs.google.com/document/d/1rIfREFvCB4pp8uF990Tz3PLXRJ5u_w-Y3vLxfXWKoxg/edit?usp=sharing)
 
 
 ### Сдача работы №4
