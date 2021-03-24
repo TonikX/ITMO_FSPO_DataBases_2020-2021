@@ -2,6 +2,8 @@
 
 `Код создания таблиц базы данных`
 
+**Based on** PostgreSQL 12.6
+
 ## Автор
 ```sql
 DROP TABLE IF EXISTS "author";
