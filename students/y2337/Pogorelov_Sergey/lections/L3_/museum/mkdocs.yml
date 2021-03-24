@@ -1,7 +1,7 @@
 site_name: Museum
 
 nav:
-  - Home: home.md 
+  - Home: index.md 
   - Description:
     - Tables: tables.md
     - Creation code: create.md
@@ -9,4 +9,3 @@ nav:
 
 theme:
   name: material
-
