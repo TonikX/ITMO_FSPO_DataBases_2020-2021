@@ -1,0 +1,12 @@
+insert into shp.client values('Vladimirov Vladimir Vladimirovich', '89043452354', 'Cash');
+insert into shp.client values(4, 74, 500, 'Shirt');
+insert into shp.delivery_pick_up values(1, 1, 'Pavlov Pavel Pavlovich', 'Ivanov Ivan Ivanovich', 'ul. Pushkina d. 7', '2021-02-10', 'In stock');
+select * from shp.delivery_pick_up;
+select * from shp.client where client_payment='Card';
+select * from shp.delivery_pick_up where client_fio='Pavlov Pavel Pavlovich';
+update shp.pick_up set pick_up_adress='Ul. Pushkina d. 8';
+update shp.list set list_quantity=3;
+update shp.courier set courier_contacts='89042321234';
+delete from shp.product where product_quantity<0;
+delete from shp.courirer where courier_fio='Pavlov Pavel Pavlovich';
+delete from shp.client where client_payment='Card';
