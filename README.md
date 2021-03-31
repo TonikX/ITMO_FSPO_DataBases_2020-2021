@@ -206,7 +206,7 @@
 
 ### Лекционно-практическая часть
 
-1) Необходимо создать базу данных для реализации примеров и заданий из презентации ниже.<br> СУБД: PostgreSQL. <br>Средство: https://sqliteonline.com/ . <br>[Код создания БД](https://drive.google.com/file/d/10paHr_juMfmHNILBaCbMf6IeUxOr7uqL/view?usp=sharing)<br>
+1) Необходимо создать базу данных для реализации примеров и заданий из презентации ниже.<br> СУБД: PostgreSQL. <br>Средство (песочница для работы с запросами): https://sqliteonline.com/ . <br>[Код создания БД](https://drive.google.com/file/d/10paHr_juMfmHNILBaCbMf6IeUxOr7uqL/view?usp=sharing)<br>
 4) Презентация **[тут](https://drive.google.com/file/d/1pDLVu6oknbEDnytCy8ik32CNbqR5pR9A/view?usp=sharing)** (Тема: SELECT SQL: Соединения)<br>
 
 ### Лабораторная часть
