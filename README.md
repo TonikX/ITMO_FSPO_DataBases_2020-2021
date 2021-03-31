@@ -206,8 +206,8 @@
 
 ### Лекционно-практическая часть
 
-1) Необходимо создать базу данных. СУБД: PostgreSQL. Средство: https://sqliteonline.com/ . [Код создания БД](https://drive.google.com/file/d/10paHr_juMfmHNILBaCbMf6IeUxOr7uqL/view?usp=sharing)
-2) Презентация [Joins](https://sqliteonline.com/)
+1) Необходимо создать базу данных.<br> СУБД: PostgreSQL. <br>Средство: https://sqliteonline.com/ . <br>[Код создания БД](https://drive.google.com/file/d/10paHr_juMfmHNILBaCbMf6IeUxOr7uqL/view?usp=sharing)<br>
+4) Презентация [Joins](https://sqliteonline.com/)
 
 ### Лабораторная часть
 
