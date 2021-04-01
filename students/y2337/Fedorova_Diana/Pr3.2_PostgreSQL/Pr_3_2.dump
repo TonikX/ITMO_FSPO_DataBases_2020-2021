@@ -1,0 +1,307 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 11.10
+-- Dumped by pg_dump version 13.2
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: online store; Type: SCHEMA; Schema: -; Owner: postgres
+--
+
+CREATE SCHEMA "online store";
+
+
+ALTER SCHEMA "online store" OWNER TO postgres;
+
+SET default_tablespace = '';
+
+--
+-- Name: Client; Type: TABLE; Schema: online store; Owner: postgres
+--
+
+CREATE TABLE "online store"."Client" (
+    "ID_Client" integer NOT NULL,
+    "FIO" text NOT NULL,
+    adress text NOT NULL,
+    contact text
+);
+
+
+ALTER TABLE "online store"."Client" OWNER TO postgres;
+
+--
+-- Name: Employee; Type: TABLE; Schema: online store; Owner: postgres
+--
+
+CREATE TABLE "online store"."Employee" (
+    "ID_Employee" integer NOT NULL,
+    "FIO" text NOT NULL,
+    "Contacts" text,
+    "Post" text
+);
+
+
+ALTER TABLE "online store"."Employee" OWNER TO postgres;
+
+--
+-- Name: Order; Type: TABLE; Schema: online store; Owner: postgres
+--
+
+CREATE TABLE "online store"."Order" (
+    "ID_order" integer NOT NULL,
+    "Date_order" date NOT NULL,
+    "Date_of_receipt" date NOT NULL,
+    "the cost" money NOT NULL,
+    "payment method" text NOT NULL,
+    "ID_client" integer NOT NULL,
+    "List_of_product" text
+);
+
+
+ALTER TABLE "online store"."Order" OWNER TO postgres;
+
+--
+-- Name: Product; Type: TABLE; Schema: online store; Owner: postgres
+--
+
+CREATE TABLE "online store"."Product" (
+    "ID_product" integer NOT NULL,
+    "Name_product" text NOT NULL,
+    "Price" money NOT NULL,
+    "Characteristics" text NOT NULL,
+    "Stock_balance" integer NOT NULL
+);
+
+
+ALTER TABLE "online store"."Product" OWNER TO postgres;
+
+--
+-- Name: composition_of_ordering; Type: TABLE; Schema: online store; Owner: postgres
+--
+
+CREATE TABLE "online store".composition_of_ordering (
+    "ID_product" integer NOT NULL,
+    "ID_order" integer NOT NULL,
+    "ID_employee" integer NOT NULL,
+    "product quantity" integer NOT NULL,
+    "the cost " money NOT NULL,
+    order_status text NOT NULL,
+    "List_of_product" text NOT NULL
+);
+
+
+ALTER TABLE "online store".composition_of_ordering OWNER TO postgres;
+
+--
+-- Name: delivery_of_the_order; Type: TABLE; Schema: online store; Owner: postgres
+--
+
+CREATE TABLE "online store".delivery_of_the_order (
+    "ID_order" integer NOT NULL,
+    "ID_emploee" integer NOT NULL,
+    "Date_of_reciept" date NOT NULL,
+    "Time_of_reciept" time with time zone NOT NULL,
+    "Address" text NOT NULL
+);
+
+
+ALTER TABLE "online store".delivery_of_the_order OWNER TO postgres;
+
+--
+-- Data for Name: Client; Type: TABLE DATA; Schema: online store; Owner: postgres
+--
+
+COPY "online store"."Client" ("ID_Client", "FIO", adress, contact) FROM stdin;
+1	Vanya Dmitrienko	Pesochnaya embankment 14 house 5	89435626773
+2	Selena Gomez	Opticians 42 house 5	89638493773
+3	Nina Dobrev	Turistskaya street house 5\n	89737384884
+4	Nikita Masters	Pesochnaya embankment 14 house 5	89325263499
+5	Jeremy Gilbert	Turistskaya street house 5\n	89340300488
+\.
+
+
+--
+-- Data for Name: Employee; Type: TABLE DATA; Schema: online store; Owner: postgres
+--
+
+COPY "online store"."Employee" ("ID_Employee", "FIO", "Contacts", "Post") FROM stdin;
+11	Valeriya Vorobyova 	89434532242	order manager, courier
+14	Maria Smirnova	89324232121	order manager, courier
+27	Ilya Plavnck	89434532256	order manager, courier
+\.
+
+
+--
+-- Data for Name: Order; Type: TABLE DATA; Schema: online store; Owner: postgres
+--
+
+COPY "online store"."Order" ("ID_order", "Date_order", "Date_of_receipt", "the cost", "payment method", "ID_client", "List_of_product") FROM stdin;
+23	2020-01-13	2020-01-19	$259.00	cash	2	sketchbook
+123	2020-01-19	2020-02-04	$50.00	card	5	book
+143	2020-02-20	2020-03-01	$259.00	cash	3	sketchbook
+232	2020-02-02	2020-02-20	$100.00	card	1	BULLET JOURNAL
+\.
+
+
+--
+-- Data for Name: Product; Type: TABLE DATA; Schema: online store; Owner: postgres
+--
+
+COPY "online store"."Product" ("ID_product", "Name_product", "Price", "Characteristics", "Stock_balance") FROM stdin;
+12	pencil	$50.00	for writing	2
+14	sketchbook	$259.00	for drawing	5
+22	book	$100.00	for reading	4
+34	BULLET JOURNAL	$100.00	for drawing and for writing	10
+\.
+
+
+--
+-- Data for Name: composition_of_ordering; Type: TABLE DATA; Schema: online store; Owner: postgres
+--
+
+COPY "online store".composition_of_ordering ("ID_product", "ID_order", "ID_employee", "product quantity", "the cost ", order_status, "List_of_product") FROM stdin;
+14	23	14	2	$599.00	confirmation	sketchbook
+22	123	27	2	$150.00	delivery	book
+14	143	11	1	$259.00	confirmation	sketchbook
+34	232	27	1	$100.00	delivery	BULLET JOURNAL
+\.
+
+
+--
+-- Data for Name: delivery_of_the_order; Type: TABLE DATA; Schema: online store; Owner: postgres
+--
+
+COPY "online store".delivery_of_the_order ("ID_order", "ID_emploee", "Date_of_reciept", "Time_of_reciept", "Address") FROM stdin;
+123	27	2020-02-04	12:20:00+03	Pesochnaya embankment 14 house 5
+143	11	2020-03-01	13:30:00+03	Opticians 42 house 5
+23	14	2020-01-19	15:20:00+03	Turistskaya street house 5\n
+232	27	2020-02-20	13:20:00+03	Pesochnaya embankment 14 house 5
+\.
+
+
+--
+-- Name: composition_of_ordering Composition; Type: CONSTRAINT; Schema: online store; Owner: postgres
+--
+
+ALTER TABLE ONLY "online store".composition_of_ordering
+    ADD CONSTRAINT "Composition" PRIMARY KEY ("ID_product", "ID_order", "ID_employee");
+
+
+--
+-- Name: Client ID_Client; Type: CONSTRAINT; Schema: online store; Owner: postgres
+--
+
+ALTER TABLE ONLY "online store"."Client"
+    ADD CONSTRAINT "ID_Client" PRIMARY KEY ("ID_Client");
+
+
+--
+-- Name: Employee ID_employee; Type: CONSTRAINT; Schema: online store; Owner: postgres
+--
+
+ALTER TABLE ONLY "online store"."Employee"
+    ADD CONSTRAINT "ID_employee" PRIMARY KEY ("ID_Employee");
+
+
+--
+-- Name: Order ID_order; Type: CONSTRAINT; Schema: online store; Owner: postgres
+--
+
+ALTER TABLE ONLY "online store"."Order"
+    ADD CONSTRAINT "ID_order" PRIMARY KEY ("ID_order");
+
+
+--
+-- Name: delivery_of_the_order delivery_of_the_order_pkey; Type: CONSTRAINT; Schema: online store; Owner: postgres
+--
+
+ALTER TABLE ONLY "online store".delivery_of_the_order
+    ADD CONSTRAINT delivery_of_the_order_pkey PRIMARY KEY ("ID_order", "ID_emploee");
+
+
+--
+-- Name: Product product_pkey; Type: CONSTRAINT; Schema: online store; Owner: postgres
+--
+
+ALTER TABLE ONLY "online store"."Product"
+    ADD CONSTRAINT product_pkey PRIMARY KEY ("ID_product");
+
+
+--
+-- Name: fki_ID_Client(FK); Type: INDEX; Schema: online store; Owner: postgres
+--
+
+CREATE INDEX "fki_ID_Client(FK)" ON "online store"."Order" USING btree ("ID_client");
+
+
+--
+-- Name: fki_ID_product(FK); Type: INDEX; Schema: online store; Owner: postgres
+--
+
+CREATE INDEX "fki_ID_product(FK)" ON "online store".composition_of_ordering USING btree ("ID_product");
+
+
+--
+-- Name: Order ID_Client(FK); Type: FK CONSTRAINT; Schema: online store; Owner: postgres
+--
+
+ALTER TABLE ONLY "online store"."Order"
+    ADD CONSTRAINT "ID_Client(FK)" FOREIGN KEY ("ID_client") REFERENCES "online store"."Client"("ID_Client") NOT VALID;
+
+
+--
+-- Name: composition_of_ordering ID_employee(FK); Type: FK CONSTRAINT; Schema: online store; Owner: postgres
+--
+
+ALTER TABLE ONLY "online store".composition_of_ordering
+    ADD CONSTRAINT "ID_employee(FK)" FOREIGN KEY ("ID_employee") REFERENCES "online store"."Employee"("ID_Employee") NOT VALID;
+
+
+--
+-- Name: composition_of_ordering ID_order(FK); Type: FK CONSTRAINT; Schema: online store; Owner: postgres
+--
+
+ALTER TABLE ONLY "online store".composition_of_ordering
+    ADD CONSTRAINT "ID_order(FK)" FOREIGN KEY ("ID_order") REFERENCES "online store"."Order"("ID_order") NOT VALID;
+
+
+--
+-- Name: composition_of_ordering ID_product(FK); Type: FK CONSTRAINT; Schema: online store; Owner: postgres
+--
+
+ALTER TABLE ONLY "online store".composition_of_ordering
+    ADD CONSTRAINT "ID_product(FK)" FOREIGN KEY ("ID_product") REFERENCES "online store"."Product"("ID_product") NOT VALID;
+
+
+--
+-- Name: delivery_of_the_order delivery_of_the_order_ID_emploee_fkey; Type: FK CONSTRAINT; Schema: online store; Owner: postgres
+--
+
+ALTER TABLE ONLY "online store".delivery_of_the_order
+    ADD CONSTRAINT "delivery_of_the_order_ID_emploee_fkey" FOREIGN KEY ("ID_emploee") REFERENCES "online store"."Employee"("ID_Employee") NOT VALID;
+
+
+--
+-- Name: delivery_of_the_order delivery_of_the_order_ID_order_fkey; Type: FK CONSTRAINT; Schema: online store; Owner: postgres
+--
+
+ALTER TABLE ONLY "online store".delivery_of_the_order
+    ADD CONSTRAINT "delivery_of_the_order_ID_order_fkey" FOREIGN KEY ("ID_order") REFERENCES "online store"."Order"("ID_order") NOT VALID;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

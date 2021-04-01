@@ -1,0 +1,17 @@
+site_name: Motor depot
+nav:
+    - Home: index.md
+    - Tables:
+        - motor_depot: tables/motor_depot.md
+        - garage: tables/garage.md
+        - car: tables/car.md
+        - refueller: tables/refueller.md
+        - driver: tables/driver.md
+        - fuel: tables/fuel.md
+        - trip: tables/trip.md
+        - waybill: tables/waybill.md
+    - Code:
+        - db create: code/create.md
+        - db insert: code/insert.md
+theme:
+    name: material
