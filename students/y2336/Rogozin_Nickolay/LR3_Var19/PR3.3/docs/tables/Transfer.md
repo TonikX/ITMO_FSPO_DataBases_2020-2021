@@ -3,8 +3,8 @@
 |Name|Type|Primary key|Foreign key|Unique|Integrity constraints|Null/not null|
 |:----|:----:|:-----------:|:-----------:|:------:|:----------------------:|:------:|
 |Transfer_id|SMALLSERIAL|+| | | ||
-|Transfer_id|integer |+| | | ||
-|Transfer_id|SMALLSERIAL|+| | | ||
-|Doctor_dob|date||||| not null|
-|Doctor_name|character| | | | 100 | not null|
-|Doctor_contacts|character| | | | 100 | not null|
+|Animal_transfered_id|integer |+|+ | | ||
+|Animal_id|integer||+|+ | ||
+|Transfer_date|date||||| not null|
+|Transfer_date_end|date||||| not null|
+
