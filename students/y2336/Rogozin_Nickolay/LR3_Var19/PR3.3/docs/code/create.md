@@ -1,14 +1,14 @@
-##Создание
+## Создание
 
-####Создание базы данных
+#### Создание базы данных
 ```
 CREATE DATABASE zoo;
 ```
-####Создание схемы
+#### Создание схемы
 ```
 CREATE SCHEMA workplace;
 ```
-####Создане таблицы Животные
+#### Создане таблицы Животные
 ```
 CREATE TABLE workplace."Animal"
 (
@@ -19,7 +19,7 @@ CREATE TABLE workplace."Animal"
     PRIMARY KEY ("Animal_id")
 );
 ```
-####Создане таблицы Животных по обмену
+#### Создане таблицы Животных по обмену
 ```
 CREATE TABLE workplace."Animal_transfered"
 (
@@ -32,7 +32,7 @@ CREATE TABLE workplace."Animal_transfered"
     PRIMARY KEY ("Animal_transfered_id")
 );
 ```
-####Создане таблицы Птиц
+#### Создане таблицы Птиц
 ```
 CREATE TABLE workplace."Animal_bird"
 (
@@ -47,7 +47,7 @@ CREATE TABLE workplace."Animal_bird"
     FOREIGN KEY ("Animal_id") REFERENCES Animal("Animal_id")
 );
 ```
-####Создане таблицы Рептилий
+#### Создане таблицы Рептилий
 ```
 CREATE TABLE workplace."Animal_reptile"(
     "Reptile_id" SMALLSERIAL,
@@ -59,7 +59,7 @@ CREATE TABLE workplace."Animal_reptile"(
     FOREIGN KEY ("Animal_id") REFERENCES Animal("Animal_id")
 );
 ```
-####Создане таблицы Клетка
+#### Создане таблицы Клетка
 ```
 CREATE TABLE workplace."Cage"(
     "Cage_id" SMALLSERIAL,
@@ -71,7 +71,7 @@ CREATE TABLE workplace."Cage"(
     PRIMARY KEY ("Cage_id"),
 );
 ```
-####Создане таблицы Доктор
+#### Создане таблицы Доктор
 ```
 CREATE TABLE workplace."Doctor"(
     "Doctor_id" SMALLSERIAL,
@@ -81,7 +81,7 @@ CREATE TABLE workplace."Doctor"(
     PRIMARY KEY("Doctor_id")
 );
 ```
-####Создане таблицы Надзиратель
+#### Создане таблицы Надзиратель
 ```
 CREATE TABLE workplace."Overseer"(
     "Overseer_id" SMALLSERIAL,
@@ -91,7 +91,7 @@ CREATE TABLE workplace."Overseer"(
     PRIMARY KEY("Overseer_id")
 );
 ```
-####Создане таблицы План питания
+#### Создане таблицы План питания
 ```
 CRATE TABLE workplace."Meal"(
     "Meal_id" SMALLSERIAL NOT NULL,
@@ -101,8 +101,8 @@ CRATE TABLE workplace."Meal"(
     "Meas_content" character(100) NOT NULL,
     PRIMARY KEY("Meal_id")
 );
-```
-####Создане таблицы Обмен
+``` 
+#### Создане таблицы Обмен
 ```
 CREATE TABLE workplace."Transfer"(
     "Transfer_id" SMALLSERIAL,
@@ -115,7 +115,7 @@ CREATE TABLE workplace."Transfer"(
     FOREIGN KEY("Animal_id") REFERENCES Animal("Animals_id")
 );
 ```
-####Создане таблицы Смена
+#### Создане таблицы Смена
 ```
 CREATE TABLE workplace."Shift"(
     "Shift_id" SMALLSERIAL,
@@ -127,7 +127,7 @@ CREATE TABLE workplace."Shift"(
     FOREIGH KEY("Animal_id) REFERENCES Animal("Animal_id)
 );
 ```
-####Создане таблицы Заселение
+#### Создане таблицы Заселение
 ```
 CREATE TABLE workplace."Settling"(
     "Settling_id" SMALLSERIAL,
@@ -139,7 +139,7 @@ CREATE TABLE workplace."Settling"(
     FOREIGN KEY("Cage_id"), REFERENCES Cage("Cage_id")
 );
 ```
-####Создане таблицы Лечение
+#### Создане таблицы Лечение
 ```
 CREATE TABLE workplace."Healing"(
     "Healing_id" integer NOT NULL,
@@ -151,7 +151,7 @@ CREATE TABLE workplace."Healing"(
     FOREIGN KEY("Doctor_id") REFERENCES Doctor("Doctor_id")
 );
 ```
-####Создане таблицы Кормление
+#### Создане таблицы Кормление
 ```
 CREATE TABLE workplace."Feeding"(
     "Feeding_id" integer NOT NULL,
