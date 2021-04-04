@@ -44,7 +44,9 @@ CREATE TABLE workplace."Animal_bird"
     "Brid_flyover_back" date,
     "Bird_flyover_place" character(50),
     PRIMARY KEY ("Bird_id"),
-    FOREIGN KEY ("Animal_id") REFERENCES Animal("Animal_id")
+    FOREIGN KEY ("Animal_id") REFERENCES Animal("Animal_id"),
+    UNIQUE ("Animal_id"),
+    UNIQUE ("Bird_flyover_id")
 );
 ```
 #### Создане таблицы Рептилий
@@ -56,7 +58,8 @@ CREATE TABLE workplace."Animal_reptile"(
     "Reptile_hyber_start" date NOT NULL,
     "Reptile_hyber_end" date NOT NULL,
     PRIMARY KEY ("Reptile_id"),
-    FOREIGN KEY ("Animal_id") REFERENCES Animal("Animal_id")
+    FOREIGN KEY ("Animal_id") REFERENCES Animal("Animal_id"),
+    UNIQUE ("Animal_id")
 );
 ```
 #### Создане таблицы Клетка
@@ -112,7 +115,9 @@ CREATE TABLE workplace."Transfer"(
     "Transfer_date_end" date NOT NULL
     PRIMARY KEY("Transfer_id"),
     FOREIGN KEY("Animal_transfered_id") REFERENCES Animal_transfered("Animal_transfered_id"),
-    FOREIGN KEY("Animal_id") REFERENCES Animal("Animals_id")
+    FOREIGN KEY("Animal_id") REFERENCES Animal("Animals_id"),
+    UNIQUE ("Animal_id"),
+    UNIQUE ("Animal_transfered_id")
 );
 ```
 #### Создане таблицы Смена
@@ -124,7 +129,9 @@ CREATE TABLE workplace."Shift"(
     "Animal_id" integer NOT NULL,
     PRIMARY KEY("Shift_id"),
     FOREIGN KEY("Overseer_id") REFERENCES Overseer("Overseer_id"),
-    FOREIGH KEY("Animal_id) REFERENCES Animal("Animal_id)
+    FOREIGH KEY("Animal_id) REFERENCES Animal("Animal_id),
+    UNIQUE ("Animal_id")
+    UNIQUE ("Overseer_id")
 );
 ```
 #### Создане таблицы Заселение
@@ -136,19 +143,23 @@ CREATE TABLE workplace."Settling"(
     "Cage_id" integer NOT NULL,
     PRIMARY KEY("Settling_id"),
     FOREIGN KEY("Animal_id"), REFERENCES Animal("Animal_id"),
-    FOREIGN KEY("Cage_id"), REFERENCES Cage("Cage_id")
+    FOREIGN KEY("Cage_id"), REFERENCES Cage("Cage_id"),
+    UNIQUE ("Animal_id"),
+    UNIQUE ("Cage_id")
 );
 ```
 #### Создане таблицы Лечение
 ```
 CREATE TABLE workplace."Healing"(
-    "Healing_id" integer NOT NULL,
+    "Healing_id" SMALLSERIAL,
     "Healing_date" date NOT NULL,
     "Animal_id" integer NOT NULL,
     "Doctor_id" integer NOT NULL,
     PRIMARY KEY("Healing_id"),
     FOREIGN KEY("Animal_id") REFERENCES Animal("Animal_id"),
-    FOREIGN KEY("Doctor_id") REFERENCES Doctor("Doctor_id")
+    FOREIGN KEY("Doctor_id") REFERENCES Doctor("Doctor_id"),
+    UNIQUE ("Animal_id"),
+    UNIQUE ("Doctor_id")
 );
 ```
 #### Создане таблицы Кормление
@@ -160,6 +171,8 @@ CREATE TABLE workplace."Feeding"(
     "Meal_id" integer NOT NULL,
     PRIMARY KEY("Feeding"),
     FOREIGN KEY("Animal_id") REFERENCES Animal("Animal_id"),
-    FOREIGN KEY("Meal_id") REFERENCES Meal("Meal_id)
+    FOREIGN KEY("Meal_id") REFERENCES Meal("Meal_id),
+    UNIQUE ("Animal_id"),
+    UNIQUE ("Meal_id")
 );
 ```
