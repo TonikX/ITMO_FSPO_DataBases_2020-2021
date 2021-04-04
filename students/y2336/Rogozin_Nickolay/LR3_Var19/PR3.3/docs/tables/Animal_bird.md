@@ -2,7 +2,7 @@
 
 |Name|Type|Primary key|Foreign key|Unique|Integrity constraints|Null/not null|
 |:----|:----:|:-----------:|:-----------:|:------:|:----------------------:|:------:|
-|Bird_id|SMALLSERIAL|+| |+ | ||
+|Bird_id|SMALLSERIAL|+| | | ||
 |Animal_id|integer||+|+|| not null|
 |Bird_flyover|boolean| | | | | not null|
 |Bird_flyover_id|integer| | | | | |
