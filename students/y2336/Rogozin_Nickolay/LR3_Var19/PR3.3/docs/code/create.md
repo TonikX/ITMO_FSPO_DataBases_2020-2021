@@ -109,6 +109,7 @@ CRATE TABLE workplace."Meal"(
 ```
 CREATE TABLE workplace."Transfer"(
     "Transfer_id" SMALLSERIAL,
+    "Animal_id" integeer NOT NULL,
     "Animal_transfered_id" integer NOT NULL,
     "Transfer_date" date NOT NULL,
     "Transfer_date_end" date NOT NULL
