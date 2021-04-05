@@ -110,7 +110,6 @@ CRATE TABLE workplace."Meal"(
 CREATE TABLE workplace."Transfer"(
     "Transfer_id" SMALLSERIAL,
     "Animal_transfered_id" integer NOT NULL,
-    "Animal_id" integer NOT NULL,
     "Transfer_date" date NOT NULL,
     "Transfer_date_end" date NOT NULL
     PRIMARY KEY("Transfer_id"),
