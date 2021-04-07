@@ -208,6 +208,7 @@
 
 1) Необходимо создать базу данных для реализации примеров и заданий из презентации ниже.<br> СУБД: PostgreSQL. <br>Средство (песочница для работы с запросами): https://sqliteonline.com/ . <br>[Код создания БД](https://drive.google.com/file/d/10paHr_juMfmHNILBaCbMf6IeUxOr7uqL/view?usp=sharing)<br>
 4) Презентация **[тут](https://drive.google.com/file/d/1pDLVu6oknbEDnytCy8ik32CNbqR5pR9A/view?usp=sharing)** (Тема: SELECT SQL: Соединения)<br>
+5) Презентация 2 [тут](https://drive.google.com/file/d/1L2ehRvs637eTqXD2Mg-cX4vqW312hF3F/view?usp=sharing)
 
 ### Лабораторная часть
 
