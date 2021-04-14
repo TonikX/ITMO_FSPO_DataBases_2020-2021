@@ -856,6 +856,46 @@ delete from room where id = 0;
 <td>Русский язык</td>
 </tr>
 </tbody>
+</table>
+<h4 id="13">13</h4>
+<p>Вывести имена учеников, которые имеют хотя бы одну пятерку</p>
+<pre><code class="sql">select name from pupil right join marks on id_pupil = pupil.id where mark = ANY(select mark from marks where id_pupil = pupil.id and mark = 5);
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Михаил</td>
+</tr>
+<tr>
+<td>Татьяна</td>
+</tr>
+</tbody>
+</table>
+<h4 id="14">14</h4>
+<p>Вывести имена учеников, которые имеют только пятерки</p>
+<pre><code class="sql">select name from pupil right join marks on id_pupil = pupil.id where mark = ALL(select mark from marks where id_pupil = pupil.id and mark = 5);
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Валерия</td>
+</tr>
+<tr>
+<td>Татьяна</td>
+</tr>
+</tbody>
 </table></div>
             </div>
         </div>
@@ -940,5 +980,5 @@ delete from room where id = 0;
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2021-04-14 11:54:37.568378+00:00
+Build Date UTC : 2021-04-14 12:06:46.995482+00:00
 -->

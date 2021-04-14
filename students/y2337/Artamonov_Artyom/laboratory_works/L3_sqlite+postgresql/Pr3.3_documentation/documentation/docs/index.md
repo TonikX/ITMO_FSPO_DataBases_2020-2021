@@ -280,3 +280,23 @@ select letter, number, subject.name from room right join timetable on timetable.
 |--------|--------|--------------|
 | NULL   | 215    | Математика   |
 | NULL   | 101    | Русский язык |
+
+#### 13
+Вывести имена учеников, которые имеют хотя бы одну пятерку
+```sql
+select name from pupil right join marks on id_pupil = pupil.id where mark = ANY(select mark from marks where id_pupil = pupil.id and mark = 5);
+```
+| name    |
+|---------|
+| Михаил  |
+| Татьяна |
+
+#### 14
+Вывести имена учеников, которые имеют только пятерки
+```sql
+select name from pupil right join marks on id_pupil = pupil.id where mark = ALL(select mark from marks where id_pupil = pupil.id and mark = 5);
+```
+| name    |
+|---------|
+| Валерия |
+| Татьяна |
