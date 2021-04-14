@@ -6,7 +6,7 @@
 
 | Работа | Ссылка на работу |
 | ------ | ------ | 
-| Практическая работа 1.1 | <span>[IDEF0 модель работы автомойки](https://github.com/sofkot/ITMO_FSPO_DataBases_2020-2021/blob/master/students/y2334/Kotliarowa%20Sofia/Pr0_idef0/1.jpg)</span> |
+| Практическая работа 1.1 | [IDEF0 модель работы автомойки](https://github.com/sofkot/ITMO_FSPO_DataBases_2020-2021/blob/master/students/y2334/Kotliarowa%20Sofia/Pr0_idef0/1.jpg) |
 | Практическая работа 1.2 | [DFD модель процесса производства меховых шуб](https://github.com/sofkot/ITMO_FSPO_DataBases_2020-2021/blob/master/students/y2334/Kotliarowa%20Sofia/Pr1_dfd/%D0%9F%D0%A0%201.2.pdf) |
 | Лабораторная часть | [DFD модель работы танцевального клуба](https://github.com/sofkot/ITMO_FSPO_DataBases_2020-2021/blob/master/students/y2334/Kotliarowa%20Sofia/LR_1/LR_1.pdf) |
 
