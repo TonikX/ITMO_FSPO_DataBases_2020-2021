@@ -10,4 +10,5 @@ select * from teacher right join class on class.id_teacher = teacher.id;
 select day_of_week, subject.name, teacher.name as teacher_name from timetable right join teacher on timetable.id_teacher = teacher.id right join subject on timetable.id_subject = subject.id;
 select name, mark from pupil right join marks on marks.id_pupil = id;
 select letter, number, subject.name from room right join timetable on timetable.id_room = room.id right join subject on id_subject = subject.id;
-
+select name from pupil right join marks on id_pupil = pupil.id where mark = ANY(select mark from marks where id_pupil = pupil.id and mark = 5);
+select name from pupil right join marks on id_pupil = pupil.id where mark = ALL(select mark from marks where id_pupil = pupil.id and mark = 5);
