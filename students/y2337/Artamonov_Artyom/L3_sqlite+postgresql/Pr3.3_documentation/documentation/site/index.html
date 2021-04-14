@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Расписание уроков – База данных PostgreSQL</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">Расписание уроков – База данных PostgreSQL</a>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">База данных Школьное расписание</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">Описание</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">Модель данных</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#class" class="nav-link">class</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#marks" class="nav-link">marks</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#pupil" class="nav-link">pupil</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#room" class="nav-link">room</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#subject" class="nav-link">subject</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#teacher" class="nav-link">teacher</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#timetable" class="nav-link">timetable</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_4" class="nav-link">Дамп</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_5" class="nav-link">Запросы</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_6" class="nav-link">Продвинутые запросы</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">База данных Школьное расписание</h1>
+<h2 id="_2">Описание</h2>
+<p>База данных, предназначеная для завуча школы.</p>
+<p>Завуч имеет возможность добавить сведения о новом учителе или ученике, вносить в базу данных четвертные оценки учеников каждого класса по каждому предмету, удалять данные об уволившемся учителе и отчисленном из школы ученике, вносить изменения в данные об учителях и учениках, в том числе поменять оценку ученика по тому или иному предмету. В задачу завуча входит также составление расписания.</p>
+<h2 id="_3">Модель данных</h2>
+<p><img alt="alt text" src="model.png" /></p>
+<h2 id="class">class</h2>
+<p>Классы, например 9Б, 6А</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип данных</th>
+<th>Первичный ключ</th>
+<th>Внешний ключ</th>
+<th>NULLABLE</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT</td>
+<td>&#9745;</td>
+<td></td>
+<td></td>
+<td>Уникальный идентификатор</td>
+</tr>
+<tr>
+<td>id_teacher</td>
+<td>INT</td>
+<td></td>
+<td>&#9745;</td>
+<td></td>
+<td>Классный руководитель</td>
+</tr>
+<tr>
+<td>letter</td>
+<td>VARCHAR(1)</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Буква класса</td>
+</tr>
+<tr>
+<td>year</td>
+<td>INT</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Год класса</td>
+</tr>
+</tbody>
+</table>
+<h2 id="marks">marks</h2>
+<p>Оценки учеников. Внешние ключи: ученик, урок, предмет</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип данных</th>
+<th>Первичный ключ</th>
+<th>Внешний ключ</th>
+<th>NULLABLE</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id_pupil</td>
+<td>INT</td>
+<td>&#9745;</td>
+<td>&#9745;</td>
+<td></td>
+<td>Ученик, получивший оценку</td>
+</tr>
+<tr>
+<td>id_lesson</td>
+<td>INT</td>
+<td>&#9745;</td>
+<td>&#9745;</td>
+<td></td>
+<td>Урок, на котором поставили оценку</td>
+</tr>
+<tr>
+<td>mark</td>
+<td>INT</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Оценка</td>
+</tr>
+<tr>
+<td>id_subject</td>
+<td>INT</td>
+<td></td>
+<td>&#9745;</td>
+<td></td>
+<td>Предмет</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pupil">pupil</h2>
+<p>Ученик. Внешний ключ: класс</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип данных</th>
+<th>Первичный ключ</th>
+<th>Внешний ключ</th>
+<th>NULLABLE</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT</td>
+<td>&#9745;</td>
+<td></td>
+<td></td>
+<td>Уникальный идентификатор</td>
+</tr>
+<tr>
+<td>name</td>
+<td>VARCHAR(45)</td>
+<td></td>
+<td></td>
+<td></td>
+<td>ФИО</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>ENUM("Male", "Female")</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Пол</td>
+</tr>
+<tr>
+<td>id_class</td>
+<td>INT</td>
+<td></td>
+<td>&#9745;</td>
+<td></td>
+<td>Класс, которому принадлежит ученик</td>
+</tr>
+</tbody>
+</table>
+<h2 id="room">room</h2>
+<p>Кабинет. Имеет номер и букву.</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип данных</th>
+<th>Первичный ключ</th>
+<th>Внешний ключ</th>
+<th>NULLABLE</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT</td>
+<td>&#9745;</td>
+<td></td>
+<td></td>
+<td>Уникальный идентификатор</td>
+</tr>
+<tr>
+<td>equipment</td>
+<td>VARCHAR(45)</td>
+<td></td>
+<td></td>
+<td>&#9745;</td>
+<td>Оборудование класса</td>
+</tr>
+<tr>
+<td>number</td>
+<td>VARCHAR(4)</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Номер кабинета</td>
+</tr>
+<tr>
+<td>letter</td>
+<td>VARCHAR(1)</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Буква кабинет</td>
+</tr>
+</tbody>
+</table>
+<h2 id="subject">subject</h2>
+<p>Предмет. Имеет название и описание.</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип данных</th>
+<th>Первичный ключ</th>
+<th>Внешний ключ</th>
+<th>NULLABLE</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT</td>
+<td>&#9745;</td>
+<td></td>
+<td></td>
+<td>Уникальный идентификатор</td>
+</tr>
+<tr>
+<td>name</td>
+<td>VARCHAR(45)</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Название предмета</td>
+</tr>
+<tr>
+<td>description</td>
+<td>VARCHAR(100)</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Описание предмета. Учебный план</td>
+</tr>
+</tbody>
+</table>
+<h2 id="teacher">teacher</h2>
+<p>Учитель. id_classroom_teacher - 1, если учитель – классный руководитель. 0 – если нет.
+Имеет внешний ключ на привязанный к нему кабинет. Может быть NULL.</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип данных</th>
+<th>Первичный ключ</th>
+<th>Внешний ключ</th>
+<th>NULLABLE</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT</td>
+<td>&#9745;</td>
+<td></td>
+<td></td>
+<td>Уникальный идентификатор</td>
+</tr>
+<tr>
+<td>name</td>
+<td>VARCHAR(45)</td>
+<td></td>
+<td></td>
+<td></td>
+<td>ФИО</td>
+</tr>
+<tr>
+<td>is_classroom_teacher</td>
+<td>INT</td>
+<td></td>
+<td></td>
+<td></td>
+<td>1 – если классный руководитель. 0 – не классный руководитель</td>
+</tr>
+<tr>
+<td>id_room</td>
+<td>INT</td>
+<td></td>
+<td>&#9745;</td>
+<td>&#9745;</td>
+<td>Кабинет, к которому привязан учитель</td>
+</tr>
+</tbody>
+</table>
+<h2 id="timetable">timetable</h2>
+<p>Расписание урока. Имеет день недели, номер урока. 
+Внешние ключи – учитель, кабинет, класс, предмет.</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип данных</th>
+<th>Первичный ключ</th>
+<th>Внешний ключ</th>
+<th>NULLABLE</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT</td>
+<td>&#9745;</td>
+<td></td>
+<td></td>
+<td>Уникальный идентификатор</td>
+</tr>
+<tr>
+<td>day_of_week</td>
+<td>ENUM("Monday, "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")</td>
+<td></td>
+<td></td>
+<td></td>
+<td>День недели</td>
+</tr>
+<tr>
+<td>lesson_number</td>
+<td>INT</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Номер урока. Например 1, 2</td>
+</tr>
+<tr>
+<td>id_teacher</td>
+<td>INT</td>
+<td></td>
+<td>&#9745;</td>
+<td></td>
+<td>Учитель, проводящий урок</td>
+</tr>
+<tr>
+<td>id_class</td>
+<td>INT</td>
+<td></td>
+<td>&#9745;</td>
+<td></td>
+<td>Класс, который обучается</td>
+</tr>
+<tr>
+<td>id_room</td>
+<td>INT</td>
+<td></td>
+<td>&#9745;</td>
+<td></td>
+<td>Кабинет, в котором проводится занятие</td>
+</tr>
+<tr>
+<td>id_subject</td>
+<td>INT</td>
+<td></td>
+<td>&#9745;</td>
+<td></td>
+<td>Предмет</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">Дамп</h2>
+<pre><code class="language-sql">CREATE TYPE public.gender AS ENUM (
+     'male',
+     'female'
+);
+
+CREATE TYPE public.weekday AS ENUM (
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday'
+);
+
+CREATE TABLE public.class (
+    id integer NOT NULL,
+    id_teacher integer,
+    letter character varying(1) NOT NULL,
+    year integer NOT NULL
+);
+
+CREATE TABLE public.marks (
+    id_pupil integer NOT NULL,
+    id_lesson integer NOT NULL,
+    mark integer,
+    id_subject integer,
+    CONSTRAINT check_mark CHECK (((mark &gt; 0) AND (mark &lt;= 5)))
+);
+
+CREATE TABLE public.pupil (
+    id integer NOT NULL,
+    name character varying(45) NOT NULL,
+    gender public.gender,
+    id_class integer
+);
+
+CREATE TABLE public.room (
+    id integer NOT NULL,
+    equipment character varying(45),
+    number character varying(4) NOT NULL,
+    letter character varying(1) NOT NULL
+);
+
+CREATE TABLE public.subject (
+    id integer NOT NULL,
+    name character varying(45) NOT NULL,
+    description character varying(100)
+);
+
+CREATE TABLE public.teacher (
+    id integer NOT NULL,
+    name character varying(45) NOT NULL,
+    is_classroom_teacher integer DEFAULT 0 NOT NULL,
+    id_room integer
+);
+
+CREATE TABLE public.timetable (
+    id integer NOT NULL,
+    day_of_week public.weekday,
+    lesson_number integer NOT NULL,
+    id_teacher integer,
+    id_class integer,
+    id_room integer,
+    id_subject integer
+);
+</code></pre>
+<h2 id="_5">Запросы</h2>
+<pre><code class="language-sql">insert into room values(0, null, 213, 'a');
+select equipment from room;
+update room set equipment='Принтер' where id = 0;
+delete from room where id = 0;
+</code></pre>
+<h2 id="_6">Продвинутые запросы</h2>
+<pre><code class="language-sql">- select * from class inner join teacher on teacher.id = class.id_teacher;
+Вывести классы вместе с классными руководителями
+- select * from pupil where pupil.gender = 'male' and id_class = 1;
+Вывести всех мальчиков в классе с id = 1
+- select year, lower(letter) as letter from class;
+Вывести год и маленькую букву всех классов
+- select distinct name from subject where id = (select id_subject from timetable where id_teacher = 0); 
+Вывести предметы, которые ведет учитель с id = 0
+- select count(*) from teacher;
+Вывести количество учитилей, работающих в школе
+- select id_pupil, avg(mark) from marks group by id_pupil having avg(mark) &lt; 4.5;
+Вывести средний бал студентов, у которых он ниже 4,5
+- select * from teacher where exists(select 1 from class where id_teacher = id);
+Вывести учителей, которые являются классными руководителями
+- select * from pupil except select * from pupil where gender = 'female';
+Вывести всех мальчиков
+- select * from teacher right join class on class.id_teacher = teacher.id;
+Вывести классы вместе с классными руководителями
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.1.2
+Build Date UTC : 2021-04-07 11:49:08.401305+00:00
+-->

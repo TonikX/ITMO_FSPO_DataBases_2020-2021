@@ -1,0 +1,332 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 12.6 (Ubuntu 12.6-0ubuntu0.20.04.1)
+-- Dumped by pg_dump version 12.6 (Ubuntu 12.6-0ubuntu0.20.04.1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: gender; Type: TYPE; Schema: public; Owner: postgres
+--
+
+CREATE TYPE public.gender AS ENUM (
+    'male',
+    'female'
+);
+
+
+ALTER TYPE public.gender OWNER TO postgres;
+
+--
+-- Name: weekday; Type: TYPE; Schema: public; Owner: postgres
+--
+
+CREATE TYPE public.weekday AS ENUM (
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday'
+);
+
+
+ALTER TYPE public.weekday OWNER TO postgres;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: class; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.class (
+    id integer NOT NULL,
+    id_teacher integer,
+    letter character varying(1) NOT NULL,
+    year integer NOT NULL
+);
+
+
+ALTER TABLE public.class OWNER TO postgres;
+
+--
+-- Name: marks; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.marks (
+    id_pupil integer NOT NULL,
+    id_lesson integer NOT NULL,
+    mark integer,
+    id_subject integer,
+    CONSTRAINT check_mark CHECK (((mark > 0) AND (mark <= 5)))
+);
+
+
+ALTER TABLE public.marks OWNER TO postgres;
+
+--
+-- Name: pupil; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.pupil (
+    id integer NOT NULL,
+    name character varying(45) NOT NULL,
+    gender public.gender,
+    id_class integer
+);
+
+
+ALTER TABLE public.pupil OWNER TO postgres;
+
+--
+-- Name: room; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.room (
+    id integer NOT NULL,
+    equipment character varying(45),
+    number character varying(4) NOT NULL,
+    letter character varying(1) NOT NULL
+);
+
+
+ALTER TABLE public.room OWNER TO postgres;
+
+--
+-- Name: subject; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.subject (
+    id integer NOT NULL,
+    name character varying(45) NOT NULL,
+    description character varying(100)
+);
+
+
+ALTER TABLE public.subject OWNER TO postgres;
+
+--
+-- Name: teacher; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.teacher (
+    id integer NOT NULL,
+    name character varying(45) NOT NULL,
+    is_classroom_teacher integer DEFAULT 0 NOT NULL,
+    id_room integer
+);
+
+
+ALTER TABLE public.teacher OWNER TO postgres;
+
+--
+-- Name: timetable; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.timetable (
+    id integer NOT NULL,
+    day_of_week public.weekday,
+    lesson_number integer NOT NULL,
+    id_teacher integer,
+    id_class integer,
+    id_room integer,
+    id_subject integer
+);
+
+
+ALTER TABLE public.timetable OWNER TO postgres;
+
+--
+-- Data for Name: class; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.class (id, id_teacher, letter, year) FROM stdin;
+\.
+
+
+--
+-- Data for Name: marks; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.marks (id_pupil, id_lesson, mark, id_subject) FROM stdin;
+\.
+
+
+--
+-- Data for Name: pupil; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.pupil (id, name, gender, id_class) FROM stdin;
+\.
+
+
+--
+-- Data for Name: room; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.room (id, equipment, number, letter) FROM stdin;
+\.
+
+
+--
+-- Data for Name: subject; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.subject (id, name, description) FROM stdin;
+\.
+
+
+--
+-- Data for Name: teacher; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.teacher (id, name, is_classroom_teacher, id_room) FROM stdin;
+\.
+
+
+--
+-- Data for Name: timetable; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.timetable (id, day_of_week, lesson_number, id_teacher, id_class, id_room, id_subject) FROM stdin;
+\.
+
+
+--
+-- Name: class class_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.class
+    ADD CONSTRAINT class_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: marks marks_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.marks
+    ADD CONSTRAINT marks_pkey PRIMARY KEY (id_pupil, id_lesson);
+
+
+--
+-- Name: pupil pupil_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pupil
+    ADD CONSTRAINT pupil_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: room room_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.room
+    ADD CONSTRAINT room_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: subject subject_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.subject
+    ADD CONSTRAINT subject_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: teacher teacher_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.teacher
+    ADD CONSTRAINT teacher_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: timetable timetable_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.timetable
+    ADD CONSTRAINT timetable_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: class class_id_teacher_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.class
+    ADD CONSTRAINT class_id_teacher_fkey FOREIGN KEY (id_teacher) REFERENCES public.teacher(id);
+
+
+--
+-- Name: marks marks_id_subject_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.marks
+    ADD CONSTRAINT marks_id_subject_fkey FOREIGN KEY (id_subject) REFERENCES public.subject(id);
+
+
+--
+-- Name: pupil pupil_id_class_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pupil
+    ADD CONSTRAINT pupil_id_class_fkey FOREIGN KEY (id_class) REFERENCES public.class(id);
+
+
+--
+-- Name: teacher teacher_id_room_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.teacher
+    ADD CONSTRAINT teacher_id_room_fkey FOREIGN KEY (id_room) REFERENCES public.room(id);
+
+
+--
+-- Name: timetable timetable_id_class_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.timetable
+    ADD CONSTRAINT timetable_id_class_fkey FOREIGN KEY (id_class) REFERENCES public.class(id);
+
+
+--
+-- Name: timetable timetable_id_room_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.timetable
+    ADD CONSTRAINT timetable_id_room_fkey FOREIGN KEY (id_room) REFERENCES public.room(id);
+
+
+--
+-- Name: timetable timetable_id_subject_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.timetable
+    ADD CONSTRAINT timetable_id_subject_fkey FOREIGN KEY (id_subject) REFERENCES public.subject(id);
+
+
+--
+-- Name: timetable timetable_id_teacher_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.timetable
+    ADD CONSTRAINT timetable_id_teacher_fkey FOREIGN KEY (id_teacher) REFERENCES public.teacher(id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
