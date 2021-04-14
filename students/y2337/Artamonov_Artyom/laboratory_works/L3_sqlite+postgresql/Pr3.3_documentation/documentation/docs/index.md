@@ -155,7 +155,7 @@ CREATE TABLE public.timetable (
 
 ## Запросы
 
-``` sql
+```sql
 insert into room values(0, null, 213, 'a');
 select equipment from room;
 update room set equipment='Принтер' where id = 0;
@@ -164,23 +164,40 @@ delete from room where id = 0;
 
 ## Продвинутые запросы
 ```sql
-- select * from class inner join teacher on teacher.id = class.id_teacher;
-Вывести классы вместе с классными руководителями
-- select * from pupil where pupil.gender = 'male' and id_class = 1;
-Вывести всех мальчиков в классе с id = 1
-- select year, lower(letter) as letter from class;
-Вывести год и маленькую букву всех классов
-- select distinct name from subject where id = (select id_subject from timetable where id_teacher = 0); 
-Вывести предметы, которые ведет учитель с id = 0
-- select count(*) from teacher;
-Вывести количество учитилей, работающих в школе
-- select id_pupil, avg(mark) from marks group by id_pupil having avg(mark) < 4.5;
-Вывести средний бал студентов, у которых он ниже 4,5
-- select * from teacher where exists(select 1 from class where id_teacher = id);
-Вывести учителей, которые являются классными руководителями
-- select * from pupil except select * from pupil where gender = 'female';
-Вывести всех мальчиков
-- select * from teacher right join class on class.id_teacher = teacher.id;
-Вывести классы вместе с классными руководителями
+select * from class inner join teacher on teacher.id = class.id_teacher;
 ```
+
+Вывести классы вместе с классными руководителями
+```sql
+select * from pupil where pupil.gender = 'male' and id_class = 1;
+```
+Вывести всех мальчиков в классе с id = 1
+```sql
+select year, lower(letter) as letter from class;
+```
+Вывести год и маленькую букву всех классов
+```sql
+select distinct name from subject where id = (select id_subject from timetable where id_teacher = 0); 
+```
+Вывести предметы, которые ведет учитель с id = 0
+```sql
+select count(*) from teacher;
+```
+Вывести количество учитилей, работающих в школе
+```sql
+select id_pupil, avg(mark) from marks group by id_pupil having avg(mark) < 4.5;
+```
+Вывести средний бал студентов, у которых он ниже 4,5
+```sql
+select * from teacher where exists(select 1 from class where id_teacher = id);
+```
+Вывести учителей, которые являются классными руководителями
+```sql
+select * from pupil except select * from pupil where gender = 'female';
+```
+Вывести всех мальчиков
+```sql
+select * from teacher right join class on class.id_teacher = teacher.id;
+```
+Вывести классы вместе с классными руководителями
 
