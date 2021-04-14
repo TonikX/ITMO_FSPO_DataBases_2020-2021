@@ -470,7 +470,7 @@
 </tbody>
 </table>
 <h2 id="_4">Дамп</h2>
-<pre><code class="language-sql">CREATE TYPE public.gender AS ENUM (
+<pre><code class="sql">CREATE TYPE public.gender AS ENUM (
      'male',
      'female'
 );
@@ -537,32 +537,326 @@ CREATE TABLE public.timetable (
     id_subject integer
 );
 </code></pre>
+
 <h2 id="_5">Запросы</h2>
-<pre><code class="language-sql">insert into room values(0, null, 213, 'a');
+<pre><code class="sql">insert into room values(0, null, 213, 'a');
 select equipment from room;
 update room set equipment='Принтер' where id = 0;
 delete from room where id = 0;
 </code></pre>
+
 <h2 id="_6">Продвинутые запросы</h2>
-<pre><code class="language-sql">- select * from class inner join teacher on teacher.id = class.id_teacher;
-Вывести классы вместе с классными руководителями
-- select * from pupil where pupil.gender = 'male' and id_class = 1;
-Вывести всех мальчиков в классе с id = 1
-- select year, lower(letter) as letter from class;
-Вывести год и маленькую букву всех классов
-- select distinct name from subject where id = (select id_subject from timetable where id_teacher = 0); 
-Вывести предметы, которые ведет учитель с id = 0
-- select count(*) from teacher;
-Вывести количество учитилей, работающих в школе
-- select id_pupil, avg(mark) from marks group by id_pupil having avg(mark) &lt; 4.5;
-Вывести средний бал студентов, у которых он ниже 4,5
-- select * from teacher where exists(select 1 from class where id_teacher = id);
-Вывести учителей, которые являются классными руководителями
-- select * from pupil except select * from pupil where gender = 'female';
-Вывести всех мальчиков
-- select * from teacher right join class on class.id_teacher = teacher.id;
-Вывести классы вместе с классными руководителями
-</code></pre></div>
+<h4 id="1">1</h4>
+<p>Вывести классы вместе с классными руководителями</p>
+<pre><code class="sql">select * from class inner join teacher on teacher.id = class.id_teacher;
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>id_teacher</th>
+<th>letter</th>
+<th>year</th>
+<th>id</th>
+<th>name</th>
+<th>is_classroom_teacher</th>
+<th>id_room</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>А</td>
+<td>9</td>
+<td>1</td>
+<td>"Мария Ивановна"</td>
+<td>1</td>
+<td>215</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2">2</h4>
+<p>Вывести всех мальчиков в классе с id = 1</p>
+<pre><code class="sql">select * from pupil where pupil.gender = 'male' and id_class = 1;
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>gender</th>
+<th>id_class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Михаил</td>
+<td>male</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Валерий</td>
+<td>male</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Александр</td>
+<td>male</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3">3</h4>
+<p>Вывести год и маленькую букву всех классов</p>
+<pre><code class="sql">select year, lower(letter) as letter from class;
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>year</th>
+<th>letter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9</td>
+<td>A</td>
+</tr>
+</tbody>
+</table>
+<h4 id="4">4</h4>
+<p>Вывести предметы, которые ведет учитель с id = 0</p>
+<pre><code class="sql">select distinct name from subject where id = (select id_subject from timetable where id_teacher = 0); 
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Математика</td>
+</tr>
+<tr>
+<td>Алгебра</td>
+</tr>
+<tr>
+<td>Геометрия</td>
+</tr>
+</tbody>
+</table>
+<h4 id="5">5</h4>
+<p>Вывести количество учитилей, работающих в школе</p>
+<pre><code class="sql">select count(*) from teacher;
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<h4 id="6">6</h4>
+<p>Вывести средний бал студентов, у которых он ниже 4,5</p>
+<pre><code class="sql">select id_pupil, avg(mark) from marks group by id_pupil having avg(mark) &lt; 4.5;
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>id_pupil</th>
+<th>avg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>4.47</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4.49</td>
+</tr>
+</tbody>
+</table>
+<h4 id="7">7</h4>
+<p>Вывести учителей, которые являются классными руководителями</p>
+<pre><code class="sql">select * from teacher where exists(select 1 from class where id_teacher = id);
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>is_classroom_teacher</th>
+<th>id_room</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Марья Ивановна</td>
+<td>1</td>
+<td>215</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Валентина Александровна</td>
+<td>1</td>
+<td>101</td>
+</tr>
+</tbody>
+</table>
+<h4 id="8">8</h4>
+<p>Вывести всех мальчиков</p>
+<pre><code class="sql">select * from pupil except select * from pupil where gender = 'male';
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>gender</th>
+<th>id_class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Михаил</td>
+<td>male</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Валерий</td>
+<td>male</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="9">9</h4>
+<p>Вывести классы вместе с классными руководителями</p>
+<pre><code class="sql">select * from teacher right join class on class.id_teacher = teacher.id;
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>is_classroom_teacher</th>
+<th>id_room</th>
+<th>id</th>
+<th>id_teacher</th>
+<th>letter</th>
+<th>year</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Марья Ивановна</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>А</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<h4 id="10">10</h4>
+<p>Вывести дни недели, по которым каждый учитель преподает каждый предмет</p>
+<pre><code class="sql">select day_of_week, subject.name, teacher.name as teacher_name from timetable right join teacher on timetable.id_teacher = teacher.id right join subject on timetable.id_subject = subject.id;
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>day_of_week</th>
+<th>name</th>
+<th>teacher_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Математика</td>
+<td>Марья Ивановна</td>
+</tr>
+</tbody>
+</table>
+<h4 id="11">11</h4>
+<p>Вывести имена учеников и их оценки</p>
+<pre><code class="sql">select name, mark from pupil right join marks on marks.id_pupil = id;
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>mark</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Михаил</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Михаил</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Александр</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<h4 id="12">12</h4>
+<p>Вывести букву, номер кабинета и предмет, который в нем преподают</p>
+<pre><code class="sql">select letter, number, subject.name from room right join timetable on timetable.id_room = room.id right join subject on id_subject = subject.id;
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>letter</th>
+<th>number</th>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NULL</td>
+<td>215</td>
+<td>Математика</td>
+</tr>
+<tr>
+<td>NULL</td>
+<td>101</td>
+<td>Русский язык</td>
+</tr>
+</tbody>
+</table></div>
             </div>
         </div>
 
@@ -646,5 +940,5 @@ delete from room where id = 0;
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2021-04-07 11:49:08.401305+00:00
+Build Date UTC : 2021-04-14 11:54:37.568378+00:00
 -->

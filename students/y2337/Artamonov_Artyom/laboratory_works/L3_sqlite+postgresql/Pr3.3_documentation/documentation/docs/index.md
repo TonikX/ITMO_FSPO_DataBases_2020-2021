@@ -163,41 +163,120 @@ delete from room where id = 0;
 ```
 
 ## Продвинутые запросы
+#### 1
+Вывести классы вместе с классными руководителями
 ```sql
 select * from class inner join teacher on teacher.id = class.id_teacher;
 ```
+| id | id_teacher  |  letter | year | id | name           | is_classroom_teacher | id_room |
+|----|-------------|---------|------|----|----------------|----------------------|---------|
+| 1  | 1           | А       |  9   |  1 |"Мария Ивановна"|         1            |  215    |
 
-Вывести классы вместе с классными руководителями
+#### 2
+Вывести всех мальчиков в классе с id = 1
 ```sql
 select * from pupil where pupil.gender = 'male' and id_class = 1;
 ```
-Вывести всех мальчиков в классе с id = 1
+| id | name      | gender | id_class |
+|----|-----------|--------|----------|
+| 1  | Михаил    | male   | 1        |
+| 2  | Валерий   | male   | 1        |
+| 3  | Александр | male   | 1        |
+
+#### 3
+Вывести год и маленькую букву всех классов
 ```sql
 select year, lower(letter) as letter from class;
 ```
-Вывести год и маленькую букву всех классов
+| year | letter |
+|------|--------|
+| 9    | A      |
+
+#### 4
+Вывести предметы, которые ведет учитель с id = 0
 ```sql
 select distinct name from subject where id = (select id_subject from timetable where id_teacher = 0); 
 ```
-Вывести предметы, которые ведет учитель с id = 0
+| name       |
+|------------|
+| Математика |
+| Алгебра    |
+| Геометрия  |
+
+#### 5
+Вывести количество учитилей, работающих в школе
 ```sql
 select count(*) from teacher;
 ```
-Вывести количество учитилей, работающих в школе
+| count |
+|-------|
+| 10    |
+
+#### 6
+Вывести средний бал студентов, у которых он ниже 4,5
 ```sql
 select id_pupil, avg(mark) from marks group by id_pupil having avg(mark) < 4.5;
 ```
-Вывести средний бал студентов, у которых он ниже 4,5
+| id_pupil | avg  |
+|----------|------|
+| 2        | 4.47 |
+| 3        | 4.49 |
+
+#### 7
+Вывести учителей, которые являются классными руководителями
 ```sql
 select * from teacher where exists(select 1 from class where id_teacher = id);
 ```
-Вывести учителей, которые являются классными руководителями
-```sql
-select * from pupil except select * from pupil where gender = 'female';
-```
+| id | name                    | is_classroom_teacher | id_room |
+|----|-------------------------|----------------------|---------|
+| 1  | Марья Ивановна          | 1                    | 215     |
+| 3  | Валентина Александровна | 1                    | 101     |
+
+#### 8
 Вывести всех мальчиков
+```sql
+select * from pupil except select * from pupil where gender = 'male';
+```
+| id | name    | gender | id_class |
+|----|---------|--------|----------|
+| 1  | Михаил  | male   | 1        |
+| 2  | Валерий | male   | 1        |
+
+#### 9
+Вывести классы вместе с классными руководителями
 ```sql
 select * from teacher right join class on class.id_teacher = teacher.id;
 ```
-Вывести классы вместе с классными руководителями
+| id | name           | is_classroom_teacher | id_room | id | id_teacher | letter | year |
+|----|----------------|----------------------|---------|----|------------|--------|------|
+| 1  | Марья Ивановна | 1                    | 1       | 1  | 1          | А      | 9    |
 
+#### 10
+Вывести дни недели, по которым каждый учитель преподает каждый предмет
+```sql
+select day_of_week, subject.name, teacher.name as teacher_name from timetable right join teacher on timetable.id_teacher = teacher.id right join subject on timetable.id_subject = subject.id;
+```
+| day_of_week | name       | teacher_name   |
+|-------------|------------|----------------|
+| 1           | Математика | Марья Ивановна |
+
+#### 11
+Вывести имена учеников и их оценки
+```sql
+select name, mark from pupil right join marks on marks.id_pupil = id;
+```
+| name      | mark |
+|-----------|------|
+| Михаил    | 5    |
+| Михаил    | 4    |
+| Александр | 4    |
+
+#### 12
+Вывести букву, номер кабинета и предмет, который в нем преподают
+```sql
+select letter, number, subject.name from room right join timetable on timetable.id_room = room.id right join subject on id_subject = subject.id;
+```
+| letter | number | name         |
+|--------|--------|--------------|
+| NULL   | 215    | Математика   |
+| NULL   | 101    | Русский язык |
