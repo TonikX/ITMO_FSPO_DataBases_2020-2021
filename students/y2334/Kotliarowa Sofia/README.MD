@@ -33,7 +33,7 @@
 | Практическая работа 3.1 | [Работа с SQLite](https://github.com/sofkot/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2334/Kotliarowa%20Sofia/Pr3.1_SQLite) |
 | Практическая работа 3.2 | [Работа в PostgreSQL](https://github.com/sofkot/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2334/Kotliarowa%20Sofia/Pr3.2_PostgreSQL) |
 | Лабораторная часть (код) | [Работа с SQL Shell (psql)](https://github.com/sofkot/ITMO_FSPO_DataBases_2020-2021/blob/master/students/y2334/Kotliarowa%20Sofia/LR_3/db.sql) |
-| Лабораторная часть (документация) | [Документация к коду ЛР3](https://github.com/sofkot/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2334/Kotliarowa%20Sofia/LR_3/docs) |
+| Лабораторная часть (документация) | [Документация к коду ЛР3](https://sofkot.github.io/clinika/) |
 
 <br>
 
