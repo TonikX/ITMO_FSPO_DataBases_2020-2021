@@ -10,7 +10,7 @@
 
 POSTGRE version `13.1`
 
-## **Breed**
+## **1.Breed**
 
 | name           | type           | primary key    | unique  | not null | references          |
 |:-------------- |:-----------    |:-------------- |:--------|:---------|:------------------- |
@@ -20,13 +20,25 @@ POSTGRE version `13.1`
 
 ### **Creation**
 
-`create table breed(breed_id int primary key, average_kpd int, average_weight int);`
+```
+create table breed(
+	breed_id int primary key, 
+	average_kpd int, 
+	average_weight int
+);
+```
 
 ### **Commands**
 
-`insert into breed values (1,2,3);`
+```
+insert into breed values (
+	1,
+	2,
+	3
+);
+```
 
-## **Diet**
+## **2.Diet**
 
 | name           | type           | primary key    | unique  | not null | references          |
 |:-------------- |:-----------    |:-------------- |:--------|:---------|:------------------- |
@@ -37,13 +49,28 @@ POSTGRE version `13.1`
 
 ### **Creation**
 
-`create table diet (diet_id int primary key, content varchar(40), season varchar(40), breed int, foreign key (breed) references breed (breed_id));`
+```
+create table diet (
+	diet_id int primary key, 
+	content varchar(40), 
+	season varchar(40), 
+	breed int, 
+	foreign key (breed) references breed (breed_id)
+);
+```
 
 ### **Commands**
 
-`insert into diet values (1, "2", "3", 1)`
+```
+insert into diet values (
+	1, 
+	"2", 
+	"3", 
+	1
+);
+```
 
-## **Chicken**
+## **3.Chicken**
 
 | name           | type           | primary key    | unique  | not null | references          |
 |:-------------- |:-----------    |:-------------- |:--------|:---------|:------------------- |
@@ -56,13 +83,32 @@ POSTGRE version `13.1`
 
 ### **Creation**
 
-`create table chicken (chicken_id int primary key, weight int, age int, kpd int, place varchar(40), breed int, foreign key (breed) references breed (breed_id));`
+```
+create table chicken (
+	chicken_id int primary key, 
+	weight int, 
+	age int, 
+	kpd int, 
+	place varchar(40), 
+	breed int, 
+	foreign key (breed) references breed (breed_id)
+);
+```
 
 ### **Commands**
 
-`insert into diet values (1, 100, 10, 50, "here", 1)`
+```
+insert into diet values (
+	1, 
+	100, 
+	10, 
+	50, 
+	"here", 
+	1
+);
+```
 
-## **Worker**
+## **4.Worker**
 
 | name           | type           | primary key    | unique  | not null | references          |
 |:-------------- |:-----------    |:-------------- |:--------|:---------|:------------------- |
@@ -78,13 +124,37 @@ POSTGRE version `13.1`
 
 ### **Creation**
 
-`insert into worker (worker_id int primary key, passport varchar(40), passport_timing varchar(40), fio varchar(80), work_place varchar(40), salary int, doc int, fire boolean, hire date);`
+```
+create table worker (
+	worker_id int primary key,
+	passport varchar(40), 
+	passport_timing varchar(40), 
+	fio varchar(80), 
+	work_place varchar(40), 
+	salary int, 
+	doc int, 
+	fire boolean, 
+	hire date
+);
+```
 
 ### **Commands**
 
-`insert into diet values (1, "133333", "12.02.2020", "Antonov Anton Antonovich", "here", 15000, 123, false, "12.03.2019")`
+```
+insert into diet values (
+	1, 
+	"133333", 
+	"12.02.2020", 
+	"Antonov Anton Antonovich", 
+	"here", 
+	15000, 
+	123, 
+	false, 
+	"12.03.2019"
+);
+```
 
-## **Department**
+## **5.Department**
 
 | name           | type           | primary key    | unique  | not null | references          |
 |:-------------- |:-----------    |:-------------- |:--------|:---------|:------------------- |
@@ -94,13 +164,25 @@ POSTGRE version `13.1`
 
 ### **Creation**
 
-`insert into department (department_id int primary key, capacity int, address varchar(40));`
+```
+create table department (
+	department_id int primary key, 
+	capacity int, 
+	address varchar(40)
+);
+```
 
 ### **Commands**
 
-`insert into diet values (1, 100, "Pushkin's st.")`
+```
+insert into diet values (
+	1, 
+	100, 
+	"Pushkin's st."
+);
+```
 
-## **Cell**
+## **6.Cell**
 
 | name           | type           | primary key    | unique  | not null | references                 |
 |:-------------- |:-----------    |:-------------- |:--------|:---------|:-------------------        |
@@ -111,13 +193,28 @@ POSTGRE version `13.1`
 
 ### **Creation**
 
-`insert into cell (cell_id int primary key, row int, cell int, department int, foreign key (department) references department (department_id));`
+```
+create teble cell (
+	cell_id int primary key, 
+	row int, 
+	cell int, 
+	department int, 
+	foreign key (department) references department (department_id)
+);
+```
 
 ### **Commands**
 
-`insert into diet values (1, 2, 3, 1)`
+```
+insert into diet values (
+	1, 
+	2, 
+	3, 
+	1
+);
+```
 
-## **Cleaning**
+## **7.Cleaning**
 
 | name           | type           | primary key    | unique  | not null | references                 |
 |:-------------- |:-----------    |:-------------- |:--------|:---------|:-------------------        |
@@ -127,13 +224,28 @@ POSTGRE version `13.1`
 
 ### **Creation**
 
-`insert into cleaning (cleaning_id int primary key, cell int, worker int, foreign key (cell) references cell (cell_id), foreign key (worker) references worker (worker_id));`
+```
+create table cleaning (
+	cleaning_id int primary key, 
+	cell int, 
+	worker int, 
+	foreign key (cell) references cell (cell_id), 
+	foreign key (worker) references worker (worker_id)
+);
+```
 
 ### **Commands**
 
-`insert into diet values (1, 1, 1, 1)`
+```
+insert into diet values (
+	1, 
+	1, 
+	1, 
+	1
+);
+```
 
-## **Maintenance**
+## **8.Maintenance**
 
 | name           | type           | primary key    | unique  | not null | references                 |
 |:-------------- |:-----------    |:-------------- |:--------|:---------|:-------------------        |
@@ -145,8 +257,26 @@ POSTGRE version `13.1`
 
 ### **Creation**
 
-`insert into maintenance (maintenance_id int primary key, in_d date, out_d date, cell int, chicken int, foreign key (cell) references cell (cell_id), foreign key (chicken) references chicken (chicken_id));`
+```
+create table maintenance (
+	maintenance_id int primary key, 
+	in_d date, 
+	out_d date, 
+	cell int, 
+	chicken int, 
+	foreign key (cell) references cell (cell_id), 
+	foreign key (chicken) references chicken (chicken_id)
+);
+```
 
 ### **Commands**
 
-`insert into diet values (1, "20.03.2018", "23.04.2018", 1, 1)`
+```
+insert into diet values (
+	1, 
+	"20.03.2018", 
+	"23.04.2018", 
+	1, 
+	1
+);
+```

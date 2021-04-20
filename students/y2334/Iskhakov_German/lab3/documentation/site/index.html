@@ -62,35 +62,35 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#breed" class="nav-link">Breed</a>
+            <li class="nav-item" data-level="2"><a href="#1breed" class="nav-link">1.Breed</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#diet" class="nav-link">Diet</a>
+            <li class="nav-item" data-level="2"><a href="#2diet" class="nav-link">2.Diet</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#chicken" class="nav-link">Chicken</a>
+            <li class="nav-item" data-level="2"><a href="#3chicken" class="nav-link">3.Chicken</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#worker" class="nav-link">Worker</a>
+            <li class="nav-item" data-level="2"><a href="#4worker" class="nav-link">4.Worker</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#department" class="nav-link">Department</a>
+            <li class="nav-item" data-level="2"><a href="#5department" class="nav-link">5.Department</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#cell" class="nav-link">Cell</a>
+            <li class="nav-item" data-level="2"><a href="#6cell" class="nav-link">6.Cell</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#cleaning" class="nav-link">Cleaning</a>
+            <li class="nav-item" data-level="2"><a href="#7cleaning" class="nav-link">7.Cleaning</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#maintenance" class="nav-link">Maintenance</a>
+            <li class="nav-item" data-level="2"><a href="#8maintenance" class="nav-link">8.Maintenance</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -107,13 +107,15 @@
 <p><img alt="1" src="preview.png" /></p>
 <h2 id="_2"><strong>На чем?</strong></h2>
 <p>POSTGRE version <code>13.1</code></p>
-<h2 id="breed"><strong>Breed</strong></h2>
+<h2 id="1breed"><strong>1.Breed</strong></h2>
 <table>
 <thead>
 <tr>
 <th align="left">name</th>
 <th align="left">type</th>
 <th align="left">primary key</th>
+<th align="left">unique</th>
+<th align="left">not null</th>
 <th align="left">references</th>
 </tr>
 </thead>
@@ -122,11 +124,15 @@
 <td align="left">breed_id</td>
 <td align="left"><code>int</code></td>
 <td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
 <td align="left"><code>null</code></td>
 </tr>
 <tr>
 <td align="left">average_kpd</td>
 <td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
@@ -134,21 +140,35 @@
 <td align="left">average_weight</td>
 <td align="left"><code>int</code></td>
 <td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
 </tbody>
 </table>
 <h3 id="creation"><strong>Creation</strong></h3>
-<p><code>create table breed(breed_id int primary key, average_kpd int, average_weight int);</code></p>
+<pre><code>create table breed(
+    breed_id int primary key, 
+    average_kpd int, 
+    average_weight int
+);
+</code></pre>
 <h3 id="commands"><strong>Commands</strong></h3>
-<p><code>insert into breed values (1,2,3);</code></p>
-<h2 id="diet"><strong>Diet</strong></h2>
+<pre><code>insert into breed values (
+    1,
+    2,
+    3
+);
+</code></pre>
+<h2 id="2diet"><strong>2.Diet</strong></h2>
 <table>
 <thead>
 <tr>
 <th align="left">name</th>
 <th align="left">type</th>
 <th align="left">primary key</th>
+<th align="left">unique</th>
+<th align="left">not null</th>
 <th align="left">references</th>
 </tr>
 </thead>
@@ -157,11 +177,15 @@
 <td align="left">diet_id</td>
 <td align="left"><code>int</code></td>
 <td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
 <td align="left"><code>null</code></td>
 </tr>
 <tr>
 <td align="left">content</td>
 <td align="left"><code>varchar(40)</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
@@ -169,27 +193,46 @@
 <td align="left">season</td>
 <td align="left"><code>varchar(40)</code></td>
 <td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
 <tr>
 <td align="left">breed</td>
 <td align="left"><code>int</code></td>
 <td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>Breed.breed_id</code></td>
 </tr>
 </tbody>
 </table>
 <h3 id="creation_1"><strong>Creation</strong></h3>
-<p><code>create table diet (diet_id int primary key, content varchar(40), season varchar(40), breed int, foreign key (breed) references breed (breed_id));</code></p>
+<pre><code>create table diet (
+    diet_id int primary key, 
+    content varchar(40), 
+    season varchar(40), 
+    breed int, 
+    foreign key (breed) references breed (breed_id)
+);
+</code></pre>
 <h3 id="commands_1"><strong>Commands</strong></h3>
-<p><code>insert into diet values (1, "2", "3", 1)</code></p>
-<h2 id="chicken"><strong>Chicken</strong></h2>
+<pre><code>insert into diet values (
+    1, 
+    &quot;2&quot;, 
+    &quot;3&quot;, 
+    1
+);
+</code></pre>
+<h2 id="3chicken"><strong>3.Chicken</strong></h2>
 <table>
 <thead>
 <tr>
 <th align="left">name</th>
 <th align="left">type</th>
 <th align="left">primary key</th>
+<th align="left">unique</th>
+<th align="left">not null</th>
 <th align="left">references</th>
 </tr>
 </thead>
@@ -198,11 +241,15 @@
 <td align="left">chicken_id</td>
 <td align="left"><code>int</code></td>
 <td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
 <td align="left"><code>null</code></td>
 </tr>
 <tr>
 <td align="left">weight</td>
 <td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
@@ -210,11 +257,15 @@
 <td align="left">age</td>
 <td align="left"><code>int</code></td>
 <td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
 <tr>
 <td align="left">kpd</td>
 <td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
@@ -222,27 +273,50 @@
 <td align="left">place</td>
 <td align="left"><code>varchar(40)</code></td>
 <td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
 <tr>
 <td align="left">breed</td>
 <td align="left"><code>int</code></td>
 <td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>Breed.breed_id</code></td>
 </tr>
 </tbody>
 </table>
 <h3 id="creation_2"><strong>Creation</strong></h3>
-<p><code>create table chicken (chicken_id int primary key, weight int, age int, kpd int, place varchar(40), breed int, foreign key (breed) references breed (breed_id));</code></p>
+<pre><code>create table chicken (
+    chicken_id int primary key, 
+    weight int, 
+    age int, 
+    kpd int, 
+    place varchar(40), 
+    breed int, 
+    foreign key (breed) references breed (breed_id)
+);
+</code></pre>
 <h3 id="commands_2"><strong>Commands</strong></h3>
-<p><code>insert into diet values (1, 100, 10, 50, "here", 1)</code></p>
-<h2 id="worker"><strong>Worker</strong></h2>
+<pre><code>insert into diet values (
+    1, 
+    100, 
+    10, 
+    50, 
+    &quot;here&quot;, 
+    1
+);
+</code></pre>
+<h2 id="4worker"><strong>4.Worker</strong></h2>
 <table>
 <thead>
 <tr>
 <th align="left">name</th>
 <th align="left">type</th>
 <th align="left">primary key</th>
+<th align="left">unique</th>
+<th align="left">not null</th>
 <th align="left">references</th>
 </tr>
 </thead>
@@ -251,11 +325,15 @@
 <td align="left">worker_id</td>
 <td align="left"><code>int</code></td>
 <td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
 <td align="left"><code>null</code></td>
 </tr>
 <tr>
 <td align="left">passport</td>
 <td align="left"><code>varchar(40)</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
@@ -263,11 +341,15 @@
 <td align="left">passport_timing</td>
 <td align="left"><code>varchar(40)</code></td>
 <td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
 <tr>
 <td align="left">fio</td>
 <td align="left"><code>varchar(80)</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
@@ -275,11 +357,15 @@
 <td align="left">work_place</td>
 <td align="left"><code>varchar(40)</code></td>
 <td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
 <tr>
 <td align="left">salary</td>
 <td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
@@ -287,11 +373,15 @@
 <td align="left">doc</td>
 <td align="left"><code>int</code></td>
 <td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
 <tr>
 <td align="left">fire</td>
 <td align="left"><code>boolean</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
@@ -299,21 +389,47 @@
 <td align="left">hire</td>
 <td align="left"><code>date</code></td>
 <td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
 </tbody>
 </table>
 <h3 id="creation_3"><strong>Creation</strong></h3>
-<p><code>insert into worker (worker_id int primary key, passport varchar(40), passport_timing varchar(40), fio varchar(80), work_place varchar(40), salary int, doc int, fire boolean, hire date);</code></p>
+<pre><code>create table worker (
+    worker_id int primary key,
+    passport varchar(40), 
+    passport_timing varchar(40), 
+    fio varchar(80), 
+    work_place varchar(40), 
+    salary int, 
+    doc int, 
+    fire boolean, 
+    hire date
+);
+</code></pre>
 <h3 id="commands_3"><strong>Commands</strong></h3>
-<p><code>insert into diet values (1, "133333", "12.02.2020", "Antonov Anton Antonovich", "here", 15000, 123, false, "12.03.2019")</code></p>
-<h2 id="department"><strong>Department</strong></h2>
+<pre><code>insert into diet values (
+    1, 
+    &quot;133333&quot;, 
+    &quot;12.02.2020&quot;, 
+    &quot;Antonov Anton Antonovich&quot;, 
+    &quot;here&quot;, 
+    15000, 
+    123, 
+    false, 
+    &quot;12.03.2019&quot;
+);
+</code></pre>
+<h2 id="5department"><strong>5.Department</strong></h2>
 <table>
 <thead>
 <tr>
 <th align="left">name</th>
 <th align="left">type</th>
 <th align="left">primary key</th>
+<th align="left">unique</th>
+<th align="left">not null</th>
 <th align="left">references</th>
 </tr>
 </thead>
@@ -322,11 +438,15 @@
 <td align="left">department_id</td>
 <td align="left"><code>int</code></td>
 <td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
 <td align="left"><code>null</code></td>
 </tr>
 <tr>
 <td align="left">capacity</td>
 <td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
@@ -334,21 +454,35 @@
 <td align="left">address</td>
 <td align="left"><code>varchar(40)</code></td>
 <td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
 </tbody>
 </table>
 <h3 id="creation_4"><strong>Creation</strong></h3>
-<p><code>insert into department (department_id int primary key, capacity int, address varchar(40));</code></p>
+<pre><code>create table department (
+    department_id int primary key, 
+    capacity int, 
+    address varchar(40)
+);
+</code></pre>
 <h3 id="commands_4"><strong>Commands</strong></h3>
-<p><code>insert into diet values (1, 100, "Pushkin's st.")</code></p>
-<h2 id="cell"><strong>Cell</strong></h2>
+<pre><code>insert into diet values (
+    1, 
+    100, 
+    &quot;Pushkin's st.&quot;
+);
+</code></pre>
+<h2 id="6cell"><strong>6.Cell</strong></h2>
 <table>
 <thead>
 <tr>
 <th align="left">name</th>
 <th align="left">type</th>
 <th align="left">primary key</th>
+<th align="left">unique</th>
+<th align="left">not null</th>
 <th align="left">references</th>
 </tr>
 </thead>
@@ -357,11 +491,15 @@
 <td align="left">cell_id</td>
 <td align="left"><code>int</code></td>
 <td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
 <td align="left"><code>null</code></td>
 </tr>
 <tr>
 <td align="left">row</td>
 <td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
@@ -369,27 +507,46 @@
 <td align="left">cell</td>
 <td align="left"><code>int</code></td>
 <td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
 <tr>
 <td align="left">department</td>
 <td align="left"><code>int</code></td>
 <td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>Department.department_id</code></td>
 </tr>
 </tbody>
 </table>
 <h3 id="creation_5"><strong>Creation</strong></h3>
-<p><code>insert into cell (cell_id int primary key, row int, cell int, department int, foreign key (department) references department (department_id));</code></p>
+<pre><code>create teble cell (
+    cell_id int primary key, 
+    row int, 
+    cell int, 
+    department int, 
+    foreign key (department) references department (department_id)
+);
+</code></pre>
 <h3 id="commands_5"><strong>Commands</strong></h3>
-<p><code>insert into diet values (1, 2, 3, 1)</code></p>
-<h2 id="cleaning"><strong>Cleaning</strong></h2>
+<pre><code>insert into diet values (
+    1, 
+    2, 
+    3, 
+    1
+);
+</code></pre>
+<h2 id="7cleaning"><strong>7.Cleaning</strong></h2>
 <table>
 <thead>
 <tr>
 <th align="left">name</th>
 <th align="left">type</th>
 <th align="left">primary key</th>
+<th align="left">unique</th>
+<th align="left">not null</th>
 <th align="left">references</th>
 </tr>
 </thead>
@@ -398,11 +555,15 @@
 <td align="left">cleaning_id</td>
 <td align="left"><code>int</code></td>
 <td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
 <td align="left"><code>null</code></td>
 </tr>
 <tr>
 <td align="left">cell</td>
 <td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>false</code></td>
 <td align="left"><code>Cell.cell_id</code></td>
 </tr>
@@ -410,21 +571,38 @@
 <td align="left">worker</td>
 <td align="left"><code>int</code></td>
 <td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>Worker.worker_id</code></td>
 </tr>
 </tbody>
 </table>
 <h3 id="creation_6"><strong>Creation</strong></h3>
-<p><code>insert into cleaning (cleaning_id int primary key, cell int, worker int, foreign key (cell) references cell (cell_id), foreign key (worker) references worker (worker_id));</code></p>
+<pre><code>create table cleaning (
+    cleaning_id int primary key, 
+    cell int, 
+    worker int, 
+    foreign key (cell) references cell (cell_id), 
+    foreign key (worker) references worker (worker_id)
+);
+</code></pre>
 <h3 id="commands_6"><strong>Commands</strong></h3>
-<p><code>insert into diet values (1, 1, 1, 1)</code></p>
-<h2 id="maintenance"><strong>Maintenance</strong></h2>
+<pre><code>insert into diet values (
+    1, 
+    1, 
+    1, 
+    1
+);
+</code></pre>
+<h2 id="8maintenance"><strong>8.Maintenance</strong></h2>
 <table>
 <thead>
 <tr>
 <th align="left">name</th>
 <th align="left">type</th>
 <th align="left">primary key</th>
+<th align="left">unique</th>
+<th align="left">not null</th>
 <th align="left">references</th>
 </tr>
 </thead>
@@ -433,11 +611,15 @@
 <td align="left">maintenance_id</td>
 <td align="left"><code>int</code></td>
 <td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
 <td align="left"><code>null</code></td>
 </tr>
 <tr>
 <td align="left">in_d</td>
 <td align="left"><code>date</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
@@ -445,11 +627,15 @@
 <td align="left">out_d</td>
 <td align="left"><code>date</code></td>
 <td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>null</code></td>
 </tr>
 <tr>
 <td align="left">cell</td>
 <td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>false</code></td>
 <td align="left"><code>Cell.cell_id</code></td>
 </tr>
@@ -457,14 +643,32 @@
 <td align="left">chicken</td>
 <td align="left"><code>int</code></td>
 <td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
 <td align="left"><code>Chicken.chicken_id</code></td>
 </tr>
 </tbody>
 </table>
 <h3 id="creation_7"><strong>Creation</strong></h3>
-<p><code>insert into maintenance (maintenance_id int primary key, in_d date, out_d date, cell int, chicken int, foreign key (cell) references cell (cell_id), foreign key (chicken) references chicken (chicken_id));</code></p>
+<pre><code>create table maintenance (
+    maintenance_id int primary key, 
+    in_d date, 
+    out_d date, 
+    cell int, 
+    chicken int, 
+    foreign key (cell) references cell (cell_id), 
+    foreign key (chicken) references chicken (chicken_id)
+);
+</code></pre>
 <h3 id="commands_7"><strong>Commands</strong></h3>
-<p><code>insert into diet values (1, "20.03.2018", "23.04.2018", 1, 1)</code></p></div>
+<pre><code>insert into diet values (
+    1, 
+    &quot;20.03.2018&quot;, 
+    &quot;23.04.2018&quot;, 
+    1, 
+    1
+);
+</code></pre></div>
             </div>
         </div>
 
@@ -548,5 +752,5 @@
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2021-03-17 19:39:15.151452+00:00
+Build Date UTC : 2021-03-24 13:09:36.457121+00:00
 -->

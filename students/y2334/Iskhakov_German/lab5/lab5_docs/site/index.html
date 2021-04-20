@@ -1,0 +1,974 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.2">
+    
+    
+      
+        <title>Lab 5</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.6f955dcd.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ef6f36e2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#requests" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Lab 5" class="md-header__button md-logo" aria-label="Lab 5" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Lab 5
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Requests
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Lab 5" class="md-nav__button md-logo" aria-label="Lab 5" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Lab 5
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Requests
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        Requests
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="requests">Requests</h1>
+<h1 id="result-31">Result: 31</h1>
+<h2 id="request-1">Request 1</h2>
+<p>Вывести всю информацию из таблиц chicken и breed совместно.</p>
+<pre><code>select * from chicken, breed order by chicken;
+</code></pre>
+<h2 id="result">Result</h2>
+<table>
+<thead>
+<tr>
+<th>chicken_id</th>
+<th>weight</th>
+<th>age</th>
+<th>kpd</th>
+<th>place</th>
+<th>breed</th>
+<th>breed_id</th>
+<th>average_kpd</th>
+<th>average_weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>100</td>
+<td>10</td>
+<td>30</td>
+<td>Here</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>1</td>
+<td>100</td>
+<td>10</td>
+<td>30</td>
+<td>Here</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>1</td>
+<td>100</td>
+<td>10</td>
+<td>30</td>
+<td>Here</td>
+<td>1</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>10</td>
+<td>100</td>
+<td>60</td>
+<td>Here</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>10</td>
+<td>100</td>
+<td>60</td>
+<td>Here</td>
+<td>2</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>10</td>
+<td>100</td>
+<td>60</td>
+<td>Here</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>200</td>
+<td>50</td>
+<td>50</td>
+<td>Here</td>
+<td>3</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>200</td>
+<td>50</td>
+<td>50</td>
+<td>Here</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>200</td>
+<td>50</td>
+<td>50</td>
+<td>Here</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h3 id="score-1-1">score += 1 (1)</h3>
+<h2 id="request-2">Request 2</h2>
+<p>Вывести информацию о содержании курицы с id = 1 </p>
+<pre><code>select * from maintenance, chicken where chicken = 1 and chicken_id = 1;
+</code></pre>
+<h2 id="result_1">Result</h2>
+<table>
+<thead>
+<tr>
+<th>maintenance_id</th>
+<th>in_d</th>
+<th>out_d</th>
+<th>cell</th>
+<th>chicken</th>
+<th>chicken_id</th>
+<th>weight</th>
+<th>age</th>
+<th>kpd</th>
+<th>place</th>
+<th>breed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2018-03-20</td>
+<td>2018-04-23</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>100</td>
+<td>10</td>
+<td>30</td>
+<td>Here</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="score-1-2">score += 1 (2)</h3>
+<h2 id="request-3">Request 3</h2>
+<p>Вывести информацию о содержании курицы с id = 1 и датой заселения в марте</p>
+<pre><code>select * from maintenance where (select extract(month from in_d) = 3) and chicken = 1;
+</code></pre>
+<h2 id="result_2">Result</h2>
+<table>
+<thead>
+<tr>
+<th>maintenance_id</th>
+<th>in_d</th>
+<th>out_d</th>
+<th>cell</th>
+<th>chicken</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2018-03-20</td>
+<td>2018-04-23</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="score-2-4">score += 2 (4)</h3>
+<h2 id="request-4">Request 4</h2>
+<p>Вывести информацию о id и местонахождении курицы</p>
+<pre><code>select concat(chicken_id, ' - ', place) as id_place from chicken;
+</code></pre>
+<h2 id="result_3">Result</h2>
+<h2 id="id_place">id_place</h2>
+<p>1 - Here
+ 2 - Here
+ 3 - Here</p>
+<h3 id="score-2-6">score += 2 (6)</h3>
+<h2 id="request-5">Request 5</h2>
+<p>Вывести информацию о породе курицы с id 2</p>
+<pre><code> select * from breed where breed_id in (select breed from chicken where chicken_id = 2);
+</code></pre>
+<h2 id="result_4">Result</h2>
+<table>
+<thead>
+<tr>
+<th>breed_id</th>
+<th>average_kpd</th>
+<th>average_weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h3 id="score-2-8">score += 2 (8)</h3>
+<h2 id="request-6">Request 6</h2>
+<p>Вывести информацию о породе курицы с расположением в клетке 1</p>
+<pre><code> select * from breed where breed_id in (select breed from chicken where chicken_id in (select chicken from maintenance where cell = 1));
+</code></pre>
+<h2 id="result_5">Result</h2>
+<table>
+<thead>
+<tr>
+<th>breed_id</th>
+<th>average_kpd</th>
+<th>average_weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h3 id="score-2-10">score += 2 (10)</h3>
+<h2 id="request-7">Request 7</h2>
+<p>Вывести информацию о весе куриц с породой 1 и примерном весе куриц с породой 1</p>
+<pre><code> select sum(weight) as current, sum(average_weight) as target from chicken, breed where breed_id = 1;
+</code></pre>
+<h2 id="result_6">Result</h2>
+<table>
+<thead>
+<tr>
+<th>current</th>
+<th>target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>310</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<h3 id="score-2-12">score += 2 (12)</h3>
+<p>## Request 8</p>
+<p>Вывести информацию о весе куриц, которые весят меньше 150</p>
+<pre><code> select chicken_id, sum(weight) as current from chicken group by chicken_id having sum(weight) &lt; 150 order by chicken_id;
+</code></pre>
+<h2 id="result_7">Result</h2>
+<table>
+<thead>
+<tr>
+<th>chicken_id</th>
+<th>current</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>100</td>
+</tr>
+<tr>
+<td>2</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<h3 id="score-2-14">score += 2 (14)</h3>
+<p>## Request 9</p>
+<p>Вывести информацию курицах, размещенных в клетках</p>
+<pre><code>select distinct * from chicken where exists (select chicken from maintenance);
+</code></pre>
+<h2 id="result_8">Result</h2>
+<table>
+<thead>
+<tr>
+<th>chicken_id</th>
+<th>weight</th>
+<th>age</th>
+<th>kpd</th>
+<th>place</th>
+<th>breed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>100</td>
+<td>10</td>
+<td>30</td>
+<td>Here</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>200</td>
+<td>50</td>
+<td>50</td>
+<td>Here</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>10</td>
+<td>100</td>
+<td>60</td>
+<td>Here</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="score-2-16">score += 2 (16)</h3>
+<p>## Request 10</p>
+<p>Вывести информацию о курицах, обгоняющих породу по весу</p>
+<pre><code>select chicken_id, weight from chicken where weight &gt; all (select average_weight from breed);
+</code></pre>
+<h2 id="result_9">Result</h2>
+<table>
+<thead>
+<tr>
+<th>chicken_id</th>
+<th>weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>100</td>
+</tr>
+<tr>
+<td>2</td>
+<td>10</td>
+</tr>
+<tr>
+<td>3</td>
+<td>200</td>
+</tr>
+</tbody>
+</table>
+<h3 id="score-2-18">score += 2 (18)</h3>
+<p>## Request 11</p>
+<p>Вывести информацию о курицах, которых не заселили</p>
+<pre><code>select distinct * from chicken where not chicken_id = some (select chicken from maintenance);
+</code></pre>
+<h2 id="result_10">Result</h2>
+<table>
+<thead>
+<tr>
+<th>chicken_id</th>
+<th>weight</th>
+<th>age</th>
+<th>kpd</th>
+<th>place</th>
+<th>breed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="score-2-20">score += 2 (20)</h3>
+<p>## Request 12</p>
+<p>Вывести информацию о диете для породы 3 и времени года - Весны</p>
+<pre><code>select * from diet where breed = 3 intersect select * from diet where season = 'Spring';
+</code></pre>
+<h2 id="result_11">Result</h2>
+<table>
+<thead>
+<tr>
+<th>diet_id</th>
+<th>content</th>
+<th>season</th>
+<th>breed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Cool</td>
+<td>Spring</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h3 id="score-2-22">score += 2 (22)</h3>
+<p>## Request 13</p>
+<p>Вывести информацию о диете для породы 3 и времени года - не Лета</p>
+<pre><code>select * from diet where breed = 3 except select * from diet where season = 'Summer';
+</code></pre>
+<h2 id="result_12">Result</h2>
+<table>
+<thead>
+<tr>
+<th>diet_id</th>
+<th>content</th>
+<th>season</th>
+<th>breed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Cool</td>
+<td>Spring</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h3 id="score-2-24">score += 2 (24)</h3>
+<p>## Request 14</p>
+<p>Вывести объединенную информацию о работнике и уборке</p>
+<pre><code>select worker_id from worker union all select cell from cleaning;
+</code></pre>
+<h2 id="result_13">Result</h2>
+<h2 id="worker_id">worker_id</h2>
+<pre><code>     1
+     2
+     3
+     1
+     2
+     3
+</code></pre>
+<h3 id="score-2-26">score += 2 (26)</h3>
+<p>## Request 15</p>
+<p>Вывести объединенную информацию о диете и породе</p>
+<pre><code>select * from breed left join diet on diet.breed = breed_id;
+</code></pre>
+<h2 id="result_14">Result</h2>
+<table>
+<thead>
+<tr>
+<th>breed_id</th>
+<th>average_kpd</th>
+<th>average_weight</th>
+<th>diet_id</th>
+<th>content</th>
+<th>season</th>
+<th>breed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>Cool</td>
+<td>Spring</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+<td>2</td>
+<td>Cooler</td>
+<td>Spring</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+<td>Best</td>
+<td>Summer</td>
+<td>3</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="score-2-28">score += 2 (28)</h3>
+<p>## Request 16</p>
+<p>Вывести объединенную информацию о диете, породе и курице</p>
+<pre><code>select * from chicken left join breed on chicken.breed = breed_id left join diet on diet.breed = breed_id order by chicken;
+</code></pre>
+<h2 id="result_15">Result</h2>
+<table>
+<thead>
+<tr>
+<th>chicken_id</th>
+<th>weight</th>
+<th>age</th>
+<th>kpd</th>
+<th>place</th>
+<th>breed</th>
+<th>breed_id</th>
+<th>average_kpd</th>
+<th>average_weight</th>
+<th>diet_id</th>
+<th>content</th>
+<th>season</th>
+<th>breed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>100</td>
+<td>10</td>
+<td>30</td>
+<td>Here</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>10</td>
+<td>100</td>
+<td>60</td>
+<td>Here</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+<td>2</td>
+<td>Cooler</td>
+<td>Spring</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>200</td>
+<td>50</td>
+<td>50</td>
+<td>Here</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>Cool</td>
+<td>Spring</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>200</td>
+<td>50</td>
+<td>50</td>
+<td>Here</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+<td>Best</td>
+<td>Summer</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h3 id="score-2-30">score += 2 (30)</h3>
+<p>## Request 17 (полировочный)</p>
+<p>Вывести вообще все</p>
+<pre><code>select * from diet, breed, chicken, maintenance, cell, worker, cleaning, department;
+</code></pre>
+<h2 id="result_16">Result</h2>
+<table>
+<thead>
+<tr>
+<th>diet_id</th>
+<th>content</th>
+<th>season</th>
+<th>breed</th>
+<th>breed_id</th>
+<th>average_kpd</th>
+<th>average_weight</th>
+<th>chicken_id</th>
+<th>weight</th>
+<th>age</th>
+<th>kpd</th>
+<th>place</th>
+<th>breed</th>
+<th>maintenance_id</th>
+<th>in_d</th>
+<th>out_d</th>
+<th>cell</th>
+<th>chicken</th>
+<th>cell_id</th>
+<th>row</th>
+<th>cell</th>
+<th>department</th>
+<th>worker_id</th>
+<th>passport</th>
+<th>passport_timing</th>
+<th>fio</th>
+<th>work_place</th>
+<th>salary</th>
+<th>doc</th>
+<th>fire</th>
+<th>hire</th>
+<th>cleaning_id</th>
+<th>cell</th>
+<th>worker</th>
+<th>department_id</th>
+<th>capacity</th>
+<th>address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Бесконечность........</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="score-1-31">score += 1 (31)</h3>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.4ea5477f.min.js"></script>
+      
+    
+  </body>
+</html>
