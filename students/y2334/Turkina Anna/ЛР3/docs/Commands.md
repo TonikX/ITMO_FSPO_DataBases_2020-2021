@@ -1,7 +1,7 @@
 # Commands - команды
 
 ##INSERT Avtor
-                                            ^
+                                            
 1. insert into avtor values(1, 'Popov Ivan', 'miss, look book, mb i know you');
 
 2. insert into avtor values(2, 'Mr Dog', 'my book');
