@@ -1,0 +1,18 @@
+site_name: Park improvement system
+nav:
+    - Home: index.md
+    - Tables:
+        - plants: tables/plants.md
+        - plants_type: tables/plants_type.md
+        - watering_regime: tables/watering_regime.md
+        - timetable: tables/timetable.md
+        - decorator: tables/decorator.md
+        - decorator_objects: tables/decorator_objects.md
+        - object: tables/object.md
+        - zone: tables/zone.md
+        - plant_zone: tables/plant_zone.md
+    - Code:
+        - db create: code/createdb.md
+        - db insert: code/insert.md
+theme:
+    name: material
