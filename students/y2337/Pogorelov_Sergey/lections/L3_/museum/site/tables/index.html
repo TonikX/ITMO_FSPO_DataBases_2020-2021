@@ -279,6 +279,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    Передаваемый комплект
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    Список хранения
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -395,6 +409,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    Передаваемый комплект
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    Список хранения
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -424,7 +452,7 @@
 </thead>
 <tbody>
 <tr>
-<td align="center">id</td>
+<td align="center">id_author</td>
 <td align="center">int</td>
 <td align="center">+</td>
 <td align="center">-</td>
@@ -472,7 +500,7 @@
 </thead>
 <tbody>
 <tr>
-<td align="center">id</td>
+<td align="center">id_piece</td>
 <td align="center">int</td>
 <td align="center">+</td>
 <td align="center">-</td>
@@ -528,7 +556,7 @@
 </thead>
 <tbody>
 <tr>
-<td align="center">id</td>
+<td align="center">id_fond</td>
 <td align="center">int</td>
 <td align="center">+</td>
 <td align="center">-</td>
@@ -568,7 +596,7 @@
 </thead>
 <tbody>
 <tr>
-<td align="center">id</td>
+<td align="center">id_org</td>
 <td align="center">int</td>
 <td align="center">+</td>
 <td align="center">-</td>
@@ -624,7 +652,7 @@
 </thead>
 <tbody>
 <tr>
-<td align="center">id</td>
+<td align="center">id_exh</td>
 <td align="center">int</td>
 <td align="center">+</td>
 <td align="center">-</td>
@@ -656,7 +684,7 @@
 </thead>
 <tbody>
 <tr>
-<td align="center">id</td>
+<td align="center">id_contract</td>
 <td align="center">int</td>
 <td align="center">+</td>
 <td align="center">-</td>
@@ -697,6 +725,102 @@
 </tr>
 <tr>
 <td align="center">fin_date</td>
+<td align="center">date</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">Todays date</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_7">Передаваемый комплект</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Attribute</th>
+<th align="center">Type</th>
+<th align="center">PKey</th>
+<th align="center">FKey</th>
+<th align="center">Uniq</th>
+<th align="center">Constraints</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">id_set</td>
+<td align="center">int</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">&gt;0</td>
+</tr>
+<tr>
+<td align="center">id_piece</td>
+<td align="center">int</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">&gt;0</td>
+</tr>
+<tr>
+<td align="center">id_contract</td>
+<td align="center">int</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">&gt;0</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_8">Список хранения</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Attribute</th>
+<th align="center">Type</th>
+<th align="center">PKey</th>
+<th align="center">FKey</th>
+<th align="center">Uniq</th>
+<th align="center">Constraints</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">id_store</td>
+<td align="center">int</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">&gt;0</td>
+</tr>
+<tr>
+<td align="center">id_fond</td>
+<td align="center">int</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">&gt;0</td>
+</tr>
+<tr>
+<td align="center">id_piece</td>
+<td align="center">int</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">&gt;0</td>
+</tr>
+<tr>
+<td align="center">get_date</td>
+<td align="center">date</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">Todays date</td>
+</tr>
+<tr>
+<td align="center">drop_date</td>
 <td align="center">date</td>
 <td align="center">-</td>
 <td align="center">-</td>

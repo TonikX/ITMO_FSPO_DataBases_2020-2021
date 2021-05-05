@@ -291,6 +291,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    Передаваемый комплект
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    Список хранения
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -395,6 +409,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    Передаваемый комплект
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    Список хранения
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -418,7 +446,7 @@ CREATE TABLE &quot;author&quot; (
   id_author SERIAL PRIMARY KEY,
   birth_date varchar(255),
   name varchar(255) default NULL,
-  country varchar(100) default NULL
+  country varchar(100) default NULL,
 );
 </code></pre>
 <hr />
@@ -430,7 +458,7 @@ CREATE TABLE &quot;piece&quot; (
   piece_name varchar(255) default NULL,
   creation_date date,
   status varchar(10) default NULL,
-  id_author integer REFERENCES author(id_author)
+  id_author integer REFERENCES author(id_author),
 );
 </code></pre>
 <hr />
@@ -440,7 +468,7 @@ CREATE TABLE &quot;piece&quot; (
 CREATE TABLE &quot;fond&quot; (
   id_fond SERIAL PRIMARY KEY,
   fond_name varchar(255),
-  name varchar(255) default NULL
+  name varchar(255) default NULL,
 );
 </code></pre>
 <hr />
@@ -450,7 +478,7 @@ CREATE TABLE &quot;fond&quot; (
 CREATE TABLE &quot;org&quot; (
   id_org SERIAL PRIMARY KEY,
   org_name varchar(255),
-  name varchar(255) default NULL
+  name varchar(255) default NULL,
 );
 </code></pre>
 <hr />
@@ -459,7 +487,7 @@ CREATE TABLE &quot;org&quot; (
 
 CREATE TABLE &quot;exh&quot; (
   id_exh SERIAL PRIMARY KEY,
-  exh_name varchar(50) default NULL
+  exh_name varchar(50) default NULL,
 );
 </code></pre>
 <hr />
@@ -472,7 +500,29 @@ CREATE TABLE &quot;contract&quot; (
   id_org integer REFERENCES org(id_org),
   id_exh integer REFERENCES exh(id_exh),
   start_date date,
-  fin_date date
+  fin_date date,
+);
+</code></pre>
+<hr />
+<h2 id="_7">Передаваемый комплект</h2>
+<pre><code class="language-sql">DROP TABLE IF EXISTS &quot;set&quot;;
+
+CREATE TABLE `set` (
+  id_set SERIAL PRIMARY KEY,
+  id_piece integer REFERENCES piece(id_piece),
+  id_contract integer REFERENCES contract(id_contract),
+);
+</code></pre>
+<hr />
+<h2 id="_8">Список хранения</h2>
+<pre><code class="language-sql">DROP TABLE IF EXISTS &quot;store&quot;;
+
+CREATE TABLE `store` (
+  id_store SERIAL PRIMARY KEY,
+  id_fond integer REFERENCES fond(id_fond),
+  id_piece integer REFERENCES piece(id_piece),
+  get_date date,
+  drop_date date,
 );
 </code></pre>
 <hr />
