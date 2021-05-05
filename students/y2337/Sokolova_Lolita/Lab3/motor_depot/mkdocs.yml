@@ -13,5 +13,6 @@ nav:
     - Code:
         - db create: code/create.md
         - db insert: code/insert.md
+    - Queries: queries/queries.md
 theme:
     name: material
