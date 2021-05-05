@@ -18,3 +18,13 @@ CREATE TABLE public.redactor
     CONSTRAINT redactor_pkey PRIMARY KEY (id_redactor)
 );
 ```
+
+## Insert
+
+```
+1. insert into redactor values(1, 'Mary Smith');
+
+2. insert into redactor values(2, 'David Friy');
+
+3. insert into redactor values(3, 'Fraud Graund');
+```

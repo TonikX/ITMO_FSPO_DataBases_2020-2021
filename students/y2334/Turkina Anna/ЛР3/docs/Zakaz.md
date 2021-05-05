@@ -22,4 +22,13 @@ CREATE TABLE public.zakaz
 );
 ```
 
+## Insert
+
+```
+1. insert into zakaz values(1, 'Mr Draut','book for hjshf usduudh dughu', 'streets London');
+
+2. insert into zakaz values(2, 'Mr Kinin','book for hjshf usduudh dughu', 'My Love');
+
+3. insert into zakaz values(3, 'Mr Pouk','book for hjshf usduudh dughu', 'friday');
+```
 

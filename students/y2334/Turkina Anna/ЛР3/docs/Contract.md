@@ -27,3 +27,13 @@ CREATE TABLE public.contract
     CONSTRAINT contract_pkey PRIMARY KEY (id_contract)
 );
 ```
+
+## Insert
+
+```
+1. insert into contract values(1, 1, 1, 1, 2, '2020-12-12', 4650);
+
+2. insert into contract values(2, 2, 2, 2, 1, '2020-12-02', 7850);
+
+3. insert into contract values(3, 3, 3, 3, 3, '2021-03-29', 7420);
+```

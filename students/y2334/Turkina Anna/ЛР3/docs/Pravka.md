@@ -25,3 +25,12 @@ CREATE TABLE public.pravka
     CONSTRAINT pravka_pkey PRIMARY KEY (id_pravka)
 );
 ```
+## Insert
+
+```
+1. insert into pravka values(1, 1, 1, 1, 'uhdaufhfud uaufua');
+
+2. insert into pravka values(2, 2, 2, 2, 'uhdaufhfud uaufua');
+
+3. insert into pravka values(3, 3, 3, 3, 'uhdaufhfud uaufua');
+```

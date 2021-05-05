@@ -20,4 +20,12 @@ CREATE TABLE public.zakazchik
 );
 ```
 
+## Insert
 
+```
+1. insert into zakazchik values(1, 'David Marysteen', '1-fridom book');
+
+2. insert into zakazchik values(2, 'Alex Chesters', 'not find');
+
+3. insert into zakazchik values(3, 'Mariya Scoth', 'not find');
+```

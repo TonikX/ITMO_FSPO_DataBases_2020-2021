@@ -18,3 +18,12 @@ CREATE TABLE public.meneger
     CONSTRAINT meneger_pkey PRIMARY KEY (id_meneger)
 );
 ```
+## Insert
+
+```
+1. insert into meneger values(1, 'kamila linina');
+
+2. insert into meneger values(2, 'Nikita Andreev');
+
+3. insert into meneger values(3, 'Samil Jandercher');
+```

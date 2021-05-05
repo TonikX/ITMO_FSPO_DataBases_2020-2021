@@ -24,4 +24,12 @@ CREATE TABLE public.book
 );
 ```
 
+## Insert
 
+```
+1. insert into book values(1, 'miss', 'Popov Ivan', 'Maria Violetin');
+
+2. insert into book values(2, 'miss mamamia', 'Mr Black and Mr Dog', 'Alex Frintih');
+
+3. insert into book values(3, 'miss mamamia 2', 'Mr Black and Mr Dog', 'Alex Frintih');
+```
