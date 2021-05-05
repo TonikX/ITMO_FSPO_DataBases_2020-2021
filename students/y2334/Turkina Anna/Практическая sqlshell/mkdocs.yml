@@ -1,0 +1,15 @@
+site_name: LR_3_MkDocs
+nav:
+ - Home: Home.md
+ - "Avtor": Avtor.md
+ - "Book": Book.md
+ - "Redactor": Redactor.md
+ - "Meneger": Meneger.md
+ - "Contract": Contract.md
+ - "Zakaz": Zakaz.md
+ - "Zakazchik": Zakazchik.md
+ - "Redactor_pravka": Pravka.md
+ - "Commands": Commands.md
+
+theme:
+   name: readthedocs
