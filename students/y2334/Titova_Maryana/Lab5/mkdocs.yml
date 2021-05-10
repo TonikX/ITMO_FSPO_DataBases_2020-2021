@@ -1,0 +1,15 @@
+site_name: Newspapers
+nav:
+ - Home: index.md
+ - "Article": article.md
+ - "Correction": correction.md
+ - "Editorial office": editorial_office.md
+ - "Newspaper": newspaper.md
+ - "Newspaper distribution": newspaper_distribution.md
+ - "Post office": post_office.md
+ - "Printing office": printing_office.md
+ - "Release": release.md
+ - "Requests": requests.md
+
+theme:
+ name: material
