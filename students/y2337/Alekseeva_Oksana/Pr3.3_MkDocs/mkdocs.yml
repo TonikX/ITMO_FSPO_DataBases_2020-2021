@@ -1,0 +1,15 @@
+site_name: Hotel
+nav:
+    - Home: index.md
+    - Tables:
+        - client: tables/client.md
+        - room: tables/room.md
+        - inhabitation: tables/inhabitation.md
+        - administration: tables/admin.md
+        - cleaning: tables/cleaning.md
+        - employee: tables/employee.md
+        - employment contract: tables/employmentcontract.md
+    - Code:
+        - create: code/create.md
+        - insert: code/insert.md
+
