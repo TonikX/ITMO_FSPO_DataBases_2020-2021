@@ -1,0 +1,21 @@
+site_name: Товарно-сырьевая биржа
+nav:
+ - Tables:
+        - office: tables/office.md
+        - broker: tables/broker.md
+        - batch: tables/batch.md
+        - buyer: tables/buyer.md
+        - contract: tables/contract.md
+        - deal: tables/deal.md
+        - firm: tables/firm.md
+        - product: tables/product.md
+        - product batch: tables/productbatch.md
+        - product firm: tables/productfirm.md
+        - payment: tables/payment.md
+    - Code:
+        - create: code/create.md
+        - insert: code/insert.md
+
+
+theme:
+ name: material
