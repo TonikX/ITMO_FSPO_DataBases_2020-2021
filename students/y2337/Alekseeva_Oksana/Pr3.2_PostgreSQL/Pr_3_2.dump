@@ -1,0 +1,290 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 11.10
+-- Dumped by pg_dump version 11.10
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: client; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.client (
+    id_client integer NOT NULL,
+    fullname_client text NOT NULL,
+    phone_number numeric NOT NULL,
+    adress_client text NOT NULL
+);
+
+
+ALTER TABLE public.client OWNER TO postgres;
+
+--
+-- Name: deliveryman; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.deliveryman (
+    "ID_deliveryman" integer NOT NULL,
+    "FullName_d" text NOT NULL,
+    "Phone_number" numeric NOT NULL
+);
+
+
+ALTER TABLE public.deliveryman OWNER TO postgres;
+
+--
+-- Name: order_; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.order_ (
+    "ID_order" integer NOT NULL,
+    "Order_date" date NOT NULL,
+    "Order_status" text NOT NULL,
+    "ID_client(FK)" integer NOT NULL
+);
+
+
+ALTER TABLE public.order_ OWNER TO postgres;
+
+--
+-- Name: order_delivery; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.order_delivery (
+    "Delivery_date" date NOT NULL,
+    "Time_of_delivery" time without time zone NOT NULL,
+    "ID_warehouse(FK)" integer NOT NULL,
+    "ID_deliveryman(FK)" integer NOT NULL,
+    "ID_client(FK)" integer NOT NULL
+);
+
+
+ALTER TABLE public.order_delivery OWNER TO postgres;
+
+--
+-- Name: order_list; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.order_list (
+    "Order_number" numeric NOT NULL,
+    "Quantity_of_goods" numeric NOT NULL,
+    "Final_cost" numeric NOT NULL,
+    "Payment_method" text NOT NULL,
+    "ID_product(FK)" integer NOT NULL,
+    "ID_order(FK)" integer NOT NULL,
+    "ID_warehouse(FK)" integer NOT NULL
+);
+
+
+ALTER TABLE public.order_list OWNER TO postgres;
+
+--
+-- Name: product; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.product (
+    "ID_product" integer NOT NULL,
+    "Product_name" text NOT NULL,
+    "Vendor_code" text NOT NULL,
+    "Cost" numeric NOT NULL,
+    "Availability" boolean NOT NULL
+);
+
+
+ALTER TABLE public.product OWNER TO postgres;
+
+--
+-- Name: warehouse; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.warehouse (
+    "ID_warehouse" integer NOT NULL,
+    "Warehouse_adress" text NOT NULL,
+    "List_of_goods" text NOT NULL
+);
+
+
+ALTER TABLE public.warehouse OWNER TO postgres;
+
+--
+-- Data for Name: client; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.client (id_client, fullname_client, phone_number, adress_client) FROM stdin;
+2	Mikhailova	3425234	Cvetlanovcki
+4	Evseev	39402394	prospect veteranov
+1	Alekseeva	374623	prospect Nayki
+\.
+
+
+--
+-- Data for Name: deliveryman; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.deliveryman ("ID_deliveryman", "FullName_d", "Phone_number") FROM stdin;
+1	Denisov Andrey	895332479
+\.
+
+
+--
+-- Data for Name: order_; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.order_ ("ID_order", "Order_date", "Order_status", "ID_client(FK)") FROM stdin;
+1	2020-10-12	delivery	2
+\.
+
+
+--
+-- Data for Name: order_delivery; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.order_delivery ("Delivery_date", "Time_of_delivery", "ID_warehouse(FK)", "ID_deliveryman(FK)", "ID_client(FK)") FROM stdin;
+2020-02-03	17:00:00	2	1	1
+\.
+
+
+--
+-- Data for Name: order_list; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.order_list ("Order_number", "Quantity_of_goods", "Final_cost", "Payment_method", "ID_product(FK)", "ID_order(FK)", "ID_warehouse(FK)") FROM stdin;
+312227	2	3000	card	1	1	2
+\.
+
+
+--
+-- Data for Name: product; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.product ("ID_product", "Product_name", "Vendor_code", "Cost", "Availability") FROM stdin;
+1	apple	287387364	150	t
+2	shoes	32474	2000	f
+\.
+
+
+--
+-- Data for Name: warehouse; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.warehouse ("ID_warehouse", "Warehouse_adress", "List_of_goods") FROM stdin;
+1	prospect Nayki	meat, shoes, clothes
+2	Cvetlanovki	clothes
+\.
+
+
+--
+-- Name: client Client_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.client
+    ADD CONSTRAINT "Client_pkey" PRIMARY KEY (id_client);
+
+
+--
+-- Name: deliveryman Deliveryman_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.deliveryman
+    ADD CONSTRAINT "Deliveryman_pkey" PRIMARY KEY ("ID_deliveryman");
+
+
+--
+-- Name: order_ Order_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.order_
+    ADD CONSTRAINT "Order_pkey" PRIMARY KEY ("ID_order");
+
+
+--
+-- Name: product Product_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.product
+    ADD CONSTRAINT "Product_pkey" PRIMARY KEY ("ID_product");
+
+
+--
+-- Name: warehouse Warehouse_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.warehouse
+    ADD CONSTRAINT "Warehouse_pkey" PRIMARY KEY ("ID_warehouse");
+
+
+--
+-- Name: order_ ID_client; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.order_
+    ADD CONSTRAINT "ID_client" FOREIGN KEY ("ID_client(FK)") REFERENCES public.client(id_client) NOT VALID;
+
+
+--
+-- Name: order_delivery ID_client(FK); Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.order_delivery
+    ADD CONSTRAINT "ID_client(FK)" FOREIGN KEY ("ID_client(FK)") REFERENCES public.client(id_client);
+
+
+--
+-- Name: order_delivery ID_deliveryman(FK); Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.order_delivery
+    ADD CONSTRAINT "ID_deliveryman(FK)" FOREIGN KEY ("ID_deliveryman(FK)") REFERENCES public.deliveryman("ID_deliveryman");
+
+
+--
+-- Name: order_list ID_order(FK); Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.order_list
+    ADD CONSTRAINT "ID_order(FK)" FOREIGN KEY ("ID_order(FK)") REFERENCES public.order_("ID_order");
+
+
+--
+-- Name: order_list ID_product(FK); Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.order_list
+    ADD CONSTRAINT "ID_product(FK)" FOREIGN KEY ("ID_product(FK)") REFERENCES public.product("ID_product");
+
+
+--
+-- Name: order_delivery ID_warehouse(FK); Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.order_delivery
+    ADD CONSTRAINT "ID_warehouse(FK)" FOREIGN KEY ("ID_warehouse(FK)") REFERENCES public.warehouse("ID_warehouse");
+
+
+--
+-- Name: order_list ID_warehouse(FK); Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.order_list
+    ADD CONSTRAINT "ID_warehouse(FK)" FOREIGN KEY ("ID_warehouse(FK)") REFERENCES public.warehouse("ID_warehouse");
+
+
+--
+-- PostgreSQL database dump complete
+--
+
