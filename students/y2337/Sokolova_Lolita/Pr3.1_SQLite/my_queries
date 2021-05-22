@@ -1,0 +1,6 @@
+insert into Movie (mID, title, year) values(11, "Harry Potter", 2001);
+insert into Movie (mID, title, year) values(12, "Tenet", 2020, "Nolan");
+
+update Rating set stars = stars + 1, rating_date = "2011-01-15" where stars !=5;
+update Rating set rating_date = "2011-01-20";
+delete from Rating where stars < 2;
