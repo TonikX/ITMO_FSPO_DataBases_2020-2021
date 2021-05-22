@@ -1,6 +1,7 @@
 ## ОПБД
 
 Директория с лабораторными и практическими работами по ОПБД
+[Документация](https://vrodedanya.github.io/ITMO_FSPO_DataBases_2020-2021/);
 
 ### Лабораторная №1
 |№| Работа | Описание |
@@ -23,3 +24,7 @@
 |№| Работа | Описание |
 |-|--------|----------|
 |1|[Лабораторная 4](https://github.com/vrodedanya/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Kolotushkin_Danil/Lab_04)| Лабораторная часть|
+### Лабораторная №5
+|№| Работа | Описание |
+|-|--------|----------|
+|1|[Лабораторная 5](https://github.com/vrodedanya/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Kolotushkin_Danil/Lab_05)| Лабораторная часть|

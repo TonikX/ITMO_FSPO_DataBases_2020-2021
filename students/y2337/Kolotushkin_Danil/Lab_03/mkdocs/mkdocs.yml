@@ -13,4 +13,5 @@ nav:
     - Материалы в услуге: tables/materialsinorder.md
     - Услуги в заказе: tables/servicesinorder.md
     - Исполнение: tables/implementation.md
+  - Запросы: requests.md
 theme: material

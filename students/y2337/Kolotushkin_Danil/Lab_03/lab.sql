@@ -59,7 +59,7 @@ CREATE TABLE "Implementation" (
 CREATE TABLE "ServicesInOrder" (
   "id" SERIAL PRIMARY KEY,
   "service_id" int references "Service"("id"),
-  "order_id" int references "Material"("id")
+  "order_id" int references "Order"("id")
 );
 
 CREATE TABLE "materialsInOrder" (
