@@ -28,3 +28,7 @@
 |№| Работа | Описание |
 |-|--------|----------|
 |1|[Лабораторная 5](https://github.com/vrodedanya/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Kolotushkin_Danil/Lab_05)| Лабораторная часть|
+### Лабораторная №6
+|№| Работа | Описание |
+|-|--------|----------|
+|1|[Лабораторная 6](https://github.com/vrodedanya/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Kolotushkin_Danil/Lab_06)| Лабораторная часть|

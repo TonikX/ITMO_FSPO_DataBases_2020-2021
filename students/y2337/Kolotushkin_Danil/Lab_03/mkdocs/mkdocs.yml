@@ -14,4 +14,9 @@ nav:
     - Услуги в заказе: tables/servicesinorder.md
     - Исполнение: tables/implementation.md
   - Запросы: requests.md
+  - PHP интерфейс:
+    - Добавление: php/adding.md
+    - Удаление: php/deleting.md
+    - Просмотр: php/viewing.md
+    - Выполнение запросов: php/requests.md
 theme: material
