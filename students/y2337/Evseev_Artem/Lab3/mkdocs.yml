@@ -1,0 +1,14 @@
+site_name: Newspaper service
+nav:
+    - Home: index.md
+    - Tables:
+        - newspaper: tables/newspaper.md
+        - circulation: tables/circulation.md
+        - production: tables/production.md
+        - typography: tables/typography.md
+        - storage: tables/storage.md
+        - post office: tables/postoffice.md
+    - Code:
+        - create: code/create.md
+        - insert: code/insert.md
+    - Запросы: zaprosi.md
