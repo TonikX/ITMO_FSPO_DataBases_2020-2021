@@ -1,0 +1,16 @@
+site_name: Реализация таблиц через SQL Shell
+nav:
+ - Задание: index.md
+ - Таблицы:
+     - "Клиент": urls/klient.md
+     - "Заселение": urls/check_in.md
+     - "Номер": urls/number.md
+     - "Администратор": urls/administrator.md
+     - "Уборка": urls/clean.md
+     - "Уборщик": urls/cleaner.md
+ - Создание: urls/create.md
+ - Заполнение: urls/insert.md
+ - Запросы: urls/request.md
+
+theme:
+ name: material
