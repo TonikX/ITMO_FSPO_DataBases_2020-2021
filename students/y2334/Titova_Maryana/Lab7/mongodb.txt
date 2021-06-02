@@ -1,0 +1,65 @@
+> db.createCollection("release")
+{ "ok" : 1 }
+> db.createCollection("release")
+{ "ok" : 1 }
+> db.createCollection("distribution")
+{ "ok" : 1 }
+
+> db.post_office.insert({'id_post_office': 1, 'number': 3489, 'address': 'Nevskij'})
+> db.release.insert({'id_release': 1, 'newspaper': {'id_newspaper': 1, 'title': 'SpeedInfo', 'cost': 15, 'pub_index': 1234, 'date_of_issue': '2020-02-03'}, 'corrections': {'id_corrections': 1, 'content': 'asdfghgnjhn'}, 'date': '2020-03-03', 'publication_index': 54321, 'cost_copy': 19, 'editor': {'id_editor': 1, name: 'Ivanov.I.I.'}})
+WriteResult({ "nInserted" : 1 })
+> db.release.insert({'id_release': 2, 'newspaper': {'id_newspaper': 2, 'title': 'Forbes', 'cost': 25, 'pub_index': 354666, 'date_of_issue': '2021-12-03'}, 'corrections': {'id_corrections': 2, 'content': 'dhfjgjfnvf'}, 'date': '2021-12-23', 'publication_index': 545466, 'cost_copy': 32, 'editor': {'id_editor': 2, name: 'Titova M.O.'}})
+WriteResult({ "nInserted" : 1 })
+> db.release.insert({'id_release': 3, 'newspaper': {'id_newspaper': 3, 'title': 'The New York Times', 'cost': 29, 'pub_index': 6574574, 'date_of_issue': '2020-07-10'}, 'corrections': {'id_corrections': 2, 'content': 'dhfjgjfnvf'}, 'date': '2020-08-23', 'publication_index': 467756, 'cost_copy': 40, 'editor': {'id_editor': 3, name: 'Petrov A.A.'}})
+WriteResult({ "nInserted" : 1 })
+> db.disribution.insert({'id_disribution': 1, 'typography': {'id_typography': 1, 'name': 'qwerty', 'address': 'Gorkovskaya, 15', 'count': 1200, 'schedule': '12-00 20-00'}, 'copies': 12000, 'cost': 50, 'release_id': 1, 'post_office_id': 2})
+WriteResult({ "nInserted" : 1 })
+> db.disribution.insert({'id_disribution': 2, 'typography': {'id_typography': 2, 'name': 'wasd', 'address': 'Pesochnaya, 14a', 'count': 20000, 'schedule': '9-00 22-00'}, 'copies': 1200, 'cost': 60, 'release_id': 2, 'post_office_id': 1})
+WriteResult({ "nInserted" : 1 })
+> db.disribution.insert({'id_disribution': 3, 'typography': {'id_typography': 1, 'name': 'wasd', 'address': 'Pesochnaya, 14a', 'count': 20000, 'schedule': '9-00 22-00'}, 'copies': 3000, 'cost': 40, 'release_id': 3, 'post_office_id': 2})
+WriteResult({ "nInserted" : 1 })
+> db.disribution.insert({'id_disribution': 4, 'typography': {'id_typography': 1, 'name': 'qwerty', 'address': 'Gorkovskaya, 15', 'count': 1200, 'schedule': '12-00 20-00'}, 'copies': 14556, 'cost': 46, 'release_id': 2, 'post_office_id': 1})
+WriteResult({ "nInserted" : 1 })
+
+
+
+Вывести информацию о газете со стоимостью 29 и датой выпуска 2020-07-10
+
+db.release.find({'newspaper.cost': 29, 'newspaper.date_of_issue': '2020-07-10'}).pretty()
+
+
+
+Вывести информацию о распределении газет
+
+db.disribution.find().pretty()
+
+
+
+Вывести выпуски, которые были реализованы в 2020 году
+
+db.release.find({'newspaper.date_of_issue': {$regex:'2020'}}).pretty()
+
+
+
+Вывести информацию о газетах и правках
+
+db.release.aggregate([{ $project: { itemDescription: { $concat: ['$newspaper.title', ', ' ,'$corrections.content']}}}]).pretty()
+
+
+
+Вывести длину названий типографий
+
+db.disribution.aggregate([{$project: {'typography.name': 1, 'length': { $strLenCP: '$typography.name'}}}]).pretty()
+
+
+
+Вывести информацию о распределении газет, которые реализовали более 2000 копий
+
+db.disribution.find({'copies': {$gt: 2000}}).pretty()
+
+
+
+Вывести информацию о распределении газеты с самой высокой стоимостью экземпляра
+
+db.release.find().sort({'newspaper.cost': -1}).limit(1).pretty()
+
