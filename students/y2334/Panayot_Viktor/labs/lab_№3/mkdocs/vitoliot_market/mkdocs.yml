@@ -1,0 +1,20 @@
+site_name: vitoliot_market
+nav: 
+  - Home: index.md
+  - Main_page: index.md
+  - Tables:
+    - batch_content: batch_content.md
+    - batch: batch.md
+    - broker: broker.md
+    - contract_BCB: contract_BCB.md
+    - contract_BO: contract_BO.md
+    - contract_FP: contract_FP.md
+    - customer: customer.md
+    - firm: firm.md
+    - office: office.md
+    - product: product.md
+theme: 
+  name: lux
+hljs_languages: 
+  -postgresql
+  -sql

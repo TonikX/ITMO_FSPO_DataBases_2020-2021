@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>create - Hotel</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Hotel</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tables <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../tables/client/" class="dropdown-item">client</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/room/" class="dropdown-item">room</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/inhabitation/" class="dropdown-item">inhabitation</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/admin/" class="dropdown-item">administration</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/cleaning/" class="dropdown-item">cleaning</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/employee/" class="dropdown-item">employee</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/employmentcontract/" class="dropdown-item">employment contract</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Code <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active">create</a>
+</li>
+                                    
+<li>
+    <a href="../insert/" class="dropdown-item">insert</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../zaprosi/" class="nav-link">Запросы</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../tables/employmentcontract/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../insert/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#create" class="nav-link">Create</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="create">Create</h2>
+<h4 id="_1">Создание таблицы "Клиент":</h4>
+<pre><code>Create table client(id_client int primary key, full_name varchar(60) not null, 
+        passport_id int not null, city varchar(45) not null);
+</code></pre>
+<h4 id="_2">Создание таблицы "Номер":</h4>
+<pre><code>Сreate table room(id_room int primary key, floor int not null, coat_of_living int not null, 
+        room_type varchar(20) not null);
+</code></pre>
+<h4 id="_3">Создание таблицы "Администратор":</h4>
+<pre><code>Сreate table administration(id_admin int primary key, full_name varchar(60) not null,
+        contact_details varchar(30) not null, experience varchar(15) not null);
+</code></pre>
+<h4 id="_4">Создание таблицы "Служащий":</h4>
+<pre><code>Сreate table employee(id_employee int primary key, full_name varchar(60) not null, post varchar(20) not null);
+</code></pre>
+<h4 id="_5">Создание таблицы "Уборка":</h4>
+<pre><code>Create table cleaning(id_cleaning int primary key, cleaning_floor int not null, cleaning_day date not null, 
+        admin_id int not null, employee_id int not null, foreign key(admin_id) references administration(id_admin), 
+                foreign key(employee_id) references employee(id_employee));
+</code></pre>
+<h4 id="_6">Создание таблицы "Договор о найме":</h4>
+<pre><code>Сreate table employment_contract(id_contract int primary key, terms_of_an_agreement varchar(70) not null, 
+        hiring_date date not null, admin_id int not null, employee_id int not null, 
+                foreign key(admin_id) references administration(id_admin), 
+                        foreign key(employee_id) references employee(id_employee));
+</code></pre>
+<h4 id="_7">Создание таблицы "Проживание":</h4>
+<pre><code>Create table inhabitation(id_inhabitation int primary key, accomodations varchar(20) not null, 
+        check_in_date date not null, check_out_date date not null, client_id int not null, 
+                room_id int not null, admin_id int not null, foreign key(client_id) references client(id_client), 
+                        foreign key(room_id) references room(id_room), 
+                                foreign key(admin_id) references administration(id_admin));
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
