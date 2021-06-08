@@ -14,7 +14,7 @@
 
 | ***Список практических работ за курс:*** |                                 ссылка на файлы                                                                                      |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-|          Практическая работа №1.1          | [папка с файлами](https://github.com/Sonya-Vishneva/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Striuchkova_Sonya/lections/lection_1_oltp_olap) |
+|          Практическая работа №1.1          | [папка с файлами](https://github.com/TonikX/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Striuchkova_Sonya/Prakt%201) |
 |          Практическая работа №1.2          |  |
 |          Практическая работа №2.1          | [папка с файлами](https://github.com/Sonya-Vishneva/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Striuchkova_Sonya/Pr2.1_PiterChen) |
 |          Практическая работа №2.2          | [папка с файлами](https://github.com/Sonya-Vishneva/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Striuchkova_Sonya/pr_2.2) |
