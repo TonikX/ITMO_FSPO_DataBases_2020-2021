@@ -3,26 +3,26 @@
 
 | ***Список лабороторных работ за курс:*** |                                 ссылка на файлы                                                                                      |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-|          Лабороторная работа №1          | [папка с файлами](https://github.com/Sonya-Vishneva/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Striuchkova_Sonya/lr_1) |
-|          Лабороторная работа №2          | [папка с файлами](https://github.com/Sonya-Vishneva/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Striuchkova_Sonya/laba_2) |
-|          Лабороторная работа №3          |                                                                                                                                      |
-|          Лабороторная работа №4          |                                                                                                                                      |
-|          Лабороторная работа №5          |                                                                                                                                      |
-|          Лабороторная работа №6          |                                                                                                                                      |
-|          Лабороторная работа №7          |                                                                                                                                      |
+|         1. Лабороторная работа №1          | [папка с файлами](https://github.com/Sonya-Vishneva/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Striuchkova_Sonya/lr_1) |
+|         2. Лабороторная работа №2          | [папка с файлами](https://github.com/Sonya-Vishneva/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Striuchkova_Sonya/laba_2) |
+|          3. Лабороторная работа №3          |                                                                                                                                      |
+|          4. Лабороторная работа №4          |                                                                                                                                      |
+|          5. Лабороторная работа №5          |                                                                                                                                      |
+|          6. Лабороторная работа №6          |                                                                                                                                      |
+|          7. Лабороторная работа №7          |                                                                                                                                      |
 
 
 | ***Список практических работ за курс:*** |                                 ссылка на файлы                                                                                      |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-|          Практическая работа №1.1          | [папка с файлами](https://github.com/TonikX/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Striuchkova_Sonya/Prakt%201) |
-|          Практическая работа №1.2          |  |
-|          Практическая работа №2.1          | [папка с файлами](https://github.com/Sonya-Vishneva/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Striuchkova_Sonya/Pr2.1_PiterChen) |
-|          Практическая работа №2.2          | [папка с файлами](https://github.com/Sonya-Vishneva/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Striuchkova_Sonya/pr_2.2) |
-|          Практическая работа №3.1          |                                                                                                                                      |
-|          Практическая работа №3.2          |                                                                                                                                      |
-|          Практическая работа №3.3          |                                                                                                                                      |
-|          Практическая работа №7.1          |                                                                                                                                      |
-|          Практическая работа №7.2          |
+|          1. Практическая работа №1.1          | [папка с файлами](https://github.com/TonikX/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Striuchkova_Sonya/Prakt%201) |
+|          2. Практическая работа №1.2          |  |
+|          3. Практическая работа №2.1          | [папка с файлами](https://github.com/Sonya-Vishneva/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Striuchkova_Sonya/Pr2.1_PiterChen) |
+|          4. Практическая работа №2.2          | [папка с файлами](https://github.com/Sonya-Vishneva/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Striuchkova_Sonya/pr_2.2) |
+|          5. Практическая работа №3.1          |                                                                                                                                      |
+|          6. Практическая работа №3.2          |                                                                                                                                      |
+|          7. Практическая работа №3.3          | [папка с файлами](https://github.com/TonikX/ITMO_FSPO_DataBases_2020-2021/blob/master/students/y2337/Striuchkova_Sonya/README.md)                                                                                                                                     |
+|          8. Практическая работа №7.1          |                                                                                                                                      |
+|          9. Практическая работа №7.2          |
 
 
 
