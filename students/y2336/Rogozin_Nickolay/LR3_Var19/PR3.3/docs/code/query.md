@@ -6,6 +6,8 @@ SELECT animals.id, sex, type, healing.id, date
 FROM lr3.animals, lr3.healing 
 WHERE animals.id = '1' GROUP BY animals.id, healing.id;
 ``` 
+![image](https://user-images.githubusercontent.com/58090572/121610998-f2414600-ca5f-11eb-9c39-cbc63b19360d.png)
+
 
 #### 2 - Выбор животных номеру и типу
 ```
