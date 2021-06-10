@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Запросы к СУБД - Lab 03</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u0417\u0430\u043f\u0440\u043e\u0441\u044b \u043a \u0421\u0423\u0411\u0414";
+    var mkdocs_page_input_path = "\u0417\u0430\u043f\u0440\u043e\u0441\u044b \u043a \u0421\u0423\u0411\u0414\\index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Lab 03</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Главная</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%A1%D0%A3%D0%91%D0%94/">Описание СУБД</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Запросы к СУБД</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1">1. Выбор значений, заданных атрибутов из более чем двух таблиц с сортировкой</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2">2. Запрос с двойным условием</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3">3. Использование функций для работы с датами</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4">4. Использование строковых функций</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5">5. Запрос с использованием подзапросов</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6">6. Вычисление групповой (агрегатной) функции</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#7-having">7. Вычисление групповой (агрегатной) функции с условием HAVING</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#8-exists-all-some-any">8. Использование предикатов EXISTS, ALL, SOME и ANY</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#9">9. Использование запросов с операциями реляционной алгебры</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#10">10. Использование объединений запросов</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Lab 03</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Запросы к СУБД</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">Запросы к БД</h1>
+<h2 id="1">1. Выбор значений, заданных атрибутов из более чем двух таблиц с сортировкой</h2>
+<p>Получение контактов, образования и зарплаты соискателей, отсортированных по
+уменьшению.</p>
+<pre><code class="language-SQL">select contact_details, education, salary
+from
+ laborexchange.applicant
+ join laborexchange.hiring on laborexchange.applicant.id=applicant_id
+order by salary DESC;
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121584703-6e289780-ca3a-11eb-8cf3-db2fab5120f8.png" /></p>
+<h2 id="2">2. Запрос с двойным условием</h2>
+<p>Получение соискателей с опытом от одного до 9 лет.</p>
+<pre><code class="language-SQL">SELECT * FROM laborexchange.applicant WHERE expirience &gt; 0 AND expirience &lt; 10;
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121583920-8fd54f00-ca39-11eb-9f72-0fa29d9b413a.png" /></p>
+<h2 id="3">3. Использование функций для работы с датами</h2>
+<p>Получение дат резюме с двадцатого января 2020 до двадцатого февраля 2020 и
+их время существования на текущий момент.</p>
+<pre><code class="language-SQL">SELECT to_char(NOW() - resume_posting_date, 'DD дней HH24:MI:SS') AS resume_age, resume_posting_date
+FROM laborexchange.applicant WHERE resume_posting_date BETWEEN '2020-01-20' AND '2020-02-20';
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121586372-433f4300-ca3c-11eb-9a91-c828316c4029.png" /></p>
+<h2 id="4">4. Использование строковых функций</h2>
+<p>Получение строковых названий нанимателей и их адресов.</p>
+<pre><code class="language-SQL">SELECT LOWER(name) AS &quot;Lower name&quot;, 'Россия ' || address AS address FROM laborexchange.employer;
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121587030-058eea00-ca3d-11eb-814d-76c890a35045.png" /></p>
+<h2 id="5">5. Запрос с использованием подзапросов</h2>
+<p>Найти всех нанимателей, у которых есть заключённые контракты с зарплатой не
+менее 100000.</p>
+<pre><code class="language-SQL">SELECT * FROM laborexchange.employer
+WHERE EXISTS (
+    SELECT * FROM 
+        laborexchange.hiring JOIN laborexchange.vacancy ON hiring.vacancy_id = vacancy.id
+    WHERE salary &gt;= 100000 AND vacancy.employer_id = employer.id
+);
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121587838-e2b10580-ca3d-11eb-935e-bde8bb13b2d4.png" /></p>
+<h2 id="6">6. Вычисление групповой (агрегатной) функции</h2>
+<p>Получение опыта и соответствующих ему общего времени прохождения курсов и
+среднего времени прохождения курсов в год.</p>
+<pre><code class="language-SQL">SELECT
+    expirience,
+    SUM(duration) AS &quot;Total duration&quot;,
+    (SUM(duration)::float / expirience)::numeric(10,3) AS &quot;Average duration per year&quot;
+FROM laborexchange.applicant JOIN laborexchange.qualification on applicant.qualification_id = qualification.id
+GROUP BY expirience;
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121590313-daa69500-ca40-11eb-8985-b67cb7c0da61.png" /></p>
+<h2 id="7-having">7. Вычисление групповой (агрегатной) функции с условием HAVING</h2>
+<p>Найти всех работников со средней зарплатой более 100000.</p>
+<pre><code class="language-SQL">SELECT * FROM laborexchange.applicant WHERE id IN (
+    SELECT applicant_id
+    FROM laborexchange.hiring
+    GROUP BY applicant_id
+    HAVING AVG(salary) &gt; 100000
+);
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121589602-ef365d80-ca3f-11eb-942e-4dfe3c569d35.png" /></p>
+<h2 id="8-exists-all-some-any">8. Использование предикатов EXISTS, ALL, SOME и ANY</h2>
+<p>Получение соискателей, у которых зарплата всегда была более 100000.</p>
+<pre><code class="language-SQL">SELECT * FROM laborexchange.applicant WHERE 100000 &lt; ALL (
+    SELECT salary FROM laborexchange.hiring WHERE applicant_id = applicant.id
+);
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121592193-0c206000-ca43-11eb-962a-314c58a1e215.png" /></p>
+<h2 id="9">9. Использование запросов с операциями реляционной алгебры</h2>
+<p>Найти соискателей, которые присутствуют в таблице applicant, но не присутствуют
+в таблице course_passing.</p>
+<pre><code class="language-SQL">SELECT * FROM laborexchange.applicant
+EXCEPT
+SELECT * FROM laborexchange.applicant
+    WHERE id IN (SELECT applicant_id FROM laborexchange.course_passing);
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121593755-e98f4680-ca44-11eb-8d11-8b47f3c66ca0.png" /></p>
+<h2 id="10">10. Использование объединений запросов</h2>
+<p>Получение списка нанимателей и их вакансий.</p>
+<pre><code class="language-SQL">SELECT * FROM
+    laborexchange.employer JOIN laborexchange.vacancy
+        ON laborexchange.employer.id = laborexchange.vacancy.employer_id;
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121595287-cbc2e100-ca46-11eb-82a8-9a85d19d0a04.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%A1%D0%A3%D0%91%D0%94/" class="btn btn-neutral" title="Описание СУБД"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%A1%D0%A3%D0%91%D0%94/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -2,4 +2,5 @@ site_name: Lab 03
 nav:
   - Главная: index.md
   - Описание СУБД: Описание СУБД/index.md
+  - Запросы к СУБД: Запросы к СУБД/index.md
 theme: readthedocs
