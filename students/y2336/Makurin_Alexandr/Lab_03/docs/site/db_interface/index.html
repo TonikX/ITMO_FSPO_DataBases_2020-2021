@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Интерфейс СУБД - Основы проектирования баз данных 2021</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u0418\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441 \u0421\u0423\u0411\u0414";
+    var mkdocs_page_input_path = "db_interface.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Основы проектирования баз данных 2021</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Главная</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../db_description/">Описание БД</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../queries/">Запросы к БД</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Интерфейс СУБД</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_2">Главная</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_3">Соискатели</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">Просмотр</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">Редактирование</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_6">Добавление</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_7">Наниматели</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_8">Просмотр</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_9">Редактирование</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_10">Добавление</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_11">Вакансии</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_12">Просмотр</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_13">Редактирование</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_14">Добавление</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_15">Контракты</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_16">Просмотр</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_17">Редактирование</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_18">Добавление</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_19">Прохождения курсов</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_20">Просмотр</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_21">Редактирование</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_22">Добавление</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_23">Квалификации</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_24">Просмотр</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_25">Редактирование</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_26">Добавление</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#1">Запрос 1</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2">Запрос 2</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3">Запрос 3</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4">Запрос 4</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5">Запрос 5</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Основы проектирования баз данных 2021</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Интерфейс СУБД</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">Интерфейс СУБД</h1>
+<h2 id="_2">Главная</h2>
+<p>Служит для доступа к функциям управления БД</p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121741332-08561180-cb07-11eb-8f49-da86272c292e.png" /></p>
+<h2 id="_3">Соискатели</h2>
+<p>Работа с таблицей applicant</p>
+<h3 id="_4">Просмотр</h3>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121742340-5ddeee00-cb08-11eb-8417-5692ef8ba60b.png" /></p>
+<h3 id="_5">Редактирование</h3>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121742462-8666e800-cb08-11eb-8fab-04f3c469125a.png" /></p>
+<h3 id="_6">Добавление</h3>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121742543-a1d1f300-cb08-11eb-8088-34dbc883e7eb.png" /></p>
+<h2 id="_7">Наниматели</h2>
+<p>Работа с таблицей employer</p>
+<h3 id="_8">Просмотр</h3>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121742671-d0e86480-cb08-11eb-8075-63884b69c4fd.png" /></p>
+<h3 id="_9">Редактирование</h3>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121742700-de9dea00-cb08-11eb-8021-0c33b0cbb5c2.png" /></p>
+<h3 id="_10">Добавление</h3>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121742763-f70e0480-cb08-11eb-9be6-c20b19eea2cf.png" /></p>
+<h2 id="_11">Вакансии</h2>
+<p>Работа с таблицей vacancy</p>
+<h3 id="_12">Просмотр</h3>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121742989-4bb17f80-cb09-11eb-8f82-d8a57cbecb00.png" /></p>
+<h3 id="_13">Редактирование</h3>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121743036-5b30c880-cb09-11eb-81e6-bc72832e5271.png" /></p>
+<h3 id="_14">Добавление</h3>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121743071-697ee480-cb09-11eb-90f7-6d2d85e6cc34.png" /></p>
+<h2 id="_15">Контракты</h2>
+<p>Работа с таблицей hiring</p>
+<h3 id="_16">Просмотр</h3>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121743143-89160d00-cb09-11eb-9768-6b845e5d118b.png" /></p>
+<h3 id="_17">Редактирование</h3>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121743163-929f7500-cb09-11eb-8ff7-1fd002e27867.png" /></p>
+<h3 id="_18">Добавление</h3>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121743176-9c28dd00-cb09-11eb-8512-0fcff2d5abd9.png" /></p>
+<h2 id="_19">Прохождения курсов</h2>
+<p>Работа с таблицей course_passing</p>
+<h3 id="_20">Просмотр</h3>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121743298-d2665c80-cb09-11eb-9314-cdddf72b8576.png" /></p>
+<h3 id="_21">Редактирование</h3>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121743316-d8f4d400-cb09-11eb-8d74-d2fd27ba2ac3.png" /></p>
+<h3 id="_22">Добавление</h3>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121743335-e0b47880-cb09-11eb-8d65-2e8d4d73d33f.png" /></p>
+<h2 id="_23">Квалификации</h2>
+<p>Работа с таблицей qualification</p>
+<h3 id="_24">Просмотр</h3>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121743548-2c672200-cb0a-11eb-9d98-c323c3928f31.png" /></p>
+<h3 id="_25">Редактирование</h3>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121743572-3721b700-cb0a-11eb-84fc-f37e81584f42.png" /></p>
+<h3 id="_26">Добавление</h3>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121743590-3ee15b80-cb0a-11eb-9cb7-fecf61ea69b4.png" /></p>
+<h2 id="1">Запрос 1</h2>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121743657-59b3d000-cb0a-11eb-8076-333e2a2f8bd1.png" /></p>
+<h2 id="2">Запрос 2</h2>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121743679-60424780-cb0a-11eb-884c-e15e33f29074.png" /></p>
+<h2 id="3">Запрос 3</h2>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121743979-de9ee980-cb0a-11eb-8b4e-13414c0114d4.png" /></p>
+<h2 id="4">Запрос 4</h2>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121744014-ebbbd880-cb0a-11eb-8ef5-f398b558c664.png" /></p>
+<h2 id="5">Запрос 5</h2>
+<p><img alt="image" src="https://user-images.githubusercontent.com/43097289/121744036-f5454080-cb0a-11eb-8594-88cb18dfb211.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../queries/" class="btn btn-neutral" title="Запросы к БД"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../queries/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

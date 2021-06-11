@@ -121,3 +121,4 @@ SELECT * FROM
         ON laborexchange.employer.id = laborexchange.vacancy.employer_id;
 ```
 ![image](https://user-images.githubusercontent.com/43097289/121595287-cbc2e100-ca46-11eb-82a8-9a85d19d0a04.png)
+
