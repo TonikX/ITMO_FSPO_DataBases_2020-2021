@@ -11,6 +11,21 @@ reader
 |academic_degree|VARCHAR| | | | 50| |
 |status|VARCHAR| | | | 50| |
 
+Code of creation:
+CREATE TABLE `reader` (
+  `id_library_card` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `fio` varchar(50) NOT NULL,
+  `date_of_birth` date NOT NULL,
+  `passport_number` int(11) NOT NULL,
+  `adress` varchar(50) NOT NULL,
+  `education` varchar(50) NOT NULL,
+  `academic_degree` varchar(50) DEFAULT NULL,
+  `status` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_library_card`),
+  UNIQUE KEY `id_library_card` (`id_library_card`),
+  UNIQUE KEY `passport_number` (`passport_number`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
 books
 
 |Имя|Тип|Primary key|Foreign key|Unique|Ограничения|Not null|
@@ -25,6 +40,7 @@ books
 |attachment_date|DATE| | | | | |
 |date_of_receiving|DATE| | | | | |
 |writeoff_date|DATE| | | | | |
+
 
 worker
 
