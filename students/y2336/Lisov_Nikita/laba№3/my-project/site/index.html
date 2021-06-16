@@ -58,6 +58,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#no5" class="nav-link">Лабораторная №5</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -789,7 +793,87 @@ insert into laba3.reception_doctor (reception_doctor_id, reception_doctor_schenu
 <pre><code>insert into laba3.payment (payment_id, payment_reception, payment_status) values (1, 1, 'true');
 insert into laba3.payment (payment_id, payment_reception, payment_status) values (2, 2, 'true');
 insert into laba3.payment (payment_id, payment_reception, payment_status) values (3, 3, 'true');
-</code></pre></div>
+</code></pre>
+<h2 id="no5">Лабораторная №5</h2>
+<h4 id="1">Запрос 1</h4>
+<p>Вывод всех колонок из таблиц cabinets и clients без join</p>
+<pre><code>select * from laba3.cabinets, laba3.clients
+</code></pre>
+<p><img src="./img/5_1.jpg" /></p>
+<h4 id="2">Запрос 2</h4>
+<p>Вывод всех колонок из таблиц cabinets и clients с join</p>
+<pre><code>select * from laba3.preiscurant inner join laba3.calculation_cost on laba3.calculation_cost.calculation_cost_preiscurant=laba3.preiscurant.preiscurant_id
+</code></pre>
+<p><img src="./img/5_2.jpg" /></p>
+<h4 id="3">Запрос 3</h4>
+<p>Использование where с более чем двумя условиями</p>
+<pre><code>select * from laba3.preiscurant where preiscurant_cost&gt;'1200' and preiscurant_id&gt;1
+</code></pre>
+<p><img src="./img/5_3.jpg" /></p>
+<h4 id="4">Запрос 4</h4>
+<p>Получение текущей даты и времени</p>
+<pre><code>SELECT NOW ()
+</code></pre>
+<p><img src="./img/5_4.jpg" /></p>
+<h4 id="5">Запрос 5</h4>
+<p>Получение текущей даты</p>
+<pre><code>SELECT current_date
+</code></pre>
+<p><img src="./img/5_5.jpg" /></p>
+<h4 id="6">Запрос 6</h4>
+<p>Получение врачей, у которых дата дня рождения меньше текущей даты</p>
+<pre><code>select * from laba3.doctors where (select current_date)&gt;laba3.doctors.doctor_birthday
+</code></pre>
+<p><img src="./img/5_6.jpg" /></p>
+<h4 id="7">Запрос 7</h4>
+<p>Использование distinct on</p>
+<pre><code>select distinct on (doctor_specializacion) doctor_specializacion, doctor_gender from laba3.doctors order by doctor_specializacion, doctor_gender
+</code></pre>
+<p><img src="./img/5_7.jpg" /></p>
+<h4 id="8">Запрос 8</h4>
+<p>Использование count</p>
+<pre><code>select count(preiscurant_cost) from laba3.preiscurant
+</code></pre>
+<p><img src="./img/5_8.jpg" /></p>
+<h4 id="9">Запрос 9</h4>
+<p>Использование count</p>
+<pre><code>select count(doctor_fio) from laba3.schedule_doctor
+inner join laba3.doctors on schedule_doctor_doctor=laba3.doctors.doctor_id
+inner join laba3.schedule on laba3.schedule.schedule_id=schedule_doctor_schedule
+where schedule_status = 'true'
+</code></pre>
+<p><img src="./img/5_9.jpg" /></p>
+<h4 id="10">Запрос 10</h4>
+<p>Использование union all</p>
+<pre><code>select preiscurant_id from laba3.preiscurant union all select cabinet_id from laba3.cabinets
+</code></pre>
+<p><img src="./img/5_10.jpg" /></p>
+<h4 id="11">Запрос 11</h4>
+<p>Использование any</p>
+<pre><code>select * from laba3.schedule where schedule_id = any (select schedule_doctor_schedule from laba3.schedule_doctor)
+</code></pre>
+<p><img src="./img/5_11.jpg" /></p>
+<h4 id="12">Запрос 12</h4>
+<p>Использование in</p>
+<pre><code>select * from laba3.schedule where schedule_id in (select schedule_doctor_schedule from laba3.schedule_doctor)
+</code></pre>
+<p><img src="./img/5_12.jpg" /></p>
+<h4 id="13">Запрос 13</h4>
+<p>Использование exists</p>
+<pre><code>select * from laba3.schedule where exists (select schedule_doctor_schedule from laba3.schedule_doctor)
+</code></pre>
+<p><img src="./img/5_12.jpg" /></p>
+<h4 id="14">Запрос 14</h4>
+<p>Использование having</p>
+<pre><code>select max(preiscurant_cost) from laba3.preiscurant
+group by preiscurant_id having max(preiscurant_cost)&lt;'11500'
+</code></pre>
+<p><img src="./img/5_14.jpg" /></p>
+<h4 id="15">Запрос 15</h4>
+<p>Использование some</p>
+<pre><code>select * from laba3.schedule where schedule_id = some (select schedule_doctor_schedule from laba3.schedule_doctor)
+</code></pre>
+<p><img src="./img/5_11.jpg" /></p></div>
             </div>
         </div>
 
@@ -870,5 +954,5 @@ insert into laba3.payment (payment_id, payment_reception, payment_status) values
 
 <!--
 MkDocs version : 1.2
-Build Date UTC : 2021-06-16 09:54:58.279610+00:00
+Build Date UTC : 2021-06-16 17:51:21.222129+00:00
 -->

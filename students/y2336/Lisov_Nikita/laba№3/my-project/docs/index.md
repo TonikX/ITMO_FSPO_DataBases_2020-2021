@@ -349,3 +349,98 @@ insert into laba3.payment (payment_id, payment_reception, payment_status) values
 insert into laba3.payment (payment_id, payment_reception, payment_status) values (2, 2, 'true');
 insert into laba3.payment (payment_id, payment_reception, payment_status) values (3, 3, 'true');
 ```
+##Лабораторная №5
+####Запрос 1
+Вывод всех колонок из таблиц cabinets и clients без join
+```
+select * from laba3.cabinets, laba3.clients
+```
+<img src="./img/5_1.jpg" />
+####Запрос 2
+Вывод всех колонок из таблиц cabinets и clients с join
+```
+select * from laba3.preiscurant inner join laba3.calculation_cost on laba3.calculation_cost.calculation_cost_preiscurant=laba3.preiscurant.preiscurant_id
+```
+<img src="./img/5_2.jpg" />
+####Запрос 3
+Использование where с более чем двумя условиями
+```
+select * from laba3.preiscurant where preiscurant_cost>'1200' and preiscurant_id>1
+```
+<img src="./img/5_3.jpg" />
+####Запрос 4
+Получение текущей даты и времени
+```
+SELECT NOW ()
+```
+<img src="./img/5_4.jpg" />
+####Запрос 5
+Получение текущей даты
+```
+SELECT current_date
+```
+<img src="./img/5_5.jpg" />
+####Запрос 6
+Получение врачей, у которых дата дня рождения меньше текущей даты
+```
+select * from laba3.doctors where (select current_date)>laba3.doctors.doctor_birthday
+```
+<img src="./img/5_6.jpg" />
+####Запрос 7
+Использование distinct on
+```
+select distinct on (doctor_specializacion) doctor_specializacion, doctor_gender from laba3.doctors order by doctor_specializacion, doctor_gender
+```
+<img src="./img/5_7.jpg" />
+####Запрос 8
+Использование count
+```
+select count(preiscurant_cost) from laba3.preiscurant
+```
+<img src="./img/5_8.jpg" />
+####Запрос 9
+Использование count
+```
+select count(doctor_fio) from laba3.schedule_doctor
+inner join laba3.doctors on schedule_doctor_doctor=laba3.doctors.doctor_id
+inner join laba3.schedule on laba3.schedule.schedule_id=schedule_doctor_schedule
+where schedule_status = 'true'
+```
+<img src="./img/5_9.jpg" />
+####Запрос 10
+Использование union all
+```
+select preiscurant_id from laba3.preiscurant union all select cabinet_id from laba3.cabinets
+```
+<img src="./img/5_10.jpg" />
+####Запрос 11
+Использование any
+```
+select * from laba3.schedule where schedule_id = any (select schedule_doctor_schedule from laba3.schedule_doctor)
+```
+<img src="./img/5_11.jpg" />
+####Запрос 12
+Использование in
+```
+select * from laba3.schedule where schedule_id in (select schedule_doctor_schedule from laba3.schedule_doctor)
+```
+<img src="./img/5_12.jpg" />
+####Запрос 13
+Использование exists
+```
+select * from laba3.schedule where exists (select schedule_doctor_schedule from laba3.schedule_doctor)
+```
+<img src="./img/5_12.jpg" />
+####Запрос 14
+Использование having
+```
+select max(preiscurant_cost) from laba3.preiscurant
+group by preiscurant_id having max(preiscurant_cost)<'11500'
+```
+<img src="./img/5_14.jpg" />
+####Запрос 15
+Использование some
+```
+select * from laba3.schedule where schedule_id = some (select schedule_doctor_schedule from laba3.schedule_doctor)
+```
+<img src="./img/5_11.jpg" />
