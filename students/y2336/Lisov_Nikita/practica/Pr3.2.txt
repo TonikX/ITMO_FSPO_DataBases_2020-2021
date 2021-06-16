@@ -1,7 +1,0 @@
-INSERT INTO pr3.performers (performers_id, performers_fio, performers_work) VALUES (3, 'q',987);
-
-SELECT * FROM pr3.performers;
-
-UPDATE pr3.performers SET performers_fio = 'h' WHERE performers_work = 987;
-
-DELETE FROM pr3.performers WHERE performers_fio = 'h';

@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        <link rel="canonical" href="https://example.com/">
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>My Docs</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">My Docs</a>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">Документация Лисова Никиты по ОПБД</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#no3" class="nav-link">Лабораторная №3</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">Документация Лисова Никиты по ОПБД</h1>
+<h2 id="no3">Лабораторная №3</h2>
+<p>Создать программную систему, предназначенную для администратора лечебной
+клиники.<br>
+Прием пациентов ведут несколько врачей различных специализаций. На каждого
+пациента клиники заводится медицинская карта, в которой отражается вся
+информация по личным данным больного и истории его заболеваний (диагнозы). При
+очередном посещении врача в карте отражается дата и время приема, диагноз, текущее
+состояние больного, рекомендации по лечению. Так как прием ведется только на
+коммерческой основе, после очередного посещения пациент должен оплатить
+медицинские услуги (каждый прием оплачивается отдельно). Расчет стоимости
+посещения определяется врачом согласно прейскуранту по клинике.<br>
+Для ведения внутренней отчетности необходима следующая информация о врач:
+фамилия, имя, отчество, специальность, образование, пол, дата рождения и дата начала
+и окончания работы в клинике, данные по трудовому договору. Для каждого врача
+составляется график работы с указанием рабочих и выходных дней.<br>
+Прием пациентов врачи могут вести в разных кабинетах. Каждый кабинет имеет
+определенный режим работы, ответственного и внутренний телефон.</p>
+<p><img src="./db.jpg" /></p>
+<h4 id="_2">Описание СУБД</h4>
+<p>Название СУБД: PostgreSQL <br>
+Версия СУБД: 13.1 <br>
+код создания БД: <code>CREATE DATABASE laba3</code><br></p>
+<h4 id="_3">Описание таблиц</h4>
+<h4 id="_4">Таблица врач <br></h4>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>Указатель на первичный ключ</th>
+<th>Указатель на внешний ключ</th>
+<th>Указатель униекальности</th>
+<th>Ограничения целостности списком</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id врача</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>является уникальным</td>
+</tr>
+<tr>
+<td>ФИО</td>
+<td>STRING</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>в поле должно быть 3 слова, которые разделены пробелами</td>
+</tr>
+<tr>
+<td>Специальность</td>
+<td>STRING</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>Поле должно быть заполнено</td>
+</tr>
+<tr>
+<td>Образование</td>
+<td>STRING</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>Поле должно быть заполнено</td>
+</tr>
+<tr>
+<td>Пол</td>
+<td>STRING</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>Поле должно быть заполнено</td>
+</tr>
+<tr>
+<td>Дата рождения</td>
+<td>DATETIME</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>В поле должны быть день, месяц, год</td>
+</tr>
+<tr>
+<td>Начало работы</td>
+<td>DATETIME</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>В поле должны быть день, месяц, год</td>
+</tr>
+<tr>
+<td>Трудовой договор</td>
+<td>STRING</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>Поле должно быть заполнено</td>
+</tr>
+</tbody>
+</table>
+<p>Код создания таблицы</p>
+<pre><code>CREATE TABLE laba3.doctors
+(
+    doctor_id integer NOT NULL,
+    doctor_fio character varying(1000) COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    doctor_specializacion character varying(100) COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    doctor_learn character varying(100) COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    doctor_gender character varying(10) COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    doctor_birthday date NOT NULL,
+    doctor_work date NOT NULL,
+    doctor_contract character varying(100) COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    CONSTRAINT doctors_pkey PRIMARY KEY (doctor_id)
+)
+
+</code></pre>
+<p>Код заполнения данных</p>
+<pre><code>insert into laba3.doctors (doctor_id, doctor_fio, doctor_specializacion, doctor_learn, doctor_gender, doctor_birthday, doctor_work, doctor_contract) values (1, 'Leonid', 'Surgeon', 'Surgeon', 'Man', '1987-04-23', '20010-07-21', 'safw43')
+insert into laba3.doctors (doctor_id, doctor_fio, doctor_specializacion, doctor_learn, doctor_gender, doctor_birthday, doctor_work, doctor_contract) values (2, 'Anna', 'Surgeon', 'Surgeon', 'Woman', '1987-04-23', '20010-07-21', '234fs')
+insert into laba3.doctors (doctor_id, doctor_fio, doctor_specializacion, doctor_learn, doctor_gender, doctor_birthday, doctor_work, doctor_contract) values (3, 'Sergey', 'Therapist', 'Surgeon', 'Man', '1987-04-23', '20010-07-21', 'sdfsdg123')
+</code></pre>
+<h4 id="_5">Таблица кабинеты <br></h4>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>Указатель на первичный ключ</th>
+<th>Указатель на внешний ключ</th>
+<th>Указатель униекальности</th>
+<th>Ограничения целостности списком</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id кабинет</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>является уникальным</td>
+</tr>
+<tr>
+<td>Номер кабинета</td>
+<td>STRING</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>размер - не более 32 символов</td>
+</tr>
+<tr>
+<td>Режим работы</td>
+<td>STRING</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>Соответствовать режиму работы клиники</td>
+</tr>
+<tr>
+<td>Ответственный</td>
+<td>STRING</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>Лицо, работающее в клинике</td>
+</tr>
+<tr>
+<td>Телефон</td>
+<td>STRING</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>Код создания таблицы</p>
+<pre><code>CREATE TABLE laba3.cabinets
+(
+    cabinet_id integer NOT NULL,
+    cabinet_number character varying(32) COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    cabinet_work character varying(32) COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    cabinet_responsible character varying(32) COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    cabinet_phone character varying(32) COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    CONSTRAINT cabinets_pkey PRIMARY KEY (cabinet_id)
+)
+</code></pre>
+<p>Код заполнения данных</p>
+<pre><code>insert into laba3.cabinets (cabinet_id, cabinet_number, cabinet_work, cabinet_responsible, cabinet_phone) values (1, '111','10:00-19:00', 'Leonid', '88005553');
+insert into laba3.cabinets (cabinet_id, cabinet_number, cabinet_work, cabinet_responsible, cabinet_phone) values (2, '121', '10:30-17:00', 'Anna', '88005553');
+insert into laba3.cabinets (cabinet_id, cabinet_number, cabinet_work, cabinet_responsible, cabinet_phone) values (3, '132', '11:00-16:30', 'Sergey', '88005553');
+</code></pre>
+<h4 id="_6">Таблица расписание <br></h4>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>Указатель на первичный ключ</th>
+<th>Указатель на внешний ключ</th>
+<th>Указатель униекальности</th>
+<th>Ограничения целостности списком</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id записи</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>является уникальным</td>
+</tr>
+<tr>
+<td>Статус</td>
+<td>Boolean</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Время и дата</td>
+<td>STRING</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>Код создания таблицы</p>
+<pre><code>CREATE TABLE laba3.schedule
+(
+    schedule_id integer NOT NULL,
+    schedule_status boolean NOT NULL,
+    schedule_date character varying COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    CONSTRAINT schedule_pkey PRIMARY KEY (schedule_id)
+)
+</code></pre>
+<p>Код заполнения данных</p>
+<pre><code>insert into laba3.schedule (schedule_id, schedule_status, schedule_date) values (1, '1','2021-06-23 11:40');
+insert into laba3.schedule (schedule_id, schedule_status, schedule_date) values (2, '1', '2021-06-23 12:40');
+insert into laba3.schedule (schedule_id, schedule_status, schedule_date) values (3, '1', '2021-06-23 13:40');
+</code></pre>
+<h4 id="_7">Таблица прейскурант <br></h4>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>Указатель на первичный ключ</th>
+<th>Указатель на внешний ключ</th>
+<th>Указатель униекальности</th>
+<th>Ограничения целостности списком</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id услуги</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>является уникальным</td>
+</tr>
+<tr>
+<td>цена</td>
+<td>STRING</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>Код создания таблицы</p>
+<pre><code>CREATE TABLE laba3.preiscurant
+(
+    preiscurant_id integer NOT NULL,
+    preiscurant_cost character varying(100) COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    CONSTRAINT preiscurant_pkey PRIMARY KEY (preiscurant_id)
+)
+</code></pre>
+<p>Код заполнения данных</p>
+<pre><code>insert into laba3.preiscurant (preiscurant_id, preiscurant_cost) values (1, '2500');
+insert into laba3.preiscurant (preiscurant_id, preiscurant_cost) values (2, '1123');
+insert into laba3.preiscurant (preiscurant_id, preiscurant_cost) values (3, '13143');
+</code></pre>
+<h4 id="_8">Таблица пациент <br></h4>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>Указатель на первичный ключ</th>
+<th>Указатель на внешний ключ</th>
+<th>Указатель униекальности</th>
+<th>Ограничения целостности списком</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id пациента</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>является уникальным</td>
+</tr>
+<tr>
+<td>ФИО</td>
+<td>STRING</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>в поле должно быть 3 слова, которые разделены пробелами</td>
+</tr>
+<tr>
+<td>Пол</td>
+<td>STRING</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Дата рождения</td>
+<td>DATE</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>В поле должны быть день, месяц, год</td>
+</tr>
+</tbody>
+</table>
+<p>Код создания таблицы</p>
+<pre><code>CREATE TABLE laba3.clients
+(
+    client_id integer NOT NULL,
+    client_fio character varying(100) COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    client_gender character varying(100) COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    client_birthday date NOT NULL,
+    CONSTRAINT clients_pkey PRIMARY KEY (client_id)
+)
+</code></pre>
+<p>Код заполнения данных</p>
+<pre><code>insert into laba3.clients (client_id, client_fio, client_gender, client_birthday) values (1, 'Nikita', 'man', '1990-04-13');
+insert into laba3.clients (client_id, client_fio, client_gender, client_birthday) values (2, 'Igory', 'man', '1991-07-23');
+insert into laba3.clients (client_id, client_fio, client_gender, client_birthday) values (3, 'Elena', 'woman', '1990-01-02');
+</code></pre>
+<h4 id="_9">Таблица подсчет стоимости <br></h4>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>Указатель на первичный ключ</th>
+<th>Указатель на внешний ключ</th>
+<th>Указатель униекальности</th>
+<th>Ограничения целостности списком</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id стоимости</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>является уникальным</td>
+</tr>
+<tr>
+<td>Прейскурант_id_прескурант</td>
+<td>STRING</td>
+<td>-</td>
+<td>+</td>
+<td>+</td>
+<td>адресует к прескуранту</td>
+</tr>
+<tr>
+<td>Прием к врачу</td>
+<td>STRING</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>Код создания таблицы</p>
+<pre><code>
+CREATE TABLE laba3.calculation_cost
+(
+    calculation_cost_id integer NOT NULL,
+    calculation_cost_preiscurant integer NOT NULL,
+    calculation_cost_doctor character varying(100) COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    CONSTRAINT calculation_cost_pkey PRIMARY KEY (calculation_cost_id),
+    CONSTRAINT fk_preiscurant FOREIGN KEY (calculation_cost_preiscurant)
+        REFERENCES laba3.preiscurant (preiscurant_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+</code></pre>
+<p>Код заполнения данных</p>
+<pre><code>insert into laba3.calculation_cost (calculation_cost_id, calculation_cost_preiscurant, calculation_cost_doctor) values (1, 2, 'Sergey');
+insert into laba3.calculation_cost (calculation_cost_id, calculation_cost_preiscurant, calculation_cost_doctor) values (2, 1, 'Anna');
+insert into laba3.calculation_cost (calculation_cost_id, calculation_cost_preiscurant, calculation_cost_doctor) values (3, 3, 'Leonid');
+</code></pre>
+<h4 id="_10">Таблица расписание врача <br></h4>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>Указатель на первичный ключ</th>
+<th>Указатель на внешний ключ</th>
+<th>Указатель униекальности</th>
+<th>Ограничения целостности списком</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id расписания</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>является уникальным</td>
+</tr>
+<tr>
+<td>id врача</td>
+<td>INT</td>
+<td>-</td>
+<td>+</td>
+<td>+</td>
+<td>адресует к врачу</td>
+</tr>
+<tr>
+<td>Id записи</td>
+<td>INT</td>
+<td>-</td>
+<td>+</td>
+<td>+</td>
+<td>адресует к записи</td>
+</tr>
+<tr>
+<td>Расписание врач-дата</td>
+<td>STRING</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>Код создания таблицы</p>
+<pre><code>CREATE TABLE laba3.schedule_doctor
+(
+    schedule_doctor_id integer NOT NULL,
+    schedule_doctor_doctor integer NOT NULL,
+    schedule_doctor_schedule integer NOT NULL,
+    CONSTRAINT schedule_doctor_pkey PRIMARY KEY (schedule_doctor_id),
+    CONSTRAINT fk_doctor FOREIGN KEY (schedule_doctor_doctor)
+        REFERENCES laba3.doctors (doctor_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT fk_schedule FOREIGN KEY (schedule_doctor_schedule)
+        REFERENCES laba3.schedule (schedule_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+</code></pre>
+<p>Код заполнения данных</p>
+<pre><code>insert into laba3.schedule_doctor (schedule_doctor_id, schedule_doctor_doctor, schedule_doctor_schedule) values (1, 2, 1);
+insert into laba3.schedule_doctor (schedule_doctor_id, schedule_doctor_doctor, schedule_doctor_schedule) values (2, 1, 2);
+insert into laba3.schedule_doctor (schedule_doctor_id, schedule_doctor_doctor, schedule_doctor_schedule) values (3, 3, 3);
+</code></pre>
+<h4 id="_11">Таблица записи к врачу <br></h4>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>Указатель на первичный ключ</th>
+<th>Указатель на внешний ключ</th>
+<th>Указатель униекальности</th>
+<th>Ограничения целостности списком</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id записи к врачу</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>является уникальным</td>
+</tr>
+<tr>
+<td>диагноз</td>
+<td>STRING</td>
+<td>-</td>
+<td>+</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>id врача</td>
+<td>INT</td>
+<td>-</td>
+<td>+</td>
+<td>+</td>
+<td>адресует к врачу</td>
+</tr>
+<tr>
+<td>id пациента</td>
+<td>INT</td>
+<td>-</td>
+<td>+</td>
+<td>+</td>
+<td>адресует к пациенту</td>
+</tr>
+<tr>
+<td>id кабинета</td>
+<td>INT</td>
+<td>-</td>
+<td>+</td>
+<td>+</td>
+<td>адресует к кабинету</td>
+</tr>
+<tr>
+<td>id записи</td>
+<td>INT</td>
+<td>-</td>
+<td>+</td>
+<td>+</td>
+<td>адресует к расписанию</td>
+</tr>
+</tbody>
+</table>
+<p>Код создания таблицы</p>
+<pre><code>CREATE TABLE laba3.doctor_appointments
+(
+    doctor_appointments_id integer NOT NULL,
+    doctor_appointments_diagnosis character varying(100) COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    doctor_appointments_doctor integer NOT NULL,
+    doctor_appointments_client integer NOT NULL,
+    doctor_appointments_cabinet integer NOT NULL,
+    doctor_appointments_schenula integer NOT NULL,
+    CONSTRAINT pk PRIMARY KEY (doctor_appointments_id),
+    CONSTRAINT fk_cabinet FOREIGN KEY (doctor_appointments_cabinet)
+        REFERENCES laba3.cabinets (cabinet_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID,
+    CONSTRAINT fk_client FOREIGN KEY (doctor_appointments_client)
+        REFERENCES laba3.clients (client_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID,
+    CONSTRAINT fk_doctor FOREIGN KEY (doctor_appointments_doctor)
+        REFERENCES laba3.doctors (doctor_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID,
+    CONSTRAINT fk_schedule FOREIGN KEY (doctor_appointments_schenula)
+        REFERENCES laba3.schedule (schedule_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID
+)
+</code></pre>
+<p>Код заполнения данных</p>
+<pre><code>insert into laba3.doctor_appointments (doctor_appointments_id, doctor_appointments_diagnosis, doctor_appointments_doctor, doctor_appointments_client, doctor_appointments_cabinet, doctor_appointments_schenula) values (1, 'diagnosis', 1, 1, 1, 1);
+insert into laba3.doctor_appointments (doctor_appointments_id, doctor_appointments_diagnosis, doctor_appointments_doctor, doctor_appointments_client, doctor_appointments_cabinet, doctor_appointments_schenula) values (2, 'diagnosis', 2, 2, 2, 2);
+insert into laba3.doctor_appointments (doctor_appointments_id, doctor_appointments_diagnosis, doctor_appointments_doctor, doctor_appointments_client, doctor_appointments_cabinet, doctor_appointments_schenula) values (3, 'diagnosis', 3, 3, 3, 3);
+</code></pre>
+<h4 id="_12">Таблица прием к врачу <br></h4>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>Указатель на первичный ключ</th>
+<th>Указатель на внешний ключ</th>
+<th>Указатель униекальности</th>
+<th>Ограничения целостности списком</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id приема</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>является уникальным</td>
+</tr>
+<tr>
+<td>id записи</td>
+<td>INT</td>
+<td>-</td>
+<td>+</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>id подсчета</td>
+<td>INT</td>
+<td>-</td>
+<td>+</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>диагноз</td>
+<td>STRING</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>cтоимость</td>
+<td>INT</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>доктор</td>
+<td>STRING</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>Код создания таблицы</p>
+<pre><code>CREATE TABLE laba3.reception_doctor
+(
+    reception_doctor_id integer NOT NULL,
+    reception_doctor_schenula integer NOT NULL,
+    reception_doctor_colculate integer NOT NULL,
+    reception_doctor_diagnos character varying(100) COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    reception_doctor_cost integer NOT NULL,
+    reception_doctor_doctor character varying(100) COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    CONSTRAINT reception_doctor_pkey PRIMARY KEY (reception_doctor_id),
+    CONSTRAINT fk_calculate FOREIGN KEY (reception_doctor_colculate)
+        REFERENCES laba3.calculation_cost (calculation_cost_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT fk_schenula FOREIGN KEY (reception_doctor_schenula)
+        REFERENCES laba3.doctor_appointments (doctor_appointments_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+</code></pre>
+<p>Код заполнения данных</p>
+<pre><code>insert into laba3.reception_doctor (reception_doctor_id, reception_doctor_schenula, reception_doctor_colculate, reception_doctor_diagnos, reception_doctor_cost, reception_doctor_doctor) values (1, 1, 1, 'diagnoz', 1121, 'Sergey');
+insert into laba3.reception_doctor (reception_doctor_id, reception_doctor_schenula, reception_doctor_colculate, reception_doctor_diagnos, reception_doctor_cost, reception_doctor_doctor) values (2, 2, 2, 'diagnoz', 2123, 'Anna');
+insert into laba3.reception_doctor (reception_doctor_id, reception_doctor_schenula, reception_doctor_colculate, reception_doctor_diagnos, reception_doctor_cost, reception_doctor_doctor) values (3, 3, 3, 'diagnoz', 33423, 'Anna');
+</code></pre>
+<h4 id="_13">Таблица оплаты <br></h4>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>Указатель на первичный ключ</th>
+<th>Указатель на внешний ключ</th>
+<th>Указатель униекальности</th>
+<th>Ограничения целостности списком</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id оплаты</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>является уникальным</td>
+</tr>
+<tr>
+<td>данные об оплате</td>
+<td>Boolean</td>
+<td>-</td>
+<td>+</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>id приема</td>
+<td>INT</td>
+<td>-</td>
+<td>+</td>
+<td>+</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>Код создания таблицы</p>
+<pre><code>CREATE TABLE laba3.payment
+(
+    payment_id integer NOT NULL,
+    payment_reception integer NOT NULL,
+    payment_status boolean NOT NULL,
+    CONSTRAINT payment_pkey PRIMARY KEY (payment_id),
+    CONSTRAINT fk_recipsion FOREIGN KEY (payment_reception)
+        REFERENCES laba3.reception_doctor (reception_doctor_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+</code></pre>
+<p>Код заполнения данных</p>
+<pre><code>insert into laba3.payment (payment_id, payment_reception, payment_status) values (1, 1, 'true');
+insert into laba3.payment (payment_id, payment_reception, payment_status) values (2, 2, 'true');
+insert into laba3.payment (payment_id, payment_reception, payment_status) values (3, 3, 'true');
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.2
+Build Date UTC : 2021-06-16 09:54:58.279610+00:00
+-->
