@@ -1,6 +1,6 @@
 ## Запросы
 
-#### 1  
+#### 1 Запрос
 ```
 select * from diet, breed, chicken;
 ``` 
@@ -8,7 +8,7 @@ select * from diet, breed, chicken;
 
 1 балл 
 
-#### 2  
+#### 2 Запрос
 ```
 SELECT salary FROM worker; 
 ``` 
@@ -16,7 +16,7 @@ SELECT salary FROM worker;
 
 1 балл
 
-#### 3 
+#### 3 Запрос
 ```
 select * from stay where id_cell = 1 intersect select * from stay where quantity = 100;
 ``` 
@@ -24,7 +24,7 @@ select * from stay where id_cell = 1 intersect select * from stay where quantity
 
 2 балла
 
-#### 4 
+#### 4 Запрос
 ```
 select * from chicken, breed order by chicken;
 ``` 
@@ -32,7 +32,7 @@ select * from chicken, breed order by chicken;
 
 2 балла
 
-#### 5 
+#### 5 Запрос
 ```
 select * from chicken, breed order by chicken;
 ``` 
@@ -40,7 +40,7 @@ select * from chicken, breed order by chicken;
 
 1 балл
 
-#### 6 
+#### 6 Запрос
 ```
 select id, sum(weight) as current from chicken group by id having sum(weight) < 150 order by id;
 ``` 
@@ -48,7 +48,7 @@ select id, sum(weight) as current from chicken group by id having sum(weight) < 
 
 2 балла
 
-#### 7  
+#### 7 Запрос 
 ```
 select * from chicken left join contract on id_worker = 1;
 ``` 
@@ -56,7 +56,7 @@ select * from chicken left join contract on id_worker = 1;
 
 2 балла
 
-#### 8 
+#### 8 Запрос
 ```
 select * from diet where name_diet = 'first' intersect select * from diet where content_diet = '1,2,3';
 ``` 
@@ -64,7 +64,7 @@ select * from diet where name_diet = 'first' intersect select * from diet where 
 
 2 балла
 
-#### 9 
+#### 9 Запрос
 ```
 select * from diet where name_diet = 'first';
 ``` 
@@ -72,7 +72,7 @@ select * from diet where name_diet = 'first';
 
 2 балла
 
-#### 10 
+#### 10 Запрос
 ```
 select * from list left join recomended_diet on id_diet = 1;
 ``` 
@@ -80,7 +80,7 @@ select * from list left join recomended_diet on id_diet = 1;
 
 2 балла
 
-#### 11 
+#### 11 Запрос
 ```
 select * from list where id_workshop = 1 intersect select * from list where date_install = '2021-01-01';
 ``` 
@@ -88,7 +88,7 @@ select * from list where id_workshop = 1 intersect select * from list where date
 
 2 балла
 
-#### 12 
+#### 12 Запрос
 ```
 select * from breed left join diet on name_diet = 'first';
 ``` 
@@ -96,7 +96,7 @@ select * from breed left join diet on name_diet = 'first';
 
 2 балла
 
-#### 13 
+#### 13 Запрос
 ```
 select id from worker union all select id from servies;
 ``` 
@@ -104,7 +104,7 @@ select id from worker union all select id from servies;
 
 2 балла
 
-#### 14 
+#### 14 Запрос
 ```
 select * from servies where id_worker = 1 intersect select * from servies where id_workshop = 1;
 ``` 
@@ -112,7 +112,7 @@ select * from servies where id_worker = 1 intersect select * from servies where 
 
 балла 2
 
-#### 15 
+#### 15 Запрос
 ```
 select id, sum(weight) as current from chicken group by id having sum(weight) > 150 order by id;
 ```
