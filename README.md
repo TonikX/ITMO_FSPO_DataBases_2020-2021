@@ -6,6 +6,7 @@
 | **ПР 1.1**  | [IDEF0 "Модель работы автомойки"](./lection_2/Схема%20работы%20автомойки.png)[1]|
 | **ПР 1.2**  | [DFD "Заказ в интерне магазине"](./practice/Заказ.bp1)[2]                       |
 | **ЛР №1**   | [Анализ поведения системы с помощью DFD](./lr1/Prezentatsia1.pptx)[3]           |
+
 [1]: https://github.com/TonikX/ITMO_FSPO_DataBases_2020-2021/blob/e2fc2dcd1f5ed539bd9ef247bc3179fb029752e1/students/y2334/Gankin_Vladimir/lections/lection_2/%D0%A1%D1%85%D0%B5%D0%BC%D0%B0%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B9%D0%BA%D0%B8.png
 [2]: 
 [3]:
