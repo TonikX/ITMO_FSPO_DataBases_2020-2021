@@ -5,7 +5,7 @@
 -- Dumped from database version 13.1
 -- Dumped by pg_dump version 13.1
 
--- Started on 2020-12-23 11:44:36
+-- Started on 2021-06-21 22:31:21
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -406,7 +406,7 @@ ALTER TABLE ONLY "prac3.1_schema".order_fulfillment
     ADD CONSTRAINT order_id FOREIGN KEY (order_id) REFERENCES "prac3.1_schema"."order"(order_id);
 
 
--- Completed on 2020-12-23 11:44:36
+-- Completed on 2021-06-21 22:31:21
 
 --
 -- PostgreSQL database dump complete
