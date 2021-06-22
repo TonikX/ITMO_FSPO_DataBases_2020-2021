@@ -1,0 +1,20 @@
+site_name: Alpinist Chel
+site_url: https://example.com
+
+nav:
+ - Home: index.md
+ - Alpinist: alpinist.md
+ - Alpinist In Group: alpinist_in_group.md
+ - Ascending: ascending.md
+ - Ascending Route: ascending_route.md
+ - Club: club.md
+ - Country: country.md
+ - District: district.md
+ - Emergency: emergency.md
+ - Finished Ascending: finished_ascending.md
+ - Grouping: grouping.md
+ - Mountain: mountain.md
+ - Waypoint: waypoint.md
+ - PHP: php.md
+ - Mongo: mongo.md
+
