@@ -25,16 +25,19 @@
 
 | Работа | Ссылка на работу                                                 | 
 |:-------|:-----------------------------------------------------------------|
-| ПР 3.1 | [SQLite](./practice%203.1)                                       |
-| ПР 3.2 | [PostgreSQL](./practice%203.2)                                   |
+| ПР 3.1 | [SQLite][7]                                                      |
+| ПР 3.2 | [PostgreSQL][8]                                                  |
 | ЛР №3  | In process...                                                    |
 
+[7]: https://github.com/TonikX/ITMO_FSPO_DataBases_2020-2021/blob/0207cbc9de6232b05828d463330d5ddc7fdd3a8e/students/y2334/Gankin_Vladimir/practice%203.1
+[8]: https://github.com/TonikX/ITMO_FSPO_DataBases_2020-2021/blob/3d8f68a33df7d7eeaa4650f14580f74eee88b2d3/students/y2334/Gankin_Vladimir/practice%203.2
 ## ЛР №4 ##
 
 | Работа   | Ссылка на работу                                        | 
 |:---------|:--------------------------------------------------------|
-| ЛР №4    | [DBProm](./lr4/LR%20№4.pdf)                             |
+| ЛР №4    | [DBProm][10]                                             |
 
+[10]: https://github.com/TonikX/ITMO_FSPO_DataBases_2020-2021/blob/ddbc6dba5da850ea06abdf2fbdcb1c0e1e0be13d/students/y2334/Gankin_Vladimir/lr4/LR%20%E2%84%964.pdf
 ## ЛР №5 ##
 
 | Работа | Ссылка на работу                                                 | 
