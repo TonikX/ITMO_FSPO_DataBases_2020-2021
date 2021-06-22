@@ -45,3 +45,31 @@ INSERT INTO public.diet
 INSERT INTO public.recomended_diet
 	VALUES (1, 1, 1);
 	VALUES (2, 2, 2);
+	
+select * from diet, breed, chicken;
+
+SELECT salary FROM worker; 
+
+select * from stay where id_cell = 1 intersect select * from stay where quantity = 100;
+
+select * from chicken, breed order by chicken;
+
+select id, sum(weight) as current from chicken group by id having sum(weight) < 150 order by id;
+
+select * from chicken left join contract on id_worker = 1;
+
+select * from diet where name_diet = 'first' intersect select * from diet where content_diet = '1,2,3';
+
+select * from diet where name_diet = 'first';
+
+select * from list left join recomended_diet on id_diet = 1;
+
+select * from list where id_workshop = 1 intersect select * from list where date_install = '2021-01-01';
+
+select * from breed left join diet on name_diet = 'first';
+
+select id from worker union all select id from servies;
+
+select * from servies where id_worker = 1 intersect select * from servies where id_workshop = 1;
+
+select id, sum(weight) as current from chicken group by id having sum(weight) > 150 order by id;
