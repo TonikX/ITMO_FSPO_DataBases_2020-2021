@@ -1,96 +1,123 @@
 ## Запросы
 
-#### 1 - Выбор животного и его лечений по номеру
+#### 1  
 ```
 select * from diet, breed, chicken;
 ``` 
+![image](https://user-images.githubusercontent.com/64501412/122996995-36174200-d3b4-11eb-84f7-50d28c08fd69.png)
 
+1 балл 
 
-
-#### 2 - Выбор животных номеру и типу
+#### 2  
 ```
-SELECT * 
-FROM lr3.animals 
-WHERE id > 1 and type = 'Reptile';
+SELECT salary FROM worker; 
 ``` 
+![image](https://user-images.githubusercontent.com/64501412/122997125-5941f180-d3b4-11eb-8ada-b8c46cf032f1.png)
 
-![image](https://user-images.githubusercontent.com/58090572/121611109-32082d80-ca60-11eb-8f3a-4241b20eb6d4.png)
+1 балл
 
-#### 3 - Выбор списка лечений по номеру врача и животного
+#### 3 
 ```
-SELECT * 
-FROM lr3.healing 
-WHERE doctor_id < 2 and animals_id != 2;
+select * from stay where id_cell = 1 intersect select * from stay where quantity = 100;
 ``` 
+![image](https://user-images.githubusercontent.com/64501412/122997258-7a0a4700-d3b4-11eb-8865-fc90dc72c2a7.png)
 
-![image](https://user-images.githubusercontent.com/58090572/121611048-0edd7e00-ca60-11eb-8980-1d55bbe891e8.png)
+2 балла
 
-
-#### 4 - Добавление записи о лечении с текущим временем
+#### 4 
 ```
-INSERT INTO lr3.healing
-VALUES (2, current_date, 1, 1);
+select * from chicken, breed order by chicken;
 ``` 
+![image](https://user-images.githubusercontent.com/64501412/122997523-c48bc380-d3b4-11eb-97f6-da555c77a88b.png)
 
-![image](https://user-images.githubusercontent.com/58090572/121611140-44826700-ca60-11eb-8f3b-3c2db1e14a88.png)
+2 балла
 
-#### 5 - Добавление записи доктора с именем в верхнем регистре
+#### 5 
 ```
-INSERT INTO lr3.doctor 
-VALUES (2, '1970-01-01', UPPER('jim'), '88005553535');
+select * from chicken, breed order by chicken;
 ``` 
+![image](https://user-images.githubusercontent.com/64501412/122997612-dc634780-d3b4-11eb-9a5b-e805547743fa.png)
 
-![image](https://user-images.githubusercontent.com/58090572/121611160-5106bf80-ca60-11eb-9e7c-f22b4f7d2bb3.png)
+1 балл
 
-#### 6 - Добавление записи смотрителя с именем в нижнем регистре
+#### 6 
 ```
-INSERT INTO lr3.overseer 
-VALUES (2, '1970-01-01', LOWER('BOB'), '88005553535');
+select id, sum(weight) as current from chicken group by id having sum(weight) < 150 order by id;
 ``` 
+![image](https://user-images.githubusercontent.com/64501412/122997711-f13fdb00-d3b4-11eb-864a-746e186c2566.png)
 
-![image](https://user-images.githubusercontent.com/58090572/121611197-62e86280-ca60-11eb-89c7-b23b75d27caa.png)
+2 балла
 
-#### 7 - Выбор списка животных с мужским полом и без записей о лечении
+#### 7  
 ```
-SELECT id, type 
-FROM lr3.animals 
-WHERE sex = 'M' and NOT EXISTS 
-(SELECT id FROM lr3.healing WHERE id = animals.id);
+select * from chicken left join contract on id_worker = 1;
 ``` 
+![image](https://user-images.githubusercontent.com/64501412/122997815-0b79b900-d3b5-11eb-9d72-909d3c879c53.png)
 
-![image](https://user-images.githubusercontent.com/58090572/121611215-71cf1500-ca60-11eb-85a8-93bb7e8607f2.png)
+2 балла
 
-#### 8 - Подсчет количества животных
+#### 8 
 ```
-SELECT count(*) 
-FROM lr3.animals;
+select * from diet where name_diet = 'first' intersect select * from diet where content_diet = '1,2,3';
 ``` 
+![image](https://user-images.githubusercontent.com/64501412/122997877-1b919880-d3b5-11eb-8708-d15db32ac401.png)
 
-![image](https://user-images.githubusercontent.com/58090572/121611315-a17e1d00-ca60-11eb-9408-450c500c2bfe.png)
+2 балла
 
-#### 9 - Подсчет количества животных с мужским полом с группировкой по полу и типу
+#### 9 
 ```
-SELECT sex, type, count(*) 
-FROM lr3.animals GROUP BY sex,type 
-HAVING sex = 'M';
+select * from diet where name_diet = 'first';
 ``` 
+![image](https://user-images.githubusercontent.com/64501412/122997947-2a784b00-d3b5-11eb-893f-eac5c538a39d.png)
 
-![image](https://user-images.githubusercontent.com/58090572/121611230-7abfe680-ca60-11eb-895c-dac275ecf69f.png)
+2 балла
 
-#### 10 - Вывод объединенных таблиц врачей и смотрителей
+#### 10 
 ```
-SELECT id, name 
-FROM lr3.doctor 
-UNION 
-SELECT id,name FROM lr3.overseer;
+select * from list left join recomended_diet on id_diet = 1;
 ``` 
+![image](https://user-images.githubusercontent.com/64501412/122998028-39f79400-d3b5-11eb-8594-6abcf7305cfb.png)
 
-![image](https://user-images.githubusercontent.com/58090572/121611356-bc509180-ca60-11eb-9d77-32082db55232.png)
+2 балла
 
-#### 11 - Вывод даты лечения, пола и типа животного через JOIN таблиц
+#### 11 
 ```
-SELECT healing.date, sex, type 
-FROM lr3.animals 
-JOIN lr3.healing ON animals.id = healing.animals_id;
+select * from list where id_workshop = 1 intersect select * from list where date_install = '2021-01-01';
 ``` 
-![image](https://user-images.githubusercontent.com/58090572/121610998-f2414600-ca5f-11eb-9c39-cbc63b19360d.png)
+![image](https://user-images.githubusercontent.com/64501412/122998178-690e0580-d3b5-11eb-99e5-2647c089b04b.png)
+
+2 балла
+
+#### 12 
+```
+select * from breed left join diet on name_diet = 'first';
+``` 
+![image](https://user-images.githubusercontent.com/64501412/122998230-77f4b800-d3b5-11eb-9499-aab151e58545.png)
+
+2 балла
+
+#### 13 
+```
+select id from worker union all select id from servies;
+``` 
+![image](https://user-images.githubusercontent.com/64501412/122998296-8a6ef180-d3b5-11eb-8ccf-a8c7aae92989.png)
+
+2 балла
+
+#### 14 
+```
+select * from servies where id_worker = 1 intersect select * from servies where id_workshop = 1;
+``` 
+![image](https://user-images.githubusercontent.com/64501412/122998362-9b1f6780-d3b5-11eb-95ed-15d67b83456b.png)
+
+балла 2
+
+#### 15 
+```
+select id, sum(weight) as current from chicken group by id having sum(weight) > 150 order by id;
+```
+![image](https://user-images.githubusercontent.com/64501412/122998406-ac687400-d3b5-11eb-9e65-aa56c5887698.png)
+
+2 балла
+
+### Итого баллов: 27 баллов.
