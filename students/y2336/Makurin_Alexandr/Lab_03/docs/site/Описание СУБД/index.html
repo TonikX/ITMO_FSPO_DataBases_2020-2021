@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Описание СУБД - Lab 03</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u0421\u0423\u0411\u0414";
+    var mkdocs_page_input_path = "\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u0421\u0423\u0411\u0414\\index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Lab 03</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Главная</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Описание СУБД</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_1">Таблица Квалификация</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">Описание</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">Код создания</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">Код заполнения данных</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_5">Таблица Соискатель</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_6">Описание</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_7">Код создания</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_8">Код заполнения данных</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_9">Таблица Работодатель</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_10">Описание</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_11">Код создания</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_12">Код заполнения данных</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_13">Таблица Вакансия</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_14">Описание</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_15">Код создания</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_16">Код заполнения данных</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_17">Таблица Найм</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_18">Описание</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_19">Код создания</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_20">Код заполнения данных</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_21">Таблица Прохождение курса</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_22">Описание</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_23">Код создания</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_24">Код заполнения данных</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Lab 03</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Описание СУБД</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="postgresql-131">PostgreSQL 13.1</h1>
+<p>Код создания БД:</p>
+<pre><code class="language-SQL">CREATE DATABASE studing;
+CREATE SCHEMA IF NOT EXISTS LaborExchange;
+</code></pre>
+<h2 id="_1">Таблица <em>Квалификация</em></h2>
+<h3 id="_2">Описание</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Наименование поля</th>
+<th align="center">Тип данных</th>
+<th align="center">Указатель на первичный ключ</th>
+<th align="center">Указатель на внешний ключ</th>
+<th align="center">Указатель уникальности</th>
+<th align="center">Ограничения целостности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">id</td>
+<td align="center">SERIAL</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">profession</td>
+<td align="center">VARCHAR(45)</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">rank</td>
+<td align="center">INT</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">course_name</td>
+<td align="center">VARCHAR(45)</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">duration</td>
+<td align="center">INT</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">Код создания</h3>
+<pre><code class="language-SQL">CREATE TABLE IF NOT EXISTS LaborExchange.Qualification (
+  id SERIAL,
+  profession VARCHAR(45) NOT NULL,
+  rank INT NOT NULL,
+  course_name VARCHAR(45) NULL,
+  duration INT NULL,
+  PRIMARY KEY (id));
+</code></pre>
+<h3 id="_4">Код заполнения данных</h3>
+<pre><code class="language-SQL">INSERT INTO LaborExchange.Qualification VALUES
+    (1,'Сантехник',5,'Сантехник 5-го разряда: как и зачем',170),
+    (2,'Python программист',0,'Python for dummies',40);
+</code></pre>
+<h2 id="_5">Таблица <em>Соискатель</em></h2>
+<h3 id="_6">Описание</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Наименование поля</th>
+<th align="center">Тип данных</th>
+<th align="center">Указатель на первичный ключ</th>
+<th align="center">Указатель на внешний ключ</th>
+<th align="center">Указатель уникальности</th>
+<th align="center">Ограничения целостности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">id</td>
+<td align="center">SERIAL</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">qualification_id</td>
+<td align="center">VARCHAR(45)</td>
+<td align="center">-</td>
+<td align="center">Qualification.id</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">expirience</td>
+<td align="center">INT</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">benefit</td>
+<td align="center">INT</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">contact_details</td>
+<td align="center">VARCHAR(100)</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">education</td>
+<td align="center">VARCHAR(45)</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">resume_posting_date</td>
+<td align="center">DATE</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">benefit_start_date</td>
+<td align="center">DATE</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">benefit_end_date</td>
+<td align="center">DATE</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">Код создания</h3>
+<pre><code class="language-SQL">CREATE TABLE IF NOT EXISTS LaborExchange.Applicant (
+  id SERIAL,
+  qualification_id INT NOT NULL,
+  expirience INT DEFAULT 0 NOT NULL,
+  benefit INT DEFAULT 0 NOT NULL,
+  contact_details VARCHAR(100) NOT NULL,
+  education VARCHAR(45) NOT NULL,
+  resume_posting_date DATE NOT NULL,
+  benefit_start_date DATE NULL,
+  benefit_end_date DATE NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_Applicant_Qualification
+    FOREIGN KEY (qualification_id)
+    REFERENCES LaborExchange.Qualification (id));
+</code></pre>
+<h3 id="_8">Код заполнения данных</h3>
+<pre><code class="language-SQL">INSERT INTO LaborExchange.Applicant VALUES 
+    (1,1,0000000024,0000000000,'Contacts','Высшее сантехническое','2020-02-20',NULL,NULL),
+    (2,2,0000000006,0000000000,'Contacts2','Высшее техническое','2020-02-21',NULL,NULL);
+</code></pre>
+<h2 id="_9">Таблица <em>Работодатель</em></h2>
+<h3 id="_10">Описание</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Наименование поля</th>
+<th align="center">Тип данных</th>
+<th align="center">Указатель на первичный ключ</th>
+<th align="center">Указатель на внешний ключ</th>
+<th align="center">Указатель уникальности</th>
+<th align="center">Ограничения целостности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">id</td>
+<td align="center">SERIAL</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">name</td>
+<td align="center">VARCHAR(45)</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">address</td>
+<td align="center">VARCHAR(100)</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">Email</td>
+<td align="center">VARCHAR(100)</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">contact_person</td>
+<td align="center">VARCHAR(45)</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">phone_number</td>
+<td align="center">BIGINT</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_11">Код создания</h3>
+<pre><code class="language-SQL">CREATE TABLE IF NOT EXISTS LaborExchange.Employer (
+  id SERIAL,
+  name VARCHAR(45) NOT NULL,
+  address VARCHAR(100) NOT NULL,
+  Email VARCHAR(100) NOT NULL,
+  contact_person VARCHAR(45) NOT NULL,
+  phone_number BIGINT NOT NULL,
+  PRIMARY KEY (id));
+</code></pre>
+<h3 id="_12">Код заполнения данных</h3>
+<pre><code class="language-SQL">INSERT INTO LaborExchange.Employer VALUES
+    (1,'ЖКХ Петроградского района','Каменноостровский пр., 19/13','jkh@spb.ru','Директор Иванов Иван Иванович',88124994911),
+    (2,'Microsoft','Аптекарская наб., 20, Санкт-Петербург, 197022','admin@microsoft.com','Генеральный директор Сатья Наделла',88002008001);
+</code></pre>
+<h2 id="_13">Таблица <em>Вакансия</em></h2>
+<h3 id="_14">Описание</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Наименование поля</th>
+<th align="center">Тип данных</th>
+<th align="center">Указатель на первичный ключ</th>
+<th align="center">Указатель на внешний ключ</th>
+<th align="center">Указатель уникальности</th>
+<th align="center">Ограничения целостности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">id</td>
+<td align="center">SERIAL</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">employer_id</td>
+<td align="center">INT</td>
+<td align="center">-</td>
+<td align="center">Employer.id</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">necessary_qualification_id</td>
+<td align="center">INT</td>
+<td align="center">-</td>
+<td align="center">Qualification.id</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">necessary_experience</td>
+<td align="center">INT</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">necessary_education</td>
+<td align="center">VARCHAR(45)</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">posting_date</td>
+<td align="center">DATE</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_15">Код создания</h3>
+<pre><code class="language-SQL">CREATE TABLE IF NOT EXISTS LaborExchange.Vacancy (
+  id SERIAL,
+  employer_id INT NOT NULL,
+  necessary_qualification_id INT NOT NULL,
+  necessary_experience INT NOT NULL,
+  necessary_education VARCHAR(45) NOT NULL,
+  posting_date DATE NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_Vacancy_Employer1
+    FOREIGN KEY (employer_id)
+    REFERENCES LaborExchange.Employer (id),
+  CONSTRAINT fk_Vacancy_Qualification1
+    FOREIGN KEY (necessary_qualification_id)
+    REFERENCES LaborExchange.Qualification (id));
+</code></pre>
+<h3 id="_16">Код заполнения данных</h3>
+<pre><code class="language-SQL">INSERT INTO LaborExchange.Vacancy VALUES
+    (1,1,1,18,'Среднее сантехническое','2021-01-20'),
+    (2,2,2,6,'Высшее техническое','2021-02-01');
+</code></pre>
+<h2 id="_17">Таблица <em>Найм</em></h2>
+<h3 id="_18">Описание</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Наименование поля</th>
+<th align="center">Тип данных</th>
+<th align="center">Указатель на первичный ключ</th>
+<th align="center">Указатель на внешний ключ</th>
+<th align="center">Указатель уникальности</th>
+<th align="center">Ограничения целостности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">id</td>
+<td align="center">SERIAL</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">applicant_id</td>
+<td align="center">INT</td>
+<td align="center">-</td>
+<td align="center">Applicant.id</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">vacancy_id</td>
+<td align="center">INT</td>
+<td align="center">-</td>
+<td align="center">Vacancy.id</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">salary</td>
+<td align="center">INT</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_19">Код создания</h3>
+<pre><code class="language-SQL">CREATE TABLE IF NOT EXISTS LaborExchange.Hiring (
+  id SERIAL,
+  applicant_id INT NOT NULL,
+  vacancy_id INT NOT NULL,
+  salary INT NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_Hiring_Applicant1
+    FOREIGN KEY (applicant_id)
+    REFERENCES LaborExchange.Applicant (id),
+  CONSTRAINT fk_Hiring_Vacancy1
+    FOREIGN KEY (vacancy_id)
+    REFERENCES LaborExchange.Vacancy (id));
+</code></pre>
+<h3 id="_20">Код заполнения данных</h3>
+<pre><code class="language-SQL">INSERT INTO LaborExchange.Hiring VALUES
+    (1,1,1,120000),
+    (2,2,2,50000);
+</code></pre>
+<h2 id="_21">Таблица <em>Прохождение курса</em></h2>
+<h3 id="_22">Описание</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Наименование поля</th>
+<th align="center">Тип данных</th>
+<th align="center">Указатель на первичный ключ</th>
+<th align="center">Указатель на внешний ключ</th>
+<th align="center">Указатель уникальности</th>
+<th align="center">Ограничения целостности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">id</td>
+<td align="center">SERIAL</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">passing_date</td>
+<td align="center">VARCHAR(45)</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">qualification_id</td>
+<td align="center">INT</td>
+<td align="center">-</td>
+<td align="center">Qualification.id</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">applicant_id</td>
+<td align="center">INT</td>
+<td align="center">-</td>
+<td align="center">Applicant.id</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_23">Код создания</h3>
+<pre><code class="language-SQL">CREATE TABLE IF NOT EXISTS LaborExchange.Course_Passing (
+  id SERIAL,
+  passing_date VARCHAR(45) NOT NULL,
+  qualification_id INT NOT NULL,
+  applicant_id INT NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_Course_Passing_Qualification1
+    FOREIGN KEY (qualification_id)
+    REFERENCES LaborExchange.Qualification (id),
+  CONSTRAINT fk_Course_Passing_Applicant1
+    FOREIGN KEY (applicant_id)
+    REFERENCES LaborExchange.Applicant (id));
+</code></pre>
+<h3 id="_24">Код заполнения данных</h3>
+<pre><code class="language-SQL">INSERT INTO LaborExchange.Course_Passing VALUES
+    (1,'2019-10-29',1,1),
+    (2,'2020-01-05',2,2);
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href=".." class="btn btn-neutral" title="Главная"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
