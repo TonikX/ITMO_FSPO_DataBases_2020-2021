@@ -27,4 +27,5 @@ db.healing.insertOne({date: "2021-06-15", doctor_id: ObjectId('60c826bdc0118415c
 
 db.doctor.aggregate([{ $unionWith: "overseer" }])
 
+![image](https://user-images.githubusercontent.com/58090572/123130385-695ddd80-d455-11eb-96d8-5e752d5fd684.png)
 
