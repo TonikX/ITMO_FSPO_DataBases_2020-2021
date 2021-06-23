@@ -4,4 +4,5 @@ nav:
   - Описание БД: db_description.md
   - Запросы к БД: queries.md
   - Интерфейс СУБД: db_interface.md
+  - MongoDB: mongodb.md
 theme: readthedocs
