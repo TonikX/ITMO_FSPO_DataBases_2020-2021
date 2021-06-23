@@ -1,0 +1,57 @@
+
+####Выбор почтовых отделений, которые находятся в городе 'SPb' и их номер > 1.
+> db.postoffice.find({address: "Saint-Petersburg", number: {$gte: 5000000}})
+{ _id: ObjectId("60aabbeeaa526da27932c6cd"),
+  address: 'Saint-Petersburg',
+  number: 7634764 }
+
+Выбор тиража с производством, у которых количество газет в тираже = '350' и типография принимает любое значение.
+> db.printing.find({quantity: 350})
+{ _id: ObjectId("60aaba9baa526da27932c6ca"),
+  typography: 'S&P Global',
+  circulation: 27, 
+  newspaper_index: 3746837,
+  quantity: 350 }
+
+
+Вывод средней стоимости всех газет
+> db.newspaper.aggregate([
+    {
+        "$group": { 
+            "_id": null, 
+            "avg": { "$avg": "$price" } 
+        }
+    }
+])
+{ _id: null, avg: 14000 }
+
+
+> db.newspaper.find({editor: 'Danilin Artem'}).sort({price: 1}).limit(1)
+{ _id: ObjectId("60aab792aa526da27932c6c6"),
+  name: 'Woolsteet',
+  price: 15000,
+  editor: 'Danilin Artem',
+  index: 3746837 }
+
+
+> db.newspaper.find({price: {$gt: 10000}}).sort({index: 1})
+{ _id: ObjectId("60aab792aa526da27932c6c7"),
+  name: 'Blumberk',
+  price: 17000,
+  editor: 'Nikitin Andrey',
+  index: 2390829 }
+{ _id: ObjectId("60aab792aa526da27932c6c6"),
+  name: 'Woolsteet',
+  price: 15000,
+  editor: 'Danilin Artem',
+  index: 3746837 }  
+
+> db.newspaper.aggregate([{$project: {editor: {$toLower: "$editor"}}}])
+{ _id: ObjectId("60aab792aa526da27932c6c6"),
+  editor: 'danilin artem' }
+{ _id: ObjectId("60aab792aa526da27932c6c7"),
+  editor: 'nikitin andrey' }
+{ _id: ObjectId("60aab792aa526da27932c6c8"),
+  editor: 'byldakov nikita' }
+
+
