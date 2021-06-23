@@ -1,0 +1,26 @@
+site_name: "Commodity exchange"
+nav:
+ - Tables:
+        - office: tables/office.md
+        - broker: tables/broker.md
+        - batch: tables/batch.md
+        - buyer: tables/buyer.md
+        - contract: tables/contract.md
+        - deal: tables/deal.md
+        - firm: tables/firm.md
+        - product: tables/product.md
+        - "product batch": tables/productbatch.md
+        - "product firm": tables/productfirm.md
+        - payment: tables/payment.md
+ - Code:
+        - create: code/create.md
+        - insert: code/insert.md
+ - Queries: queries/queries.md
+ - MongoDB: 
+        - new model: mongodb/db.jpg
+        - create and insert: mongodb/insert.md
+        - queries: mongodb/queries.md
+
+
+theme:
+   name: readthedocs

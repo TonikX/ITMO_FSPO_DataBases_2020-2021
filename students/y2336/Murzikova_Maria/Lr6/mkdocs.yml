@@ -1,0 +1,8 @@
+site_name: Товарно-сырьевая биржа
+nav:
+ - Interfaces: interfaces/interfaces.md
+ - Queries: queries/queries.md
+
+
+theme:
+ name: material
