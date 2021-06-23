@@ -444,3 +444,624 @@ group by preiscurant_id having max(preiscurant_cost)<'11500'
 select * from laba3.schedule where schedule_id = some (select schedule_doctor_schedule from laba3.schedule_doctor)
 ```
 <img src="./img/5_11.jpg" />
+
+##Лабораторная №6
+####6.1
+Реализовано формирование письма для электронной почты и подключение rodokassa.
+```
+<?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+
+    if(!empty($_POST["name"]) && !empty($_POST["email"]) && !empty($_POST["phone"])){ // если был пост
+
+        $json = file_get_contents('../goods.json');
+        $json = json_decode($json, true);
+
+        $name = trim(htmlspecialchars(strip_tags(base64_encode(urlencode($_POST["name"])))));
+        $email = trim(htmlspecialchars(strip_tags(base64_encode(urlencode($_POST["email"])))));
+        $phone = trim(htmlspecialchars(strip_tags(base64_encode(urlencode($_POST["phone"])))));
+
+        $mrh_login = "FoodieBox";
+        $mrh_pass1 = "VfapiT7bl5nvELm6R94q";
+
+        $inv_id = file_get_contents("order_number.txt");
+
+        $inv_desc = "Тестовая оплата";
+        $inv_desc = utf8_encode( $inv_desc );
+        $out_summ = $_POST["endCost"];
+
+        $shp_item = 1;
+
+        $in_curr = "";
+
+        $culture = "ru";
+
+        $encoding = "utf-8";
+
+        $stroc = "$mrh_login:$out_summ:$inv_id:$mrh_pass1";
+
+        $stroc = utf8_encode( $stroc );
+
+        $crc  = md5("$stroc");
+
+        $file = file_get_contents("order_number.txt");
+
+
+
+        //letter
+        $order = 'Заказ № '.$file;
+        $phone = 'Телефон: '.$_POST['phone'];
+        $email = 'Почта: '.$_POST['email'];
+        $name = 'Имя: '.$_POST['name'];
+        $surname = 'Фамилия: '.$_POST['surname'];
+        $deliver = 'Способ доставки: '.$_POST['deliver'];
+        $street = 'Улица: '.$_POST['street'];
+        $home = 'Дом: '.$_POST['home'];
+        $floor = 'Квартира: '.$_POST['floor'];
+        $time = 'Время доставки: '.$_POST['date'];
+        $indent = 'Заказ:';
+
+        $cart = $_POST['cart'];
+
+        $fd = fopen("cart.txt", w);
+        fwrite($fd, $order."\r\n");
+        fwrite($fd, $phone."\r\n");
+        fwrite($fd, $email."\r\n");
+        fwrite($fd, $name."\r\n");
+        fwrite($fd, $surname."\r\n");
+        fwrite($fd, $deliver."\r\n");
+        fwrite($fd, $street."\r\n");
+        fwrite($fd, $home."\r\n");
+        fwrite($fd, $floor."\r\n");
+        fwrite($fd, $time."\r\n");
+        fwrite($fd, $indent."\r\n");
+
+        foreach ($cart as $id=>$count) {
+            $message = '';
+            $message .=$json[$id]['name'].' --- ';
+            $message .=$count.' --- ';
+            $message .=$count*$json[$id]['cost'];
+            fwrite($fd, $message."\r\n");
+        }
+
+        $cost ='Стоимость: '.$_POST['cost'];
+        $sale ='Скидка: '.$_POST['sale'];
+        $endCost ='Всего: '.$_POST['endCost'];
+        $humus ='Бесплатный хумус: '.$_POST['humus'];
+        $cash ='Способ оплаты: '.$_POST['cash'];
+
+        fwrite($fd, $cost."\r\n");
+        fwrite($fd, $sale."\r\n");
+        fwrite($fd, $endCost."\r\n");
+        fwrite($fd, $humus."\r\n");
+        fwrite($fd, $cash."\r\n");
+
+        fclose($fd);
+
+        echo("https://auth.robokassa.ru/Merchant/Index.aspx?MrchLogin=$mrh_login&InvId=$inv_id&Culture=$culture&Encoding=$encoding&OutSum=$out_summ&SignatureValue=$crc&IsTest=1");
+
+    }
+
+```
+
+```
+<?php
+
+// read json
+$json = file_get_contents('../goods.json');
+$json = json_decode($json, true);
+
+//order number
+$file = file_get_contents("order_number.txt");
+
+
+
+//letter
+$message = '';
+$message .= '<h1>Заказ № '.$file.'</h1>';
+$message .= '<p>Телефон: '.$_POST['phone'].'</p>';
+$message .= '<p>Почта: '.$_POST['email'].'</p>';
+$message .= '<p>Имя: '.$_POST['name'].'</p>';
+$message .= '<p>Фамилия: '.$_POST['surname'].'</p>';
+$message .= '<p>Способ доставки: '.$_POST['deliver'].'</p>';
+$message .= '<p>Улица: '.$_POST['street'].'</p>';
+$message .= '<p>Дом: '.$_POST['home'].'</p>';
+$message .= '<p>Квартира: '.$_POST['floor'].'</p>';
+$message .= '<p>Время доставки: '.$_POST['date'].'</p>';
+$message .= '<p>Заказ:</p>';
+
+$fp = fopen('order_number.txt', 'w'); //перезаписываем номер покупки в файл count.txt
+fwrite($fp, $file+1);
+fclose($fp);
+
+$cart = $_POST['cart'];
+$sum = 0;
+
+foreach ($cart as $id=>$count) {
+    $message .=$json[$id]['name'].' --- ';
+    $message .=$count.' --- ';
+    $message .=$count*$json[$id]['cost'];
+    $message .='<br>';
+}
+$message .='<p>Стоимость: '.$_POST['cost'].'</p>';
+$message .='<p>Скидка: '.$_POST['sale'].'</p>';
+$message .='<p>Всего: '.$_POST['endCost'].'</p>';
+$message .='<p>Бесплатный хумус: '.$_POST['humus'].'</p>';
+$message .= '<p>Способ оплаты: '.$_POST['cash'].'</p>';
+$message .= '<p>Сдача с: '.$_POST['change'].'</p>';
+
+
+$to = 'foodieboxru@gmail.com'; //не забудь поменять!
+$spectext = '<!DOCTYPE HTML><html><head><title>Заказ</title></head><body>';
+$headers  = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+
+$m = mail($to, 'Заказ в магазине', $spectext.$message.'</body></html>', $headers);
+
+if ($m) {echo 1;} else {echo 0;}
+?>
+```
+
+```
+<?php
+$inv_id = $_REQUEST["InvId"];
+echo "Вы отказались от оплаты. Заказ# $inv_id\n";
+echo "You have refused payment. Order# $inv_id\n";
+header("Location:http://foodiebox.ru/?order=ok");
+?>
+'''
+
+'''
+<?php
+$mrh_pass2 = "H2dKWcM751EZYPLPsW1n";
+// чтение параметров
+$out_summ = $_REQUEST["OutSum"];
+$inv_id = $_REQUEST["InvId"];
+$shp_item = $_REQUEST["Shp_item"];
+$crc = $_REQUEST["SignatureValue"];
+$shp_mulo = $_REQUEST["shp_mulo"];
+$shp_names = $_REQUEST["shp_names"];
+$shp_phone = $_REQUEST["shp_phone"];
+$crc = strtoupper($crc);
+$my_crc = strtoupper(md5("$out_summ:$inv_id:$mrh_pass2:Shp_item=$shp_item:shp_mulo=$shp_mulo:shp_names=$shp_names:shp_phone=$shp_phone")); // формируем новый ключ
+if ($my_crc != $crc)
+{
+    echo "bad sign\n";
+    exit();
+}
+$count = file_get_contents("order_number.txt");
+$fp = fopen('count.txt', 'w');
+fwrite($fp, $count+1);
+fclose($fp);
+
+$email_k = urldecode(base64_decode($shp_mulo));
+$name_k = urldecode(base64_decode($shp_names));
+$phone_k = urldecode(base64_decode($shp_phone));
+$result = $email_k."\r\n".$name_k."\r\n".$phone_k;
+
+$fp = fopen('last_order.txt', 'w');
+fwrite($fp, $result);
+fclose($fp);
+
+echo "OK$inv_id\n";
+?>
+```
+
+```
+<?php
+$mrh_pass1 = "VfapiT7bl5nvELm6R94q";
+// чтение параметров
+$out_summ = $_REQUEST["OutSum"];
+$inv_id = $_REQUEST["InvId"];
+$mrh_login = $_REQUEST["MrchLogin"];
+$crc = $_REQUEST["SignatureValue"];
+$crc = strtoupper($crc);
+$my_crc = strtoupper(md5("$mrh_login$out_summ:$inv_id:$mrh_pass1"));
+if ($my_crc != $crc)
+{
+    echo "bad sign\n";
+    exit();
+}
+
+ $message = '';
+$file = fopen('cart.txt', 'r');
+while (!feof($file)) {
+    $message .= fgets($file, 4096);
+    $message .= '<br>';
+}
+fclose($file);
+
+$to = 'foodieboxru@gmail.com'; //не забудь поменять!
+$spectext = '<!DOCTYPE HTML><html><head><title>Заказ</title></head><body>';
+$headers  = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+
+$m = mail($to, 'Заказ в магазине', $spectext.$message.'</body></html>', $headers);
+
+header("Location:http://foodiebox.ru/?order=ok");
+
+?>
+```
+####6.2
+В этой части работы представлено выполнение задания 6.2, где нужно было реализовать вывод таблицы из БД, возможность редактирования и удаления. Ниже представлен php код.
+
+Код из файла index.php
+'''
+<?php
+
+<?php
+
+	$dbuser = 'postgres';
+	$dbpass = '1234';
+	$host = 'localhost';
+	$port = '5433';
+	$dbname = 'laba3';
+
+	$db = pg_connect("host=$host port=$port dbname=$dbname user=$dbuser password=$dbpass");
+
+	$query = "select * from laba3.doctors;";
+	$result = pg_query($db, $query);
+	$rows = pg_num_rows($result);
+	$row = pg_fetch_assoc($result);
+	$organizations=[];
+
+	while ($myrow = pg_fetch_array($result)) {
+		$organizations[]=$myrow;
+
+	}
+
+	$query2 = "select * from laba3.preiscurant inner join laba3.calculation_cost on laba3.calculation_cost.calculation_cost_preiscurant=laba3.preiscurant.preiscurant_id";
+	$result2 = pg_query($db, $query2);
+	$rows2 = pg_num_rows($result2);
+	$row2 = pg_fetch_assoc($result2);
+	$organizations2=[];
+
+	while ($myrow2 = pg_fetch_array($result2)) {
+		$organizations2[]=$myrow2;
+
+	}
+
+	$query3 = "select * from laba3.preiscurant where preiscurant_cost>'1200' and preiscurant_id>1";
+	$result3 = pg_query($db, $query3);
+	$rows3 = pg_num_rows($result3);
+	$row3 = pg_fetch_assoc($result3);
+	$organizations3=[];
+
+	while ($myrow3 = pg_fetch_array($result3)) {
+		$organizations3[]=$myrow3;
+
+	}
+
+	$query4 = "select distinct on (doctor_specializacion) doctor_specializacion, doctor_gender from laba3.doctors order by doctor_specializacion, doctor_gender";
+	$result4 = pg_query($db, $query4);
+	$rows4 = pg_num_rows($result4);
+	$row4 = pg_fetch_assoc($result4);
+	$organizations4=[];
+
+	while ($myrow4 = pg_fetch_array($result4)) {
+		$organizations4[]=$myrow4;
+
+	}
+
+	$query5 = "SELECT * FROM laba3.calculation_cost";
+	$result5 = pg_query($db, $query5);
+	$rows5 = pg_num_rows($result5);
+	$row5 = pg_fetch_assoc($result5);
+	$organizations5=[];
+
+	while ($myrow5 = pg_fetch_array($result5)) {
+		$organizations5[]=$myrow5;
+
+	}
+
+
+
+	if (isset($_GET['doctor_id'])) {
+
+		$sql_delete = "delete  from laba3.doctors where doctor_id = '" .$_GET['doctor_id']."'";
+		$query_delete = pg_query($db,$sql_delete);
+
+		if($query_delete){
+			echo "Deleted";
+		}
+		else{
+			echo pg_error($db);
+		}
+	}
+
+	if (isset($_GET['calculation_cost_id'])) {
+
+		$sql_delete = "delete  from laba3.calculation_cost where calculation_cost_id = '" .$_GET['calculation_cost_id']."'";
+		$query_delete = pg_query($db,$sql_delete);
+
+		if($query_delete){
+			echo "Deleted";
+		}
+		else{
+			echo pg_error($db);
+		}
+	}
+?>
+
+<!DOCTYPE html>
+	<html>
+	<head>
+		<link rel = "stylesheet" type = "text/css" href = "style.css"/>
+	</head>
+	<body>
+		<!-- <h1>Таблица организаций</h1> -->
+	<br><br>
+	<table id="tb">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Имя</th>
+				<th>Специализация</th>
+				<th>Образование</th>
+				<th>Пол</th>
+				<th>День рождения</th>
+				<th>Дата трудоустройства</th>
+				<th>Контракт</th>
+				<th>Удалить</th>
+				<th>Редактировать</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach ($organizations as $organization):
+			?>
+				  <tr>
+				  	<td><?php echo $organization['doctor_id'] ?></td>
+				  	<td><?php echo $organization['doctor_fio'] ?></td>
+				  	<td><?php echo $organization['doctor_specializacion'] ?></td>
+				  	<td><?php echo $organization['doctor_learn'] ?></td>
+				  	<td><?php echo $organization['doctor_gender'] ?></td>
+				  	<td><?php echo $organization['doctor_birthday'] ?></td>
+				  	<td><?php echo $organization['doctor_work'] ?></td>
+						<td><?php echo $organization['doctor_contract'] ?></td>
+				  	<td><button class="delete"><a href="?doctor_id=<?php echo $organization['doctor_id'] ?>">Удалить</a></button></td>
+					<td><button class="edit"><a href="edit.php?edit=<?php echo $organization['doctor_id'] ?>">Редактировать</a></button></td>
+				  </tr>
+			<?php endforeach ?>
+		</tbody>
+	</table>
+	<br><br>
+	<br><br>
+	<table id="tb">
+		<thead>
+			<tr>
+				<th>calculation_cost_id</th>
+				<th>calculation_cost_preiscurant</th>
+				<th>calculation_cost_doctor</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach ($organizations5 as $organization5):
+			?>
+				  <tr>
+				  	<td><?php echo $organization5['calculation_cost_id'] ?></td>
+				  	<td><?php echo $organization5['calculation_cost_preiscurant'] ?></td>
+				  	<td><?php echo $organization5['calculation_cost_doctor'] ?></td>
+				  	<td><button class="delete"><a href="?calculation_cost_id=<?php echo $organization5['calculation_cost_id'] ?>">Удалить</a></button></td>
+					<td><button class="edit"><a href="edit.php?edit2=<?php echo $organization5['calculation_cost_id'] ?>">Редактировать</a></button></td>
+				  </tr>
+			<?php endforeach ?>
+		</tbody>
+	</table>
+	<br><br>
+	<h5>select * from laba3.preiscurant inner join laba3.calculation_cost on laba3.calculation_cost.calculation_cost_preiscurant=laba3.preiscurant.preiscurant_id</h5>
+	<br><br>
+	<table id="tb">
+		<thead>
+			<tr>
+				<th>preiscurant_id</th>
+				<th>preiscurant_cost</th>
+				<th>calculation_cost_id</th>
+				<th>calculation_cost_preiscurant</th>
+				<th>calculation_cost_doctor</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach ($organizations2 as $organization):
+			?>
+					<tr>
+						<td><?php echo $organization['preiscurant_id'] ?></td>
+						<td><?php echo $organization['preiscurant_cost'] ?></td>
+						<td><?php echo $organization['calculation_cost_id'] ?></td>
+						<td><?php echo $organization['calculation_cost_preiscurant'] ?></td>
+						<td><?php echo $organization['calculation_cost_doctor'] ?></td>
+					</tr>
+			<?php endforeach ?>
+		</tbody>
+	</table>
+	<br><br>
+	<h5>select * from laba3.preiscurant where preiscurant_cost>'1200' and preiscurant_id>1</h5>
+	<br><br>
+	<table id="tb">
+		<thead>
+			<tr>
+				<th>preiscurant_id</th>
+				<th>preiscurant_cost</th>
+			</tr>
+		</thead>
+		<tbody>
+
+					<tr>
+						<td><?php echo $organization['preiscurant_id'] ?></td>
+						<td><?php echo $organization['preiscurant_cost'] ?></td>
+					</tr>
+		</tbody>
+	</table>
+	<br><br>
+	<h5>select distinct on (doctor_specializacion) doctor_specializacion, doctor_gender from laba3.doctors order by doctor_specializacion, doctor_gender</h5>
+	<br><br>
+	<table id="tb">
+		<thead>
+			<tr>
+				<th>doctor_specializacion</th>
+				<th>doctor_gender</th>
+			</tr>
+			<tr>
+				<td><?php echo $organizations4[0]['doctor_specializacion'] ?></td>
+				<td><?php echo $organizations4[0]['doctor_gender'] ?></td>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach ($organizations4 as $organization):
+			?>
+					<tr>
+						<td><?php echo $organization['doctor_specializacion'] ?></td>
+						<td><?php echo $organization['doctor_gender'] ?></td>
+					</tr>
+			<?php endforeach ?>
+		</tbody>
+	</table>
+	</body>
+</html>
+
+'''
+Страница index.php на сервере
+<img src="./img/6_2_1.jpg" />
+
+Код из файла edit.php
+'''
+<?php
+    $dbuser = 'postgres';
+    $dbpass = '1234';
+    $host = 'localhost';
+    $port = '5433';
+    $dbname = 'laba3';
+
+    $db = pg_connect("host=$host port=$port dbname=$dbname user=$dbuser password=$dbpass");
+
+    if (isset($_GET['edit'])) {
+
+        $id = $_GET['edit'];
+        $query = pg_query($db,"Select doctor_id,doctor_fio,doctor_specializacion,doctor_learn,doctor_gender,doctor_birthday,doctor_work,doctor_contract from laba3.doctors where doctor_id = $id ");
+		    $row = pg_fetch_array($query);
+
+
+		if($row){
+			$_SESSION['doctor_id']= $row['doctor_id'];
+			$_SESSION['doctor_fio'] = $row['doctor_fio'];
+			$_SESSION['doctor_specializacion'] = $row['doctor_specializacion'];
+			$_SESSION['doctor_learn'] = $row['doctor_learn'];
+			$_SESSION['doctor_gender'] = $row['doctor_gender'];
+			$_SESSION['doctor_birthday'] = $row['doctor_birthday'];
+			$_SESSION['doctor_work'] = $row['doctor_work'];
+      $_SESSION['doctor_contract'] = $row['doctor_contract'];
+		}
+		else{
+
+			echo "Error";
+		}
+
+    }
+
+    if (isset($_GET['edit2'])) {
+
+        $id = $_GET['edit2'];
+        $query = pg_query($db,"Select calculation_cost_id, calculation_cost_preiscurant,calculation_cost_doctor from laba3.calculation_cost where calculation_cost_id = $id ");
+		    $row = pg_fetch_array($query);
+
+
+		if($row){
+			$_SESSION['calculation_cost_id']= $row['calculation_cost_id'];
+			$_SESSION['calculation_cost_preiscurant'] = $row['calculation_cost_preiscurant'];
+			$_SESSION['calculation_cost_doctor'] = $row['calculation_cost_doctor'];
+    }
+		else{
+
+			echo "Error";
+		}
+
+    }
+
+    if (isset($_POST['update'])) {
+		$doctor_id = $_POST['doctor_id'];
+		$doctor_fio = $_POST['doctor_fio'];
+		$doctor_specializacion = $_POST['doctor_specializacion'];
+		$doctor_learn = $_POST['doctor_learn'];
+		$doctor_gender = $_POST['doctor_gender'];
+		$doctor_birthday = $_POST['doctor_birthday'];
+		$doctor_work = $_POST['doctor_work'];
+    $doctor_contract = $_POST['doctor_contract'];
+
+		$sql = "update laba3.doctors set  doctor_fio = '".$doctor_fio."', doctor_specializacion = '".$doctor_specializacion."', doctor_learn = '".$doctor_learn."', doctor_gender = '".$doctor_gender."',doctor_birthday = '".$doctor_birthday."',doctor_work = '".$doctor_work."',doctor_contract = '".$doctor_contract."' where doctor_id = $doctor_id ";
+
+		$query=pg_query($db,$sql);
+		if($query){
+		  header("location: index.php");
+		  echo "Success";
+		}else{
+
+			echo pg_error($db);
+		}
+
+
+	}
+  if (isset($_POST['update2'])) {
+  $calculation_cost_id = $_POST['calculation_cost_id'];
+  $calculation_cost_preiscurant = $_POST['calculation_cost_preiscurant'];
+  $calculation_cost_doctor = $_POST['calculation_cost_doctor'];
+
+
+  $sql = "update laba3.calculation_cost set  calculation_cost_preiscurant = '".$calculation_cost_preiscurant."', calculation_cost_doctor = '".$calculation_cost_doctor."' where calculation_cost_id = $calculation_cost_id ";
+
+  $query=pg_query($db,$sql);
+  if($query){
+    header("location: index.php");
+    echo "Success";
+  }else{
+
+    echo pg_error($db);
+  }
+
+
+}
+
+?>
+
+<!DOCTYPE html>
+	<html>
+	<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel = "stylesheet" type = "text/css" href = "style.css"/>
+	</head>
+	<body>
+    <h1>Редактирование</h1>
+        <div id="container">
+          <?php if (isset($_GET['edit'])) {  ?>
+            <form method="post" enctype="multipart/form-data" id="form-box">
+                    <input type="hidden" name="doctor_id" class="input" required value="<?php echo $_SESSION['doctor_id']; ?>"/>
+                    Фио : <input type="text" name="doctor_fio" id="name" class="input" required value="<?php echo $_SESSION['doctor_fio']; ?>"/> <br/><br/>
+                    Специальность : <input type="text" name="doctor_specializacion"  class="input" required value="<?php echo $_SESSION['doctor_specializacion']; ?>"/> <br/><br/>
+                    Образование : <input type="text" name="doctor_learn"  class="input" required value="<?php echo $_SESSION['doctor_learn']; ?>"/> <br/><br/>
+                    Пол : <input type="text" name="doctor_gender"  class="input" required value="<?php echo $_SESSION['doctor_gender']; ?>"/> <br/><br/>
+                    Дата рождения : <input type="text" name="doctor_birthday"  class="input"required value="<?php echo $_SESSION['doctor_birthday']; ?>"/> <br/><br/>
+                    Дата устройства на работу : <input type="text" name="doctor_work"  class="input" required value="<?php echo $_SESSION['doctor_work']; ?>"/> <br/><br/>
+                    Контракт : <input type="text" name="doctor_contract"  class="input" required value="<?php echo $_SESSION['doctor_contract']; ?>"/> <br/><br/>
+                    <input class="register" type="submit" name="update" value="UPDATE">
+                    <button class="back"><a href="index.php">BACK</a></button>
+            </form>
+          <?php }?>
+          <?php if (isset($_GET['edit2'])) {  ?>
+            <form method="post" enctype="multipart/form-data" id="form-box">
+                    <input type="hidden" name="calculation_cost_id" class="input" required value="<?php echo $_SESSION['calculation_cost_id']; ?>"/>
+                    calculation_cost_preiscurant : <input type="text" name="calculation_cost_preiscurant" id="name" class="input" required value="<?php echo $_SESSION['calculation_cost_preiscurant']; ?>"/> <br/><br/>
+                    calculation_cost_doctor : <input type="text" name="calculation_cost_doctor"  class="input" required value="<?php echo $_SESSION['calculation_cost_doctor']; ?>"/> <br/><br/>
+                    <input class="register" type="submit" name="update2" value="UPDATE">
+                    <button class="back"><a href="index.php">BACK</a></button>
+            </form>
+          <?php }?>
+        </div>
+    </body>
+</html>
+
+'''
+
+Страница edit.php на сервере
+<img src="./img/6_2_2.jpg" />
+##Лабораторная №7
+Работа с MongoDB
+<img src="./mongo.jpg" />
