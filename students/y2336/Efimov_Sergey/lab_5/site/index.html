@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        <link rel="canonical" href="https://example.com/">
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>My Docs</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">My Docs</a>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">Запросы</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="_1">Запросы</h2>
+<h4 id="1">1 Запрос</h4>
+<pre><code>select * from diet, breed, chicken;
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/64501412/122996995-36174200-d3b4-11eb-84f7-50d28c08fd69.png" /></p>
+<p>1 балл </p>
+<h4 id="2">2 Запрос</h4>
+<pre><code>SELECT salary FROM worker; 
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/64501412/122997125-5941f180-d3b4-11eb-8ada-b8c46cf032f1.png" /></p>
+<p>1 балл</p>
+<h4 id="3">3 Запрос</h4>
+<pre><code>select * from stay where id_cell = 1 intersect select * from stay where quantity = 100;
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/64501412/122997258-7a0a4700-d3b4-11eb-8865-fc90dc72c2a7.png" /></p>
+<p>2 балла</p>
+<h4 id="4">4 Запрос</h4>
+<pre><code>select * from chicken, breed order by chicken;
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/64501412/122997523-c48bc380-d3b4-11eb-97f6-da555c77a88b.png" /></p>
+<p>2 балла</p>
+<h4 id="5">5 Запрос</h4>
+<pre><code>select * from chicken, breed order by chicken;
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/64501412/122997612-dc634780-d3b4-11eb-9a5b-e805547743fa.png" /></p>
+<p>1 балл</p>
+<h4 id="6">6 Запрос</h4>
+<pre><code>select id, sum(weight) as current from chicken group by id having sum(weight) &lt; 150 order by id;
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/64501412/122997711-f13fdb00-d3b4-11eb-864a-746e186c2566.png" /></p>
+<p>2 балла</p>
+<h4 id="7">7 Запрос</h4>
+<pre><code>select * from chicken left join contract on id_worker = 1;
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/64501412/122997815-0b79b900-d3b5-11eb-9d72-909d3c879c53.png" /></p>
+<p>2 балла</p>
+<h4 id="8">8 Запрос</h4>
+<pre><code>select * from diet where name_diet = 'first' intersect select * from diet where content_diet = '1,2,3';
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/64501412/122997877-1b919880-d3b5-11eb-8708-d15db32ac401.png" /></p>
+<p>2 балла</p>
+<h4 id="9">9 Запрос</h4>
+<pre><code>select * from diet where name_diet = 'first';
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/64501412/122997947-2a784b00-d3b5-11eb-893f-eac5c538a39d.png" /></p>
+<p>2 балла</p>
+<h4 id="10">10 Запрос</h4>
+<pre><code>select * from list left join recomended_diet on id_diet = 1;
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/64501412/122998028-39f79400-d3b5-11eb-8594-6abcf7305cfb.png" /></p>
+<p>2 балла</p>
+<h4 id="11">11 Запрос</h4>
+<pre><code>select * from list where id_workshop = 1 intersect select * from list where date_install = '2021-01-01';
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/64501412/122998178-690e0580-d3b5-11eb-99e5-2647c089b04b.png" /></p>
+<p>2 балла</p>
+<h4 id="12">12 Запрос</h4>
+<pre><code>select * from breed left join diet on name_diet = 'first';
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/64501412/122998230-77f4b800-d3b5-11eb-9499-aab151e58545.png" /></p>
+<p>2 балла</p>
+<h4 id="13">13 Запрос</h4>
+<pre><code>select id from worker union all select id from servies;
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/64501412/122998296-8a6ef180-d3b5-11eb-8ccf-a8c7aae92989.png" /></p>
+<p>2 балла</p>
+<h4 id="14">14 Запрос</h4>
+<pre><code>select * from servies where id_worker = 1 intersect select * from servies where id_workshop = 1;
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/64501412/122998362-9b1f6780-d3b5-11eb-95ed-15d67b83456b.png" /></p>
+<p>балла 2</p>
+<h4 id="15">15 Запрос</h4>
+<pre><code>select id, sum(weight) as current from chicken group by id having sum(weight) &gt; 150 order by id;
+</code></pre>
+<p><img alt="image" src="https://user-images.githubusercontent.com/64501412/122998406-ac687400-d3b5-11eb-9e65-aa56c5887698.png" /></p>
+<p>2 балла</p>
+<h3 id="27">Итого баллов: 27 баллов.</h3></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.2.1
+Build Date UTC : 2021-06-23 07:50:02.909850+00:00
+-->
