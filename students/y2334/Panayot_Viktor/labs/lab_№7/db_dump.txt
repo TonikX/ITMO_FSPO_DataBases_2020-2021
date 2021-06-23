@@ -1,0 +1,13 @@
+use market
+db.createCollection("Market")
+db.createCollection("Batch")
+db.createCollection("Buy")
+db.Market.insert({'CompanyName' : 'Panayot Viktor Company'})
+db.Market.insert({'CompanyName' : 'IGIL (banned in Russia)'})
+db.Market.insert({'CompanyName' : 'Nothing Enc.'})
+db.Batch.insert({'BatchName' : '100100221', 'Broker' : {'name': 'Jordan Belfort', 'succ_perc': 80, 'work_exp': 20}, 'Product' : [{'name': 'Acer Aspire', 'sh_life': Date('2030-03-14'), 'unit' : 'th.', 'proddate': Date('2021-01-10'), 'price': 40000, 'qt':10}], 'Pricebatch': 400000, 'ShippedDate': Date('2021-02-10')})
+db.Batch.insert({'BatchName' : '100100222', 'Broker' : {'name': 'Don Juan', 'succ_perc': 100, 'work_exp': 5}, 'Product' : [{'name': 'AK-47', 'sh_life': Date('2050-03-14'), 'unit' : 'th.', 'proddate': Date('2000-01-10'), 'price': 10000, 'qt':100}], 'Pricebatch': 1000000, 'ShippedDate': Date('2021-02-18')})
+db.Batch.insert({'BatchName' : '100100223', 'Broker' : {'name': 'Uncle Pihto', 'succ_perc': 40, 'work_exp': 60}, 'Product' : [{'name': 'NIN chokos', 'sh_life': Date('2021-06-29'), 'unit' : 'th.', 'proddate': Date('2021-01-10'), 'price': 1000, 'qt':1}], 'Pricebatch': 1000, 'ShippedDate': Date('2021-02-15')})
+db.Buy.insert({'Batch' : new DBRef('Batch', ObjectId("60a2586fac2211c5603d7f92")), 'Client': new DBRef('Market', ObjectId("60a254feac2211c5603d7f8f")), 'DateofBuy': Date('2021-02-10')})
+db.Buy.insert({'Batch' : new DBRef('Batch', ObjectId("60a25922ac2211c5603d7f93")), 'Client': new DBRef('Market', ObjectId("60a2551aac2211c5603d7f90")), 'DateofBuy': Date('2021-03-20')})
+db.Buy.insert({'Batch' : new DBRef('Batch', ObjectId("60a2599eac2211c5603d7f94")), 'Client': new DBRef('Market', ObjectId("60a2552aac2211c5603d7f91")), 'DateofBuy': Date('2021-10-10')})
