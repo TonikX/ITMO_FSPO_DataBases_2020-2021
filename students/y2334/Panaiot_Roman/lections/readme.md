@@ -33,4 +33,28 @@
 |:-------------- |:-----------    |
 | Лабораторная   | [1](https://github.com/TonikX/ITMO_FSPO_DataBases_2020-2021/pull/23/commits/7d1111fd490fbd1b8d39cd9adc6deaa0b684940a)|
 
+## Лабораторная работа №5
+
+| Тип работы     | Ссылка         |
+|:-------------- |:-----------    |
+| Лабораторная   | [1](https://github.com/TonikX/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2334/Panaiot_Roman/lections/Laba5)|
+| Документация   | [2](https://ramanpan.github.io/ForLabs/Requests/)|
+
+## Лабораторная работа №6
+
+| Тип работы     | Ссылка         |
+|:-------------- |:-----------    |
+| Лабораторная   | [1](https://github.com/TonikX/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2334/Panaiot_Roman/lections/Laba6)|
+| Документация   | [2](https://ramanpan.github.io/ForLabs/Interface/)|
+
+## Лабораторная работа №7
+
+| Тип работы     | Ссылка         |
+|:-------------- |:-----------    |
+| Лабораторная   | [1](https://github.com/TonikX/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2334/Panaiot_Roman/lections/Laba%207)|
+| Документация   | [2](https://ramanpan.github.io/ForLabs/Mongo/)|
+
+
+## Ссылка на документацияю - https://ramanpan.github.io/ForLabs/
+
 
