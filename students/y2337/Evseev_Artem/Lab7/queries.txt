@@ -1,0 +1,141 @@
+MongoDB shell version v4.4.6
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("98753525-de39-4b1f-8a86-d3c5003ee71c") }
+MongoDB server version: 4.4.6
+---
+The server generated these startup warnings when booting: 
+        2021-04-23T00:14:15.270+03:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+        2021-04-23T00:14:16.163+03:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+
+use newspaper_service
+'switched to db newspaper_service'
+
+
+> db.typography.insertMany( [ {name: 'S&P Global', address: 'Odinsk', status: 1}, 
+        {name: 'Nielsen', address: 'Moskva', status: 1}, 
+            {name: 'Thomson Reuters', address: 'Saint-Petersburg', status: 1}])
+{ acknowledged: true,
+  insertedIds: 
+   { '0': ObjectId("60aab696aa526da27932c6c3"),
+     '1': ObjectId("60aab696aa526da27932c6c4"),
+     '2': ObjectId("60aab696aa526da27932c6c5") } }
+
+> db.newspaper.insertMany([{name: 'Woolsteet', price: 15000, editor: 'Danilin Artem', index: 3746837}, 
+        {name: 'Blumberk', price: 17000, editor: 'Nikitin Andrey', index: 2390829}, 
+            {name: 'Pasfeet', price: 10000, editor: 'Byldakov Nikita', index: 23898237}])
+{ acknowledged: true,
+  insertedIds: 
+   { '0': ObjectId("60aab792aa526da27932c6c6"),
+     '1': ObjectId("60aab792aa526da27932c6c7"),
+     '2': ObjectId("60aab792aa526da27932c6c8") } }
+
+> db.printing.insertMany([{typography: 'S&P Global',
+						  circulation: 25,
+						  newspaper_index: 3746837,
+						  quantity: 400}, 
+						  {typography: 'S&P Global',
+						  circulation: 27,
+						  newspaper_index: 23898237,
+						  quantity: 350}, 
+						  {typography: 'Nielsen',
+						  circulation: 154,
+						  newspaper_index: 2390829,
+						  quantity: 25000}])
+{ acknowledged: true,
+  insertedIds: 
+   { '0': ObjectId("60aaba9baa526da27932c6c9"),
+     '1': ObjectId("60aaba9baa526da27932c6ca"),
+     '2': ObjectId("60aaba9baa526da27932c6cb") } }
+
+
+> db.postoffice.insertMany([{address: "Severodvinsk", number: 1345355}, 
+							 {address: "Saint-Petersburg", number: 7634764}, 
+							 {address: "Moskva", number: 8347462}])
+{ acknowledged: true,
+  insertedIds: 
+   { '0': ObjectId("60aabbeeaa526da27932c6cc"),
+     '1': ObjectId("60aabbeeaa526da27932c6cd"),
+     '2': ObjectId("60aabbeeaa526da27932c6ce") } }
+
+
+> db.storage.insertMany([{postoffice_number: 1345355, circulation: 25, newspaper_index: 3746837, quantity: 200}, 
+						  {postoffice_number: 7634764, circulation: 25, newspaper_index: 3746837, quantity: 200}, 
+						   {postoffice_number: 7634764, circulation: 27, newspaper_index: 23898237, quantity: 200}])
+{ acknowledged: true,
+  insertedIds: 
+   { '0': ObjectId("60aabe0daa526da27932c6cf"),
+     '1': ObjectId("60aabe0daa526da27932c6d0"),
+     '2': ObjectId("60aabe0daa526da27932c6d1") } }
+
+
+
+
+Выбор почтовых отделений, которые находятся в городе 'SPb' и их номер > 1.
+> db.postoffice.find({address: "Saint-Petersburg", number: {$gte: 5000000}})
+{ _id: ObjectId("60aabbeeaa526da27932c6cd"),
+  address: 'Saint-Petersburg',
+  number: 7634764 }
+
+
+Выбор тиража с производством, у которых количество газет в тираже = '350' и типография принимает любое значение.
+> db.printing.find({quantity: 350})
+{ _id: ObjectId("60aaba9baa526da27932c6ca"),
+  typography: 'S&P Global',
+  circulation: 27,
+  newspaper_index: 3746837,
+  quantity: 350 }
+
+
+Вывод средней стоимости всех газет
+> db.newspaper.aggregate([
+    {
+        "$group": { 
+            "_id": null, 
+            "avg": { "$avg": "$price" } 
+        }
+    }
+])
+{ _id: null, avg: 14000 }
+
+
+> db.newspaper.find({editor: 'Danilin Artem'}).sort({price: 1}).limit(1)
+{ _id: ObjectId("60aab792aa526da27932c6c6"),
+  name: 'Woolsteet',
+  price: 15000,
+  editor: 'Danilin Artem',
+  index: 3746837 }
+
+
+> db.newspaper.find({price: {$gt: 10000}}).sort({index: 1})
+{ _id: ObjectId("60aab792aa526da27932c6c7"),
+  name: 'Blumberk',
+  price: 17000,
+  editor: 'Nikitin Andrey',
+  index: 2390829 }
+{ _id: ObjectId("60aab792aa526da27932c6c6"),
+  name: 'Woolsteet',
+  price: 15000,
+  editor: 'Danilin Artem',
+  index: 3746837 }  
+
+> db.newspaper.aggregate([{$project: {editor: {$toLower: "$editor"}}}])
+{ _id: ObjectId("60aab792aa526da27932c6c6"),
+  editor: 'danilin artem' }
+{ _id: ObjectId("60aab792aa526da27932c6c7"),
+  editor: 'nikitin andrey' }
+{ _id: ObjectId("60aab792aa526da27932c6c8"),
+  editor: 'byldakov nikita' }
+
+
