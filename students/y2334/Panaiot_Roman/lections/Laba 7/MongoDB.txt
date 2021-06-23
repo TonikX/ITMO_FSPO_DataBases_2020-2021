@@ -1,0 +1,63 @@
+> use Aero
+switched to db Aero
+> db.createCollection("Plane")
+{ "ok" : 1 }
+> db.createCollection("Trip")
+{ "ok" : 1 }
+> db.createCollection("Crew")
+{ "ok" : 1 }
+> db.createCollection("Fly")
+{ "ok" : 1 }
+> db.Plane.insert({'idPlane' : 1, 'Stamp' : 'Mark1', 'Places' : 250, 'Type' : 'Big', 'Speed' : 235.32 , 'AirCarrier' : {'idAirCarrier' : 1, 'Name' : 'Aeroflot', 'Workers' : 250}})
+WriteResult({ "nInserted" : 1 })
+> db.Plane.insert({'idPlane' : 2, 'Stamp' : 'Mark2', 'Places' : 350, 'Type' : 'Big', 'Speed' : 195.23 , 'AirCarrier' : {'idAirCarrier' : 2, 'Name' : 'EmiratesAir', 'Workers' : 350}})
+WriteResult({ "nInserted" : 1 })
+> db.Plane.insert({'idPlane' : 3, 'Stamp' : 'Mark3', 'Places' : 150, 'Type' : 'Medium', 'Speed' : 335.23 , 'AirCarrier' : {'idAirCarrier' : 3, 'Name' : 'RandomFlot', 'Workers' : 150}})
+WriteResult({ "nInserted" : 1 })
+> db.Trip.insert({'idPlane' : 1, 'PointDeparture':'Moscow', 'Destination':'Saint-Petersburg','Date_departure':Date('2021-02-10'),'Date_destination':Date('2021-02-11'),'Distance':700,'TicketSold':300})
+WriteResult({ "nInserted" : 1 })
+> db.Trip.insert({'idPlane' : 2, 'PointDeparture':'Moscow', 'Destination':'Istanbul','Date_departure':Date('2021-02-11'),'Date_destination':Date('2021-02-12'),'Distance':1000,'TicketSold':350})
+WriteResult({ "nInserted" : 1 })
+> db.Trip.insert({'idPlane' : 3, 'PointDeparture':'Moscow', 'Destination':'Tiraspol','Date_departure':Date('2021-03-11'),'Date_destination':Date('2021-03-12'),'Distance':800,'TicketSold':200})
+WriteResult({ "nInserted" : 1 })
+> db.Crew.insert({'idCrew' : 1, 'Staff' : 4, 'Member' : {'idMember': 1,'name': 'Roman','Age' : 19, 'Role' : 'Pilot','Age_exp' : 1 }})
+WriteResult({ "nInserted" : 1 })
+> db.Crew.insert({'idCrew' : 2, 'Staff' : 4, 'Member' : {'idMember': 2,'name': 'Eithne','Age' : 39, 'Role' : 'Pilot','Age_exp' : 15 }})
+WriteResult({ "nInserted" : 1 })
+> db.Crew.insert({'idCrew' : 3, 'Staff' : 4, 'Member' : {'idMember': 3,'name': 'Aglais','Age' : 23, 'Role' : 'Stuard','Age_exp' : 3 }})
+WriteResult({ "nInserted" : 1 })
+> db.Fly.insert({'Plane': ObjectId("60a8f2eff683d9f905e8c3d6"),'Trip':ObjectId("60a8f6b9f683d9f905e8c3dc"),'Crew':ObjectId("60a8f84af683d9f905e8c3df"), 'Route' : 'Good'})
+WriteResult({ "nInserted" : 1 }) 
+> db.Fly.insert({'Plane': ObjectId("60a8f357f683d9f905e8c3d7"),'Trip':ObjectId("60a8f6c3f683d9f905e8c3dd"),'Crew':ObjectId("60a8f8b4f683d9f905e8c3e0"),'Route' : 'Bad'})
+WriteResult({ "nInserted" : 1 }) 
+> db.Fly.insert({'Plane': ObjectId("60a8f465f683d9f905e8c3d8"),'Trip':ObjectId("60a8f6caf683d9f905e8c3de"),'Crew':ObjectId("60a8f8bbf683d9f905e8c3e1"),'Route' : 'Asewome'}) 
+WriteResult({ "nInserted" : 1 })
+
+
+Найти команду, с сотрудником, возраст которого 23 года и опыт работы 3 года.
+> db.Crew.find({'Member.Age' : 23, 'Member.Age_exp' : 3}).pretty()
+
+Вернуть список рейсов, совершенных в 2021 году
+
+> db.Trip.find({'Date_departure' : {$regex:'2021'}}).pretty()
+
+Вывести место вылета и место прибытия рейса.
+
+ db.Trip.aggregate([{ $project: { itemDescription: { $concat: [ "$PointDeparture","-" ,"$Destination"]  } } }])
+
+Найти команду, с сотрудником, имя которого Роман и роль у него - Пилот.
+
+> db.Crew.find({'Member.Name' : 'Roman', 'Member.Role' : 'Pilot'}).pretty()
+Рисунок 5
+
+Узнать кол-во символов имён сотрудников.
+
+> db.Crew.aggregate([{ $project: { "Member.name": 1, "length"{ $strLenCP: "$Member.name"} } }])
+Рисунок 6
+
+Map Reduce
+Узнать расстояние между городами в метрах
+
+> var map = function map(){ emit(this.Destination,[this.Distance,10]);}
+> var reduce = function(key,value) {return value[0][0]*value[0][1];}
+> db.Trip.mapReduce(map, reduce,"DistInMeters")
