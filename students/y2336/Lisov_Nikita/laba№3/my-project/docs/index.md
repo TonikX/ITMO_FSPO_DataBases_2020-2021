@@ -1065,3 +1065,32 @@ header("Location:http://foodiebox.ru/?order=ok");
 ##Лабораторная №7
 Работа с MongoDB
 <img src="./mongo.jpg" />
+####Запросы
+```
+db.cabinets.find({"number":"111", "phone":"89123900"})
+```
+<img src="./img/7_1.jpg" />
+
+```
+db.cabinets.find({"number":"111", "phone":"89123900"}).count()
+```
+<img src="./img/7_2.jpg" />
+```
+db.cabinets.aggregate([{$match:{number:"111"}}])
+```
+<img src="./img/7_3.jpg" />
+```
+db.client.find({"number":"111", "phone":"89123900"}).count()
+```
+<img src="./img/7_4.jpg" />
+```
+> var mapfunction=function(){emit(this.birthday, this.gender)}
+
+> var reducefunction=function(key,values){return Array.sum(values)}
+
+> db.clients.mapReduce(mapfunction,reducefunction,{'out':'Result1_mapreduce'})
+{ "result" : "Result1_mapreduce", "ok" : 1 }
+```
+<img src="./img/7_5.jpg" />
+##Типовик
+<img src="./img/type.jpg" />
