@@ -57,4 +57,4 @@
 
 | Работа | Ссылка на работу                                        | 
 |:-------|:--------------------------------------------------------|
-| ЛР7    | [DBProm](https://pechenyice.github.io/ITMO_FSPO_DataBases_2020-2021/)                               |
+| ЛР7    | [mkdocs](https://pechenyice.github.io/ITMO_FSPO_DataBases_2020-2021/)                               |
