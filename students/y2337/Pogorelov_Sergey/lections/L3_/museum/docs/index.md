@@ -22,4 +22,4 @@
 ---
 ### **Схема модели данных**
 
-![Schema](assets/shemas/schema.jpg)
+![Schema](assets/schema.jpg)

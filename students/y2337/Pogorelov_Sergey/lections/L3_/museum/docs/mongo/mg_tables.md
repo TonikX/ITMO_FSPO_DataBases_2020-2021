@@ -233,4 +233,4 @@ BulkWriteResult({
 ```
 
 # Модель базы данных
-![](../assets/shemas/mg_shema.png)
+![](../assets/mg_shema.png)
