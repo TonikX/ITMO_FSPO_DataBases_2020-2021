@@ -1,7 +1,7 @@
 ## Лабораторные работы, Синицкая Y2334
 
 | №    | Работа|
-|: ---- :|: ------------------------------------------------------------ :|
+| ---- | ------------------------------------------------------------ |
 | 1   | [Практическая 1.1](https://github.com/TonikX/ITMO_FSPO_DataBases_2020-2021/blob/e3ace5cba0bda7bc33df4e3a0201290c4b03d51b/students/y2334/Sinitskaya_Maria/Pr1_dfd/dfd.pdf)|
 | 2   | [Лабораторная 1](https://github.com/TonikX/ITMO_FSPO_DataBases_2020-2021/pull/125)|
 | 3   | [Практическая 2.1](https://github.com/TonikX/ITMO_FSPO_DataBases_2020-2021/blob/e3ace5cba0bda7bc33df4e3a0201290c4b03d51b/students/y2334/Sinitskaya_Maria/Pr2.1_PiterChen/Pr2.1_PiterChen.pdf)|
