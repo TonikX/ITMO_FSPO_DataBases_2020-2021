@@ -3,10 +3,13 @@ site_name: Museum
 nav:
   - Home: index.md 
   - Description:
-    - Tables: tables.md
-    - Creation code: create.md
-    - Data filling: fill.md
-    - Queries: queries.md
+    - Tables: main/tables.md
+    - Creation code: main/create.md
+    - Data filling: main/fill.md
+    - Queries: main/queries.md
+  - Mongo:
+    - Tables: mongo/mg_tables.md
+    - Queries: mongo/mg_queries.md
 
 theme:
   name: material
