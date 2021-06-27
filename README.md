@@ -11,7 +11,7 @@
 | 7    | [Практическая 3.2](.Practicheckaya3_2)                       |
 | 8    | [Практическая 3](.readme)                                    |
 | 9    | [Лабораторная 3](.LR3_Mkdocs)                                |
-| 10   | [Лабораторная 4](.Laboratornaya4)                            |
+| 10   | [Лабораторная 4](https://github.com/TonikX/ITMO_FSPO_DataBases_2020-2021/pull/155/files)                            |
 | 11   | [Лабораторная 6 (php код)](.LR6_php_code)                    |
 | 12   | [Лабораторная 6 (mkdocs)](.LR6_MkDocs)                       |
 
