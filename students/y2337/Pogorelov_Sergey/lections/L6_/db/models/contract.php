@@ -31,3 +31,5 @@ class Contract extends BaseModel {
     }
 
 }
+
+?>

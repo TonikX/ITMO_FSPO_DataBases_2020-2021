@@ -8,7 +8,7 @@ class Author extends BaseModel {
 
     public function createAuthor($birth_date, $name, $country) {
         $query = "INSERT INTO author(birth_date, name, country) VALUES ('$birth_date', '$name', '$country')";
-        pg_query($query);
+        pg_query($query) or die("www");
     }
 
     public function readAuthor($id) {
@@ -31,3 +31,5 @@ class Author extends BaseModel {
     }
 
 }
+
+?>

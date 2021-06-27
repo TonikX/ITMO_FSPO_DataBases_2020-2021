@@ -8,3 +8,5 @@ class BaseModel {
         require_once '../db_connection.php';
     }
 }
+
+?>

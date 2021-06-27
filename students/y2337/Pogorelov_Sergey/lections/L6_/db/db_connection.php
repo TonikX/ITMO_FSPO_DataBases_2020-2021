@@ -1,8 +1,8 @@
 <?php
-  $dbuser = 'postgres';
+  $dbuser = 'laba6';
   $dbpass = 'laba6';
   $host = '127.0.0.1';
-  $dbname = 'laba6';
+  $dbname = 'mus_db_l3';
 
   $bd = pg_connect("host=$host dbname=$dbname user=$dbuser password=$dbpass");
 

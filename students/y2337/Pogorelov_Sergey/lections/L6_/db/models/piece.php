@@ -31,3 +31,5 @@ class Piece extends BaseModel {
     }
 
 }
+
+?>
