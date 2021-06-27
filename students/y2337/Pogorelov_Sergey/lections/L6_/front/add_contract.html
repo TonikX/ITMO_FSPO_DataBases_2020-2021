@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Contract</title>
+  <style>
+    li {list-style: none;}
+  </style>
+</head>
+
+<body>
+  <h2>Enter contract params to add new contract</h2>
+  <ul>
+    <form name="display" action="../db/end_points/add_contract.php" method="POST" >
+      <li>Id fond:</li><li><input type="text" name="id_fond" /></li>
+      <li>Id org:</li><li><input type="text" name="id_org" /></li>
+      <li>Id exhibition:</li><li><input type="text" name="id_exh" /></li>
+      <li>Start date:</li><li><input type="date" name="start_date" /></li>
+      <li>Final date:</li><li><input type="date" name="fin_date" /></li>
+      <li><input type="submit" name="submit" /></li>
+    </form>
+  </ul>
+</body>
+</html>

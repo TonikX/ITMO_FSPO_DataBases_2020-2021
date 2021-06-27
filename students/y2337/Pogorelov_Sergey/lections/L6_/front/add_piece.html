@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Piece</title>
+  <style>
+    li {list-style: none;}
+  </style>
+</head>
+
+<body>
+  <h2>Enter piece params to add new piece</h2>
+  <ul>
+    <form name="display" action="../db/end_points/add_piece.php" method="POST" >
+      <li>Piece`s name:</li><li><input type="text" name="piece_name" /></li>
+      <li>Creation date:</li><li><input type="date" name="creation_date" /></li>
+      <li>Status:</li><li><input type="text" name="status" /></li>
+      <li>Id author:</li><li><input type="text" name="id_author" /></li>
+      <li><input type="submit" name="submit" /></li>
+    </form>
+  </ul>
+</body>
+</html>
