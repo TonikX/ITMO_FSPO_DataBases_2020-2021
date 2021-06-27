@@ -11,6 +11,10 @@ nav:
  - Создание: urls/create.md
  - Заполнение: urls/insert.md
  - Запросы: urls/request.md
+ - Лабораторная 6.1: urls/6_1.md
+ - Лабораторная 6.2: urls/6_2.md
+ - MongoDB реализация: urls/mongo/create.md
+ - MongoDB запросы: urls/mongo/queries.md
 
 theme:
  name: material
