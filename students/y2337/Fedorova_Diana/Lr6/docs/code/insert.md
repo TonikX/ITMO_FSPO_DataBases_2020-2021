@@ -1,5 +1,4 @@
 ##Insert
-
 #### Заполнение таблицы "Животные":
 ```
 insert into animals values 
