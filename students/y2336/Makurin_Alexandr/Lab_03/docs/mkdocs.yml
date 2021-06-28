@@ -1,5 +1,8 @@
-site_name: Lab 03
+site_name: Основы проектирования баз данных 2021
 nav:
   - Главная: index.md
-  - Описание СУБД: Описание СУБД/index.md
+  - Описание БД: db_description.md
+  - Запросы к БД: queries.md
+  - Интерфейс СУБД: db_interface.md
+  - MongoDB: mongodb.md
 theme: readthedocs
