@@ -14,7 +14,7 @@
     
     
       
-        <title>Queries - Museum</title>
+        <title>PHP - Museum</title>
       
     
     
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#-php" class="md-skip">
           Skip to content
         </a>
       
@@ -88,7 +88,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Queries
+              PHP
             
           </span>
         </div>
@@ -260,14 +260,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       <label class="md-nav__link" for="__nav_3">
         Mongo
@@ -285,7 +283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mg_tables/" class="md-nav__link">
+      <a href="../../mongo/mg_tables/" class="md-nav__link">
         Tables
       </a>
     </li>
@@ -295,20 +293,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../mongo/mg_queries/" class="md-nav__link">
         Queries
       </a>
-      
     </li>
   
 
@@ -340,11 +329,63 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../php/php/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          PHP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         PHP
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Добавление записи в бд
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Поиск записи в бд
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Редактирование записи в бд
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -367,6 +408,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Добавление записи в бд
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Поиск записи в бд
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Редактирование записи в бд
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -378,89 +448,17 @@
               
                 
                 
-                <h2 id="_1">Запросы</h2>
-<h1 id="1">Запрос 1</h1>
-<p><em>Поиск музея по названию и имени руководителя</em></p>
-<pre><code>&gt; db.museum.find({'name': 'Massa Associates', 'director': 'Lunea Q. Young'}).pretty()
-{
-    &quot;_id&quot; : ObjectId(&quot;60d4881c8bc97d5b7e0678a7&quot;),
-    &quot;name&quot; : &quot;Massa Associates&quot;,
-    &quot;director&quot; : &quot;Lunea Q. Young&quot;
-}
-</code></pre>
-<h1 id="2">Запрос 2</h1>
-<p><em>Поиск экспонатов со статусом выше указанного</em></p>
-<pre><code>&gt; db.piece.find({'status': {$gt: '5148'}}).pretty()
-{
-    &quot;_id&quot; : ObjectId(&quot;60d493a9120c35f3a2887477&quot;),
-    &quot;name&quot; : &quot;nulla. Integer urna.&quot;,
-    &quot;creation_date&quot; : &quot;1875-10-29 21:52:14&quot;,
-    &quot;status&quot; : &quot;943535&quot;,
-    &quot;author&quot; : DBRef(&quot;author&quot;, ObjectId(&quot;60d487848bc97d5b7e0678a4&quot;))
-}
-{
-    &quot;_id&quot; : ObjectId(&quot;60d493a9120c35f3a2887478&quot;),
-    &quot;name&quot; : &quot;erat. Etiam&quot;,
-    &quot;creation_date&quot; : &quot;1975-09-24 04:55:32&quot;,
-    &quot;status&quot; : &quot;5625&quot;,
-    &quot;author&quot; : DBRef(&quot;author&quot;, ObjectId(&quot;60d487848bc97d5b7e0678a2&quot;))
-}
-{
-    &quot;_id&quot; : ObjectId(&quot;60d493a9120c35f3a288747d&quot;),
-    &quot;name&quot; : &quot;arcu. Morbi sit&quot;,
-    &quot;creation_date&quot; : &quot;1877-02-23 15:53:27&quot;,
-    &quot;status&quot; : &quot;75419&quot;,
-    &quot;author&quot; : DBRef(&quot;author&quot;, ObjectId(&quot;60d487848bc97d5b7e0678a3&quot;))
-}
-{
-    &quot;_id&quot; : ObjectId(&quot;60d493a9120c35f3a288747f&quot;),
-    &quot;name&quot; : &quot;libero. Morbi accumsan&quot;,
-    &quot;creation_date&quot; : &quot;2008-12-09 18:15:36&quot;,
-    &quot;status&quot; : &quot;87443391&quot;,
-    &quot;author&quot; : DBRef(&quot;author&quot;, ObjectId(&quot;60d487848bc97d5b7e0678a4&quot;))
-}
-</code></pre>
-<h1 id="3">Запрос 3</h1>
-<p><em>Поиск экспонатов созданных позднее указанной даты</em></p>
-<pre><code>&gt; db.piece.find({creation_date: {$gte: new Date('1970-01-01')}}).pretty()
-{
-    &quot;_id&quot; : ObjectId(&quot;60d493a9120c35f3a2887478&quot;),
-    &quot;name&quot; : &quot;erat. Etiam&quot;,
-    &quot;creation_date&quot; : &quot;1975-09-24&quot;,
-    &quot;status&quot; : &quot;5625 SD&quot;,
-    &quot;author&quot; : DBRef(&quot;author&quot;, ObjectId(&quot;60d487848bc97d5b7e0678a2&quot;))
-}
-{
-    &quot;_id&quot; : ObjectId(&quot;60d493a9120c35f3a288747b&quot;),
-    &quot;name&quot; : &quot;vel, mauris.&quot;,
-    &quot;creation_date&quot; : &quot;1886-07-04&quot;,
-    &quot;status&quot; : &quot;41731&quot;,
-    &quot;author&quot; : DBRef(&quot;author&quot;, ObjectId(&quot;60d487848bc97d5b7e0678a4&quot;))
-}
-{
-    &quot;_id&quot; : ObjectId(&quot;60d493a9120c35f3a288747c&quot;),
-    &quot;name&quot; : &quot;Curabitur consequat,&quot;,
-    &quot;creation_date&quot; : &quot;1997-05-15&quot;,
-    &quot;status&quot; : &quot;5148&quot;,
-    &quot;author&quot; : DBRef(&quot;author&quot;, ObjectId(&quot;60d487848bc97d5b7e0678a2&quot;))
-}
-</code></pre>
-<h1 id="4">Запрос 4</h1>
-<p><em>Поиск авторов по роду</em></p>
-<pre><code>&gt; db.museum.find({'name': {$regex:&quot;Hood$&quot;}}).pretty()
-{
-    &quot;_id&quot; : ObjectId(&quot;60d487848bc97d5b7e0678a1&quot;),
-    &quot;birthdate&quot; : &quot;1930-09-05 20:30:54&quot;,
-    &quot;name&quot; : &quot;Kimberly D. Hood&quot;,
-    &quot;country&quot; : &quot;Macedonia&quot;
-}
-{
-    &quot;_id&quot; : ObjectId(&quot;60d487848bc97d5b7e0678a4&quot;),
-    &quot;birthdate&quot; : &quot;1986-07-11 17:28:37&quot;,
-    &quot;name&quot; : &quot;Catherine G. Hood&quot;,
-    &quot;country&quot; : &quot;Oman&quot;
-}
-</code></pre>
+                <h1 id="-php">Веб-приложение на php</h1>
+<p><code>С использованием бд postgres</code></p>
+<h2 id="_1">Добавление записи в бд</h2>
+<p>Url: http://127.0.0.1/front/add_author.html
+<img alt="" src="../../assets/add_php.jpg" /></p>
+<h2 id="_2">Поиск записи в бд</h2>
+<p>Url: http://127.0.0.1/front/search_author.html
+<img alt="" src="../../assets/search_php.jpg" /></p>
+<h2 id="_3">Редактирование записи в бд</h2>
+<p>Url: http://127.0.0.1/db/end_points/search_author.php
+<img alt="" src="../../assets/update_php.jpg" /></p>
                 
               
               
@@ -478,7 +476,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../mg_tables/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../../mongo/mg_queries/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -487,25 +485,11 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Tables
+              Queries
             </div>
           </div>
         </a>
       
-      
-        <a href="../../php/php/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              PHP
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
