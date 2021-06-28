@@ -12,6 +12,6 @@
 |ЛР 3|[PostgreSQL](./laboratory_works/L3_sqlite+postgresql)|
 |ЛР 4|[Нормализация](./laboratory_works/L4)|
 |ЛР 5|[SQL запросы](./laboratory_works/L5)|
-|ЛР 6|[PHP](./laboratory_works/L6)|
+|ЛР 6|[L6](./laboratory_works/L6)|
 |ЛР 7|[MongoDB](./laboratory_works/laboratory_work_7)|
 |MkDocs|[Документация](https://artyomartamonov.github.io/ITMO_FSPO_DataBases_2020-2021/)|
