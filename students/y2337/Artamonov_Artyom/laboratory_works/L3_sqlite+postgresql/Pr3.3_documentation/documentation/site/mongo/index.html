@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Лабораторная работа 7. MongoDB - Расписание уроков – База данных PostgreSQL</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">Расписание уроков – База данных PostgreSQL</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="..">База данных Школьное расписание</a>
+                            </li>
+                            <li class="active">
+                                <a href="./">Лабораторная работа 7. MongoDB</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="..">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="disabled">
+                                <a rel="prev" >
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#7-mongodb">Лабораторная работа 7. MongoDB</a></li>
+            <li><a href="#1">Практика 1</a></li>
+            <li><a href="#2">Практика 2</a></li>
+            <li><a href="#_6">Запросы</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="7-mongodb">Лабораторная работа 7. MongoDB</h1>
+<h2 id="1">Практика 1</h2>
+<h3 id="1-dbhelp-dbhelp-dbstats">1. Методы db.help(), db.help, db.stats()</h3>
+<p>db.help()
+<img alt="" src="../2021-05-26-13-46-33.png" />
+db.help
+<img alt="" src="../2021-05-26-13-48-38.png" />
+db.stats()
+<img alt="" src="../2021-05-26-13-48-23.png" /></p>
+<h3 id="2-learn">2. БД learn</h3>
+<p>Создание бд:
+<img alt="" src="../2021-05-26-13-49-18.png" /></p>
+<p>Список баз данных
+<img alt="" src="../2021-05-26-13-50-48.png" /></p>
+<p>Вставляем запись
+<img alt="" src="../2021-05-26-13-55-24.png" /></p>
+<p>Список всех коллекций
+<img alt="" src="../2021-05-26-13-56-00.png" /></p>
+<p>Переименование коллекций
+<img alt="" src="../2021-05-26-13-57-39.png" /></p>
+<p>Статистика коллекции
+<img alt="" src="../2021-05-26-13-58-48.png" /></p>
+<p>Удаление коллекции и базы данных
+<img alt="" src="../2021-05-26-14-00-26.png" /></p>
+<h2 id="2">Практика 2</h2>
+<h3 id="_1">Учителя</h3>
+<pre><code class="language-javascript">&gt; db.teachers.find()
+{ &quot;_id&quot; : ObjectId(&quot;60d347b92d92972c5189fe11&quot;), &quot;name&quot; : &quot;Valentina&quot;, &quot;is_supervisor&quot; : true }
+
+&gt; db.teachers.insertOne({&quot;name&quot;: &quot;Maria&quot;, &quot;is_supervisor&quot;: false})
+{
+    &quot;acknowledged&quot; : true,
+    &quot;insertedId&quot; : ObjectId(&quot;60d3488c0b7a2a91dccf4547&quot;)
+}
+
+&gt; db.teachers.insertOne({&quot;name&quot;: &quot;Valeria&quot;, &quot;is_supervisor&quot;: false})
+{
+    &quot;acknowledged&quot; : true,
+    &quot;insertedId&quot; : ObjectId(&quot;60d349d50b7a2a91dccf4548&quot;)
+}
+
+&gt; db.teachers.insertOne({&quot;name&quot;: &quot;Milana&quot;, &quot;is_supervisor&quot;: false})
+{
+    &quot;acknowledged&quot; : true,
+    &quot;insertedId&quot; : ObjectId(&quot;60d349db0b7a2a91dccf4549&quot;)
+}
+
+</code></pre>
+<h3 id="_2">Кабинеты</h3>
+<pre><code class="language-javascript">&gt; db.rooms.insertOne({&quot;number&quot;: &quot;10a&quot;, &quot;has_special_equipment&quot;: true, &quot;teacher&quot;: {&quot;$ref&quot;: &quot;teachers&quot;, &quot;$id&quot;: &quot;60d349db0b7a2a91dccf4549&quot;}})
+{
+    &quot;acknowledged&quot; : true,
+    &quot;insertedId&quot; : ObjectId(&quot;60d34b8f0b7a2a91dccf454b&quot;)
+}
+
+&gt; db.rooms.insertOne({&quot;number&quot;: &quot;10b&quot;, &quot;has_special_equipment&quot;: true})
+{
+    &quot;acknowledged&quot; : true,
+    &quot;insertedId&quot; : ObjectId(&quot;60d34ba50b7a2a91dccf454c&quot;)
+}
+
+&gt; db.rooms.insertOne({&quot;number&quot;: &quot;12&quot;, &quot;has_special_equipment&quot;: false})
+{
+    &quot;acknowledged&quot; : true,
+    &quot;insertedId&quot; : ObjectId(&quot;60d34bac0b7a2a91dccf454d&quot;)
+}
+
+</code></pre>
+<h3 id="_3">Классы</h3>
+<pre><code class="language-javascript">
+&gt; db.classes.insertOne({&quot;letter&quot;: &quot;A&quot;, &quot;year&quot;: 5, &quot;teacher&quot;: {&quot;$ref&quot;: &quot;teachers&quot;, &quot;$id&quot;: &quot;60d349db0b7a2a91dccf4549&quot;}})
+{
+    &quot;acknowledged&quot; : true,
+    &quot;insertedId&quot; : ObjectId(&quot;60d34cd730c46204e05dac8b&quot;)
+}
+
+&gt; db.classes.insertOne({&quot;letter&quot;: &quot;Б&quot;, &quot;year&quot;: 9, &quot;teacher&quot;: {&quot;$ref&quot;: &quot;teachers&quot;, &quot;$id&quot;: &quot;60d347b92d92972c5189fe11&quot;}})
+{
+    &quot;acknowledged&quot; : true,
+    &quot;insertedId&quot; : ObjectId(&quot;60d34cf330c46204e05dac8c&quot;)
+}
+
+&gt; db.classes.insertOne({&quot;letter&quot;: &quot;В&quot;, &quot;year&quot;: 8, &quot;teacher&quot;: {&quot;$ref&quot;: &quot;teachers&quot;, &quot;$id&quot;: &quot;60d347b92d92972c5189fe11&quot;}})
+{
+    &quot;acknowledged&quot; : true,
+    &quot;insertedId&quot; : ObjectId(&quot;60d34cfe30c46204e05dac8d&quot;)
+}
+
+&gt; db.classes.insertOne({&quot;letter&quot;: &quot;А&quot;, &quot;year&quot;: 1, &quot;teacher&quot;: {&quot;$ref&quot;: &quot;teachers&quot;, &quot;$id&quot;: &quot;60d347b92d92972c5189fe11&quot;}})
+{
+    &quot;acknowledged&quot; : true,
+    &quot;insertedId&quot; : ObjectId(&quot;60d34d0630c46204e05dac8e&quot;)
+}
+
+&gt; db.classes.insertOne({&quot;letter&quot;: &quot;Д&quot;, &quot;year&quot;: 3, &quot;teacher&quot;: {&quot;$ref&quot;: &quot;teachers&quot;, &quot;$id&quot;: &quot;60d347b92d92972c5189fe11&quot;}})
+{
+    &quot;acknowledged&quot; : true,
+    &quot;insertedId&quot; : ObjectId(&quot;60d34d0d30c46204e05dac8f&quot;)
+}
+
+</code></pre>
+<h3 id="_4">Предметы</h3>
+<pre><code class="language-javascript">&gt; db.subjects.insertOne({&quot;name&quot;: &quot;mathematics&quot;, &quot;description&quot;: &quot;Математика - царица всех наук&quot;})
+{
+    &quot;acknowledged&quot; : true,
+    &quot;insertedId&quot; : ObjectId(&quot;60d34d7657375ed5041fe3b0&quot;)
+}
+
+&gt; db.subjects.insertOne({&quot;name&quot;: &quot;русский язык&quot;, &quot;description&quot;: &quot;Дисциплина предполагает 8 учебных часов в неделю&quot;})
+{
+    &quot;acknowledged&quot; : true,
+    &quot;insertedId&quot; : ObjectId(&quot;60d34d9257375ed5041fe3b1&quot;)
+}
+
+&gt; db.subjects.insertOne({&quot;name&quot;: &quot;Физика&quot;, &quot;description&quot;: &quot;Архимед&quot;})
+{
+    &quot;acknowledged&quot; : true,
+    &quot;insertedId&quot; : ObjectId(&quot;60d34d9c57375ed5041fe3b2&quot;)
+}
+
+</code></pre>
+<h3 id="_5">Расписание</h3>
+<pre><code class="language-javascript">
+&gt; var subject = db.subjects.findOne({&quot;name&quot;:&quot;mathematics&quot;})
+&gt; db.timetable.insertOne({&quot;day_of_week&quot;: 1, &quot;lesson_number&quot;: 1, 
+    &quot;teacher&quot;: {&quot;$ref&quot;: &quot;teachers&quot;, &quot;$id&quot;: &quot;60d3488c0b7a2a91dccf4547&quot;},     
+    &quot;room&quot;: {&quot;$ref&quot;: &quot;rooms&quot;, &quot;$id&quot;: &quot;60d34b8f0b7a2a91dccf454b&quot;}, 
+    &quot;subject&quot;: new DBRef(&quot;subjects&quot;, subject._id), 
+    &quot;class&quot;: {&quot;$ref&quot;: &quot;classes&quot;, &quot;$id&quot;: &quot;60d34d0d30c46204e05dac8f&quot;}})
+{
+    &quot;acknowledged&quot; : true,
+    &quot;insertedId&quot; : ObjectId(&quot;60d34e3d57375ed5041fe3b3&quot;)
+}
+
+&gt; db.timetable.insertOne({&quot;day_of_week&quot;: 1, &quot;lesson_number&quot;: 2, 
+    &quot;teacher&quot;: {&quot;$ref&quot;: &quot;teachers&quot;, &quot;$id&quot;: &quot;60d3488c0b7a2a91dccf4547&quot;},     
+    &quot;room&quot;: {&quot;$ref&quot;: &quot;rooms&quot;, &quot;$id&quot;: &quot;60d34b8f0b7a2a91dccf454b&quot;}, 
+    &quot;subject&quot;: new DBRef(&quot;subjects&quot;, subject._id), 
+    &quot;class&quot;: {&quot;$ref&quot;: &quot;classes&quot;, &quot;$id&quot;: &quot;60d34cfe30c46204e05dac8d&quot;}})
+{
+    &quot;acknowledged&quot; : true,
+    &quot;insertedId&quot; : ObjectId(&quot;60d34e5957375ed5041fe3b4&quot;)
+}
+
+&gt; db.timetable.insertOne({&quot;day_of_week&quot;: 1, &quot;lesson_number&quot;: 3, 
+    &quot;teacher&quot;: {&quot;$ref&quot;: &quot;teachers&quot;, &quot;$id&quot;: &quot;60d3488c0b7a2a91dccf4547&quot;},     
+    &quot;room&quot;: {&quot;$ref&quot;: &quot;rooms&quot;, &quot;$id&quot;: &quot;60d34b8f0b7a2a91dccf454b&quot;}, 
+    &quot;subject&quot;: new DBRef(&quot;subjects&quot;, subject._id), 
+    &quot;class&quot;: {&quot;$ref&quot;: &quot;classes&quot;, &quot;$id&quot;: &quot;60d34d0630c46204e05dac8e&quot;}})
+{
+    &quot;acknowledged&quot; : true,
+    &quot;insertedId&quot; : ObjectId(&quot;60d34e7357375ed5041fe3b5&quot;)
+}
+
+&gt; db.timetable.insertOne({&quot;day_of_week&quot;: 1, &quot;lesson_number&quot;: 4, 
+    &quot;teacher&quot;: {&quot;$ref&quot;: &quot;teachers&quot;, &quot;$id&quot;: &quot;60d3488c0b7a2a91dccf4547&quot;},     
+    &quot;room&quot;: {&quot;$ref&quot;: &quot;rooms&quot;, &quot;$id&quot;: &quot;60d34b8f0b7a2a91dccf454b&quot;}, 
+    &quot;subject&quot;: new DBRef(&quot;subjects&quot;, subject._id), 
+    &quot;class&quot;: {&quot;$ref&quot;: &quot;classes&quot;, &quot;$id&quot;: &quot;60d34cf330c46204e05dac8c&quot;}})
+{
+    &quot;acknowledged&quot; : true,
+    &quot;insertedId&quot; : ObjectId(&quot;60d34e8357375ed5041fe3b6&quot;)
+}
+
+</code></pre>
+<h2 id="_6">Запросы</h2>
+<h3 id="1-4">1. Найти все классы старше 4</h3>
+<pre><code class="language-javascript">&gt; db.classes.find({&quot;year&quot;: {&quot;$gte&quot;: 4}}).pretty()
+
+{
+    &quot;_id&quot; : ObjectId(&quot;60d34cd730c46204e05dac8b&quot;),
+    &quot;letter&quot; : &quot;A&quot;,
+    &quot;year&quot; : 5,
+    &quot;teacher&quot; : DBRef(&quot;teachers&quot;, &quot;60d349db0b7a2a91dccf4549&quot;)
+}
+
+{
+    &quot;_id&quot; : ObjectId(&quot;60d34cf330c46204e05dac8c&quot;),
+    &quot;letter&quot; : &quot;Б&quot;,
+    &quot;year&quot; : 9,
+    &quot;teacher&quot; : DBRef(&quot;teachers&quot;, &quot;60d347b92d92972c5189fe11&quot;)
+}
+
+{
+    &quot;_id&quot; : ObjectId(&quot;60d34cfe30c46204e05dac8d&quot;),
+    &quot;letter&quot; : &quot;В&quot;,
+    &quot;year&quot; : 8,
+    &quot;teacher&quot; : DBRef(&quot;teachers&quot;, &quot;60d347b92d92972c5189fe11&quot;)
+}
+
+
+</code></pre>
+<h3 id="2_1">2. Количество уроков по предметам</h3>
+<pre><code class="language-javascript">&gt; db.timetable.aggregate([{$group : {_id : &quot;$subject&quot;, count : {$sum : 1}}}]).pretty()
+{
+    &quot;_id&quot; : DBRef(&quot;subjects&quot;, ObjectId(&quot;60d34d7657375ed5041fe3b0&quot;)),
+    &quot;count&quot; : 4
+}
+</code></pre>
+<h3 id="3">3. Вывод уроков в понедельник</h3>
+<pre><code class="language-javascript">&gt; db.timetable.find({day_of_week: 1}).pretty()
+{
+    &quot;_id&quot; : ObjectId(&quot;60d34e3d57375ed5041fe3b3&quot;),
+    &quot;day_of_week&quot; : 1,
+    &quot;lesson_number&quot; : 1,
+    &quot;teacher&quot; : DBRef(&quot;teachers&quot;, &quot;60d3488c0b7a2a91dccf4547&quot;),
+    &quot;room&quot; : DBRef(&quot;rooms&quot;, &quot;60d34b8f0b7a2a91dccf454b&quot;),
+    &quot;subject&quot; : DBRef(&quot;subjects&quot;, ObjectId(&quot;60d34d7657375ed5041fe3b0&quot;)),
+    &quot;class&quot; : DBRef(&quot;classes&quot;, &quot;60d34d0d30c46204e05dac8f&quot;)
+}
+{
+    &quot;_id&quot; : ObjectId(&quot;60d34e5957375ed5041fe3b4&quot;),
+    &quot;day_of_week&quot; : 1,
+    &quot;lesson_number&quot; : 2,
+    &quot;teacher&quot; : DBRef(&quot;teachers&quot;, &quot;60d3488c0b7a2a91dccf4547&quot;),
+    &quot;room&quot; : DBRef(&quot;rooms&quot;, &quot;60d34b8f0b7a2a91dccf454b&quot;),
+    &quot;subject&quot; : DBRef(&quot;subjects&quot;, ObjectId(&quot;60d34d7657375ed5041fe3b0&quot;)),
+    &quot;class&quot; : DBRef(&quot;classes&quot;, &quot;60d34cfe30c46204e05dac8d&quot;)
+}
+{
+    &quot;_id&quot; : ObjectId(&quot;60d34e7357375ed5041fe3b5&quot;),
+    &quot;day_of_week&quot; : 1,
+    &quot;lesson_number&quot; : 3,
+    &quot;teacher&quot; : DBRef(&quot;teachers&quot;, &quot;60d3488c0b7a2a91dccf4547&quot;),
+    &quot;room&quot; : DBRef(&quot;rooms&quot;, &quot;60d34b8f0b7a2a91dccf454b&quot;),
+    &quot;subject&quot; : DBRef(&quot;subjects&quot;, ObjectId(&quot;60d34d7657375ed5041fe3b0&quot;)),
+    &quot;class&quot; : DBRef(&quot;classes&quot;, &quot;60d34d0630c46204e05dac8e&quot;)
+}
+{
+    &quot;_id&quot; : ObjectId(&quot;60d34e8357375ed5041fe3b6&quot;),
+    &quot;day_of_week&quot; : 1,
+    &quot;lesson_number&quot; : 4,
+    &quot;teacher&quot; : DBRef(&quot;teachers&quot;, &quot;60d3488c0b7a2a91dccf4547&quot;),
+    &quot;room&quot; : DBRef(&quot;rooms&quot;, &quot;60d34b8f0b7a2a91dccf454b&quot;),
+    &quot;subject&quot; : DBRef(&quot;subjects&quot;, ObjectId(&quot;60d34d7657375ed5041fe3b0&quot;)),
+    &quot;class&quot; : DBRef(&quot;classes&quot;, &quot;60d34cf330c46204e05dac8c&quot;)
+}
+</code></pre>
+<h3 id="4">4. Список всех кабинетов на первом этаже</h3>
+<pre><code class="language-javascript">&gt; map
+function map(){
+    if(/1.*/.test(this.number)){
+        emit(this.number, 1);
+    }
+}
+&gt; reduce
+function reduce(key, values){
+    var sum = 0;
+    for(var i in values){
+        sum += values[i];
+    }
+    return sum;
+}
+&gt; db.rooms.mapReduce(map, reduce, {out: &quot;number&quot;})
+{ &quot;result&quot; : &quot;number&quot;, &quot;ok&quot; : 1 }
+</code></pre>
+<h3 id="5">5. Вывести список преподавателей, которые не являются классными руководителями</h3>
+<pre><code class="language-javascript">&gt; db.teachers.find({is_supervisor: true}).pretty()
+{
+    &quot;_id&quot; : ObjectId(&quot;60d347b92d92972c5189fe11&quot;),
+    &quot;name&quot; : &quot;Valentina&quot;,
+    &quot;is_supervisor&quot; : true
+}
+&gt; db.teachers.find({is_supervisor: false}).pretty()
+{
+    &quot;_id&quot; : ObjectId(&quot;60d3488c0b7a2a91dccf4547&quot;),
+    &quot;name&quot; : &quot;Maria&quot;,
+    &quot;is_supervisor&quot; : false
+}
+{
+    &quot;_id&quot; : ObjectId(&quot;60d349d50b7a2a91dccf4548&quot;),
+    &quot;name&quot; : &quot;Valeria&quot;,
+    &quot;is_supervisor&quot; : false
+}
+{
+    &quot;_id&quot; : ObjectId(&quot;60d349db0b7a2a91dccf4549&quot;),
+    &quot;name&quot; : &quot;Milana&quot;,
+    &quot;is_supervisor&quot; : false
+}
+
+</code></pre>
+<h3 id="6">6. Вывести все классы и их учителей</h3>
+<pre><code class="language-javascript">&gt; db.classes.aggregate([{$lookup: {from: &quot;teachers&quot;, localField: &quot;teacher['$id']&quot;, foreignField: &quot;_id&quot;, as: &quot;teacher&quot;}}]).pretty()
+{
+    &quot;_id&quot; : ObjectId(&quot;60d34cd730c46204e05dac8b&quot;),
+    &quot;letter&quot; : &quot;A&quot;,
+    &quot;year&quot; : 5,
+    &quot;teacher&quot; : 
+        { 
+            &quot;_id&quot; : ObjectId(&quot;60d347b92d92972c5189fe11&quot;), 
+            &quot;name&quot; : &quot;Valentina&quot;, 
+            &quot;is_supervisor&quot; : true 
+        }
+}
+{
+    &quot;_id&quot; : ObjectId(&quot;60d34cf330c46204e05dac8c&quot;),
+    &quot;letter&quot; : &quot;Б&quot;,
+    &quot;year&quot; : 9,
+    &quot;teacher&quot; : 
+        { 
+            &quot;_id&quot; : ObjectId(&quot;60d347b92d92972c5189fe11&quot;), 
+            &quot;name&quot; : &quot;Valentina&quot;, 
+            &quot;is_supervisor&quot; : true 
+        }
+}
+{
+    &quot;_id&quot; : ObjectId(&quot;60d34cfe30c46204e05dac8d&quot;),
+    &quot;letter&quot; : &quot;В&quot;,
+    &quot;year&quot; : 8,
+    &quot;teacher&quot; :     
+        { 
+            &quot;_id&quot; : ObjectId(&quot;60d347b92d92972c5189fe11&quot;), 
+            &quot;name&quot; : &quot;Valentina&quot;, 
+            &quot;is_supervisor&quot; : true 
+        }
+}
+{
+    &quot;_id&quot; : ObjectId(&quot;60d34d0630c46204e05dac8e&quot;),
+    &quot;letter&quot; : &quot;А&quot;,
+    &quot;year&quot; : 1,
+    &quot;teacher&quot; : 
+        { 
+            &quot;_id&quot; : ObjectId(&quot;60d347b92d92972c5189fe11&quot;), 
+            &quot;name&quot; : &quot;Valentina&quot;, 
+            &quot;is_supervisor&quot; : true 
+        }
+}
+{
+    &quot;_id&quot; : ObjectId(&quot;60d34d0d30c46204e05dac8f&quot;),
+    &quot;letter&quot; : &quot;Д&quot;,
+    &quot;year&quot; : 3,
+    &quot;teacher&quot; : 
+        { 
+            &quot;_id&quot; : ObjectId(&quot;60d347b92d92972c5189fe11&quot;), 
+            &quot;name&quot; : &quot;Valentina&quot;, 
+            &quot;is_supervisor&quot; : true 
+        }
+}
+
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
