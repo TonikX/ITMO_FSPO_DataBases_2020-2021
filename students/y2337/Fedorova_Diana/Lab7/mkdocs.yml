@@ -1,0 +1,24 @@
+site_name: Zoo
+nav:
+  - Home: index.md
+  - Tables:
+      - animals: tables/animals.md
+      - building: tables/building.md
+      - feeding_ration: tables/feeding_ration.md
+      - habitat_area: tables/habitat_area.md
+      - habitation: tables/habitation.md
+      - nutrition: tables/nutrition.md
+      - service: tables/service.md
+      - type: tables/type.md
+      - worker: tables/worker.md
+      - zoo_territory: tables/zoo_territory.md
+  - Queries:
+      - queries: queries/queries.md
+  - Code:
+      - create: code/create.md
+      - insert: code/insert.md
+  - MongoDB:
+      - create: mongodb/create.md
+      - insert: mongodb/insert.md
+      - queries: mongodb/queries.md
+
