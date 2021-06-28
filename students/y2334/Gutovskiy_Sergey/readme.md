@@ -7,6 +7,6 @@
 |ЛР 3|[PostgreSQL](./laba3)|
 |ЛР 4|[Нормализация](./laba4)|
 |ЛР 5|[SQL запросы](./laba5)|
-|ЛР 6|[PHP]("./laba6 (php)")|
+|ЛР 6|[PHP](./laba6)|
 |ЛР 7|[MongoDB](./laba7)|
 |MkDocs|[Документация](https://sergeygutovskiy.github.io/documentary)|
