@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>My Docs</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">My Docs</a>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#lab-3" class="nav-link">Lab 3</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">Зачем?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">На чем?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#1breed" class="nav-link">1.Breed</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2diet" class="nav-link">2.Diet</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3chicken" class="nav-link">3.Chicken</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#4worker" class="nav-link">4.Worker</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#5department" class="nav-link">5.Department</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#6cell" class="nav-link">6.Cell</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#7cleaning" class="nav-link">7.Cleaning</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#8maintenance" class="nav-link">8.Maintenance</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="lab-3"><strong>Lab 3</strong></h1>
+<h2 id="_1"><strong>Зачем?</strong></h2>
+<p>Реализовать вот это по заданию лабораторной работы</p>
+<p><img alt="1" src="preview.png" /></p>
+<h2 id="_2"><strong>На чем?</strong></h2>
+<p>POSTGRE version <code>13.1</code></p>
+<h2 id="1breed"><strong>1.Breed</strong></h2>
+<table>
+<thead>
+<tr>
+<th align="left">name</th>
+<th align="left">type</th>
+<th align="left">primary key</th>
+<th align="left">unique</th>
+<th align="left">not null</th>
+<th align="left">references</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">breed_id</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">average_kpd</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">average_weight</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="creation"><strong>Creation</strong></h3>
+<pre><code>create table breed(
+    breed_id int primary key, 
+    average_kpd int, 
+    average_weight int
+);
+</code></pre>
+<h3 id="commands"><strong>Commands</strong></h3>
+<pre><code>insert into breed values (
+    1,
+    2,
+    3
+);
+</code></pre>
+<h2 id="2diet"><strong>2.Diet</strong></h2>
+<table>
+<thead>
+<tr>
+<th align="left">name</th>
+<th align="left">type</th>
+<th align="left">primary key</th>
+<th align="left">unique</th>
+<th align="left">not null</th>
+<th align="left">references</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">diet_id</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">content</td>
+<td align="left"><code>varchar(40)</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">season</td>
+<td align="left"><code>varchar(40)</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">breed</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>Breed.breed_id</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="creation_1"><strong>Creation</strong></h3>
+<pre><code>create table diet (
+    diet_id int primary key, 
+    content varchar(40), 
+    season varchar(40), 
+    breed int, 
+    foreign key (breed) references breed (breed_id)
+);
+</code></pre>
+<h3 id="commands_1"><strong>Commands</strong></h3>
+<pre><code>insert into diet values (
+    1, 
+    &quot;2&quot;, 
+    &quot;3&quot;, 
+    1
+);
+</code></pre>
+<h2 id="3chicken"><strong>3.Chicken</strong></h2>
+<table>
+<thead>
+<tr>
+<th align="left">name</th>
+<th align="left">type</th>
+<th align="left">primary key</th>
+<th align="left">unique</th>
+<th align="left">not null</th>
+<th align="left">references</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">chicken_id</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">weight</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">age</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">kpd</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">place</td>
+<td align="left"><code>varchar(40)</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">breed</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>Breed.breed_id</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="creation_2"><strong>Creation</strong></h3>
+<pre><code>create table chicken (
+    chicken_id int primary key, 
+    weight int, 
+    age int, 
+    kpd int, 
+    place varchar(40), 
+    breed int, 
+    foreign key (breed) references breed (breed_id)
+);
+</code></pre>
+<h3 id="commands_2"><strong>Commands</strong></h3>
+<pre><code>insert into diet values (
+    1, 
+    100, 
+    10, 
+    50, 
+    &quot;here&quot;, 
+    1
+);
+</code></pre>
+<h2 id="4worker"><strong>4.Worker</strong></h2>
+<table>
+<thead>
+<tr>
+<th align="left">name</th>
+<th align="left">type</th>
+<th align="left">primary key</th>
+<th align="left">unique</th>
+<th align="left">not null</th>
+<th align="left">references</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">worker_id</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">passport</td>
+<td align="left"><code>varchar(40)</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">passport_timing</td>
+<td align="left"><code>varchar(40)</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">fio</td>
+<td align="left"><code>varchar(80)</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">work_place</td>
+<td align="left"><code>varchar(40)</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">salary</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">doc</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">fire</td>
+<td align="left"><code>boolean</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">hire</td>
+<td align="left"><code>date</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="creation_3"><strong>Creation</strong></h3>
+<pre><code>create table worker (
+    worker_id int primary key,
+    passport varchar(40), 
+    passport_timing varchar(40), 
+    fio varchar(80), 
+    work_place varchar(40), 
+    salary int, 
+    doc int, 
+    fire boolean, 
+    hire date
+);
+</code></pre>
+<h3 id="commands_3"><strong>Commands</strong></h3>
+<pre><code>insert into diet values (
+    1, 
+    &quot;133333&quot;, 
+    &quot;12.02.2020&quot;, 
+    &quot;Antonov Anton Antonovich&quot;, 
+    &quot;here&quot;, 
+    15000, 
+    123, 
+    false, 
+    &quot;12.03.2019&quot;
+);
+</code></pre>
+<h2 id="5department"><strong>5.Department</strong></h2>
+<table>
+<thead>
+<tr>
+<th align="left">name</th>
+<th align="left">type</th>
+<th align="left">primary key</th>
+<th align="left">unique</th>
+<th align="left">not null</th>
+<th align="left">references</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">department_id</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">capacity</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">address</td>
+<td align="left"><code>varchar(40)</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="creation_4"><strong>Creation</strong></h3>
+<pre><code>create table department (
+    department_id int primary key, 
+    capacity int, 
+    address varchar(40)
+);
+</code></pre>
+<h3 id="commands_4"><strong>Commands</strong></h3>
+<pre><code>insert into diet values (
+    1, 
+    100, 
+    &quot;Pushkin's st.&quot;
+);
+</code></pre>
+<h2 id="6cell"><strong>6.Cell</strong></h2>
+<table>
+<thead>
+<tr>
+<th align="left">name</th>
+<th align="left">type</th>
+<th align="left">primary key</th>
+<th align="left">unique</th>
+<th align="left">not null</th>
+<th align="left">references</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">cell_id</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">row</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">cell</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">department</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>Department.department_id</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="creation_5"><strong>Creation</strong></h3>
+<pre><code>create teble cell (
+    cell_id int primary key, 
+    row int, 
+    cell int, 
+    department int, 
+    foreign key (department) references department (department_id)
+);
+</code></pre>
+<h3 id="commands_5"><strong>Commands</strong></h3>
+<pre><code>insert into diet values (
+    1, 
+    2, 
+    3, 
+    1
+);
+</code></pre>
+<h2 id="7cleaning"><strong>7.Cleaning</strong></h2>
+<table>
+<thead>
+<tr>
+<th align="left">name</th>
+<th align="left">type</th>
+<th align="left">primary key</th>
+<th align="left">unique</th>
+<th align="left">not null</th>
+<th align="left">references</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">cleaning_id</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">cell</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>Cell.cell_id</code></td>
+</tr>
+<tr>
+<td align="left">worker</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>Worker.worker_id</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="creation_6"><strong>Creation</strong></h3>
+<pre><code>create table cleaning (
+    cleaning_id int primary key, 
+    cell int, 
+    worker int, 
+    foreign key (cell) references cell (cell_id), 
+    foreign key (worker) references worker (worker_id)
+);
+</code></pre>
+<h3 id="commands_6"><strong>Commands</strong></h3>
+<pre><code>insert into diet values (
+    1, 
+    1, 
+    1, 
+    1
+);
+</code></pre>
+<h2 id="8maintenance"><strong>8.Maintenance</strong></h2>
+<table>
+<thead>
+<tr>
+<th align="left">name</th>
+<th align="left">type</th>
+<th align="left">primary key</th>
+<th align="left">unique</th>
+<th align="left">not null</th>
+<th align="left">references</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">maintenance_id</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>true</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">in_d</td>
+<td align="left"><code>date</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">out_d</td>
+<td align="left"><code>date</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left">cell</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>Cell.cell_id</code></td>
+</tr>
+<tr>
+<td align="left">chicken</td>
+<td align="left"><code>int</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>false</code></td>
+<td align="left"><code>Chicken.chicken_id</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="creation_7"><strong>Creation</strong></h3>
+<pre><code>create table maintenance (
+    maintenance_id int primary key, 
+    in_d date, 
+    out_d date, 
+    cell int, 
+    chicken int, 
+    foreign key (cell) references cell (cell_id), 
+    foreign key (chicken) references chicken (chicken_id)
+);
+</code></pre>
+<h3 id="commands_7"><strong>Commands</strong></h3>
+<pre><code>insert into diet values (
+    1, 
+    &quot;20.03.2018&quot;, 
+    &quot;23.04.2018&quot;, 
+    1, 
+    1
+);
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.1.2
+Build Date UTC : 2021-03-24 13:09:36.457121+00:00
+-->
