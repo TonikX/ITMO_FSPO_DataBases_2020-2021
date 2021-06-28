@@ -1,0 +1,20 @@
+site_name: Реализация таблиц через SQL Shell
+nav:
+ - Задание: index.md
+ - Таблицы:
+     - "Клиент": urls/klient.md
+     - "Заселение": urls/check_in.md
+     - "Номер": urls/number.md
+     - "Администратор": urls/administrator.md
+     - "Уборка": urls/clean.md
+     - "Уборщик": urls/cleaner.md
+ - Создание: urls/create.md
+ - Заполнение: urls/insert.md
+ - Запросы: urls/request.md
+ - Лабораторная 6.1: urls/6_1.md
+ - Лабораторная 6.2: urls/6_2.md
+ - MongoDB реализация: urls/mongo/create.md
+ - MongoDB запросы: urls/mongo/queries.md
+
+theme:
+ name: material
