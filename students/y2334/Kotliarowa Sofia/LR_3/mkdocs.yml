@@ -1,0 +1,9 @@
+# https://sofkot.github.io/clinika/
+
+site_name: КЛИНИКА
+nav:
+ - Главная: index.md
+ - СУБД: DB.md
+ - БД: tables.md
+
+theme: lux
