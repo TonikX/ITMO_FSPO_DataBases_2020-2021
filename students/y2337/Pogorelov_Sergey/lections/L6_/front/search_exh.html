@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Exibition</title>
+    <style>
+      li {list-style: none;}
+    </style>
+</head>
+
+<body>
+  <h2>Enter exibition id to find</h2>
+  <ul>
+    <form name='display' action='../db/end_points/search_exh.php' method='POST' >
+    <li>Exibition ID:</li><li><input type='text' name='id' /></li>
+    <li><input type='submit' name='submit' /></li>
+    </form>
+  </ul>    
+</body>
+</html>

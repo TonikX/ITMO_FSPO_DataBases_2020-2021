@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Author</title>
+  <style>
+    li {list-style: none;}
+  </style>
+</head>
+
+<body>
+  <h2>Enter author params to add new author</h2>
+  <ul>
+    <form name="display" action="../db/end_points/add_author.php" method="POST" >
+      <li>Author`s name:</li><li><input type="text" name="name" /></li>
+      <li>Birth date:</li><li><input type="date" name="birth_date" /></li>
+      <li>Country:</li><li><input type="text" name="country" /></li>
+      <li><input type="submit" name="submit" /></li>
+    </form>
+  </ul>
+</body>
+</html>

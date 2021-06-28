@@ -1,0 +1,681 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
+    
+    
+      
+        <title>Tables - Museum</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2c0c5eaf.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mongodb" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Museum" class="md-header__button md-logo" aria-label="Museum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Museum
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tables
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Museum" class="md-nav__button md-logo" aria-label="Museum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Museum
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Description
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Description" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Description
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../main/tables/" class="md-nav__link">
+        Tables
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../main/create/" class="md-nav__link">
+        Creation code
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../main/fill/" class="md-nav__link">
+        Data filling
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../main/queries/" class="md-nav__link">
+        Queries
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Mongo
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Mongo" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Mongo
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Tables
+      </a>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mg_queries/" class="md-nav__link">
+        Queries
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../db_prom/db_prom/" class="md-nav__link">
+        DBProm
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/php/" class="md-nav__link">
+        PHP
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h2 id="mongodb">Mongodb: процесс реализации модели</h2>
+<h1 id="_1">Коллекция авторов</h1>
+<pre><code class="language-sql">&gt; db.author.insert([{
+...   &quot;birthdate&quot;: &quot;1930-09-05&quot;,
+...   &quot;name&quot;: &quot;Kimberly D. Hood&quot;,
+...   &quot;country&quot;: &quot;Macedonia&quot;
+... },{
+...   &quot;birthdate&quot;: &quot;1948-12-08&quot;,
+...   &quot;name&quot;: &quot;Willa O. Jones&quot;,
+...   &quot;country&quot;: &quot;Guernsey&quot;
+... },{
+...   &quot;birthdate&quot;: &quot;1977-10-22&quot;,
+...   &quot;name&quot;: &quot;Lois T. Pena&quot;,
+...   &quot;country&quot;: &quot;Antarctica&quot;
+... },{
+...   &quot;birthdate&quot;: &quot;1986-07-11&quot;,
+...   &quot;name&quot;: &quot;Catherine G. Hood&quot;,
+...   &quot;country&quot;: &quot;Oman&quot;
+... },{
+...   &quot;birthdate&quot;: &quot;1948-08-26&quot;,
+...   &quot;name&quot;: &quot;Oleg H. Downs&quot;,
+...   &quot;country&quot;: &quot;Niger&quot;
+... },{
+...   &quot;birthdate&quot;: &quot;1992-01-09&quot;,
+...   &quot;name&quot;: &quot;Blythe U. Michael&quot;,
+...   &quot;country&quot;: &quot;Thailand&quot;
+... }])
+BulkWriteResult({
+    &quot;writeErrors&quot; : [ ],
+    &quot;writeConcernErrors&quot; : [ ],
+    &quot;nInserted&quot; : 6,
+    &quot;nUpserted&quot; : 0,
+    &quot;nMatched&quot; : 0,
+    &quot;nModified&quot; : 0,
+    &quot;nRemoved&quot; : 0,
+    &quot;upserted&quot; : [ ]
+})
+</code></pre>
+<h1 id="_2">Коллекция музеев</h1>
+<pre><code class="language-sql">&gt; db.museum.insert([{
+...   &quot;name&quot;: &quot;Massa Associates&quot;,
+...   &quot;director&quot;: &quot;Lunea Q. Young&quot;
+... },{
+...   &quot;name&quot;: &quot;Imperdiet Dictum Company&quot;,
+...   &quot;director&quot;: &quot;Lisandra M. Austin&quot;
+... },{
+...   &quot;name&quot;: &quot;Duis Dignissim Tempor Foundation&quot;,
+...   &quot;director&quot;: &quot;Hasad T. Ferguson&quot;
+... },{
+...   &quot;name&quot;: &quot;Molestie Orci Company&quot;,
+...   &quot;director&quot;: &quot;Chaim A. Ellison&quot;
+... },{
+...   &quot;name&quot;: &quot;Placerat Velit Institute&quot;,
+...   &quot;director&quot;: &quot;Blaze H. Yates&quot;
+... },{
+...   &quot;name&quot;: &quot;Urna Associates&quot;,
+...   &quot;director&quot;: &quot;Russell H. Benson&quot;
+... },{
+...   &quot;name&quot;: &quot;Sed Molestie Corporation&quot;,
+...   &quot;director&quot;: &quot;Cooper S. Green&quot;
+... }])
+BulkWriteResult({
+    &quot;writeErrors&quot; : [ ],
+    &quot;writeConcernErrors&quot; : [ ],
+    &quot;nInserted&quot; : 7,
+    &quot;nUpserted&quot; : 0,
+    &quot;nMatched&quot; : 0,
+    &quot;nModified&quot; : 0,
+    &quot;nRemoved&quot; : 0,
+    &quot;upserted&quot; : [ ]
+})
+</code></pre>
+<h1 id="_3">Коллекция экспонатов</h1>
+<pre><code class="language-sql">&gt; var first_author_id = db.author.findOne({'name': 'Willa O. Jones'})._id
+&gt; var second_author_id = db.author.findOne({'name': 'Lois T. Pena'})._id
+&gt; var third_author_id = db.author.findOne({'name': 'Oleg H. Downs'})._id
+&gt; var last_author_id = db.author.findOne({'name': 'Catherine G. Snow'})._id
+&gt; db.piece.insert([{
+...     &quot;name&quot;: &quot;velit&quot;,
+...     &quot;creation_date&quot;: &quot;1914-08-05&quot;,
+...     &quot;status&quot;: &quot;030504&quot;,
+...     'author': new DBRef('author', first_author_id)
+... },
+... {
+...     &quot;name&quot;: &quot;interdum&quot;,
+...     &quot;creation_date&quot;: &quot;1900-10-17&quot;,
+...     &quot;status&quot;: &quot;16479&quot;,
+...     'author': new DBRef('author', second_author_id)
+... },
+... {
+...     &quot;name&quot;: &quot;ut dolor&quot;,
+...     &quot;creation_date&quot;: &quot;1955-04-04&quot;,
+...     &quot;status&quot;: &quot;10961&quot;,
+...     'author': new DBRef('author', third_author_id)
+... },
+... {
+...     &quot;name&quot;: &quot;nulla. Integer urna.&quot;,
+...     &quot;creation_date&quot;: &quot;1875-10-29&quot;,
+...     &quot;status&quot;: &quot;943535&quot;,
+...     'author': new DBRef('author', last_author_id)
+... },
+... {
+...     &quot;name&quot;: &quot;erat. Etiam&quot;,
+...     &quot;creation_date&quot;: &quot;1975-09-24&quot;,
+...     &quot;status&quot;: &quot;5625&quot;,
+...     'author': new DBRef('author', first_author_id)
+... },
+... {
+...     &quot;name&quot;: &quot;lorem ipsum sodales&quot;,
+...     &quot;creation_date&quot;: &quot;1845-08-07&quot;,
+...     &quot;status&quot;: &quot;1645&quot;,
+...     'author': new DBRef('author', second_author_id)
+... },
+... {
+...     &quot;name&quot;: &quot;neque&quot;,
+...     &quot;creation_date&quot;: &quot;1967-12-13&quot;,
+...     &quot;status&quot;: &quot;345947&quot;,
+...     'author': new DBRef('author', third_author_id)
+... },
+... {
+...     &quot;name&quot;: &quot;vel, mauris.&quot;,
+...     &quot;creation_date&quot;: &quot;1886-07-04&quot;,
+...     &quot;status&quot;: &quot;41731&quot;,
+...     'author': new DBRef('author', last_author_id)
+... },
+... {
+...     &quot;name&quot;: &quot;Curabitur consequat,&quot;,
+...     &quot;creation_date&quot;: &quot;1997-05-15&quot;,
+...     &quot;status&quot;: &quot;5148&quot;,
+...     'author': new DBRef('author', first_author_id)
+... },
+... {
+...     &quot;name&quot;: &quot;arcu. Morbi sit&quot;,
+...     &quot;creation_date&quot;: &quot;1877-02-23&quot;,
+...     &quot;status&quot;: &quot;75419&quot;,
+...     'author': new DBRef('author', second_author_id)
+... },
+... {
+...     &quot;name&quot;: &quot;nulla.&quot;,
+...     &quot;creation_date&quot;: &quot;1901-10-01&quot;,
+...     &quot;status&quot;: &quot;33666&quot;,
+...     'author': new DBRef('author', third_author_id)
+... },
+... {
+...     &quot;name&quot;: &quot;libero. Morbi accumsan&quot;,
+...     &quot;creation_date&quot;: &quot;2008-12-09&quot;,
+...     &quot;status&quot;: &quot;87443391&quot;,
+...     'author': new DBRef('author', last_author_id)
+... }])
+BulkWriteResult({
+    &quot;writeErrors&quot; : [ ],
+    &quot;writeConcernErrors&quot; : [ ],
+    &quot;nInserted&quot; : 12,
+    &quot;nUpserted&quot; : 0,
+    &quot;nMatched&quot; : 0,
+    &quot;nModified&quot; : 0,
+    &quot;nRemoved&quot; : 0,
+    &quot;upserted&quot; : [ ]
+})
+</code></pre>
+<h1 id="_4">Коллекция хранения</h1>
+<pre><code class="language-sql">&gt; var museum_id_1 = db.museum.findOne({'name': 'Massa Associates'})._id
+&gt; var museum_id_2 = db.museum.findOne({'name': 'Urna Associates'})._id
+&gt; var museum_id_3 = db.museum.findOne({'name': 'Duis Dignissim Tempor Foundation'})._id
+&gt; var piece_id_1 = db.piece.findOne({'name': 'neque'})._id
+&gt; var piece_id_2 = db.piece.findOne({'name': 'erat. Etiam'})._id
+&gt; var piece_id_3 = db.piece.findOne({'name': 'ut dolor'})._id
+&gt; db.store.insert([{
+... &quot;get_date&quot;: &quot;1943-11-16&quot;,
+... &quot;piece&quot;: new DBRef('piece', piece_id_1),
+... &quot;museum&quot;: new DBRef('museum', museum_id_1)
+... },
+... {
+... &quot;get_date&quot;: &quot;1914-09-13&quot;,
+... &quot;piece&quot;: new DBRef('piece', piece_id_1),
+... &quot;museum&quot;: new DBRef('museum', museum_id_2)
+... },
+... {
+... &quot;get_date&quot;: &quot;1888-05-29&quot;,
+... &quot;piece&quot;: new DBRef('piece', piece_id_1),
+... &quot;museum&quot;: new DBRef('museum', museum_id_3)
+... },
+... {
+... &quot;get_date&quot;: &quot;1849-08-04&quot;,
+... &quot;piece&quot;: new DBRef('piece', piece_id_2),
+... &quot;museum&quot;: new DBRef('museum', museum_id_1)
+... },
+... {
+... &quot;get_date&quot;: &quot;2006-04-14&quot;,
+... &quot;piece&quot;: new DBRef('piece', piece_id_2),
+... &quot;museum&quot;: new DBRef('museum', museum_id_2)
+... },
+... {
+... &quot;get_date&quot;: &quot;1874-12-14&quot;,
+... &quot;piece&quot;: new DBRef('piece', piece_id_2),
+... &quot;museum&quot;: new DBRef('museum', museum_id_3)
+... },
+... {
+... &quot;get_date&quot;: &quot;1986-07-31&quot;,
+... &quot;piece&quot;: new DBRef('piece', piece_id_3),
+... &quot;museum&quot;: new DBRef('museum', museum_id_1)
+... },
+... {
+... &quot;get_date&quot;: &quot;1896-11-24&quot;,
+... &quot;piece&quot;: new DBRef('piece', piece_id_3),
+... &quot;museum&quot;: new DBRef('museum', museum_id_2)
+... },
+... {
+... &quot;get_date&quot;: &quot;1956-01-18&quot;,
+... &quot;piece&quot;: new DBRef('piece', piece_id_3),
+... &quot;museum&quot;: new DBRef('museum', museum_id_3)
+... }])
+BulkWriteResult({
+    &quot;writeErrors&quot; : [ ],
+    &quot;writeConcernErrors&quot; : [ ],
+    &quot;nInserted&quot; : 9,
+    &quot;nUpserted&quot; : 0,
+    &quot;nMatched&quot; : 0,
+    &quot;nModified&quot; : 0,
+    &quot;nRemoved&quot; : 0,
+    &quot;upserted&quot; : [ ]
+})
+
+</code></pre>
+<h1 id="_5">Модель базы данных</h1>
+<p><img alt="" src="../../assets/mg_shema.png" /></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../../main/queries/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Queries
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../mg_queries/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Queries
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a1c7c35e.min.js"></script>
+      
+    
+  </body>
+</html>
