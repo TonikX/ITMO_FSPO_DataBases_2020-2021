@@ -13,7 +13,7 @@ nav:
     - Tables: mongo/mg_tables.md
     - Queries: mongo/mg_queries.md
 
-  - DBProm: db_prom/db_prom.mb
+  - DBProm: db_prom/db_prom.md
 
   - PHP: php/php.md
 
