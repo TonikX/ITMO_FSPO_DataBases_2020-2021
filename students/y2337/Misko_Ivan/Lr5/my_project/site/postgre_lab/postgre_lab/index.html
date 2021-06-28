@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>postgre_lab - Описание БД для биржи"</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Описание БД для биржи"</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Postgre_lab <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active">postgre_lab</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../.." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">Документация для бд</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">Описание</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">Модель БД</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_4" class="nav-link">Создание таблиц</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#batch" class="nav-link">batch</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#broker" class="nav-link">broker</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#customer" class="nav-link">customer</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#manufactory" class="nav-link">manufactory</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#manufacter_product" class="nav-link">manufacter_product</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#office" class="nav-link">office</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#product" class="nav-link">product</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#product_in_batch" class="nav-link">product_in_batch</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#stock" class="nav-link">stock</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#deal" class="nav-link">deal</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_5" class="nav-link">Запросы</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1"><strong>Документация для бд</strong></h1>
+<h2 id="_2"><strong>Описание</strong></h2>
+<p>На торги могут быть представлены разные товары одной и той же фирмы и одни и
+те же товары разных фирм. Каждый товар имеет свой уникальный код, произведен
+определенной формой в определенное время. Товар имеет гарантийный срок хранения,
+единицу измерения. Товар считается просроченным, если дата его отгрузки более поздняя,
+чем дата производства этого товара в сумме с гарантийным сроком хранения. Товары
+поставляются партиями. Партия характеризуется: номером, количеством единиц в партии,
+ценой поставляемого товара, условиями поставки (предоплата или нет). Партии товаров
+выставляют брокеры. В одну партию товаров включаются разнообразные товары от
+разных производителей. Считается, что партии товаров, выставленные на продажу,
+покупает сама биржа, и она же расплачивается с брокером и производителями товара.
+Если условием поставки указана предоплата, то биржа перечисляет деньги в день
+заключения договора, а если нет — то в день отгрузки.
+Брокеры работают за фиксированный процент прибыли — 10% от суммы
+заключенных сделок. Ежемесячно брокеры перечисляют конторе, в которой они
+работают, фиксированную сумму денег, а все остальные заработанные ими деньги
+составляют их чистый доход (зарплату).</p>
+<h2 id="_3"><strong>Модель БД</strong></h2>
+<p><img alt="" src="../model.png" /></p>
+<h2 id="_4"><strong>Создание таблиц</strong></h2>
+<h2 id="batch">batch</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Поле</th>
+<th align="center">Тип данных</th>
+<th align="center">PK</th>
+<th align="center">FK</th>
+<th align="center">Null</th>
+<th align="center">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">id_batch</td>
+<td align="center">int</td>
+<td align="center">☑</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">id партии</td>
+</tr>
+<tr>
+<td align="center">delievery_conditions</td>
+<td align="center">character varying []</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☑</td>
+<td align="center">условия доставки</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">CREATE TABLE batch (
+    id_batch integer NOT NULL,
+    delivery_conditions character varying[150] NOT NULL
+    PRIMARY KEY (id_batch)
+);
+</code></pre>
+<h2 id="broker">broker</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Поле</th>
+<th align="center">Тип данных</th>
+<th align="center">PK</th>
+<th align="center">FK</th>
+<th align="center">Null</th>
+<th align="center">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">id_broker</td>
+<td align="center">int</td>
+<td align="center">☑</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">id брокера</td>
+</tr>
+<tr>
+<td align="center">company_payments</td>
+<td align="center">int</td>
+<td align="center">☑</td>
+<td align="center">☐</td>
+<td align="center">☑</td>
+<td align="center">отчисления конторе</td>
+</tr>
+<tr>
+<td align="center">name_broker</td>
+<td align="center">character varying[]</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">Имя брокера</td>
+</tr>
+<tr>
+<td align="center">income</td>
+<td align="center">int</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☑</td>
+<td align="center">доход</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">CREATE TABLE broker (
+    id_broker integer NOT NULL,
+    company_payments integer NOT NULL,
+    name_broker character varying[150] NOT NULL,
+    income integer
+    PRIMARY KEY id_broker
+);
+</code></pre>
+<h2 id="customer">customer</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Поле</th>
+<th align="center">Тип данных</th>
+<th align="center">PK</th>
+<th align="center">FK</th>
+<th align="center">Null</th>
+<th align="center">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">id_customer</td>
+<td align="center">int</td>
+<td align="center">☑</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">id покупателя</td>
+</tr>
+<tr>
+<td align="center">name_customer</td>
+<td align="center">character varying[]</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">имя покупателя</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">CREATE TABLE customer (
+    id_customer integer NOT NULL,
+    name_customer character varying[150] NOT NULL
+    PRIMARY KEY  id_customer
+);
+</code></pre>
+<h2 id="manufactory">manufactory</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Поле</th>
+<th align="center">Тип данных</th>
+<th align="center">PK</th>
+<th align="center">FK</th>
+<th align="center">Null</th>
+<th align="center">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">id_manufactory</td>
+<td align="center">int</td>
+<td align="center">☑</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">id производителя</td>
+</tr>
+<tr>
+<td align="center">name_manufactory</td>
+<td align="center">character varying[]</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">название производителя</td>
+</tr>
+<tr>
+<td align="center">specialization</td>
+<td align="center">character varying[]</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">специализация</td>
+</tr>
+<tr>
+<td align="center">contacts</td>
+<td align="center">character varying[]</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">контакты</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">CREATE TABLE manufactory (
+    id_manufactory integer NOT NULL,
+    name_manufactory character varying[150] NOT NULL,
+    specialization character varying[150],
+    contacts character varying[150] NOT NULL
+    PRIMARY KEY (id_manufactory)
+);
+</code></pre>
+<h2 id="manufacter_product">manufacter_product</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Поле</th>
+<th align="center">Тип данных</th>
+<th align="center">PK</th>
+<th align="center">FK</th>
+<th align="center">Null</th>
+<th align="center">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">id_manufacter_product</td>
+<td align="center">int</td>
+<td align="center">☑</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">id продукта</td>
+</tr>
+<tr>
+<td align="center">type</td>
+<td align="center">character varying[]</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">тип продукта</td>
+</tr>
+<tr>
+<td align="center">id_manufacter</td>
+<td align="center">int</td>
+<td align="center">☐</td>
+<td align="center">☑</td>
+<td align="center">☐</td>
+<td align="center">id производителя</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">CREATE TABLE manufacter_product (
+    id_manufactory integer NOT NULL REFERENCES product ()id_product),
+    type_manufactory_product character varying[150] NOT NULL,
+    id_manufactory_product integer NOT NULL
+    PRIMARY KEY (id_manufactory_product)
+);
+</code></pre>
+<h2 id="office">office</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Поле</th>
+<th align="center">Тип данных</th>
+<th align="center">PK</th>
+<th align="center">FK</th>
+<th align="center">Null</th>
+<th align="center">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">id_office</td>
+<td align="center">int</td>
+<td align="center">☑</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">id конторы</td>
+</tr>
+<tr>
+<td align="center">name_office</td>
+<td align="center">character varying[]</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">название конторы</td>
+</tr>
+<tr>
+<td align="center">contacts_office</td>
+<td align="center">character varying[]</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">контакты конторы</td>
+</tr>
+<tr>
+<td align="center">id_broker</td>
+<td align="center">int</td>
+<td align="center">☐</td>
+<td align="center">☑</td>
+<td align="center">☐</td>
+<td align="center">id брокера</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">CREATE TABLE office (
+    id_office integer NOT NULL,
+    name_office character varying[150] NOT NULL,
+    contacts_office character varying[150] NOT NULL,
+    id_broker integer NOT NULL REFERENCES broker (id_broker),
+    PRIMARY KEY (id_office)
+);
+</code></pre>
+<h2 id="product">product</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Поле</th>
+<th align="center">Тип данных</th>
+<th align="center">PK</th>
+<th align="center">FK</th>
+<th align="center">Null</th>
+<th align="center">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">id_product</td>
+<td align="center">int</td>
+<td align="center">☑</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">id продукта</td>
+</tr>
+<tr>
+<td align="center">name_product</td>
+<td align="center">character varying[]</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">название продукта</td>
+</tr>
+<tr>
+<td align="center">date</td>
+<td align="center">timestamp</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">дата производства</td>
+</tr>
+<tr>
+<td align="center">shelf_life</td>
+<td align="center">interval</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">срок годности</td>
+</tr>
+<tr>
+<td align="center">unit</td>
+<td align="center">char[]</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">единица измерения</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">CREATE TABLE product (
+    id_product integer NOT NULL,
+    name character varying[150] NOT NULL,
+    date timestamp NOT NULL,
+    shelf_life interval NOT NULL,
+    unit character(10) NOT NULL
+    PRIMARY KEY (id_product)
+);
+</code></pre>
+<h2 id="product_in_batch">product_in_batch</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Поле</th>
+<th align="center">Тип данных</th>
+<th align="center">PK</th>
+<th align="center">FK</th>
+<th align="center">Null</th>
+<th align="center">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">id_product</td>
+<td align="center">int</td>
+<td align="center">☑</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">id продукта</td>
+</tr>
+<tr>
+<td align="center">name_product_in_batch</td>
+<td align="center">character varying[]</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">название продукта в партии</td>
+</tr>
+<tr>
+<td align="center">quantity</td>
+<td align="center">int</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">количество</td>
+</tr>
+<tr>
+<td align="center">id_batch</td>
+<td align="center">int</td>
+<td align="center">☐</td>
+<td align="center">☑</td>
+<td align="center">☐</td>
+<td align="center">id партии</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">CREATE TABLE product_in_batch (
+    id_product integer NOT NULL,
+    name_product_in_batch character varying[150] NOT NULL,
+    quantity integer NOT NULL,
+    id_batch integer NOT NULL REFERENCES batch (id_batch)
+);
+</code></pre>
+<h2 id="stock">stock</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Поле</th>
+<th align="center">Тип данных</th>
+<th align="center">PK</th>
+<th align="center">FK</th>
+<th align="center">Null</th>
+<th align="center">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">id_stock</td>
+<td align="center">int</td>
+<td align="center">☑</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">id биржи</td>
+</tr>
+<tr>
+<td align="center">name_stock</td>
+<td align="center">character varying[]</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">название биржи</td>
+</tr>
+<tr>
+<td align="center">contacts</td>
+<td align="center">character varying[]</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">контакты</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">CREATE TABLE stock (
+    id_stock integer NOT NULL,
+    name_stock character varying[150] NOT NULL,
+    contacts character varying[150] NOT NULL
+    PRIMARY KEY (id_stock)
+);
+</code></pre>
+<h2 id="deal">deal</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Поле</th>
+<th align="center">Тип данных</th>
+<th align="center">PK</th>
+<th align="center">FK</th>
+<th align="center">Null</th>
+<th align="center">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">id_deal</td>
+<td align="center">int</td>
+<td align="center">☑</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">id сделки</td>
+</tr>
+<tr>
+<td align="center">deal_date</td>
+<td align="center">date</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">дата сделки</td>
+</tr>
+<tr>
+<td align="center">id_broker</td>
+<td align="center">int</td>
+<td align="center">☐</td>
+<td align="center">☑</td>
+<td align="center">☐</td>
+<td align="center">id брокера</td>
+</tr>
+<tr>
+<td align="center">id_batch</td>
+<td align="center">int</td>
+<td align="center">☐</td>
+<td align="center">☑</td>
+<td align="center">☐</td>
+<td align="center">id партии</td>
+</tr>
+<tr>
+<td align="center">id_customer</td>
+<td align="center">int</td>
+<td align="center">☐</td>
+<td align="center">☑</td>
+<td align="center">☐</td>
+<td align="center">id покупателя</td>
+</tr>
+<tr>
+<td align="center">payment_status</td>
+<td align="center">boolean</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">статус оплаты</td>
+</tr>
+<tr>
+<td align="center">payment_summ</td>
+<td align="center">int</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">сумма оплаты</td>
+</tr>
+<tr>
+<td align="center">payment_type</td>
+<td align="center">char[]</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">☐</td>
+<td align="center">тип оплаты</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">CREATE TABLE deal (
+    id_deal integer NOT NULL,
+    deal_date date NOT NULL,
+    id_broker integer NOT NULL REFERENCES broker (id_broker),
+    id_batch integer NOT NULL REFERENCES batch (id_batch),
+    id_customer integer NOT NULL REFERENCES customer (id_customer),
+    deal_status boolean NOT NULL,
+    payment_status boolean NOT NULL,
+    payment_summ integer NOT NULL,
+    payment_type character varying[30] NOT NULL
+    PRIMARY KEY (id_deal)
+);
+</code></pre>
+<h2 id="_5"><strong>Запросы</strong></h2>
+<h3 id="no1"><em>№1</em></h3>
+<h3 id="_6"><strong>Выводит информацию о количестве продукта в партии, имя и сортирует по возрастанию</strong></h3>
+<h3 id="_7"><em>Код запроса</em></h3>
+<pre><code class="language-sql">Select product_in_batch.quantity, product.name_product, batch.id_batch
+FROM product_in_batch, product, batch
+WHERE (product_in_batch.id_product = product.id_product and product_in_batch.id_batch = batch.id_batch)
+ORDER BY product_in_batch.quantity ASC;
+</code></pre>
+<h3 id="_8"><em>Пример получившихся данных</em></h3>
+<table>
+<thead>
+<tr>
+<th align="center">quantity</th>
+<th align="center">name_product</th>
+<th align="center">id_batch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">200</td>
+<td align="center">Friend</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="no2"><em>№2</em></h3>
+<h3 id="50000-30000"><strong>Выводит информацию о брокерах, чей доход больше 50000 и выплаты компании больше 30000</strong></h3>
+<h3 id="_9"><em>Код запроса</em></h3>
+<pre><code class="language-sql">SELECT * FROM broker
+WHERE (broker.company_payments &gt; 30000 and broker.income &gt; 50000);
+</code></pre>
+<h3 id="_10"><em>Пример получившихся данных</em></h3>
+<table>
+<thead>
+<tr>
+<th align="center">id_broker</th>
+<th align="center">company_payments</th>
+<th align="center">name_broker</th>
+<th align="center">income</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">3</td>
+<td align="center">60000</td>
+<td align="center">Debik</td>
+<td align="center">70000</td>
+</tr>
+</tbody>
+</table>
+<h3 id="no3"><em>№3</em></h3>
+<h3 id="_11"><strong>Выводит список продуктов с истёкшим сроком годности</strong></h3>
+<h3 id="_12"><em>Код запроса</em></h3>
+<pre><code class="language-sql">SELECT * from product
+WHERE (product.date_product + product.shelf_life &gt; now());
+</code></pre>
+<h3 id="_13"><em>Пример получившихся данных</em></h3>
+<table>
+<thead>
+<tr>
+<th align="center">id_product</th>
+<th align="center">name_product</th>
+<th align="center">date_product</th>
+<th align="center">unit</th>
+<th align="center">shelf_life</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">3</td>
+<td align="center">Lel</td>
+<td align="center">2021-03-23</td>
+<td align="center">pics</td>
+<td align="center">3 years</td>
+</tr>
+</tbody>
+</table>
+<h3 id="no4"><em>№4</em></h3>
+<h3 id="j-100000"><strong>Выводит список брокеров и офис, где они работают, чьё имя начинается на "J" и чьи выплаты компании больше меньше 100000</strong></h3>
+<h3 id="_14"><em>Код запроса</em></h3>
+<pre><code class="language-sql">SELECT broker.company_payments, broker.name_broker, broker.id_broker, office.name_office
+FROM broker
+INNER JOIN office
+ON broker.id_broker = office.id_broker
+WHERE (substring(broker.name_broker from 1 for 1) = 'J' and broker.company_payments &lt; 100000);
+</code></pre>
+<h3 id="_15"><em>Пример получившихся данных</em></h3>
+<table>
+<thead>
+<tr>
+<th align="center">company-payments</th>
+<th align="center">name_broker</th>
+<th align="center">id_broker</th>
+<th align="center">name_office</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">10000</td>
+<td align="center">John</td>
+<td align="center">1</td>
+<td align="center">office1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="no5"><em>№5</em></h3>
+<h3 id="_16"><strong>Выводит список сделок брокеров, чьи выплаты компании выше средних</strong></h3>
+<h3 id="_17"><em>Код запроса</em></h3>
+<pre><code class="language-sql">SELECT deal.id_deal, deal.deal_status, deal.payment_summ, deal.deal_date
+FROM deal
+INNER JOIN broker
+ON deal.id_broker = broker.id_broker
+WHERE broker.company_payments &gt; (SELECT AVG(broker.company_payments) FROM broker);
+</code></pre>
+<h3 id="_18"><em>Пример получившихся данных</em></h3>
+<table>
+<thead>
+<tr>
+<th align="center">id_deal</th>
+<th align="center">deal_status</th>
+<th align="center">payment_summ</th>
+<th align="center">deal_date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">3</td>
+<td align="center">True</td>
+<td align="center">3000000</td>
+<td align="center">2021-03-23</td>
+</tr>
+</tbody>
+</table>
+<h3 id="no6"><em>№6</em></h3>
+<h3 id="_19"><strong>Выводит информацию о продуктах в партии, чьё количество больше среднего</strong></h3>
+<h3 id="_20"><em>Код запроса</em></h3>
+<pre><code class="language-sql">SELECT product_in_batch.name_product_in_batch, product_in_batch.quantity
+FROM product_in_batch
+INNER JOIN batch
+ON product_in_batch.id_batch = batch.id_batch
+INNER JOIN product
+ON product.id_product = product_in_batch.id_product
+WHERE product_in_batch.quantity &gt; (SELECT AVG(product_in_batch.quantity) FROM product_in_batch)
+GROUP BY product_in_batch.name_product_in_batch, product_in_batch.quantity
+HAVING max(product_in_batch.quantity) &gt; 300; 
+</code></pre>
+<h3 id="_21"><em>Пример получившихся данных</em></h3>
+<table>
+<thead>
+<tr>
+<th align="center">id_deal</th>
+<th align="center">deal_status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">product3</td>
+<td align="center">400</td>
+</tr>
+</tbody>
+</table>
+<h3 id="no7"><em>№7</em></h3>
+<h3 id="cash"><strong>Выводит список всех состоявшихся сделок, с типо оплаты "cash"</strong></h3>
+<h3 id="_22"><em>Код запроса</em></h3>
+<pre><code class="language-sql">SELECT * from deal
+WHERE (deal.payment_status IS NOT FALSE and deal.payment_type = 'cash');
+</code></pre>
+<h3 id="_23"><em>Пример получившихся данных</em></h3>
+<table>
+<thead>
+<tr>
+<th align="center">id_deal</th>
+<th align="center">deal_date</th>
+<th align="center">id_broker</th>
+<th align="center">id_batch</th>
+<th align="center">id_customer</th>
+<th align="center">deal_status</th>
+<th align="center">payment_status</th>
+<th align="center">payment_summ</th>
+<th align="center">payment_type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">2021-02-23</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">true</td>
+<td align="center">true</td>
+<td align="center">10000000</td>
+<td align="center">cash</td>
+</tr>
+</tbody>
+</table>
+<h3 id="no8"><em>№8</em></h3>
+<h3 id="g"><strong>Выводит список производств, чья специализация существует и начинается на "g"</strong></h3>
+<h3 id="_24"><em>Код запроса</em></h3>
+<pre><code class="language-sql">SELECT *
+FROM manufactory
+WHERE (EXISTS (SELECT manufactory.specialization from manufactory) 
+       and substring(manufactory.name_manufactory from 1 for 1) = 'g');
+</code></pre>
+<h3 id="_25"><em>Пример получившихся данных</em></h3>
+<table>
+<thead>
+<tr>
+<th align="center">id_manufactory</th>
+<th align="center">name_manufactory</th>
+<th align="center">spezialization</th>
+<th align="center">contacts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">gostrah</td>
+<td align="center">Sizhki</td>
+<td align="center">88005553535</td>
+</tr>
+</tbody>
+</table>
+<h3 id="no9"><em>№9</em></h3>
+<h3 id="1"><strong>Выводит список сделок, совершившённых брокером 1 за последний год</strong></h3>
+<h3 id="_26"><em>Код запроса</em></h3>
+<pre><code class="language-sql">Select deal.id_broker, broker.name_broker from deal
+INNER JOIN broker
+ON deal.id_broker = broker.id_broker
+WHERE (deal.deal_date + interval '1 year' &lt; now() and deal.id_broker = 1);
+</code></pre>
+<h3 id="_27"><em>Пример получившихся данных</em></h3>
+<table>
+<thead>
+<tr>
+<th align="center">id_broker</th>
+<th align="center">name_broker</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">John</td>
+</tr>
+</tbody>
+</table>
+<h3 id="no10"><em>№10</em></h3>
+<h3 id="id-daun"><strong>Выводит id сделки и покупателя "Daun", в случае если сумма сделки выше средней и сделка состоялась</strong></h3>
+<h3 id="_28"><em>Код запроса</em></h3>
+<pre><code class="language-sql">SELECT deal.id_deal, customer.id_customer  from deal
+INNER JOIN customer
+ON customer.name_customer = 'Daun'
+WHERE (deal.payment_summ &gt; (SELECT AVG(deal.payment_summ) from deal) and deal.payment_status IS NOT FALSE)
+ORDER BY deal.payment_summ ASC;
+</code></pre>
+<h3 id="_29"><em>Пример получившихся данных</em></h3>
+<table>
+<thead>
+<tr>
+<th align="center">id_broker</th>
+<th align="center">name_broker</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">John</td>
+</tr>
+</tbody>
+</table>
+<h3 id="no11"><em>№11</em></h3>
+<h3 id="id-id"><strong>Выводит id сделки, id брокера, сумму сделки и отчисления брокера в контору, если сумма отчислений выше средней и сумма сделки выше средней</strong></h3>
+<h3 id="_30"><em>Код запроса</em></h3>
+<pre><code class="language-sql">SELECT deal.id_deal, deal.payment_summ, broker.id_broker, broker.company_payments from deal
+LEFT OUTER JOIN broker
+ON broker.company_payments &gt; SOME(SELECT AVG(broker.company_payments) FROM broker)
+WHERE (deal.payment_summ &gt; ANY(SELECT AVG(deal.payment_summ) FROM deal));
+</code></pre>
+<h3 id="_31"><em>Пример получившихся данных</em></h3>
+<table>
+<thead>
+<tr>
+<th align="center">id_deal</th>
+<th align="center">payment_summ</th>
+<th align="center">id_broker</th>
+<th align="center">company_payments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">2</td>
+<td align="center">5000000</td>
+<td align="center">3</td>
+<td align="center">60000</td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
