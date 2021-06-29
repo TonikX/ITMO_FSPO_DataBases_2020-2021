@@ -3,7 +3,7 @@
 Это папка студента гр. Y2336
 Савчука Матвея
 
-[Документация](https://matbeu.github.io/ITMO_FSPO_DataBases_2020-2021)|
+[Документация доступна здесь](https://matbeu.github.io/ITMO_FSPO_DataBases_2020-2021)
 
 ### Список всех работ
 
