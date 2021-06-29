@@ -1,0 +1,10 @@
+- SELECT * FROM agent WHERE first_name = "Сергей" AND passport_data = 8765777463;
+- SELECT ID, first_name, second_name FROM agent WHERE third_name IS NULL;
+- SELECT ID, contract, full_name FROM organization WHERE contract IN (75764, 351312);
+- SELECT contract.id,contract.created_at from contract JOIN contracts where contracts.created_at < CURRENT_DATE();
+- SELECT * FROM agent JOIN contract join contracts JOIN cooperator JOIN organization JOIN payments;
+- SELECT id,first_name, second_name FROM agent ORDER BY id DESC;
+- SELECT id, MIN(value) AS Minimum FROM payments GROUP BY value HAVING MIN(value)<1100;
+- SELECT id,first_name FROM cooperator WHERE first_name LIKE 'С%';
+- SELECT * FROM organization WHERE contracts_id IN (SELECT contracts_id FROM contracts WHERE contracts=97668);
+- SELECT * from contract where start_date between '2021-06-03 03:37:00' and '2021-06-03 03:37:56';

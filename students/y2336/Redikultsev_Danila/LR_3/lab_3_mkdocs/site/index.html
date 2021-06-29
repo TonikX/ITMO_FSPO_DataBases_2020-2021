@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        <link rel="canonical" href="https://example.com/">
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>My Docs</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">My Docs</a>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#project-documentation" class="nav-link">Project documentation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#model-description" class="nav-link">Model description</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_13" class="nav-link">Код запросов</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="project-documentation">Project documentation</h2>
+<p>Модель базы данных для страховой организации</p>
+<p><br>
+<img src="./images/111.png"></p>
+<h2 id="model-description">Model description</h2>
+<h3 id="organization"><p>Таблица organization</p></h3>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>первичный ключ</th>
+<th>внешний ключ</th>
+<th>уникальность</th>
+<th>Ограничения целостности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>contract</td>
+<td>INT</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>code</td>
+<td>INT</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>full_name</td>
+<td>VARCHAR</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>short_name</td>
+<td>VARCHAR</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>address</td>
+<td>VARCHAR</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>bank_sum</td>
+<td>INT</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>specialization</td>
+<td>VARCHAR</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>contracts_id</td>
+<td>INT</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_1">Код создания</h4>
+<pre><code>CREATE TABLE IF NOT EXISTS `mydb`.`organization` (
+  `id` INT NOT NULL,
+  `contract` INT NOT NULL,
+  `code` INT NOT NULL,
+  `full_name` VARCHAR(45) NOT NULL,
+  `short_name` VARCHAR(45) NOT NULL,
+  `address` VARCHAR(45) NOT NULL,
+  `bank_sum` INT NULL,
+  `specialization` VARCHAR(45) NOT NULL,
+  `contracts_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+  UNIQUE INDEX `code_UNIQUE` (`code` ASC) VISIBLE,
+  INDEX `fk_organization_contracts1_idx` (`contracts_id` ASC) VISIBLE,
+  CONSTRAINT `fk_organization_contracts1`
+    FOREIGN KEY (`contracts_id`)
+    REFERENCES `mydb`.`contracts` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+</code></pre>
+<h4 id="_2">Код заполнения данных</h4>
+<pre><code>INSERT INTO LaborExchange.Qualification VALUES
+    (1,'31241153',5,'Александр Вдадимирович Петров','Александр В.П.','Московский проспект','1000','банк',6),
+    (2,'31241153',5,'Александр Вдадимирович Петров','Александр В.П.','Московский проспект','1000','банк',6),
+    (3,'31241153',5,'Александр Вдадимирович Петров','Александр В.П.','Московский проспект','1000','банк',6);
+</code></pre>
+<h3 id="contracts"><p>Таблица contracts</p></h3>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>первичный ключ</th>
+<th>внешний ключ</th>
+<th>уникальность</th>
+<th>Ограничения целостности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>contracts</td>
+<td>INT</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>INT</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>DATETIME</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>finish_date</td>
+<td>DATETIME</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>contract_id</td>
+<td>DATETIME</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_3">Код создания</h4>
+<pre><code>CREATE TABLE IF NOT EXISTS `mydb`.`contracts` (
+  `id` INT NOT NULL,
+  `contracts` INT NOT NULL,
+  `created_at` DATETIME NOT NULL,
+  `start_date` DATETIME NOT NULL,
+  `finish_date` DATETIME NOT NULL,
+  `contract_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+  INDEX `fk_contracts_contract_idx` (`contract_id` ASC) VISIBLE,
+  CONSTRAINT `fk_contracts_contract`
+    FOREIGN KEY (`contract_id`)
+    REFERENCES `mydb`.`contract` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+</code></pre>
+<h4 id="_4">Код заполнения данных</h4>
+<pre><code>INSERT INTO LaborExchange.Qualification VALUES
+    (1,'312411',19-05-2002,20-05-2002,21-05-2002,6),
+    (2,'312411',19-05-2002,20-05-2002,21-05-2002,6),
+    (3,'312411',19-05-2002,20-05-2002,21-05-2002,6);
+</code></pre>
+<h3 id="contract"><p>Таблица contract</p></h3>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>первичный ключ</th>
+<th>внешний ключ</th>
+<th>уникальность</th>
+<th>Ограничения целостности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>payment</td>
+<td>INT</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>cooperator</td>
+<td>INT</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>agent</td>
+<td>VARCHAR</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>DATETIME</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>DATETIME</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>finish_date</td>
+<td>DATETIME</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>cooperator_id</td>
+<td>INT</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>agent_id</td>
+<td>INT</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_5">Код создания</h4>
+<pre><code>CREATE TABLE IF NOT EXISTS `mydb`.`contract` (
+  `id` INT NOT NULL,
+  `payment` INT NOT NULL,
+  `cooperator` INT NOT NULL,
+  `agent` INT NOT NULL,
+  `created_at` DATETIME NOT NULL,
+  `start_date` DATETIME NULL,
+  `finish_date` DATETIME NULL,
+  `cooperator_id` INT NOT NULL,
+  `agent_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_contract_cooperator1_idx` (`cooperator_id` ASC) VISIBLE,
+  INDEX `fk_contract_agent1_idx` (`agent_id` ASC) VISIBLE,
+  CONSTRAINT `fk_contract_cooperator1`
+    FOREIGN KEY (`cooperator_id`)
+    REFERENCES `mydb`.`cooperator` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_contract_agent1`
+    FOREIGN KEY (`agent_id`)
+    REFERENCES `mydb`.`agent` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+</code></pre>
+<h4 id="_6">Код заполнения данных</h4>
+<pre><code>INSERT INTO LaborExchange.Qualification VALUES
+    (1,'312411','345','789789089',19-05-2002,20-05-2002,21-05-2002,4,1),
+    (2,'312411','345','789789089',19-05-2002,20-05-2002,21-05-2002,4,1),
+    (3,'312411','345','789789089',19-05-2002,20-05-2002,21-05-2002,4,1);
+</code></pre>
+<h3 id="cooperator"><p>Таблица cooperator</p></h3>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>первичный ключ</th>
+<th>внешний ключ</th>
+<th>уникальность</th>
+<th>Ограничения целостности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>VARCHAR</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>second_name</td>
+<td>VARCHAR</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>third_name</td>
+<td>VARCHAR</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>age</td>
+<td>INT</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>VARCHAR</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>payments_id</td>
+<td>INT</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_7">Код создания</h4>
+<pre><code>CREATE TABLE IF NOT EXISTS `mydb`.`cooperator` (
+  `id` INT NOT NULL,
+  `first_name` VARCHAR(45) NOT NULL,
+  `second_name` VARCHAR(45) NOT NULL,
+  `third_name` VARCHAR(45) NULL,
+  `age` INT NULL,
+  `risk` VARCHAR(45) NOT NULL,
+  `payments_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+  INDEX `fk_cooperator_payments1_idx` (`payments_id` ASC) VISIBLE,
+  CONSTRAINT `fk_cooperator_payments1`
+    FOREIGN KEY (`payments_id`)
+    REFERENCES `mydb`.`payments` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+</code></pre>
+<h4 id="_8">Код заполнения данных</h4>
+<pre><code>INSERT INTO LaborExchange.Qualification VALUES
+    (1,'Александр','Владимирович','Петров',45,1243,1),
+    (2,'Александр','Владимирович','Петров',45,1243,1),
+    (3,'Александр','Владимирович','Петров',45,1243,1);
+</code></pre>
+<h3 id="payments"><p>Таблица payments</p></h3>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>первичный ключ</th>
+<th>внешний ключ</th>
+<th>уникальность</th>
+<th>Ограничения целостности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>insurnance_case</td>
+<td>INT</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>value</td>
+<td>INT</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_9">Код создания</h4>
+<pre><code>CREATE TABLE IF NOT EXISTS `mydb`.`payments` (
+  `id` INT NOT NULL,
+  `insurnance_case` INT NOT NULL,
+  `value` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
+</code></pre>
+<h4 id="_10">Код заполнения данных</h4>
+<pre><code>INSERT INTO LaborExchange.Qualification VALUES
+    (1,134124,346457),
+    (2,134124,346457),
+    (3,134124,346457);
+</code></pre>
+<h3 id="agent"><p>Таблица agent</p></h3>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>первичный ключ</th>
+<th>внешний ключ</th>
+<th>уникальность</th>
+<th>Ограничения целостности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>VARCHAR</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>second_name</td>
+<td>VARCHAR</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>third_name</td>
+<td>VARCHAR</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>passport_data</td>
+<td>VARCHAR</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>contract_data</td>
+<td>VARCHAR</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_11">Код создания</h4>
+<pre><code>CREATE TABLE IF NOT EXISTS `mydb`.`agent` (
+  `id` INT NOT NULL,
+  `first_name` VARCHAR(45) NOT NULL,
+  `second_name` VARCHAR(45) NOT NULL,
+  `third_name` VARCHAR(45) NULL,
+  `passport_data` VARCHAR(45) NOT NULL,
+  `contract_data` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
+</code></pre>
+<h4 id="_12">Код заполнения данных</h4>
+<pre><code>INSERT INTO LaborExchange.Qualification VALUES
+    (1,'Александр','Владимирович','Петров',7845555439,99382),
+    (2,'Александр','Владимирович','Петров',7845555439,99382),
+    (3,'Александр','Владимирович','Петров',7845555439,99382));
+</code></pre>
+<h2 id="_13">Код запросов</h2>
+<pre><code>- SELECT * FROM agent WHERE first_name = &quot;Сергей&quot; AND passport_data = 8765777463;
+- SELECT ID, first_name, second_name FROM agent WHERE third_name IS NULL;
+- SELECT ID, contract, full_name FROM organization WHERE contract IN (75764, 351312);
+- SELECT contract.id,contract.created_at from contract JOIN contracts where contracts.created_at &lt; CURRENT_DATE();
+- SELECT * FROM agent JOIN contract join contracts JOIN cooperator JOIN organization JOIN payments;
+- SELECT id,first_name, second_name FROM agent ORDER BY id DESC;
+- SELECT id, MIN(value) AS Minimum FROM payments GROUP BY value HAVING MIN(value)&lt;1100;
+- SELECT id,first_name FROM cooperator WHERE first_name LIKE 'С%';
+- SELECT * FROM organization WHERE contracts_id IN (SELECT contracts_id FROM contracts WHERE contracts=97668);
+- SELECT * from contract where start_date between '2021-06-03 03:37:00' and '2021-06-03 03:37:56';
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.2
+Build Date UTC : 2021-06-15 14:03:43.783406+00:00
+-->
