@@ -1,0 +1,19 @@
+site_name: Exhibition
+navigator:
+  - Home: index.md
+  - Tables:
+      - Dog: tables/dog.md
+      - Exhibit: tables/exhibit.md
+      - Expert: tables/expert.md
+      - Judging: tables/judging.md
+      - Owner: tables/owner.md
+      - Perfom: tables/perfom.md
+      - Registration: tables/registration.md
+      - Ring: tables/ring.md
+  - Code:
+      - create: code/create.md
+      - insert: code/insert.md
+  - MongoDB:
+      - create&insert: MongoDB/create&insert.md
+  - PHP:
+      - info: PHP/code.md
