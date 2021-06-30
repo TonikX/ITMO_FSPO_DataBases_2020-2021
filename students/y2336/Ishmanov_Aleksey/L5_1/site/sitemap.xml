@@ -2,7 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://kibarik.github.io/ITMO_FSPO_DataBases_2020-2021/</loc>
-         <lastmod>2021-06-22</lastmod>
+         <lastmod>2021-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://kibarik.github.io/ITMO_FSPO_DataBases_2020-2021/lab3/</loc>
+         <lastmod>2021-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://kibarik.github.io/ITMO_FSPO_DataBases_2020-2021/mongodb/</loc>
+         <lastmod>2021-06-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

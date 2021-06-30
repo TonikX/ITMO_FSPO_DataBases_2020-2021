@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://kibarik.github.io/ITMO_FSPO_DataBases_2020-2021/lab3/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Описание БД - OPBD Ishmanov</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u0411\u0414";
+    var mkdocs_page_input_path = "lab3.md";
+    var mkdocs_page_url = "/ITMO_FSPO_DataBases_2020-2021/lab3/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> OPBD Ishmanov</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Главная</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Описание БД</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#material">Таблица material</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_1">Код создания</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">Код заполнения данных</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#order">Таблица order</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">Код создания</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">Код заполнения данных</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#project">Таблица project</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">Код создания</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_6">Код заполнения данных</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#provision">Таблица provision</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_7">Код создания</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_8">Код заполнения данных</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tailor">Таблица tailor</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_9">Код создания</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_10">Код заполнения данных</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mongodb/">MongoDB</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">OPBD Ishmanov</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Описание БД</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="project-documentation">Project documentation</h2>
+<h3 id="material"><p>Таблица material</p></h3>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>первичный ключ</th>
+<th>внешний ключ</th>
+<th>уникальность</th>
+<th>Ограничения целостности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id_material</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>name</td>
+<td>VARCHAR</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>short_name</td>
+<td>VARCHAR</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>character</td>
+<td>VARCHAR</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>cost</td>
+<td>INT</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_1">Код создания</h4>
+<pre><code>CREATE TABLE IF NOT EXISTS `mydb`.`material` (
+  `id_material` INT NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `character` VARCHAR(45) NOT NULL,
+  `cost` INT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+</code></pre>
+<h4 id="_2">Код заполнения данных</h4>
+<pre><code>INSERT INTO mydb.material VALUES
+    (1,'L1', 'lorem', 300),
+    (2,'L2', 'ipsum', 500),
+    (3,'L3', 'sit', 700),
+</code></pre>
+<h3 id="order"><p>Таблица order</p></h3>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>первичный ключ</th>
+<th>внешний ключ</th>
+<th>уникальность</th>
+<th>Ограничения целостности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id_order</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>INT</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>terms</td>
+<td>VARCHAR(250)</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>project</td>
+<td>INT</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>tailor</td>
+<td>INT</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_3">Код создания</h4>
+<pre><code>CREATE TABLE IF NOT EXISTS `mydb`.`order` (
+  `id_order` INT NOT NULL,
+  `amount` INT NOT NULL,
+  `terms` VARCHAR(250) NOT NULL,
+  `project` INT NULL,
+  `tailor` INT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+  CONSTRAINT `fk_order_project1`
+    FOREIGN KEY (`project`)
+    REFERENCES `mydb`.`project` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_order_tailor1`
+    FOREIGN KEY (`tailor`)
+    REFERENCES `mydb`.`tailor` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+</code></pre>
+<h4 id="_4">Код заполнения данных</h4>
+<pre><code>INSERT INTO LaborExchange.Qualification VALUES
+    (1,100, 'Lorem ipsum dolor sit amet, consectetur adip', 1),
+    (2, 200, 'Lorem ipsum dolor sit amet, consectetur adip', 1),
+    (3, 300, 'Lorem ipsum dolor sit amet, consectetur adip', 1);
+</code></pre>
+<h3 id="project"><p>Таблица project</p></h3>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>первичный ключ</th>
+<th>внешний ключ</th>
+<th>уникальность</th>
+<th>Ограничения целостности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id_proj</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>designer_name</td>
+<td>VARCHAR(50)</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>approval_date</td>
+<td>DATETIME</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>cost</td>
+<td>INT</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_5">Код создания</h4>
+<pre><code>CREATE TABLE IF NOT EXISTS `mydb`.`project` (
+  `id_proj` INT NOT NULL,
+  `designer_name` VARCHAR(50) NOT NULL,
+  `approval_date` DATETIME NOT NULL,
+  `cost` INT NOT NULL,
+  PRIMARY KEY (`id_proj`),
+</code></pre>
+<h4 id="_6">Код заполнения данных</h4>
+<pre><code>INSERT INTO 'mydb`.`contract` VALUES
+    (1,'Aleks',19-05-2002, 1000),
+    (2,'Varvar',19-05-2002, 1900),
+    (3,'Globglob',19-05-2002, 1300),
+</code></pre>
+<h3 id="provision"><p>Таблица provision</p></h3>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>первичный ключ</th>
+<th>внешний ключ</th>
+<th>уникальность</th>
+<th>Ограничения целостности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id_prov</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>size</td>
+<td>INT</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>cost</td>
+<td>INT</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>project</td>
+<td>INT</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>material</td>
+<td>INT</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_7">Код создания</h4>
+<pre><code>CREATE TABLE IF NOT EXISTS `mydb`.`provision` (
+  `id_prov` INT NOT NULL,
+  `size` INT NOT NULL,
+  `cost` INT NOT NULL,
+  `project` INT NOT NULL,
+  `material` INT NOT NULL,
+  PRIMARY KEY (`id_prov`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+  CONSTRAINT `fk_order_project1`
+    FOREIGN KEY (`project`)
+    REFERENCES `mydb`.`project` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_order_material1`
+    FOREIGN KEY (`material`)
+    REFERENCES `mydb`.`material` (`material`)(`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+</code></pre>
+<h4 id="_8">Код заполнения данных</h4>
+<pre><code>INSERT INTO mydb.provision VALUES
+    (1, 1, 100, 1, 1),
+    (2, 1, 200, 1, 1),
+    (3, 1, 300, 1, 1),
+</code></pre>
+<h3 id="tailor"><p>Таблица tailor</p></h3>
+<table>
+<thead>
+<tr>
+<th>Наименование поля</th>
+<th>Тип данных</th>
+<th>первичный ключ</th>
+<th>внешний ключ</th>
+<th>уникальность</th>
+<th>Ограничения целостности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>insurnance_case</td>
+<td>INT</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>value</td>
+<td>INT</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_9">Код создания</h4>
+<pre><code>CREATE TABLE IF NOT EXISTS `mydb`.`tailor` (
+  `id` INT NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `exp` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
+</code></pre>
+<h4 id="_10">Код заполнения данных</h4>
+<pre><code>INSERT INTO mydb.tailor VALUES
+    (1,'A',123),
+    (2,'B',123),
+    (3,'C',123),
+</code></pre>
+<h2 id="_11">Код запросов</h2>
+<pre><code>- SELECT * FROM material WHERE name = &quot;lorem&quot; AND cost = 500;
+- SELECT id_material, name, short_name, character, cost FROM material WHERE cost &lt; 500;
+- SELECT id_material, name, short_name, character, cost FROM material WHERE cost IN (200, 300, 500, 700)
+- SELECT project.id,project.approval_date from project JOIN project where provision.cost &lt; 1000;
+- SELECT * FROM project JOIN provision JOIN order
+- SELECT id_material, name, short_name, character, cost FROM material WHERE cost &lt; 500 ORDER BY id DESC;
+- SELECT id_material, name, short_name, character, cost FROM material WHERE cost &lt; 500 GROUP BY cost HAVING MIN(cost)&gt;100;
+- SELECT * FROM material WHERE short_name LIKE &quot;L%&quot;;
+- SELECT * FROM provision WHERE provision.id IN (SELECT material_id FROM material WHERE cost&gt;100);
+- SELECT * from project WHERE approval_date between '2016-06-03 03:37:00' and '2021-06-03 03:37:56';
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../mongodb/" class="btn btn-neutral float-right" title="MongoDB">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Главная"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../mongodb/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
