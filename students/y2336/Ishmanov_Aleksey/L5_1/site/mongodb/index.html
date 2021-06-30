@@ -57,17 +57,7 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">MongoDB</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#_1">Создание БД и заполнение таблиц</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#applicant">Таблица applicant</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#course_passing">Таблица course_passing</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#vacancy">Таблица vacancy</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#hiring">Таблица hiring</a>
-    </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#_1">База данных</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#_2">Запросы</a>
     </li>
@@ -108,91 +98,38 @@
             <div class="section">
               
                 <h1 id="mongodb">MongoDB</h1>
-<h2 id="_1">Создание БД и заполнение таблиц</h2>
-<pre><code class="language-javascript">&gt; use laborexchange
-switched to db laborexchange
-</code></pre>
-<h3 id="applicant">Таблица applicant</h3>
-<pre><code class="language-javascript">&gt; db.applicant.insert([
-    {qualification: {profession: 'Сантехник', rank: 5, course_name: 'Сантехник 5-го разряда: как и зачем', duration: 170}, expirience: 24, benefit: 0, contact_details: 'Контакты сантехника', education: 'Высшее сантехническое', resume_posting_date: new Date(2020, 2, 20)},
-    {qualification: {profession: 'Python программист', rank: 0, course_name: 'Python for dummies', duration: 40}, expirience: 6, benefit: 0, contact_details: 'Contacts2', education: 'Высшее техническое', resume_posting_date: new Date(2020, 2, 21)},
-    {qualification: {profession: 'Сантехник', rank: 5, course_name: 'Сантехник 5-го разряда: как и зачем', duration: 170}, expirience: 0, benefit: 0, contact_details: 'Контакты сантехника', education: 'Высшее сантехническое', resume_posting_date: new Date(2021, 6, 11)}
-])
-BulkWriteResult({
-        &quot;writeErrors&quot; : [ ],
-        &quot;writeConcernErrors&quot; : [ ],
-        &quot;nInserted&quot; : 3,
-        &quot;nUpserted&quot; : 0,
-        &quot;nMatched&quot; : 0,
-        &quot;nModified&quot; : 0,
-        &quot;nRemoved&quot; : 0,
-        &quot;upserted&quot; : [ ]
-})
-</code></pre>
-<h3 id="course_passing">Таблица course_passing</h3>
-<pre><code class="language-javascript">&gt; db.course_passing.insert([
-    {date: new Date(2019, 10, 29), qualification: {profession: 'Сантехник', rank: 5, course_name: 'Сантехник 5-го разряда: как и зачем', duration: 170}, applicant: {$ref: 'applicant', $id: ObjectId(&quot;60c4a4ac19126b7292c9cab8&quot;), $db: 'laborexchange'}},
-    {date: new Date(2020, 1, 5), qualification: {profession: 'Python программист', rank: 0, course_name: 'Python for dummies', duration: 40}, applicant: {$ref: 'applicant', $id: ObjectId(&quot;60c4a4ac19126b7292c9cab9&quot;), $db: 'laborexchange'}},
-    {date: new Date(2020, 2, 29), qualification: {profession: 'Сантехник', rank: 5, course_name: 'Сантехник 5-го разряда: как и зачем', duration: 170}, applicant: {$ref: 'applicant', $id: ObjectId(&quot;60c4a4ac19126b7292c9caba&quot;), $db: 'laborexchange'}}
-])
-BulkWriteResult({
-        &quot;writeErrors&quot; : [ ],
-        &quot;writeConcernErrors&quot; : [ ],
-        &quot;nInserted&quot; : 3,
-        &quot;nUpserted&quot; : 0,
-        &quot;nMatched&quot; : 0,
-        &quot;nModified&quot; : 0,
-        &quot;nRemoved&quot; : 0,
-        &quot;upserted&quot; : [ ]
-})
-</code></pre>
-<h3 id="vacancy">Таблица vacancy</h3>
-<pre><code class="language-javascript">db.vacancy.insert([
-    {employer: {name: 'ЖКХ Петроградского района', address: 'Каменноостровский пр., 19/13', email: 'jkh@spb.ru', contact_person: 'Директор Иванов Иван Иванович', phone_number: 88124994911}, qualification: {profession: 'Сантехник', rank: 5, course_name: 'Сантехник 5-го разряда: как и зачем?', duration: 170}, experience: 18, education: 'Среднее сантехническое', date: new Date(2021, 01, 20)},
-    {employer: {name: 'Microsoft', address: 'Аптекарская наб., 20, Санкт-Петербург, 197022', email: 'admin@microsoft.com', contact_person: 'Генеральный директор Сатья Наделла', phone_number: 88002008001}, qualification: {profession: 'Python программист', rank: 0, course_name: 'Python for dummies', duration: 40}, experience: 6, education: 'Высшее техническое', date: new Date(2021, 02, 01)}
-])
-BulkWriteResult({
-        &quot;writeErrors&quot; : [ ],
-        &quot;writeConcernErrors&quot; : [ ],
-        &quot;nInserted&quot; : 2,
-        &quot;nUpserted&quot; : 0,
-        &quot;nMatched&quot; : 0,
-        &quot;nModified&quot; : 0,
-        &quot;nRemoved&quot; : 0,
-        &quot;upserted&quot; : [ ]
-})
-</code></pre>
-<h3 id="hiring">Таблица hiring</h3>
-<pre><code class="language-javascript">&gt; db.hiring.insert([
-    {applicant: {$ref: 'applicant', $id: ObjectId(&quot;60c4a4ac19126b7292c9cab8&quot;), $db: 'laborexchange'}, vacancy: {$ref: 'vacancy', $id: ObjectId(&quot;60c4b1ec19126b7292c9cabe&quot;), $db: 'laborexchange'}, salary: 120000},
-    {applicant: {$ref: 'applicant', $id: ObjectId(&quot;60c4a4ac19126b7292c9cab9&quot;), $db: 'laborexchange'}, vacancy: {$ref: 'vacancy', $id: ObjectId(&quot;60c4b1ec19126b7292c9cabf&quot;), $db: 'laborexchange'}, salary: 70000},
-    {applicant: {$ref: 'applicant', $id: ObjectId(&quot;60c4a4ac19126b7292c9caba&quot;), $db: 'laborexchange'}, vacancy: {$ref: 'vacancy', $id: ObjectId(&quot;60c4b1ec19126b7292c9cabf&quot;), $db: 'laborexchange'}, salary: 150000}
-])
-BulkWriteResult({
-        &quot;writeErrors&quot; : [ ],
-        &quot;writeConcernErrors&quot; : [ ],
-        &quot;nInserted&quot; : 3,
-        &quot;nUpserted&quot; : 0,
-        &quot;nMatched&quot; : 0,
-        &quot;nModified&quot; : 0,
-        &quot;nRemoved&quot; : 0,
-        &quot;upserted&quot; : [ ]
-})
+<h3 id="_1">База данных</h3>
+<pre><code class="language-javascript">show collections;
+
+cabinets
+calculation_cost
+clients
+doctor_appointments
+doctors
+payment
+preiscurant
+reception_doctor
+schedule
+schedule_doctor
 </code></pre>
 <h2 id="_2">Запросы</h2>
-<pre><code class="language-javascript">&gt; db.applicant.find({expirience: {$gt: 0, $lt: 10}})
-{ &quot;_id&quot; : ObjectId(&quot;60c4a4ac19126b7292c9cab9&quot;), &quot;qualification&quot; : { &quot;profession&quot; : &quot;Python программист&quot;, &quot;rank&quot; : 0, &quot;course_name&quot; : &quot;Python for dummies&quot;, &quot;duration&quot; : 40 }, &quot;expirience&quot; : 6, &quot;benefit&quot; : 0, &quot;contact_details&quot; : &quot;Contacts2&quot;, &quot;education&quot; : &quot;Высшее техническое&quot;, &quot;resume_posting_date&quot; : ISODate(&quot;2020-03-20T21:00:00Z&quot;) }
+<pre><code class="language-javascript">&gt; var mapfunction1=function(){emit(this.fio, this.gender)}
+&gt; var reducefunction1=function(key,values){return Array.sum(values)}
+&gt; db.doctors.mapReduce(mapfunction1,reducefunction1,{'out':'Result_mapreduce'})
+
+{ &quot;result&quot; : &quot;Result_mapreduce&quot;, &quot;ok&quot; : 1 }
 </code></pre>
-<pre><code class="language-javascript">&gt; db.hiring.aggregate([{ $group: { _id: null, sum: { $sum: &quot;$salary&quot; } } }])
-{ &quot;_id&quot; : null, &quot;sum&quot; : 340000 }
+<pre><code class="language-javascript">&gt; db.doctors.find({&quot;fio&quot;:&quot;Leonid&quot;})
+
+{ &quot;_id&quot; : ObjectId(&quot;60d1ca753144c1b5fe49656d&quot;), &quot;birthday&quot; : &quot;1987-04-23&quot;, &quot;contarct&quot; : &quot;iyghj3&quot;, &quot;fio&quot; : &quot;Leonid&quot;, &quot;gender&quot; : &quot;man&quot;, &quot;learn&quot; : &quot;Surgeon&quot;, &quot;specialization&quot; : &quot;Surgeon&quot;, &quot;work&quot; : &quot;20010-07-21&quot;
 </code></pre>
-<pre><code class="language-javascript">&gt; db.hiring.find({ salary: { $gt: db.hiring.aggregate([{ $group: { _id: null, avg: { $avg: &quot;$salary&quot; } } }]).toArray()[0][&quot;avg&quot;] } })
-{ &quot;_id&quot; : ObjectId(&quot;60c4b48519126b7292c9cac0&quot;), &quot;applicant&quot; : DBRef(&quot;applicant&quot;, ObjectId(&quot;60c4a4ac19126b7292c9cab8&quot;), &quot;laborexchange&quot;), &quot;vacancy&quot; : DBRef(&quot;vacancy&quot;, ObjectId(&quot;60c4b1ec19126b7292c9cabe&quot;), &quot;laborexchange&quot;), &quot;salary&quot; : 120000 }
-{ &quot;_id&quot; : ObjectId(&quot;60c4b48519126b7292c9cac2&quot;), &quot;applicant&quot; : DBRef(&quot;applicant&quot;, ObjectId(&quot;60c4a4ac19126b7292c9caba&quot;), &quot;laborexchange&quot;), &quot;vacancy&quot; : DBRef(&quot;vacancy&quot;, ObjectId(&quot;60c4b1ec19126b7292c9cabf&quot;), &quot;laborexchange&quot;), &quot;salary&quot; : 150000 }
+<pre><code class="language-javascript">&gt; db.doctors.find({&quot;fio&quot;:&quot;Leonid&quot;}).count()
+
+1
 </code></pre>
-<pre><code class="language-javascript">&gt; db.vacancy.find()
-{ &quot;_id&quot; : ObjectId(&quot;60c4b1ec19126b7292c9cabe&quot;), &quot;employer&quot; : { &quot;name&quot; : &quot;ЖКХ Петроградского района&quot;, &quot;address&quot; : &quot;Каменноостровский пр., 19/13&quot;, &quot;email&quot; : &quot;jkh@spb.ru&quot;, &quot;contact_person&quot; : &quot;Директор Иванов Иван Иванович&quot;, &quot;phone_number&quot; : 88124994911 }, &quot;qualification&quot; : { &quot;profession&quot; : &quot;Сантехник&quot;, &quot;rank&quot; : 5, &quot;course_name&quot; : &quot;Сантехник 5-го разряда: как и зачем?&quot;, &quot;duration&quot; : 170 }, &quot;experience&quot; : 18, &quot;education&quot; : &quot;Среднее сантехническое&quot;, &quot;date&quot; : ISODate(&quot;2021-02-19T21:00:00Z&quot;) }
-{ &quot;_id&quot; : ObjectId(&quot;60c4b1ec19126b7292c9cabf&quot;), &quot;employer&quot; : { &quot;name&quot; : &quot;Microsoft&quot;, &quot;address&quot; : &quot;Аптекарская наб., 20, Санкт-Петербург, 197022&quot;, &quot;email&quot; : &quot;admin@microsoft.com&quot;, &quot;contact_person&quot; : &quot;Генеральный директор Сатья Наделла&quot;, &quot;phone_number&quot; : 88002008001 }, &quot;qualification&quot; : { &quot;profession&quot; : &quot;Python программист&quot;, &quot;rank&quot; : 0, &quot;course_name&quot; : &quot;Python for dummies&quot;, &quot;duration&quot; : 40 }, &quot;experience&quot; : 6, &quot;education&quot; : &quot;Высшее техническое&quot;, &quot;date&quot; : ISODate(&quot;2021-02-28T21:00:00Z&quot;) }
+<pre><code class="language-javascript">&gt; db.doctors.aggregate([{$match:{fio: &quot;Leonid&quot;}}])
+
+{ &quot;_id&quot; : ObjectId(&quot;60d1ca753144c1b5fe49656d&quot;), &quot;birthday&quot; : &quot;1987-04-23&quot;, &quot;contarct&quot; : &quot;iyghj3&quot;, &quot;fio&quot; : &quot;Leonid&quot;, &quot;gender&quot; : &quot;man&quot;, &quot;learn&quot; : &quot;Surgeon&quot;, &quot;specialization&quot; : &quot;Surgeon&quot;, &quot;work&quot; : &quot;20010-07-21&quot; }
 </code></pre>
               
             </div>
