@@ -12,3 +12,6 @@
 8.| Pr3.2_PostgreSQL|[Практическая работа 3.2 PostgreSQL](https://github.com/KsAlekseeva/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Alekseeva_Oksana/Pr3.2_PostgreSQL)
 9.| Pr3.3_MkDocs| [Практическая работа №3.3 MkDocs](https://github.com/KsAlekseeva/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Alekseeva_Oksana/Pr3.3_MkDocs)
 10.| LR_4| [Лабораторная работа №4](https://github.com/KsAlekseeva/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Alekseeva_Oksana/LR_4)
+11.| LR_5| [Лабораторная работа №5](https://github.com/KsAlekseeva/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Alekseeva_Oksana/LR_5)
+12.| LR_6| [Лабораторная работа №6](https://github.com/KsAlekseeva/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Alekseeva_Oksana/LR_6)
+13.| LR_7| [Лабораторная работа №7](https://github.com/KsAlekseeva/ITMO_FSPO_DataBases_2020-2021/tree/master/students/y2337/Alekseeva_Oksana/LR_7)
