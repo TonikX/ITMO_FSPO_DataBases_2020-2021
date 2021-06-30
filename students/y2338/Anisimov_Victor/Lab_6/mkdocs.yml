@@ -1,0 +1,17 @@
+site_name: Hotel
+navigator:
+  - Home: index.md
+  - Tables:
+      - Admin: tables/admin.md
+      - Servant: tables/servant.md
+      - Client: tables/client.md
+      - City: tables/city.md
+      - Suite: tables/suite.md
+      - Living: tables/living.md
+      - Cleaning: tables/cleaning.md
+      - Contract: tables/contract.md
+  - Code:
+      - create: code/create.md
+      - insert: code/insert.md
+  - PHP:
+      - info: PHP/code.md
