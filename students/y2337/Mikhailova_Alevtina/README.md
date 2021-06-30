@@ -9,3 +9,5 @@
 5.| Pr2.2_idef1x | [Практическая работа 2.2 idef1x](./Pr2.2_idef1x)
 6.| Pr3_sqlite | [Практическая работа №3.3 sqlite](./Pr3_sqlite)
 7.| lections/lection_1_oltp_olap | [Лекции](./lections/lection_1_oltp_olap)
+8.| MKDOCS| [Лабораторные работы №5,6,7 MKDOCS](.my-project)
+9.| Lr6 | [Лабораторная работа №6](./climbingclubdb)
