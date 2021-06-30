@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>insert - Climbing club</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Climbing club</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tables <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../tables/climber/" class="dropdown-item">climber</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/climbingClub/" class="dropdown-item">climbing club</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/admin/" class="dropdown-item">admin</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/top/" class="dropdown-item">top</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/route/" class="dropdown-item">route</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/group/" class="dropdown-item">group</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/groupComposition/" class="dropdown-item">group composition</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/emergencySituation/" class="dropdown-item">emergency situation</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/ascent/" class="dropdown-item">ascent</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Code <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../code/create/" class="dropdown-item">create</a>
+</li>
+                                    
+<li>
+    <a href="../../code/insert/" class="dropdown-item">insert</a>
+</li>
+                                    
+<li>
+    <a href="../../code/queries/" class="dropdown-item">queries</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">MongoDB <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../create/" class="dropdown-item">create</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">insert</a>
+</li>
+                                    
+<li>
+    <a href="../queries/" class="dropdown-item">queries</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">php <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../php/climber/" class="dropdown-item">climber</a>
+</li>
+                                    
+<li>
+    <a href="../../php/climbingClub/" class="dropdown-item">climbing club</a>
+</li>
+                                    
+<li>
+    <a href="../../php/admin/" class="dropdown-item">admin</a>
+</li>
+                                    
+<li>
+    <a href="../../php/top/" class="dropdown-item">top</a>
+</li>
+                                    
+<li>
+    <a href="../../php/route/" class="dropdown-item">route</a>
+</li>
+                                    
+<li>
+    <a href="../../php/group/" class="dropdown-item">group</a>
+</li>
+                                    
+<li>
+    <a href="../../php/groupComposition/" class="dropdown-item">group composition</a>
+</li>
+                                    
+<li>
+    <a href="../../php/emergencySituation/" class="dropdown-item">emergency situation</a>
+</li>
+                                    
+<li>
+    <a href="../../php/ascent/" class="dropdown-item">ascent</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../create/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../queries/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#insert" class="nav-link">Insert</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="insert">Insert</h2>
+<h4 id="admin">Заполнение таблицы "Admin":</h4>
+<pre><code>&gt; db.admin.insertMany([{name:&quot;Jim&quot;}, {name:&quot;Kate&quot;}, {name:&quot;Mike&quot;}, {name:&quot;John&quot;}])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60daede890d43bd8a665bc69&quot;),
+                ObjectId(&quot;60daede890d43bd8a665bc6a&quot;),
+                ObjectId(&quot;60daede890d43bd8a665bc6b&quot;),
+                ObjectId(&quot;60daede890d43bd8a665bc6c&quot;)
+        ]
+}
+</code></pre>
+<h4 id="climbing-club">Заполнение таблицы "Climbing Club":</h4>
+<pre><code>&gt; db.climbingClub.insertMany([{contact_person:&quot;8976543&quot;, city:&quot;Moscow&quot;, country:&quot;Russia&quot;, email:&quot;climbingMSC@gmail.com&quot;, clubs_name:&quot;MSC climbing club&quot;, telephone:&quot;87563529&quot;},{contact_person:&quot;8765432&quot;, city:&quot;Saint-Petersburg&quot;, country:&quot;Russia&quot;, email:&quot;climbingSPB@mail.ru&quot;, clubs_name:&quot;SPB climbing club&quot;, telephone:&quot;98765432&quot;}, {contact_person:&quot;765432&quot;, city:&quot;Kaliningrad&quot;, country:&quot; Russia&quot;, email:&quot;climbingClubKaliningrad@yandex.ru&quot;, clubs_name:&quot;Kaliningrad climbing club&quot;, telephone:&quot;8765432&quot;}])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60daf37090d43bd8a665bc6f&quot;),
+                ObjectId(&quot;60daf37090d43bd8a665bc70&quot;),
+                ObjectId(&quot;60daf37090d43bd8a665bc71&quot;)
+        ]
+}
+</code></pre>
+<h4 id="group">Заполнение таблицы "Group":</h4>
+<pre><code>&gt; db.group.insertMany([{name:&quot;new&quot;}])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60daf88090d43bd8a665bc77&quot;)
+        ]
+}
+</code></pre>
+<h4 id="top">Заполнение таблицы "Top":</h4>
+<pre><code>&gt; db.top.insertMany([{name:&quot;Elbrus&quot;, location:&quot;border of the republics of Kabardino-Balkaria and Karachay-Cherkessia&quot;, country_name:&quot;Russia&quot;, top_height:&quot;5642&quot;, area_name:&quot;North Caucasus&quot;, ascent_num:&quot;20&quot;}])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60daf03190d43bd8a665bc6d&quot;)
+        ]
+}
+&gt; db.top.insertMany([{name:&quot;Kilimonjaro&quot;, location:&quot;Arfrica&quot;, country_name:&quot;Tanzania&quot;, top_height:&quot;5891&quot;, area_name:&quot;Northeastern Tanzania&quot;, ascent_num:&quot;10&quot;}])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60daf0e590d43bd8a665bc6e&quot;)
+        ]
+}
+</code></pre>
+<h4 id="route">Заполнение таблицы "Route":</h4>
+<pre><code>&gt; db.route.insertMany([{route_description:&quot;Marangu-from the south side&quot;, top:new DBRef(&quot;top&quot;, id_top1)}, {route_description:&quot;South slope&quot;, top: new DBRef(&quot;top&quot;, id_top2)}])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60daf57f90d43bd8a665bc72&quot;),
+                ObjectId(&quot;60daf57f90d43bd8a665bc73&quot;)
+        ]
+}
+</code></pre>
+<h4 id="climber">Заполнение таблицы "Climber":</h4>
+<pre><code>&gt; db.climber.insertMany([{name:&quot;mike&quot;, clubs_name:&quot;Moscow climbing club&quot;, address:&quot;msc&quot;, ascent_chronicle:&quot;10&quot;,climbingClub:new DBRef(&quot;climbingClub&quot;, id_climbingClub1)}, {name:&quot;Kate&quot;, clubs_name:&quot;Saint-Petersburg climbing club&quot;, address:&quot;spb&quot;, ascent_chronicle:&quot;10&quot;, climbingClub:new DBRef(&quot;climbingClub&quot;, id_climbingClub3)}, {name:&quot;Jim&quot;, clubs_name:&quot;kaliningrad climbing club&quot;, address:&quot;kaliningrad&quot;, ascent_chronicle:&quot;10&quot;, climbingClub:new DBRef(&quot;climbingClub&quot;, id_climbingClub3)}])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60daf77d90d43bd8a665bc74&quot;),
+                ObjectId(&quot;60daf77d90d43bd8a665bc75&quot;),
+                ObjectId(&quot;60daf77d90d43bd8a665bc76&quot;)
+        ]
+}
+</code></pre>
+<h4 id="ascent">Заполнение таблицы "Ascent":</h4>
+<pre><code>&gt; db.ascent.insertMany([{ascent_date:&quot;2020-08-13&quot;, ascent_success:&quot;successfully&quot;, ascent_duration:&quot;13:00:00&quot;, ascent_time:&quot;10:00:00&quot;, admin:new DBRef(&quot;admin&quot;, id_admin1), group:new DBRef(&quot;group&quot;, id_group1), route: new DBRef(&quot;route&quot;, id_route1), top: new DBRef(&quot;top&quot;, id_top1)}])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60dafe7b90d43bd8a665bc7b&quot;)
+        ]
+}
+</code></pre>
+<h4 id="emergency-situation">Заполнение таблицы "Emergency Situation":</h4>
+<pre><code>&gt; db.emergencySituation.insertMany([{reason:&quot;disaster&quot;, admin:new DBRef(&quot;admin&quot;, id_admin1), group: new DBRef(&quot;group&quot;, id_group1), climber: new DBRef(&quot;climber&quot;, id_climber1), climbingClub:new DBRef(&quot;climbingClub&quot;, id_climbingClub1), route:new DBRef(&quot;route&quot;, id_route1), top:new DBRef(&quot;top&quot;, id_top1)}])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60daffdc90d43bd8a665bc7c&quot;)
+        ]
+}
+&gt; db.emergencySituation.insertMany([{reason:&quot;disaster&quot;, admin:new DBRef(&quot;admin&quot;, id_admin1), group: new DBRef(&quot;group&quot;, id_group1), climber: new DBRef(&quot;climber&quot;, id_climber2), climbingClub:new DBRef(&quot;climbingClub&quot;, id_climbingClub3), route:new DBRef(&quot;route&quot;, id_route1), top:new DBRef(&quot;top&quot;, id_top1)}])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60daffef90d43bd8a665bc7d&quot;)
+        ]
+}
+&gt; db.emergencySituation.insertMany([{reason:&quot;disaster&quot;, admin:new DBRef(&quot;admin&quot;, id_admin1), group: new DBRef(&quot;group&quot;, id_group1), climber: new DBRef(&quot;climber&quot;, id_climber3), climbingClub:new DBRef(&quot;climbingClub&quot;, id_climbingClub3), route:new DBRef(&quot;route&quot;, id_route1), top:new DBRef(&quot;top&quot;, id_top1)}])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60dafff890d43bd8a665bc7e&quot;)
+        ]
+}
+</code></pre>
+<h4 id="group-composition">Заполнение таблицы "Group Composition":</h4>
+<pre><code>&gt; db.groupComposition.insertMany([{num_of_climbers:&quot;3&quot;, climbers_information:&quot;first&quot;, admin: new DBRef(&quot;admin&quot;, id_admin1), group:new DBRef(&quot;group&quot;, id_group1), climber:new DBRef(&quot;climber&quot;, id_climber1), climbingClub:new DBRef(&quot;climbingClub&quot;, id_climbingClub1)}])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60dafbf790d43bd8a665bc78&quot;)
+        ]
+}
+&gt; db.groupComposition.insertMany([{num_of_climbers:&quot;3&quot;, climbers_information:&quot;second&quot;, admin: new DBRef(&quot;admin&quot;, id_admin1), group:new DBRef(&quot;group&quot;, id_group1), climber:new DBRef(&quot;climber&quot;, id_climber2), climbingClub:new DBRef(&quot;climbingClub&quot;, id_climbingClub3)}])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60dafc4390d43bd8a665bc79&quot;)
+        ]
+}
+&gt; db.groupComposition.insertMany([{num_of_climbers:&quot;3&quot;, climbers_information:&quot;third&quot;, admin: new DBRef(&quot;admin&quot;, id_admin1), group:new DBRef(&quot;group&quot;, id_group1), climber:new DBRef(&quot;climber&quot;, id_climber3), climbingClub:new DBRef(&quot;climbingClub&quot;, id_climbingClub3)}])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60dafc5790d43bd8a665bc7a&quot;)
+        ]
+}
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

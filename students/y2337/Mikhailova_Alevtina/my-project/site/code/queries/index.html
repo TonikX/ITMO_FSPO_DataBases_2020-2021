@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>queries - Climbing club</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Climbing club</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tables <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../tables/climber/" class="dropdown-item">climber</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/climbingClub/" class="dropdown-item">climbing club</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/admin/" class="dropdown-item">admin</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/top/" class="dropdown-item">top</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/route/" class="dropdown-item">route</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/group/" class="dropdown-item">group</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/groupComposition/" class="dropdown-item">group composition</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/emergencySituation/" class="dropdown-item">emergency situation</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/ascent/" class="dropdown-item">ascent</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Code <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../create/" class="dropdown-item">create</a>
+</li>
+                                    
+<li>
+    <a href="../insert/" class="dropdown-item">insert</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">queries</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">MongoDB <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../MongoDB/create/" class="dropdown-item">create</a>
+</li>
+                                    
+<li>
+    <a href="../../MongoDB/insert/" class="dropdown-item">insert</a>
+</li>
+                                    
+<li>
+    <a href="../../MongoDB/queries/" class="dropdown-item">queries</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">php <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../php/climber/" class="dropdown-item">climber</a>
+</li>
+                                    
+<li>
+    <a href="../../php/climbingClub/" class="dropdown-item">climbing club</a>
+</li>
+                                    
+<li>
+    <a href="../../php/admin/" class="dropdown-item">admin</a>
+</li>
+                                    
+<li>
+    <a href="../../php/top/" class="dropdown-item">top</a>
+</li>
+                                    
+<li>
+    <a href="../../php/route/" class="dropdown-item">route</a>
+</li>
+                                    
+<li>
+    <a href="../../php/group/" class="dropdown-item">group</a>
+</li>
+                                    
+<li>
+    <a href="../../php/groupComposition/" class="dropdown-item">group composition</a>
+</li>
+                                    
+<li>
+    <a href="../../php/emergencySituation/" class="dropdown-item">emergency situation</a>
+</li>
+                                    
+<li>
+    <a href="../../php/ascent/" class="dropdown-item">ascent</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../insert/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../MongoDB/create/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#select" class="nav-link">Select</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="select">Select</h2>
+<h4 id="15">Вывести информацию о всех вершинах, отсортированную по высоте вершины, где количество восхождений больше 15:</h4>
+<pre><code>select top.top_name, top.location,top.top_height, top.country_name,route.route_description  from top, route where(ascent_num&gt;15) order by top.top_height;
+</code></pre>
+<p><img alt="" src="../1.png" /></p>
+<h4 id="_1">Вывести информацию о всех группе, имя альпиниста и дату восхождения, которым занимался третий администратор, отсортированную по именам альпинистов:</h4>
+<pre><code>select &quot;group&quot;.id_group, &quot;group&quot;.group_name, climber.&quot;climber`s_name&quot;, ascent.ascent_date from &quot;group&quot;, climber, ascent where(ascent.id_admin=3) order by climber.&quot;climber`s_name&quot;;
+</code></pre>
+<p><img alt="" src="../2.png" /></p>
+<h4 id="e-20">Вывести информацию основную информацию о вершине, у которой название начинается на "E" и имеет больше 20 восхождений</h4>
+<pre><code>select top.top_name, top.country_name, top.top_height from top where(top.top_name L from IKE 'E%') and(top.ascent_num&gt;20);
+</code></pre>
+<p><img alt="" src="../3.png" /></p>
+<h4 id="-n">Вывести информацию основную информацию о альпинисте, который из Москвы или Санкт-Петербурга, или его имя начинается на N</h4>
+<pre><code>select climber.id_climber, climber.&quot;climber`s_name&quot;, climber.&quot;id_climbingClub&quot; from climber where((climber.adress='msc') or(climber.adress='spb')) or((climber.&quot;climber`s_name&quot; LIKE 'K%') or (climber.&quot;climber`s_name&quot; LIKE 'N%'));
+</code></pre>
+<p><img alt="" src="../4.png" /></p>
+<h4 id="2020">Вывести информацию о восхождении , которое было после 2020 года</h4>
+<pre><code>select *from ascent where(EXTRACT(year FROM ascent_date)&gt;2020);
+</code></pre>
+<p><img alt="" src="../5.png" /></p>
+<h4 id="18">Вывести длительность восхождения, день, месяц и год восхождения, где месяц сентябрь или день восхождения после 18</h4>
+<pre><code>select ascent.ascent_duration, EXTRACT (DAY from ascent_date) as ascent_day, EXTRACT(MONTH from ascent_date) as ascent_month, EXTRACT(YEAR from ascent_date) as ascent_year from ascent where EXTRACT(MONTH from ascent_date)=9 or EXTRACT(day from ascent_date) &gt; 18;
+</code></pre>
+<p><img alt="" src="../6.png" /></p>
+<h4 id="_2">Вывести основную информацию об альпинисте и его имя в верхнем регистре</h4>
+<pre><code>select id_climber, UPPER(&quot;climber`s_name&quot;), &quot;club`s_name&quot;, climber.&quot;id_climbingClub&quot; from climber;
+</code></pre>
+<p><img alt="" src="../7.png" /></p>
+<h4 id="id-id">Вывести id альпиниста и его имя, заменив пробелы в названии альпинистского клуба на нижнее подчеркивание, а также вывести id альпинистского клуба, где имя альпиниста в верхнем регистре или первая буква имени в верхнем регистре</h4>
+<pre><code>select id_climber,&quot;climber`s_name&quot;, REPLACE(&quot;club`s_name&quot;,' ','_'), climber.&quot;id_climbingClub&quot; FROM climber where &quot;climber`s_name&quot;=UPPER(&quot;climber`s_name&quot;) or &quot;climber`s_name&quot;=INITCAP(&quot;climber`s_name&quot;)
+</code></pre>
+<p><img alt="" src="../8.png" /></p>
+<h4 id="id-id-10">Вывести id и имя администратора, дату восхождения, имя альпиниста, где id админа больше одногои часы из времени восхождения больше 10</h4>
+<pre><code>select admin.id_admin, admin.admin_name, ascent.ascent_date, climber.&quot;climber`s_name&quot; from admin, ascent, climber where admin.id_admin in(select id_admin from ascent where(id_admin&gt;1) and(EXTRACT(HOUR FROM ascent_time)&gt;'10'));
+</code></pre>
+<p><img alt="" src="../9.png" /></p>
+<h4 id="5-20">Вывести количество вершин, где количество восхождений между 5 и 20</h4>
+<pre><code>select count(id_top) as kol_top from top where ascent_num BETWEEN 5 and 20;
+</code></pre>
+<p><img alt="" src="../10.png" /></p>
+<h4 id="11">Вывести самое раннее восхождение, где время восхождения после 11</h4>
+<pre><code>select min(EXTRACT(year FROM ascent_date)) as YEAR from ascent where ascent_time&gt;'11:00:00';
+</code></pre>
+<p><img alt="" src="../11.png" /></p>
+<h4 id="id-1">Вывести количество альпинистов, которых количество восхождений на эверест равняется одному или id альпиниста больше 1</h4>
+<pre><code>select count(climber.id_climber) as kol_climber from climber where(climber.ascent_chronicle LIKE 'Everest-1%') and id_climber in (select id_climber from &quot;groupComposition&quot; where id_climber&gt;1);
+</code></pre>
+<p><img alt="" src="../12.png" /></p>
+<h4 id="_3">Вывести название местности вершины, у котрой есть маршрут</h4>
+<pre><code>select area_name from top where exists(select * from route where top.id_top = route.id_top);
+</code></pre>
+<p><img alt="" src="../13.png" /></p>
+<h4 id="id">Вывести информацию о вершине где id вершины</h4>
+<pre><code>select id_top, top_name from top where id_top = any (SELECT id_top from top where top_height&gt;6000);
+</code></pre>
+<p><img alt="" src="../14.png" /></p>
+<h4 id="01082020-31082021">Вывести информацию о восхождении, где дата восхождения между '01.08.2020' и '31.08.2021', и пустое поле успешности восхождения</h4>
+<pre><code>SELECT *from ascent where ascent_date between '01.08.2020' and '31.08.2021' INTERSECT SELECT *from ascent where ascent_success not in (SELECT ascent_success from ascent where ascent_success ='successfully');
+</code></pre>
+<p><img alt="" src="../15.png" /></p>
+<h4 id="_4">Вывести информацию об админах, которые не организовывали восхождения</h4>
+<pre><code>SELECT * from admin EXCEPT SELECT *from admin where admin.id_admin in (SELECT id_admin from ascent);*
+</code></pre>
+<p><img alt="" src="../16.png" /></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
