@@ -1,0 +1,31 @@
+site_name: Climbing club
+nav:
+  - Home: index.md
+  - Tables:
+      - climber: tables/climber.md
+      - climbing club: tables/climbingClub.md
+      - admin: tables/admin.md
+      - top: tables/top.md
+      - route: tables/route.md
+      - group: tables/group.md
+      - group composition: tables/groupComposition.md
+      - emergency situation: tables/emergencySituation.md
+      - ascent: tables/ascent.md
+  - Code:
+      - create: code/create.md
+      - insert: code/insert.md
+      - queries: code/queries.md
+  - MongoDB:
+      - create: MongoDB/create.md
+      - insert: MongoDB/insert.md
+      - queries: MongoDB/queries.md
+  - php:
+      - climber: php/climber.md
+      - climbing club: php/climbingClub.md
+      - admin: php/admin.md
+      - top: php/top.md
+      - route: php/route.md
+      - group: php/group.md
+      - group composition: php/groupComposition.md
+      - emergency situation: php/emergencySituation.md
+      - ascent: php/ascent.md

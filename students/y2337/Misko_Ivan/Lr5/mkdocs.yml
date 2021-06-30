@@ -1,0 +1,5 @@
+site_name: Описание БД для биржи"
+nav:
+ - Home: index.md
+ - Postgre_lab:
+     - "postgre_lab": postgre_lab/postgre_lab.md

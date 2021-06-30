@@ -1,0 +1,285 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 13.1
+-- Dumped by pg_dump version 13.1
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: shop; Type: SCHEMA; Schema: -; Owner: postgres
+--
+
+CREATE SCHEMA shop;
+
+
+ALTER SCHEMA shop OWNER TO postgres;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: client; Type: TABLE; Schema: shop; Owner: postgres
+--
+
+CREATE TABLE shop.client (
+    id_client integer NOT NULL,
+    client_telephone_number integer NOT NULL,
+    client_adress "char" NOT NULL,
+    client_name "char" NOT NULL
+);
+
+
+ALTER TABLE shop.client OWNER TO postgres;
+
+--
+-- Name: courier; Type: TABLE; Schema: shop; Owner: postgres
+--
+
+CREATE TABLE shop.courier (
+    id_courier integer NOT NULL,
+    courier_telephone_number integer NOT NULL,
+    courier_name "char" NOT NULL
+);
+
+
+ALTER TABLE shop.courier OWNER TO postgres;
+
+--
+-- Name: order; Type: TABLE; Schema: shop; Owner: postgres
+--
+
+CREATE TABLE shop."order" (
+    id_order integer NOT NULL,
+    order_date date NOT NULL,
+    order_status "char" NOT NULL
+);
+
+
+ALTER TABLE shop."order" OWNER TO postgres;
+
+--
+-- Name: order_delivery; Type: TABLE; Schema: shop; Owner: postgres
+--
+
+CREATE TABLE shop.order_delivery (
+    id_courier integer NOT NULL,
+    id_client integer NOT NULL,
+    id_storage integer NOT NULL,
+    delivery_date date NOT NULL,
+    delivery_time integer NOT NULL
+);
+
+
+ALTER TABLE shop.order_delivery OWNER TO postgres;
+
+--
+-- Name: order_list; Type: TABLE; Schema: shop; Owner: postgres
+--
+
+CREATE TABLE shop.order_list (
+    order_number integer NOT NULL,
+    product_quantity integer NOT NULL,
+    id_product integer NOT NULL,
+    final_price integer NOT NULL,
+    payment_method "char" NOT NULL,
+    id_order integer NOT NULL,
+    id_storage integer NOT NULL
+);
+
+
+ALTER TABLE shop.order_list OWNER TO postgres;
+
+--
+-- Name: product; Type: TABLE; Schema: shop; Owner: postgres
+--
+
+CREATE TABLE shop.product (
+    id_product integer NOT NULL,
+    product_name "char" NOT NULL,
+    vendor_code integer NOT NULL,
+    product_price integer NOT NULL,
+    availabillity "char" NOT NULL
+);
+
+
+ALTER TABLE shop.product OWNER TO postgres;
+
+--
+-- Name: storage; Type: TABLE; Schema: shop; Owner: postgres
+--
+
+CREATE TABLE shop.storage (
+    id_storage integer NOT NULL,
+    storage_adress "char" NOT NULL,
+    product_list "char" NOT NULL
+);
+
+
+ALTER TABLE shop.storage OWNER TO postgres;
+
+--
+-- Data for Name: client; Type: TABLE DATA; Schema: shop; Owner: postgres
+--
+
+COPY shop.client (id_client, client_telephone_number, client_adress, client_name) FROM stdin;
+1	799907	S	M
+2	792107	M	J
+3	799907	K	P
+\.
+
+
+--
+-- Data for Name: courier; Type: TABLE DATA; Schema: shop; Owner: postgres
+--
+
+COPY shop.courier (id_courier, courier_telephone_number, courier_name) FROM stdin;
+1	799907	M
+3	89340	M
+2	89340	M
+\.
+
+
+--
+-- Data for Name: order; Type: TABLE DATA; Schema: shop; Owner: postgres
+--
+
+COPY shop."order" (id_order, order_date, order_status) FROM stdin;
+\.
+
+
+--
+-- Data for Name: order_delivery; Type: TABLE DATA; Schema: shop; Owner: postgres
+--
+
+COPY shop.order_delivery (id_courier, id_client, id_storage, delivery_date, delivery_time) FROM stdin;
+\.
+
+
+--
+-- Data for Name: order_list; Type: TABLE DATA; Schema: shop; Owner: postgres
+--
+
+COPY shop.order_list (order_number, product_quantity, id_product, final_price, payment_method, id_order, id_storage) FROM stdin;
+\.
+
+
+--
+-- Data for Name: product; Type: TABLE DATA; Schema: shop; Owner: postgres
+--
+
+COPY shop.product (id_product, product_name, vendor_code, product_price, availabillity) FROM stdin;
+\.
+
+
+--
+-- Data for Name: storage; Type: TABLE DATA; Schema: shop; Owner: postgres
+--
+
+COPY shop.storage (id_storage, storage_adress, product_list) FROM stdin;
+\.
+
+
+--
+-- Name: client client_pkey; Type: CONSTRAINT; Schema: shop; Owner: postgres
+--
+
+ALTER TABLE ONLY shop.client
+    ADD CONSTRAINT client_pkey PRIMARY KEY (id_client);
+
+
+--
+-- Name: courier courier_pkey; Type: CONSTRAINT; Schema: shop; Owner: postgres
+--
+
+ALTER TABLE ONLY shop.courier
+    ADD CONSTRAINT courier_pkey PRIMARY KEY (id_courier);
+
+
+--
+-- Name: order order_pkey; Type: CONSTRAINT; Schema: shop; Owner: postgres
+--
+
+ALTER TABLE ONLY shop."order"
+    ADD CONSTRAINT order_pkey PRIMARY KEY (id_order);
+
+
+--
+-- Name: product product_pkey; Type: CONSTRAINT; Schema: shop; Owner: postgres
+--
+
+ALTER TABLE ONLY shop.product
+    ADD CONSTRAINT product_pkey PRIMARY KEY (id_product);
+
+
+--
+-- Name: storage storage_pkey; Type: CONSTRAINT; Schema: shop; Owner: postgres
+--
+
+ALTER TABLE ONLY shop.storage
+    ADD CONSTRAINT storage_pkey PRIMARY KEY (id_storage);
+
+
+--
+-- Name: order_delivery id_client; Type: FK CONSTRAINT; Schema: shop; Owner: postgres
+--
+
+ALTER TABLE ONLY shop.order_delivery
+    ADD CONSTRAINT id_client FOREIGN KEY (id_courier) REFERENCES shop.courier(id_courier) NOT VALID;
+
+
+--
+-- Name: order_delivery id_courier; Type: FK CONSTRAINT; Schema: shop; Owner: postgres
+--
+
+ALTER TABLE ONLY shop.order_delivery
+    ADD CONSTRAINT id_courier FOREIGN KEY (id_courier) REFERENCES shop.courier(id_courier) NOT VALID;
+
+
+--
+-- Name: order_list id_order; Type: FK CONSTRAINT; Schema: shop; Owner: postgres
+--
+
+ALTER TABLE ONLY shop.order_list
+    ADD CONSTRAINT id_order FOREIGN KEY (id_order) REFERENCES shop."order"(id_order) NOT VALID;
+
+
+--
+-- Name: order_list id_product; Type: FK CONSTRAINT; Schema: shop; Owner: postgres
+--
+
+ALTER TABLE ONLY shop.order_list
+    ADD CONSTRAINT id_product FOREIGN KEY (id_product) REFERENCES shop.product(id_product) NOT VALID;
+
+
+--
+-- Name: order_list id_storage; Type: FK CONSTRAINT; Schema: shop; Owner: postgres
+--
+
+ALTER TABLE ONLY shop.order_list
+    ADD CONSTRAINT id_storage FOREIGN KEY (id_storage) REFERENCES shop.storage(id_storage) NOT VALID;
+
+
+--
+-- Name: order_delivery id_storage; Type: FK CONSTRAINT; Schema: shop; Owner: postgres
+--
+
+ALTER TABLE ONLY shop.order_delivery
+    ADD CONSTRAINT id_storage FOREIGN KEY (id_storage) REFERENCES shop.storage(id_storage) NOT VALID;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
