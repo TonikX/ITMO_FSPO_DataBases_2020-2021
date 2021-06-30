@@ -1,0 +1,151 @@
+.box {
+    margin: 0 auto;
+    display: grid;
+    grid-template: repeat(2, 1fr)/repeat(3, 4fr);
+}
+.box .item {
+    height: 50px;
+}
+p.text{
+    color:gray;
+    text-align: left;
+}
+p.choose{
+    color:#4CAF50;
+    text-align: left;
+}
+
+p.descr{
+    color:gray;
+    font-size: 10px;
+    font-style: italic;
+    text-align: left;
+}
+p.text1{
+    color:gray;
+    text-align: right;
+}
+.back {
+    background: #EDEEF0;
+    word-wrap: break-word
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    font-size: 100%;
+}
+
+input[type=submit] {
+    color: #fff;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 80%;
+    padding: 5% 25%;
+    margin: 0 auto;
+    text-decoration: none;
+    background-color: #4CAF50;
+    border: none;
+}
+
+input[type=text] {
+    border: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    background-color: #ddd;
+    color: grey;
+    width: 200px;
+}
+input[type=search] {
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    background-color: #ddd;
+    color: grey;
+    width: 200px;
+}
+input[type=password] {
+    border: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    background-color: #ddd;
+    color: grey;
+    width: 200px;
+}
+
+input[type=submit]:hover {
+    background-color: grey;
+}
+
+div.block {
+    color: #47c44b;
+    text-align: left;
+    background: #FFFFFF;
+    padding: 15px 20px;
+    width: 95.8%;
+}
+img {
+    width: 400px;
+    height: 300px;
+}
+img.small{
+    width: 115px;
+    height: 90px;
+}
+th {
+    text-align: center;
+}
+
+h1 {
+    color: #47c44b;
+    text-align: center;
+    font-size: 300%;
+}
+
+a.green {
+    color: #fff;
+    display: block;
+    width: 50%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 80%;
+    padding: 5% 25%;
+    margin: 0 auto;
+    text-decoration: none;
+    background-color: #4CAF50;
+}
+
+a.green:hover {
+    background-color: grey;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #fff;
+    width: 99%;
+}
+
+.topnav a {
+    float: left;
+    color: grey;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: grey;
+}
+
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}

@@ -1,0 +1,9 @@
+site_name: y2336 savchuk
+nav: 
+  - Главная: index.md
+  - Таблицы: tables.md
+  - Запросы: requests.md
+  - PHP: php.md
+  - MongoDB: mongo.md
+theme:
+  name: readthedocs
