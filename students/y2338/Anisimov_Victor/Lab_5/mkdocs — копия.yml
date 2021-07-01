@@ -1,0 +1,56 @@
+site_name: Hotel
+navigator:
+  - Home: index.md
+  - Tables:
+      - Admin: tables/admin.md
+      - Servant: tables/servant.md
+      - Client: tables/client.md
+      - City: tables/city.md
+      - Suite: tables/suite.md
+      - Living: tables/living.md
+      - Cleaning: tables/cleaning.md
+      - Contract: tables/contract.md
+  - Code:
+      - create: code/create.md
+      - insert: code/insert.md
+  - PHP code:
+      - Admin:
+          - INSERT: php/admin_insert.md 
+          - DELETE: php/admin_insert.md
+          - SELECT: php/admin_insert.md
+          - UPDATE: php/admin_insert.md
+      - Servant:
+          - INSERT: php/servant_insert.md 
+          - DELETE: php/servant_insert.md
+          - SELECT: php/servant_insert.md
+          - UPDATE: php/servant_insert.md
+      - Client:
+          - INSERT: php/client_insert.md 
+          - DELETE: php/client_insert.md
+          - SELECT: php/client_insert.md
+          - UPDATE: php/client_insert.md
+      - City:
+          - INSERT: php/city_insert.md 
+          - DELETE: php/city_insert.md
+          - SELECT: php/city_insert.md
+          - UPDATE: php/city_insert.md
+      - Suite:
+          - INSERT: php/suite_insert.md 
+          - DELETE: php/suite_insert.md
+          - SELECT: php/suite_insert.md
+          - UPDATE: php/suite_insert.md
+      - Living:
+          - INSERT: php/living_insert.md 
+          - DELETE: php/living_insert.md
+          - SELECT: php/living_insert.md
+          - UPDATE: php/living_insert.md
+      - Cleaning:
+          - INSERT: php/admin_insert.md 
+          - DELETE: php/admin_insert.md
+          - SELECT: php/admin_insert.md
+          - UPDATE: php/admin_insert.md
+      - Contract:
+          - INSERT: php/contract_insert.md 
+          - DELETE: php/contract_insert.md
+          - SELECT: php/contract_insert.md
+          - UPDATE: php/contract_insert.md
