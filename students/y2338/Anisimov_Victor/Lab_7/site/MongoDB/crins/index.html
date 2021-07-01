@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Tables creation and filling - Hotel</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Hotel</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">MongoDB <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Tables creation and filling</a>
+</li>
+                                    
+<li>
+    <a href="../queries/" class="dropdown-item">Queries</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">MySQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../MySQL/Queries/" class="dropdown-item">Запросы к БД</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">PHP <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../PHP/description/" class="dropdown-item">Удалённое управление БД</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">PostgreSQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../PostgreSQL/create/" class="dropdown-item">Creation queries</a>
+</li>
+                                    
+<li>
+    <a href="../../PostgreSQL/insert/" class="dropdown-item">Insert queries</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tables <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../Tables/admin/" class="dropdown-item">Admin</a>
+</li>
+                                    
+<li>
+    <a href="../../Tables/city/" class="dropdown-item">City</a>
+</li>
+                                    
+<li>
+    <a href="../../Tables/cleaning/" class="dropdown-item">Cleaning</a>
+</li>
+                                    
+<li>
+    <a href="../../Tables/client/" class="dropdown-item">Client</a>
+</li>
+                                    
+<li>
+    <a href="../../Tables/contract/" class="dropdown-item">Contract</a>
+</li>
+                                    
+<li>
+    <a href="../../Tables/living/" class="dropdown-item">Living</a>
+</li>
+                                    
+<li>
+    <a href="../../Tables/servant/" class="dropdown-item">Servant</a>
+</li>
+                                    
+<li>
+    <a href="../../Tables/suite/" class="dropdown-item">Suite</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../.." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../queries/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#tables-creation-and-filling" class="nav-link">Tables creation and filling</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="tables-creation-and-filling">Tables creation and filling</h1>
+<h4 id="admin"><code>Таблица "Admin"</code></h4>
+<pre><code>db.Admin.insertMany([
+...                         {Full_name:&quot;Alex Brancher&quot;},
+...                         {Full_name:&quot;Gary Miles&quot;}
+...                     ])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60dda758d818609196ad0fa9&quot;),
+                ObjectId(&quot;60dda758d818609196ad0faa&quot;)
+        ]
+}
+
+</code></pre>
+<h4 id="servant"><code>Таблица «Servant»</code></h4>
+<pre><code>db.Servant.insertMany([
+...                         {Full_name:&quot;Kyle Mcferren&quot;},
+...                         {Full_name:&quot;Sylvia Kalen&quot;},
+...                         {Full_name:&quot;Mary Gor&quot;}
+...                      ])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60ddb767d818609196ad0fb9&quot;),
+                ObjectId(&quot;60ddb767d818609196ad0fba&quot;),
+                ObjectId(&quot;60ddb767d818609196ad0fbb&quot;)
+        ]
+}
+</code></pre>
+<h4 id="ity"><code>Таблица «Сity»</code></h4>
+<pre><code>db.City.insertMany([
+...                          {Name:&quot;Yorkshire&quot;},
+...                          {Name:&quot;Copenhagen&quot;},
+...                          {Name:&quot;Jerusalim&quot;},
+...                          {Name:&quot;Bruges&quot;},
+...                          {Name:&quot;Dresden&quot;},
+...                          {Name:&quot;Quito&quot;},
+...                          {Name:&quot;Riyadh&quot;},
+...                          {Name:&quot;Riga&quot;},
+...                          {Name:&quot;Oslo&quot;},
+...                          {Name:&quot;Houston&quot;},
+...                          {Name:&quot;Seoul&quot;}
+...                    ])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60ddb796d818609196ad0fbc&quot;),
+                ObjectId(&quot;60ddb796d818609196ad0fbd&quot;),
+                ObjectId(&quot;60ddb796d818609196ad0fbe&quot;),
+                ObjectId(&quot;60ddb796d818609196ad0fbf&quot;),
+                ObjectId(&quot;60ddb796d818609196ad0fc0&quot;),
+                ObjectId(&quot;60ddb796d818609196ad0fc1&quot;),
+                ObjectId(&quot;60ddb796d818609196ad0fc2&quot;),
+                ObjectId(&quot;60ddb796d818609196ad0fc3&quot;),
+                ObjectId(&quot;60ddb796d818609196ad0fc4&quot;),
+                ObjectId(&quot;60ddb796d818609196ad0fc5&quot;),
+                ObjectId(&quot;60ddb796d818609196ad0fc6&quot;)
+        ]
+}
+</code></pre>
+<h4 id="suite"><code>Таблица «Suite»</code></h4>
+<pre><code>db.Suite.insertMany([
+...                           {Number:&quot;1&quot;, status:&quot;f&quot;, rooms:&quot;2&quot;, price:&quot;1500&quot;, floor:&quot;1&quot;},
+...                           {Number:&quot;2&quot;, status:&quot;t&quot;, rooms:&quot;3&quot;, price:&quot;2000&quot;, floor:&quot;1&quot;},
+...                           {Number:&quot;3&quot;, status:&quot;t&quot;, rooms:&quot;1&quot;, price:&quot;1100&quot;, floor:&quot;1&quot;},
+...                           {Number:&quot;4&quot;, status:&quot;f&quot;, rooms:&quot;3&quot;, price:&quot;2700&quot;, floor:&quot;1&quot;},
+...                           {Number:&quot;10&quot;, status:&quot;f&quot;, rooms:&quot;2&quot;, price:&quot;2600&quot;, floor:&quot;2&quot;},
+...                           {Number:&quot;11&quot;, status:&quot;t&quot;, rooms:&quot;2&quot;, price:&quot;2900&quot;, floor:&quot;2&quot;},
+...                           {Number:&quot;12&quot;, status:&quot;t&quot;, rooms:&quot;2&quot;, price:&quot;1950&quot;, floor:&quot;2&quot;},
+...                           {Number:&quot;13&quot;, status:&quot;f&quot;, rooms:&quot;1&quot;, price:&quot;1600&quot;, floor:&quot;2&quot;},
+...                           {Number:&quot;20&quot;, status:&quot;t&quot;, rooms:&quot;2&quot;, price:&quot;2000&quot;, floor:&quot;3&quot;},
+...                           {Number:&quot;21&quot;, status:&quot;t&quot;, rooms:&quot;1&quot;, price:&quot;1000&quot;, floor:&quot;3&quot;},
+...                           {Number:&quot;22&quot;, status:&quot;f&quot;, rooms:&quot;3&quot;, price:&quot;2900&quot;, floor:&quot;3&quot;},
+...                           {Number:&quot;23&quot;, status:&quot;t&quot;, rooms:&quot;2&quot;, price:&quot;2100&quot;, floor:&quot;3&quot;}
+...                     ])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60ddb985d818609196ad0fc7&quot;),
+                ObjectId(&quot;60ddb985d818609196ad0fc8&quot;),
+                ObjectId(&quot;60ddb985d818609196ad0fc9&quot;),
+                ObjectId(&quot;60ddb985d818609196ad0fca&quot;),
+                ObjectId(&quot;60ddb985d818609196ad0fcb&quot;),
+                ObjectId(&quot;60ddb985d818609196ad0fcc&quot;),
+                ObjectId(&quot;60ddb985d818609196ad0fcd&quot;),
+                ObjectId(&quot;60ddb985d818609196ad0fce&quot;),
+                ObjectId(&quot;60ddb985d818609196ad0fcf&quot;),
+                ObjectId(&quot;60ddb985d818609196ad0fd0&quot;),
+                ObjectId(&quot;60ddb985d818609196ad0fd1&quot;),
+                ObjectId(&quot;60ddb985d818609196ad0fd2&quot;)
+        ]
+}
+</code></pre>
+<h4 id="_1"><code>Создание переменных для внешних ключей</code></h4>
+<h5 id="admin_1"><code>Таблица "Admin"</code></h5>
+<pre><code>admin_id_1 = ObjectId(&quot;60dda758d818609196ad0fa9&quot;)
+admin_id_2 = ObjectId(&quot;60dda758d818609196ad0faa&quot;)
+</code></pre>
+<h5 id="servant_1"><code>Таблица «Servant»</code></h5>
+<pre><code>servant_id_1 = ObjectId(&quot;60ddb767d818609196ad0fba&quot;)
+servant_id_2 = ObjectId(&quot;60ddb767d818609196ad0fb9&quot;)
+servant_id_3 = ObjectId(&quot;60ddb767d818609196ad0fbb&quot;)
+</code></pre>
+<h5 id="ity_1"><code>Таблица «Сity»</code></h5>
+<pre><code>city_id_1 = ObjectId(&quot;60ddb796d818609196ad0fbc&quot;)
+city_id_2 = ObjectId(&quot;60ddb796d818609196ad0fbd&quot;)
+city_id_3 = ObjectId(&quot;60ddb796d818609196ad0fbe&quot;)
+city_id_4 = ObjectId(&quot;60ddb796d818609196ad0fbf&quot;)
+city_id_5 = ObjectId(&quot;60ddb796d818609196ad0fc0&quot;)
+city_id_6 = ObjectId(&quot;60ddb796d818609196ad0fc1&quot;)
+city_id_7 = ObjectId(&quot;60ddb796d818609196ad0fc2&quot;)
+city_id_8 = ObjectId(&quot;60ddb796d818609196ad0fc3&quot;)
+city_id_9 = ObjectId(&quot;60ddb796d818609196ad0fc4&quot;)
+city_id_10 = ObjectId(&quot;60ddb796d818609196ad0fc5&quot;)
+city_id_11 = ObjectId(&quot;60ddb796d818609196ad0fc6&quot;)
+</code></pre>
+<h5 id="suite_1"><code>Таблица «Suite»</code></h5>
+<pre><code>suite_id_1 = ObjectId(&quot;60ddb985d818609196ad0fc7&quot;)
+suite_id_2 = ObjectId(&quot;60ddb985d818609196ad0fc8&quot;)
+suite_id_3 = ObjectId(&quot;60ddb985d818609196ad0fc9&quot;)
+suite_id_4 = ObjectId(&quot;60ddb985d818609196ad0fca&quot;)
+suite_id_5 = ObjectId(&quot;60ddb985d818609196ad0fcb&quot;)
+suite_id_6 = ObjectId(&quot;60ddb985d818609196ad0fcc&quot;)
+suite_id_7 = ObjectId(&quot;60ddb985d818609196ad0fcd&quot;)
+suite_id_8 = ObjectId(&quot;60ddb985d818609196ad0fce&quot;)
+suite_id_9 = ObjectId(&quot;60ddb985d818609196ad0fcf&quot;)
+suite_id_10 = ObjectId(&quot;60ddb985d818609196ad0fd0&quot;)
+suite_id_11 = ObjectId(&quot;60ddb985d818609196ad0fd1&quot;)
+suite_id_12 = ObjectId(&quot;60ddb985d818609196ad0fd2&quot;)
+</code></pre>
+<h4 id="lient"><code>Таблица «Сlient»</code></h4>
+<pre><code>db.Client.insertMany([
+...                            {name:&quot;Ida Schultz&quot;, passport:&quot;207048&quot;, city_id:new DBRef(&quot;City&quot;, city_id_1)},
+...                            {name:&quot;Belinda Stephenson&quot;, passport:&quot;127296&quot;, city_id:new DBRef(&quot;City&quot;, city_id_10)},
+...                            {name:&quot;Tuesday Chambers&quot;, passport:&quot;276974&quot;, city_id:new DBRef(&quot;City&quot;, city_id_10)},
+...                            {name:&quot;Polly Harper&quot;, passport:&quot;709379&quot;, city_id:new DBRef(&quot;City&quot;, city_id_7)},
+...                            {name:&quot;Wan Jae-Hwa&quot;, passport:&quot;836301&quot;, city_id:new DBRef(&quot;City&quot;, city_id_11)},
+...                            {name:&quot;Ilsa Langer&quot;, passport:&quot;534756&quot;, city_id:new DBRef(&quot;City&quot;, city_id_5)},
+...                            {name:&quot;Alf Engel&quot;, passport:&quot;435059&quot;, city_id:new DBRef(&quot;City&quot;, city_id_4)},
+...                            {name:&quot;Vince Robson&quot;, passport:&quot;439619&quot;, city_id:new DBRef(&quot;City&quot;, city_id_1)},
+...                            {name:&quot;Kennard Fernandez&quot;, passport:&quot;106890&quot;, city_id:new DBRef(&quot;City&quot;, city_id_6)},
+...                            {name:&quot;Wesley Tomlinson&quot;, passport:&quot;684508&quot;, city_id:new DBRef(&quot;City&quot;, city_id_9)},
+...                            {name:&quot;Leo Hayes&quot;, passport:&quot;848394&quot;, city_id:new DBRef(&quot;City&quot;, city_id_7)},
+...                            {name:&quot;Vince Vega&quot;, passport:&quot;789829&quot;, city_id:new DBRef(&quot;City&quot;, city_id_5)}
+...                      ])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60ddbec1d818609196ad0fd3&quot;),
+                ObjectId(&quot;60ddbec1d818609196ad0fd4&quot;),
+                ObjectId(&quot;60ddbec1d818609196ad0fd5&quot;),
+                ObjectId(&quot;60ddbec1d818609196ad0fd6&quot;),
+                ObjectId(&quot;60ddbec1d818609196ad0fd7&quot;),
+                ObjectId(&quot;60ddbec1d818609196ad0fd8&quot;),
+                ObjectId(&quot;60ddbec1d818609196ad0fd9&quot;),
+                ObjectId(&quot;60ddbec1d818609196ad0fda&quot;),
+                ObjectId(&quot;60ddbec1d818609196ad0fdb&quot;),
+                ObjectId(&quot;60ddbec1d818609196ad0fdc&quot;),
+                ObjectId(&quot;60ddbec1d818609196ad0fdd&quot;),
+                ObjectId(&quot;60ddbec1d818609196ad0fde&quot;)
+        ]
+}
+</code></pre>
+<h4 id="client"><code>Создание переменных для внешних ключей для таблицы «Client»</code></h4>
+<h5 id="client_1"><code>Таблица «Client»</code></h5>
+<pre><code>client_id_1 = ObjectId(&quot;60ddbec1d818609196ad0fd3&quot;)
+client_id_2 = ObjectId(&quot;60ddbec1d818609196ad0fd4&quot;)
+client_id_3 = ObjectId(&quot;60ddbec1d818609196ad0fd5&quot;)
+client_id_4 = ObjectId(&quot;60ddbec1d818609196ad0fd6&quot;)
+client_id_5 = ObjectId(&quot;60ddbec1d818609196ad0fd7&quot;)
+client_id_6 = ObjectId(&quot;60ddbec1d818609196ad0fd8&quot;)
+client_id_7 = ObjectId(&quot;60ddbec1d818609196ad0fd9&quot;)
+client_id_8 = ObjectId(&quot;60ddbec1d818609196ad0fda&quot;)
+client_id_9 = ObjectId(&quot;60ddbec1d818609196ad0fdb&quot;)
+client_id_10 = ObjectId(&quot;60ddbec1d818609196ad0fdc&quot;)
+client_id_11 = ObjectId(&quot;60ddbec1d818609196ad0fdd&quot;)
+client_id_12 = ObjectId(&quot;60ddbec1d818609196ad0fde&quot;)
+</code></pre>
+<h4 id="living"><code>Таблица «Living»</code></h4>
+<pre><code>db.Living.insertMany([
+...                            {d_in:new Date(&quot;2003-04-23&quot;), d_out:new Date(&quot;2003-04-30&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_1), suite_id:new DBRef(&quot;Suite&quot;, suite_id_2), client_id:new DBRef(&quot;Client&quot;, client_id_2)},
+...                            {d_in:new Date(&quot;2003-04-23&quot;), d_out:new Date(&quot;2003-04-30&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_1), suite_id:new DBRef(&quot;Suite&quot;, suite_id_2), client_id:new DBRef(&quot;Client&quot;, client_id_3)},
+...                            {d_in:new Date(&quot;2003-04-23&quot;), d_out:new Date(&quot;2003-04-30&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_1), suite_id:new DBRef(&quot;Suite&quot;, suite_id_2), client_id:new DBRef(&quot;Client&quot;, client_id_8)},
+...                            {d_in:new Date(&quot;2003-04-24&quot;), d_out:new Date(&quot;2003-04-25&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_2), suite_id:new DBRef(&quot;Suite&quot;, suite_id_5), client_id:new DBRef(&quot;Client&quot;, client_id_5)},
+...                            {d_in:new Date(&quot;2003-04-25&quot;), d_out:new Date(&quot;2003-04-27&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_1), suite_id:new DBRef(&quot;Suite&quot;, suite_id_9), client_id:new DBRef(&quot;Client&quot;, client_id_4)},
+...                            {d_in:new Date(&quot;2003-04-24&quot;), d_out:new Date(&quot;2003-04-29&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_2), suite_id:new DBRef(&quot;Suite&quot;, suite_id_8), client_id:new DBRef(&quot;Client&quot;, client_id_6)},
+...                            {d_in:new Date(&quot;2003-04-27&quot;), d_out:new Date(&quot;2003-05-04&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_2), suite_id:new DBRef(&quot;Suite&quot;, suite_id_10), client_id:new DBRef(&quot;Client&quot;, client_id_9)},
+...                            {d_in:new Date(&quot;2003-05-01&quot;), d_out:new Date(&quot;2003-05-06&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_1), suite_id:new DBRef(&quot;Suite&quot;, suite_id_7), client_id:new DBRef(&quot;Client&quot;, client_id_7)},
+...                            {d_in:new Date(&quot;2003-04-30&quot;), d_out:new Date(&quot;2003-05-03&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_2), suite_id:new DBRef(&quot;Suite&quot;, suite_id_12), client_id:new DBRef(&quot;Client&quot;, client_id_10)}
+...                      ])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60ddc200d818609196ad0fdf&quot;),
+                ObjectId(&quot;60ddc200d818609196ad0fe0&quot;),
+                ObjectId(&quot;60ddc200d818609196ad0fe1&quot;),
+                ObjectId(&quot;60ddc200d818609196ad0fe2&quot;),
+                ObjectId(&quot;60ddc200d818609196ad0fe3&quot;),
+                ObjectId(&quot;60ddc200d818609196ad0fe4&quot;),
+                ObjectId(&quot;60ddc200d818609196ad0fe5&quot;),
+                ObjectId(&quot;60ddc200d818609196ad0fe6&quot;),
+                ObjectId(&quot;60ddc200d818609196ad0fe7&quot;)
+        ]
+}
+</code></pre>
+<h4 id="cleaning"><code>Таблица «Cleaning»</code></h4>
+<pre><code>db.Cleaning.insertMany([
+... ...                            {floor:&quot;1&quot;, d:new Date(&quot;2003-04-25&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_1), suite_id:new DBRef(&quot;Suite&quot;, suite_id_1), serv_id:new DBRef(&quot;Servant&quot;, servant_id_2)},
+... ...                            {floor:&quot;2&quot;, d:new Date(&quot;2003-04-25&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_1), suite_id:new DBRef(&quot;Suite&quot;, suite_id_5), serv_id:new DBRef(&quot;Servant&quot;, servant_id_2)},
+... ...                            {floor:&quot;3&quot;, d:new Date(&quot;2003-04-25&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_2), suite_id:new DBRef(&quot;Suite&quot;, suite_id_10), serv_id:new DBRef(&quot;Servant&quot;, servant_id_2)},
+... ...                            {floor:&quot;1&quot;, d:new Date(&quot;2003-04-26&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_2), suite_id:new DBRef(&quot;Suite&quot;, suite_id_1), serv_id:new DBRef(&quot;Servant&quot;, servant_id_1)},
+... ...                            {floor:&quot;2&quot;, d:new Date(&quot;2003-04-26&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_1), suite_id:new DBRef(&quot;Suite&quot;, suite_id_7), serv_id:new DBRef(&quot;Servant&quot;, servant_id_1)},
+... ...                            {floor:&quot;2&quot;, d:new Date(&quot;2003-04-26&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_2), suite_id:new DBRef(&quot;Suite&quot;, suite_id_8), serv_id:new DBRef(&quot;Servant&quot;, servant_id_1)},
+... ...                            {floor:&quot;1&quot;, d:new Date(&quot;2003-04-27&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_1), suite_id:new DBRef(&quot;Suite&quot;, suite_id_2), serv_id:new DBRef(&quot;Servant&quot;, servant_id_3)},
+... ...                            {floor:&quot;3&quot;, d:new Date(&quot;2003-04-27&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_1), suite_id:new DBRef(&quot;Suite&quot;, suite_id_9), serv_id:new DBRef(&quot;Servant&quot;, servant_id_3)},
+... ...                            {floor:&quot;3&quot;, d:new Date(&quot;2003-04-27&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_1), suite_id:new DBRef(&quot;Suite&quot;, suite_id_12), serv_id:new DBRef(&quot;Servant&quot;, servant_id_3)},
+... ...                            {floor:&quot;1&quot;, d:new Date(&quot;2003-04-28&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_2), suite_id:new DBRef(&quot;Suite&quot;, suite_id_2), serv_id:new DBRef(&quot;Servant&quot;, servant_id_2)}
+... ...                      ])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60ddc452d818609196ad0ffb&quot;),
+                ObjectId(&quot;60ddc452d818609196ad0ffc&quot;),
+                ObjectId(&quot;60ddc452d818609196ad0ffd&quot;),
+                ObjectId(&quot;60ddc452d818609196ad0ffe&quot;),
+                ObjectId(&quot;60ddc452d818609196ad0fff&quot;),
+                ObjectId(&quot;60ddc452d818609196ad1000&quot;),
+                ObjectId(&quot;60ddc452d818609196ad1001&quot;),
+                ObjectId(&quot;60ddc452d818609196ad1002&quot;),
+                ObjectId(&quot;60ddc452d818609196ad1003&quot;),
+                ObjectId(&quot;60ddc452d818609196ad1004&quot;)
+        ]
+}
+</code></pre>
+<h4 id="contract"><code>Таблица «Contract»</code></h4>
+<pre><code>db.Contract.insertMany([
+...                            {status:&quot;t&quot;, text:&quot;You are hired!&quot;, d_o_a:new Date(&quot;2003-04-15&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_1), serv_id:new DBRef(&quot;Servant&quot;, servant_id_1)},
+...                            {status:&quot;t&quot;, text:&quot;You are hired too!&quot;, d_o_a:new Date(&quot;2003-04-17&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_2), serv_id:new DBRef(&quot;Servant&quot;, servant_id_2)},
+...                            {status:&quot;t&quot;, text:&quot;You are hired three!&quot;, d_o_a:new Date(&quot;2003-04-19&quot;), adm_id:new DBRef(&quot;Admin&quot;, admin_id_1), serv_id:new DBRef(&quot;Servant&quot;, servant_id_3)}
+...                      ])
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;60ddc429d818609196ad0ff8&quot;),
+                ObjectId(&quot;60ddc429d818609196ad0ff9&quot;),
+                ObjectId(&quot;60ddc429d818609196ad0ffa&quot;)
+        ]
+}
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

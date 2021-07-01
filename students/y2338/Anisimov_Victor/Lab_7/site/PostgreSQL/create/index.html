@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Creation queries - Hotel</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Hotel</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">MongoDB <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../MongoDB/crins/" class="dropdown-item">Tables creation and filling</a>
+</li>
+                                    
+<li>
+    <a href="../../MongoDB/queries/" class="dropdown-item">Queries</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">MySQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../MySQL/Queries/" class="dropdown-item">Запросы к БД</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">PHP <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../PHP/description/" class="dropdown-item">Удалённое управление БД</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">PostgreSQL <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Creation queries</a>
+</li>
+                                    
+<li>
+    <a href="../insert/" class="dropdown-item">Insert queries</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tables <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../Tables/admin/" class="dropdown-item">Admin</a>
+</li>
+                                    
+<li>
+    <a href="../../Tables/city/" class="dropdown-item">City</a>
+</li>
+                                    
+<li>
+    <a href="../../Tables/cleaning/" class="dropdown-item">Cleaning</a>
+</li>
+                                    
+<li>
+    <a href="../../Tables/client/" class="dropdown-item">Client</a>
+</li>
+                                    
+<li>
+    <a href="../../Tables/contract/" class="dropdown-item">Contract</a>
+</li>
+                                    
+<li>
+    <a href="../../Tables/living/" class="dropdown-item">Living</a>
+</li>
+                                    
+<li>
+    <a href="../../Tables/servant/" class="dropdown-item">Servant</a>
+</li>
+                                    
+<li>
+    <a href="../../Tables/suite/" class="dropdown-item">Suite</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../PHP/description/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../insert/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#creation-queries" class="nav-link">Creation queries</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="creation-queries">Creation queries</h1>
+<h4 id="table-admin">Table «admin»</h4>
+<pre><code>CREATE TABLE admin (
+    id integer PRIMARY KEY,
+    FIO text
+);
+</code></pre>
+<h4 id="table-city">Table «city»</h4>
+<pre><code>CREATE TABLE city (
+    id integer PRIMARY KEY,
+    name text
+);
+</code></pre>
+<h4 id="table-servant">Table «servant»</h4>
+<pre><code>CREATE TABLE servant (
+    id integer PRIMARY KEY,
+    FIO text
+);
+</code></pre>
+<h4 id="table-suite">Table «suite»</h4>
+<pre><code>CREATE TABLE suite (
+    id integer PRIMARY KEY,
+    number integer,
+    status boolean,
+    rooms_number integer,
+    cost integer,
+    floor integer
+);
+</code></pre>
+<h4 id="table-client">Table «client»</h4>
+<pre><code>CREATE TABLE client (
+    id integer PRIMARY KEY,
+    FIO text,
+    passport_data text,
+    city_id integer,
+    FOREIGN KEY (city_id) REFERENCES city (id)
+);
+</code></pre>
+<h4 id="table-living">Table «living»</h4>
+<pre><code>CREATE TABLE living (
+    id integer PRIMARY KEY,
+    date_in date,
+    date_out date,
+    admin_id integer,
+    suite_id integer,
+    client_id integer,
+    FOREIGN KEY (admin_id) REFERENCES admin (id),
+    FOREIGN KEY (suite_id) REFERENCES suite (id),
+    FOREIGN KEY (client_id) REFERENCES client (id)
+);
+</code></pre>
+<h4 id="table-cleaning">Table «cleaning»</h4>
+<pre><code>CREATE TABLE cleaning (
+    id integer PRIMARY KEY,
+    floor integer,
+    date date,
+    admin_id integer,
+    serv_id integer,
+    suite_id integer,
+    FOREIGN KEY (suite_id) REFERENCES suite (id),
+    FOREIGN KEY (admin_id) REFERENCES admin (id),
+    FOREIGN KEY (serv_id) REFERENCES servant (id));
+</code></pre>
+<h4 id="table-contract">Table «contract»</h4>
+<pre><code>CREATE TABLE contract (
+    id integer PRIMARY KEY,
+    status boolean,
+    text text,
+    date_of_agreement date,
+    admin_id integer,
+    serv_id integer,
+    FOREIGN KEY (admin_id) REFERENCES admin (id),
+    FOREIGN KEY (serv_id) REFERENCES servant (id)
+);
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

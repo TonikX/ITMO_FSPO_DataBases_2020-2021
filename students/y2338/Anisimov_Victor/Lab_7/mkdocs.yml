@@ -1,0 +1,22 @@
+site_name: Hotel
+navigator:
+  - Home: index.md
+  - Tables:
+      - Admin: Tables/admin.md
+      - Servant: Tables/servant.md
+      - Client: Tables/client.md
+      - City: Tables/city.md
+      - Suite: Tables/suite.md
+      - Living: Tables/living.md
+      - Cleaning: Tables/cleaning.md
+      - Contract: Tables/contract.md
+  - PostgreSQL:
+      - create: PostgreSQL/create.md
+      - insert: PostgreSQL/insert.md
+  - PHP:
+      - info: PHP/description.md
+  - MySQL:
+      - queries: MySQL/queries.md
+  - MongoDB:
+      - create&insert: MongoDB/crins.md
+      - queries: MongoDB/queries.md
