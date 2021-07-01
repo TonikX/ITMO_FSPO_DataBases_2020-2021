@@ -14,4 +14,4 @@ navigator:
       - create: code/create.md
       - insert: code/insert.md
   - PHP:
-      - info: PHP/code.md
+      - info: PHP/description.md
