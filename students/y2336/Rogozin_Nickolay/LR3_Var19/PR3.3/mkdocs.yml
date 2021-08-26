@@ -1,0 +1,20 @@
+site_name: Zoo
+nav:
+    - Home: index.md
+    - Tables:
+        - Animal: tables/Animal.md
+        - Animal_bird: tables/Animal_bird.md
+        - Animal_reptile: tables/Animal_reptile.md
+        - Animal_transfered: tables/Animal_transfered.md
+        - Cage: tables/Cage.md
+        - Doctor: tables/Doctor.md
+        - Overseer: tables/Overseer.md
+        - Meal: tables/Meal.md
+        - Transfer: tables/Transfer.md
+        - Shift: tables/Shift.md
+        - Settling: tables/Settling.md
+        - Healing: tables/Healing.md
+        - Feeding: tables/Feeding.md
+    - Code:
+        - create: code/create.md
+        - insert: code/insert.md
