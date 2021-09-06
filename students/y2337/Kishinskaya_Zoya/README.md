@@ -17,7 +17,7 @@ _________________
 |9.|Pr2.1_PiterChen| [Практическая работа №2.1 (Piter Chan)](./Pr2.1_PiterChen)|
 |10.|Pr2.2| [Практическая работа №2.2 (idef1x)](./Pr2.2)|
 |11.|Pr3.1_SQLite| [Практическая работа №3.1](./Pr3.1_SQLite)|
-|12.|Pr3.2_PostgreSQL| [Практическая работа №3.2](./)|
+|12.|Pr3.2_PostgreSQL| [Практическая работа №3.2](./Pr3.2_PostgreSQL)|
 |13.|lections/lection_1_oltp_olap | [Лекция](./lections/lection_1_oltp_olap)|
 
 
