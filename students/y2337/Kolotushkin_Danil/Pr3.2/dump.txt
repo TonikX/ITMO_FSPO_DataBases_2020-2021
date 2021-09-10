@@ -1,0 +1,579 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 13.2
+-- Dumped by pg_dump version 13.2
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: Client; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Client" (
+    id integer NOT NULL,
+    name character varying(25) NOT NULL,
+    last_name character varying(25),
+    phone character varying(25) NOT NULL,
+    email character varying(25) NOT NULL
+);
+
+
+ALTER TABLE public."Client" OWNER TO postgres;
+
+--
+-- Name: Client_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE public."Client" ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public."Client_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: Implementation; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Implementation" (
+    "order_ID" integer NOT NULL,
+    "implementer_ID" integer NOT NULL,
+    status boolean NOT NULL
+);
+
+
+ALTER TABLE public."Implementation" OWNER TO postgres;
+
+--
+-- Name: Implementer; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Implementer" (
+    id integer NOT NULL,
+    name character varying(25) NOT NULL,
+    last_name character varying(25),
+    phone character varying(25) NOT NULL,
+    email character varying(25) NOT NULL
+);
+
+
+ALTER TABLE public."Implementer" OWNER TO postgres;
+
+--
+-- Name: Implementer_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE public."Implementer" ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public."Implementer_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: Material; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Material" (
+    id integer NOT NULL,
+    description text,
+    cost integer NOT NULL,
+    name character varying(25) NOT NULL
+);
+
+
+ALTER TABLE public."Material" OWNER TO postgres;
+
+--
+-- Name: Material_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE public."Material" ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public."Material_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: MaterialsInService; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."MaterialsInService" (
+    "Material_ID" integer NOT NULL,
+    "Service_ID" integer NOT NULL
+);
+
+
+ALTER TABLE public."MaterialsInService" OWNER TO postgres;
+
+--
+-- Name: Order; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Order" (
+    id integer NOT NULL,
+    "Payment_ID" integer NOT NULL,
+    "TimeLimit_ID" integer NOT NULL,
+    "Client_ID" integer NOT NULL
+);
+
+
+ALTER TABLE public."Order" OWNER TO postgres;
+
+--
+-- Name: Order_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE public."Order" ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public."Order_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: Payment; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Payment" (
+    id integer NOT NULL,
+    status boolean NOT NULL,
+    requisites character varying(45) NOT NULL
+);
+
+
+ALTER TABLE public."Payment" OWNER TO postgres;
+
+--
+-- Name: Payment_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE public."Payment" ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public."Payment_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: Service; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Service" (
+    id integer NOT NULL,
+    description text,
+    cost integer NOT NULL,
+    name character varying(25) NOT NULL
+);
+
+
+ALTER TABLE public."Service" OWNER TO postgres;
+
+--
+-- Name: ServiceInOrder; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."ServiceInOrder" (
+    "Service_ID" integer NOT NULL,
+    "Order_ID" integer NOT NULL
+);
+
+
+ALTER TABLE public."ServiceInOrder" OWNER TO postgres;
+
+--
+-- Name: Service_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE public."Service" ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public."Service_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: TimeLimit; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."TimeLimit" (
+    id integer NOT NULL,
+    admission date NOT NULL,
+    completion date NOT NULL,
+    payment date NOT NULL
+);
+
+
+ALTER TABLE public."TimeLimit" OWNER TO postgres;
+
+--
+-- Name: TimeLimit_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE public."TimeLimit" ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public."TimeLimit_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Data for Name: Client; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Client" (id, name, last_name, phone, email) FROM stdin;
+1	Fedor	Bobrov	+79999999999	bobrov@mail.ru
+2	Vasily	Chichkov	+79998886666	chichkov@yandex.ru
+\.
+
+
+--
+-- Data for Name: Implementation; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Implementation" ("order_ID", "implementer_ID", status) FROM stdin;
+2	2	f
+2	1	t
+\.
+
+
+--
+-- Data for Name: Implementer; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Implementer" (id, name, last_name, phone, email) FROM stdin;
+1	Anton	Zubarev	+79996664545	zubarev@gmail.com
+2	Maria	Shilova	+79996564545	shilova@gmail.com
+\.
+
+
+--
+-- Data for Name: Material; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Material" (id, description, cost, name) FROM stdin;
+1	just a paper	60	paper
+2	just a paint	80	paint
+\.
+
+
+--
+-- Data for Name: MaterialsInService; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."MaterialsInService" ("Material_ID", "Service_ID") FROM stdin;
+1	1
+1	2
+\.
+
+
+--
+-- Data for Name: Order; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Order" (id, "Payment_ID", "TimeLimit_ID", "Client_ID") FROM stdin;
+1	1	1	1
+2	2	2	2
+\.
+
+
+--
+-- Data for Name: Payment; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Payment" (id, status, requisites) FROM stdin;
+1	f	4005 4005 2230 1111
+2	t	4005 2005 2230 1111
+\.
+
+
+--
+-- Data for Name: Service; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Service" (id, description, cost, name) FROM stdin;
+1	just a banner	60	Banner
+2	just a notebook	70	Notebook
+\.
+
+
+--
+-- Data for Name: ServiceInOrder; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."ServiceInOrder" ("Service_ID", "Order_ID") FROM stdin;
+1	1
+1	2
+2	2
+\.
+
+
+--
+-- Data for Name: TimeLimit; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."TimeLimit" (id, admission, completion, payment) FROM stdin;
+2	2005-12-10	2005-12-20	2005-12-20
+3	2005-06-10	2006-07-20	2005-06-10
+1	2004-12-30	2005-01-30	2006-10-10
+\.
+
+
+--
+-- Name: Client_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."Client_id_seq"', 2, true);
+
+
+--
+-- Name: Implementer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."Implementer_id_seq"', 2, true);
+
+
+--
+-- Name: Material_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."Material_id_seq"', 2, true);
+
+
+--
+-- Name: Order_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."Order_id_seq"', 2, true);
+
+
+--
+-- Name: Payment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."Payment_id_seq"', 2, true);
+
+
+--
+-- Name: Service_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."Service_id_seq"', 2, true);
+
+
+--
+-- Name: TimeLimit_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."TimeLimit_id_seq"', 3, true);
+
+
+--
+-- Name: Client Client_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Client"
+    ADD CONSTRAINT "Client_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: Implementation Implementation_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Implementation"
+    ADD CONSTRAINT "Implementation_pkey" PRIMARY KEY ("order_ID", "implementer_ID");
+
+
+--
+-- Name: Implementer Implementer_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Implementer"
+    ADD CONSTRAINT "Implementer_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: Material Material_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Material"
+    ADD CONSTRAINT "Material_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: MaterialsInService MaterialsInService_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."MaterialsInService"
+    ADD CONSTRAINT "MaterialsInService_pkey" PRIMARY KEY ("Material_ID", "Service_ID");
+
+
+--
+-- Name: Order Order_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Order"
+    ADD CONSTRAINT "Order_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: Payment Payment_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Payment"
+    ADD CONSTRAINT "Payment_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: ServiceInOrder ServiceInOrder_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."ServiceInOrder"
+    ADD CONSTRAINT "ServiceInOrder_pkey" PRIMARY KEY ("Service_ID", "Order_ID");
+
+
+--
+-- Name: Service Service_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Service"
+    ADD CONSTRAINT "Service_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: TimeLimit Time; Type: CHECK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE public."TimeLimit"
+    ADD CONSTRAINT "Time" CHECK ((admission < completion)) NOT VALID;
+
+
+--
+-- Name: TimeLimit TimeLimit_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."TimeLimit"
+    ADD CONSTRAINT "TimeLimit_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: Service cost; Type: CHECK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE public."Service"
+    ADD CONSTRAINT cost CHECK ((cost > 50)) NOT VALID;
+
+
+--
+-- Name: Order Client; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Order"
+    ADD CONSTRAINT "Client" FOREIGN KEY ("Client_ID") REFERENCES public."Client"(id) NOT VALID;
+
+
+--
+-- Name: Implementation Implementer; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Implementation"
+    ADD CONSTRAINT "Implementer" FOREIGN KEY ("implementer_ID") REFERENCES public."Implementer"(id) NOT VALID;
+
+
+--
+-- Name: MaterialsInService Material_ID; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."MaterialsInService"
+    ADD CONSTRAINT "Material_ID" FOREIGN KEY ("Material_ID") REFERENCES public."Material"(id);
+
+
+--
+-- Name: ServiceInOrder Order; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."ServiceInOrder"
+    ADD CONSTRAINT "Order" FOREIGN KEY ("Order_ID") REFERENCES public."Order"(id) NOT VALID;
+
+
+--
+-- Name: Implementation Order; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Implementation"
+    ADD CONSTRAINT "Order" FOREIGN KEY ("order_ID") REFERENCES public."Order"(id) NOT VALID;
+
+
+--
+-- Name: Order Payment; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Order"
+    ADD CONSTRAINT "Payment" FOREIGN KEY ("Payment_ID") REFERENCES public."Payment"(id) NOT VALID;
+
+
+--
+-- Name: ServiceInOrder Service; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."ServiceInOrder"
+    ADD CONSTRAINT "Service" FOREIGN KEY ("Service_ID") REFERENCES public."Service"(id) NOT VALID;
+
+
+--
+-- Name: MaterialsInService Service_ID; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."MaterialsInService"
+    ADD CONSTRAINT "Service_ID" FOREIGN KEY ("Service_ID") REFERENCES public."Service"(id);
+
+
+--
+-- Name: Order TimeLimit; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Order"
+    ADD CONSTRAINT "TimeLimit" FOREIGN KEY ("TimeLimit_ID") REFERENCES public."TimeLimit"(id) NOT VALID;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

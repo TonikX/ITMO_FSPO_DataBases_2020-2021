@@ -1,0 +1,22 @@
+site_name: Agency
+nav:
+  - Главная страница: index.md
+  - Описание СУБД:
+    - Описание СУБД: description.md
+    - Клиент: tables/client.md
+    - Исполнитель: tables/implementer.md
+    - Заказ: tables/order.md
+    - Временные лимиты: tables/timelimit.md
+    - Оплата: tables/payment.md
+    - Услуга: tables/service.md
+    - Материал: tables/material.md
+    - Материалы в услуге: tables/materialsinorder.md
+    - Услуги в заказе: tables/servicesinorder.md
+    - Исполнение: tables/implementation.md
+  - Запросы: requests.md
+  - PHP интерфейс:
+    - Добавление: php/adding.md
+    - Удаление: php/deleting.md
+    - Просмотр: php/viewing.md
+    - Выполнение запросов: php/requests.md
+theme: material
