@@ -1,0 +1,93 @@
+use hotel
+'switched to db hotel'
+
+> db.room.insertMany([{floor: 1, cost: 4500, type: "comfort"}, 
+					   {floor: 1, cost: 2500, type: "usual"}, 
+					   {floor: 2, cost: 2500, type: "usual"}, 
+					   {floor: 2, cost: 7000, type: "lux"}])
+{ acknowledged: true,
+  insertedIds: 
+   { '0': ObjectId("60aacba1aa526da27932c6d2"),
+     '1': ObjectId("60aacba1aa526da27932c6d3"),
+     '2': ObjectId("60aacba1aa526da27932c6d4"),
+     '3': ObjectId("60aacba1aa526da27932c6d5") } }
+
+
+> db.employee.insertMany([
+			{fullname: "Evgeniy", post: "cleaner", contact_detail: "+98792463242", exp: 3, terms_of_contract: "sdkjbfskfvs"}, 
+			{fullname: "Vanya", post: "cleaner", contact_detail: "+9879249999", exp: 1, terms_of_contract: "oopsodafvs"}, 
+			{fullname: "Sergey", post: "cleaner", contact_detail: "+9247121240", exp: 3, terms_of_contract: "laolsewmds"}, 
+			{fullname: "Anya", post: "administrator", contact_detail: "+980281823", exp: 5, terms_of_contract: "sduiuiuiuiuiuis"}, 
+			{fullname: "Gosha", post: "administrator", contact_detail: "+9777654444", exp: 4, terms_of_contract: "soaoaoaoaoaoa"}, 
+			{fullname: "Diana", post: "administrator", contact_detail: "+90001928", exp: 0.5, terms_of_contract: "jijijijijij"}
+])
+{ acknowledged: true,
+  insertedIds: 
+   { '0': ObjectId("60aace03aa526da27932c6d6"),
+     '1': ObjectId("60aace03aa526da27932c6d7"),
+     '2': ObjectId("60aace03aa526da27932c6d8"),
+     '3': ObjectId("60aace03aa526da27932c6d9"),
+     '4': ObjectId("60aace03aa526da27932c6da"),
+     '5': ObjectId("60aace03aa526da27932c6db") } }
+
+
+> var em_id = db.employee.findOne({fullname: "Vanya"})._id
+> db.cleaning.insertOne({employee: new DBRef("employee", em_id), floor: 1, date: new Date("2009-06-01")})
+{ acknowledged: true,
+  insertedId: ObjectId("60aacfa2aa526da27932c6dc") }
+
+> var em_id = db.employee.findOne({fullname: "Sergey"})._id
+> db.cleaning.insertOne({employee: new DBRef("employee", em_id), floor: 1, date: new Date("2001-08-05")})
+{ acknowledged: true,
+  insertedId: ObjectId("60aad013aa526da27932c6dd") }
+
+> var adm_id = db.employee.findOne({fullname: "Anya"})._id
+> var room_id = db.room.findOne({floor: 1, cost: 2500})._id
+> db.client.insertOne({fullname: "Alekseeva Oksana", 
+						passport:  463745, 
+						city:  'Saint-Petersburg', 
+						room: new DBRef("room", room_id), 
+						adm: new DBRef("employee", adm_id), 
+						check_in: new Date("2000-05-05"), 
+						check_out: new Date("2000-05-15")})
+{ acknowledged: true,
+  insertedId: ObjectId("60aad1c2aa526da27932c6de") }
+
+> db.client.insertOne({fullname: "Mikhailova Alevtina", 
+						passport:  8871928, 
+						city:  'Saint-Petersburg', 
+						room: new DBRef("room", room_id), 
+						adm: new DBRef("employee", adm_id), 
+						check_in: new Date("2000-01-15"), 
+						check_out: new Date("2000-01-20")})
+{ acknowledged: true,
+  insertedId: ObjectId("60aad24baa526da27932c6df") }
+
+
+
+
+
+
+Выбор пользователей, которые живут в городе 'SPb' и их паспорт > 8871925.
+> db.client.find({city: "Saint-Petersburg", passport: {$gt: 8871925}}).pretty()
+
+Выбор администраторов с использованием функции смены регистра.
+db.employee.aggregate([{$match: {post: "administrator"}}, {$project: {fullname: {$toLower: "$fullname"}}}])
+
+Выбор сотрудников, с которыми был заключен контракт.
+db.employee.find({terms_of_contract: {$exists: true}})
+
+Вывод средней стоимости по проживанию на 1 этаже.
+db.room.aggregate(
+  [{$match: {floor: 1}},
+    {
+      $group: { _id: "$floor", avg: { $avg: "$cost" } }
+    }
+  ]
+)
+
+Выбор максимальной стоимости проживания типа 'lux' c сортировкой по номеру.
+db.room.find({type: "lux"}).sort({_id: 1}).limit(1)
+
+Выбор комнат(номеров), у которых сумма проживания > 6000 с сортировкой по номеру.
+db.room.find({cost: {$gt: 6000}}).sort({_id: 1})
