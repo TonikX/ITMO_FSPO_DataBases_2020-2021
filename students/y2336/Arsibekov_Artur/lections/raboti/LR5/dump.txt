@@ -1,1 +1,173 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema library
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema library
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `library` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `library` ;
+
+-- -----------------------------------------------------
+-- Table `library`.`reader`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `library`.`reader` (
+  `id_library_card` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `fio` VARCHAR(50) NOT NULL,
+  `date_of_birth` DATE NOT NULL,
+  `passport_number` INT NOT NULL,
+  `adress` VARCHAR(50) NOT NULL,
+  `education` VARCHAR(50) NOT NULL,
+  `academic_degree` VARCHAR(50) NULL DEFAULT NULL,
+  `status` VARCHAR(50) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_library_card`),
+  UNIQUE INDEX `id_library_card` (`id_library_card` ASC) VISIBLE,
+  UNIQUE INDEX `passport_number` (`passport_number` ASC) VISIBLE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 11
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `library`.`reading_rooms`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `library`.`reading_rooms` (
+  `id_room` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name_room` VARCHAR(50) NOT NULL,
+  `capacity` INT NOT NULL,
+  PRIMARY KEY (`id_room`),
+  UNIQUE INDEX `id_room` (`id_room` ASC) VISIBLE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 7
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `library`.`attachment_in_room`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `library`.`attachment_in_room` (
+  `id_attachment` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `date_attachment` DATE NOT NULL,
+  `transfer_date` DATE NULL DEFAULT NULL,
+  `reader_id_library_card` BIGINT UNSIGNED NOT NULL,
+  `reading_rooms_id_room` BIGINT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id_attachment`),
+  UNIQUE INDEX `id_attachment` (`id_attachment` ASC) VISIBLE,
+  INDEX `fk_attachment_in_room_reader1_idx` (`reader_id_library_card` ASC) VISIBLE,
+  INDEX `fk_attachment_in_room_reading_rooms1_idx` (`reading_rooms_id_room` ASC) VISIBLE,
+  CONSTRAINT `fk_attachment_in_room_reader1`
+    FOREIGN KEY (`reader_id_library_card`)
+    REFERENCES `library`.`reader` (`id_library_card`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_attachment_in_room_reading_rooms1`
+    FOREIGN KEY (`reading_rooms_id_room`)
+    REFERENCES `library`.`reading_rooms` (`id_room`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 4
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `library`.`books`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `library`.`books` (
+  `id_book` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(50) NOT NULL,
+  `authors` VARCHAR(50) NOT NULL,
+  `publishing_house` VARCHAR(50) NOT NULL,
+  `year_of_publishing` DATE NOT NULL,
+  `section` VARCHAR(50) NOT NULL,
+  `number_of_copies` INT NOT NULL,
+  `attachment_date` DATE NULL DEFAULT NULL,
+  `writeoff_date` DATE NULL DEFAULT NULL,
+  PRIMARY KEY (`id_book`),
+  UNIQUE INDEX `id_book` (`id_book` ASC) VISIBLE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 7
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `library`.`copy_of_book`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `library`.`copy_of_book` (
+  `id_copy` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `copy_status` VARCHAR(50) NOT NULL,
+  `books_id_book` BIGINT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id_copy`),
+  UNIQUE INDEX `id_copy` (`id_copy` ASC) VISIBLE,
+  INDEX `fk_copy_of_book_books1_idx` (`books_id_book` ASC) VISIBLE,
+  CONSTRAINT `fk_copy_of_book_books1`
+    FOREIGN KEY (`books_id_book`)
+    REFERENCES `library`.`books` (`id_book`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 7
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `library`.`worker`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `library`.`worker` (
+  `id_worker` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `date_of_receipt` DATE NOT NULL,
+  `timetable` VARCHAR(50) NOT NULL,
+  `fio_worker` VARCHAR(50) NOT NULL,
+  `id_library` INT NOT NULL,
+  PRIMARY KEY (`id_worker`),
+  UNIQUE INDEX `id_worker` (`id_worker` ASC) VISIBLE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 4
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `library`.`issue_of_book`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `library`.`issue_of_book` (
+  `date_of_issue` DATE NOT NULL,
+  `reader_id_library_card` BIGINT UNSIGNED NOT NULL,
+  `worker_id_worker` BIGINT UNSIGNED NOT NULL,
+  `copy_of_book_id_copy` BIGINT UNSIGNED NOT NULL,
+  `id_of_issue` INT NOT NULL AUTO_INCREMENT,
+  INDEX `fk_issue_of_book_reader_idx` (`reader_id_library_card` ASC) VISIBLE,
+  INDEX `fk_issue_of_book_worker1_idx` (`worker_id_worker` ASC) VISIBLE,
+  INDEX `fk_issue_of_book_copy_of_book1_idx` (`copy_of_book_id_copy` ASC) VISIBLE,
+  PRIMARY KEY (`id_of_issue`),
+  CONSTRAINT `fk_issue_of_book_reader`
+    FOREIGN KEY (`reader_id_library_card`)
+    REFERENCES `library`.`reader` (`id_library_card`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_issue_of_book_worker1`
+    FOREIGN KEY (`worker_id_worker`)
+    REFERENCES `library`.`worker` (`id_worker`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_issue_of_book_copy_of_book1`
+    FOREIGN KEY (`copy_of_book_id_copy`)
+    REFERENCES `library`.`copy_of_book` (`id_copy`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
