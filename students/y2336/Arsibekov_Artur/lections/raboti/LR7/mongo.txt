@@ -1,0 +1,87 @@
+> use library
+switched to db library
+> db.createCollection("reader")
+{ "ok" : 1 }
+> db.createCollection("worker")
+{ "ok" : 1 }
+> db.createCollection("books")
+{ "ok" : 1 }
+> db.createCollection("reading_rooms")
+{ "ok" : 1 }
+> db.createCollection("attachment_in_room")
+{ "ok" : 1 }
+> db.createCollection("issue_of_book")
+{ "ok" : 1 }
+> db.createCollection("copy_of_book")
+{ "ok" : 1 }
+> db.worker.insert({"fio_worker": "Sergey Abram Putl"})
+WriteResult({ "nInserted" : 1 })
+> db.worker.insert({"fio_worker": "Andrey Ivanich Bondarchuk"})
+WriteResult({ "nInserted" : 1 })
+> db.worker.insert({"fio_worker": "Ivan Sergeevich Puskeen"})
+WriteResult({ "nInserted" : 1 })
+> db.books.insert({"title": "Kapital"})
+WriteResult({ "nInserted" : 1 })
+> db.books.insert({"title": "Matematika 5 klass"})
+WriteResult({ "nInserted" : 1 })
+> db.books.insert({"title": "Lolita"})
+WriteResult({ "nInserted" : 1 })
+> db.reader.insert({"fio": "Igor Borisich Nikolsky"})
+WriteResult({ "nInserted" : 1 })
+> db.reader.insert({"fio": "Ksusha Vladimirovna Kokotkina"})
+WriteResult({ "nInserted" : 1 })
+> db.reader.insert({"fio": "Ramzan Ahmatovich Medvedev"})
+> db.reading_rooms.insert({"name_room": "Zal_1"})
+WriteResult({ "nInserted" : 1 })
+> db.reading_rooms.insert({"name_room": "Zal_2"})
+WriteResult({ "nInserted" : 1 })
+> db.reading_rooms.insert({"name_room": "Lobby"})
+WriteResult({ "nInserted" : 1 })
+> db.copy_of_book.insert({"books_id_book": ObjectId("614b0f3abe519bf9305da56e"), "copy_status": "active", “number_of_copies” : “60”})
+WriteResult({ "nInserted" : 1 })
+> db.books.find({title: "Lolita"})
+{ "_id" : ObjectId("614b0f17be519bf9305da56d"), "title" : "Lolita" }
+> db.copy_of_book.insert({"books_id_book": ObjectId("614b0f17be519bf9305da56d"), "copy_status": "active", “number_of_copies” : “12”})
+WriteResult({ "nInserted" : 1 })
+> db.books.find({title: "Matematika 5 klass"})
+{ "_id" : ObjectId("614b0f11be519bf9305da56c"), "title" : "Matematika 5 klass" }
+> db.copy_of_book.insert({"books_id_book": ObjectId("614b0f11be519bf9305da56c"), "copy_status": "active", “number_of_copies” : “33”})
+WriteResult({ "nInserted" : 1 })
+> db.books.find({title: "Sergey Abram Putl"})
+> db.worker.find({fio_worker: "Sergey Abram Putl"})
+{ "_id" : ObjectId("614b0ec2be519bf9305da568"), "fio_worker" : "Sergey Abram Putl" }
+> db.worker.find({fio_worker: "Andrey Ivanich Bondarchuk"})
+{ "_id" : ObjectId("614b0ed3be519bf9305da569"), "fio_worker" : "Andrey Ivanich Bondarchuk" }
+> db.worker.find({fio_worker: "Ivan Sergeevich Puskeen"})
+{ "_id" : ObjectId("614b0ee2be519bf9305da56a"), "fio_worker" : "Ivan Sergeevich Puskeen" }
+> db.reader.find({fio: "Igor Borisich Nikolsky"})
+{ "_id" : ObjectId("614b0f3abe519bf9305da56e"), "fio" : "Igor Borisich Nikolsky" }
+> db.reader.find({fio: "Ksusha Vladimirovna Kokotkina"})
+{ "_id" : ObjectId("614b0f50be519bf9305da56f"), "fio" : "Ksusha Vladimirovna Kokotkina" }
+> db.reader.find({fio: "Ramzan Ahmatovich Medvedev"})
+{ "_id" : ObjectId("614b0f79be519bf9305da570"), "fio" : "Ramzan Ahmatovich Medvedev" }
+> db.copy_of_book.find({"books_id_book": ObjectId("614b0f11be519bf9305da56c"), "copy_status": "active"})
+{ "_id" : ObjectId("614b1221be519bf9305da576"), "books_id_book" : ObjectId("614b0f11be519bf9305da56c"), "copy_status" : "active" }
+> db.copy_of_book.find({"books_id_book": ObjectId("614b0f17be519bf9305da56d"), "copy_status": "active"})
+{ "_id" : ObjectId("614b1207be519bf9305da575"), "books_id_book" : ObjectId("614b0f17be519bf9305da56d"), "copy_status" : "active" }
+> db.copy_of_book.find({"books_id_book": ObjectId("614b0f3abe519bf9305da56e"), "copy_status": "active"})
+{ "_id" : ObjectId("614b11ccbe519bf9305da574"), "books_id_book" : ObjectId("614b0f3abe519bf9305da56e"), "copy_status" : "active" }
+> db.issue_of_book.insert({ "worker_id_worker": ObjectId("614b0ec2be519bf9305da568"),"reader_id_reader": ObjectId("614b0f3abe519bf9305da56e"), "copy_of_book_id_copy" : ObjectId("614b1221be519bf9305da576"), "date_of_issue" : "2021-09-01"})
+WriteResult({ "nInserted" : 1 })
+> db.issue_of_book.find({"_id" : ObjectId("614b1393be519bf9305da577")})
+{ "_id" : ObjectId("614b1393be519bf9305da577"), "worker_id_worker" : ObjectId("614b0ec2be519bf9305da568"), "reader_id_reader" : ObjectId("614b0f3abe519bf9305da56e"), "copy_of_book_id_copy" : ObjectId("614b1221be519bf9305da576"), "date_of_issue" : "2021-09-01" }
+> db.issue_of_book.insert({"worker_id_worker": ObjectId("614b0ed3be519bf9305da569"),"reader_id_reader": ObjectId("614b0f50be519bf9305da56f"), "copy_of_book_id_copy" : ObjectId("614b1207be519bf9305da575"), "date_of_issue" : "2021-09-02"})
+WriteResult({ "nInserted" : 1 })
+> db.issue_of_book.insert({"worker_id_worker": ObjectId("614b0ee2be519bf9305da56a"),"reader_id_reader": ObjectId("614b0f79be519bf9305da570"), "copy_of_book_id_copy" : ObjectId("614b11ccbe519bf9305da574"), "date_of_issue" : "2021-09-03"})
+WriteResult({ "nInserted" : 1 })
+
+Запросы:
+1.db.books.find({},{_id: 0, title: 1})
+Вывод списка книг
+2. db.copy_of_book.aggregate( [ { $lookup: { from: "books", localField: "_id", foreignField: "books_id_book", as: "book"  } }, { $out: "title"} ] )
+db.bookTitles.find( {}, {_id: 0, title: 0} ).pretty()
+Вывод списка копий с названием
+3.db.books.find({title: {$regex:"Kapital"}})
+Вывод книги с названием “Kapital”
+4. db.copy_of_book.find({_id: 0}).sort({number_of_copies: 1}).limit(1)
+Вывод книги с самым большим количеством копий
