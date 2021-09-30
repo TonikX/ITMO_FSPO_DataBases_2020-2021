@@ -1,0 +1,18 @@
+site_name: Hotel
+nav:
+  - Home: index.md
+  - Tables:
+      - accommodation: tables/Accommodation.md
+      - admin: tables/Admin.md
+      - cleaning: tables/Cleaning.md
+      - clerk: tables/Clerk.md
+      - contract: tables/Contract.md
+      - floor: tables/Floor.md
+      - order: tables/Order.md
+      - residing: tables/Residing.md
+      - room: tables/Room.md
+      - srvices: tables/Services.md
+      - services_list: tables/Services_list.md
+  - Code:
+      - create: code/create.md
+      - insert: code/insert.md
