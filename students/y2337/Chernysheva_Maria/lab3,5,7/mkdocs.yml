@@ -18,6 +18,6 @@ nav:
       - insert: code/insert.md
   - Queries:
       - queries: queries/queries.md
-  -Mongo:
+  - Mongo:
       - mongo: mongo/mongo.md
       - queries: mongo/queries.md
