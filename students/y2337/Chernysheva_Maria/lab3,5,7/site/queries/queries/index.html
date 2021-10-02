@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Queries - Hotel</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Hotel</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tables <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../tables/Accommodation/" class="dropdown-item">accommodation</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/Admin/" class="dropdown-item">admin</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/Cleaning/" class="dropdown-item">cleaning</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/Clerk/" class="dropdown-item">clerk</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/Contract/" class="dropdown-item">contract</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/Floor/" class="dropdown-item">floor</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/Order/" class="dropdown-item">order</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/Residing/" class="dropdown-item">residing</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/Room/" class="dropdown-item">room</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/Services/" class="dropdown-item">srvices</a>
+</li>
+                                    
+<li>
+    <a href="../../tables/Services_list/" class="dropdown-item">services_list</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Code <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../code/create/" class="dropdown-item">create</a>
+</li>
+                                    
+<li>
+    <a href="../../code/insert/" class="dropdown-item">insert</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#11" class="nav-link">1.1</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">Вывести информацию о всех заключенных договорах, сортированную по ФИО администраторов</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#12" class="nav-link">1.2</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">Вывести информацию о всех заключенных договорах на проживание, сортированную по ФИО проживающего</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#21" class="nav-link">2.1</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">Вывести всех проживающих, которые получают доп. услуги</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#22" class="nav-link">2.2</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_4" class="nav-link">Вывести всех проживающих, которые получают услугу "Уборка комнаты"</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#31" class="nav-link">3.1</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#20210110" class="nav-link">Вывести всех проживающих, которые заехали после 2021.01.10 включительно</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#32" class="nav-link">3.2</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#20210102-20210112" class="nav-link">Вывести всех проживающих, которые заехали после 2021.01.02 включительно, а выехали до 2021.01.12 включительно</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#41" class="nav-link">4.1</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_5" class="nav-link">Вывести всех администраторов, заменив пробел в ФИО на нижнее подчеркивание</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#42" class="nav-link">4.2</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_6" class="nav-link">Вывести всех проживающих, отобразив ФИО в нижнем регистре</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#51" class="nav-link">5.1</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_7" class="nav-link">Вывести все услуги, которые заказывали более двух раз</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#52" class="nav-link">5.2</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_8" class="nav-link">Вывести всех служащих, которые заключали договор с администратором Агаркова Алевтина Юрьевна</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#61" class="nav-link">6.1</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_9" class="nav-link">Вывести среднюю цену за услугу гостиницы</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#62" class="nav-link">6.2</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#151" class="nav-link">Вывести минимальную и максимальную цену за услугу гостиницы для тех услуг, цена которых не ниже 151</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#71" class="nav-link">7.1</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#1000" class="nav-link">Вывести максимальную цену за услугу гостиницы, цена которой больше 1000, если такая есть</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#72" class="nav-link">7.2</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#500" class="nav-link">Вывести максимальную цену за услугу гостиницы, цена которой больше 500, если такая есть</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#81" class="nav-link">8.1</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_10" class="nav-link">Вывести информацию о служащих, если они убирают в понедельник</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#82" class="nav-link">8.2</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#2" class="nav-link">Вывести информацию о проживающих, если они живут на 2 этаже</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#91" class="nav-link">9.1</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_11" class="nav-link">Вывести информацию об служащих и их графике уборки (операция декартова произведения)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#92" class="nav-link">9.2</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#id" class="nav-link">Вывести id только тех служащих, которые учавствуют в уборке (операция пересечения)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#101" class="nav-link">10.1</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_12" class="nav-link">Вывести только тех служащих, которые учавствуют в уборке</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#102" class="nav-link">10.2</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_13" class="nav-link">Вывести только тех администраторов, которые назначают служащих</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="11">1.1</h2>
+<h2 id="_1">Вывести информацию о всех заключенных договорах, сортированную по ФИО администраторов</h2>
+<p>SELECT public."Contract".id_contract, public."Contract".conditions, public."Admin".full_name AS
+admin_full_name, public."Clerk".full_name AS clerk_full_name FROM public."Contract",
+public."Admin", public."Clerk" WHERE (public."Contract".id_admin = public."Admin".id_admin) AND
+(public."Contract".id_clerk = public."Clerk".id_clerk) ORDER BY public."Admin".full_name;</p>
+<p><img alt="" src="1.1.jpg" /></p>
+<h2 id="12">1.2</h2>
+<h2 id="_2">Вывести информацию о всех заключенных договорах на проживание, сортированную по ФИО проживающего</h2>
+<p>SELECT public."Accommodation".id_accommodation, public."Accommodation".check_in_date,
+public."Accommodation".check_out_date, public."Admin".full_name AS admin_full_name,
+public."Residing".full_name AS residing_full_name FROM public."Accommodation", public."Admin",
+public."Residing" WHERE (public."Accommodation".id_admin = public."Admin".id_admin) AND
+(public."Accommodation".id_residing = public."Residing".id_residing) ORDER BY public."Residing".full_name;</p>
+<p><img alt="" src="1.2.jpg" /></p>
+<h2 id="21">2.1</h2>
+<h2 id="_3">Вывести всех проживающих, которые получают доп. услуги</h2>
+<p>SELECT public."Residing".id_residing, public."Residing".full_name AS residing_full_name,
+public."Services".type, public."Services_list".number_of_services
+FROM public."Residing", public."Accommodation", public."Order",
+public."Services_list", public."Services" WHERE
+(public."Residing".id_residing = public."Accommodation".id_residing) AND
+(public."Accommodation".id_order = public."Order".id_order) AND
+(public."Order".id_services_list = public."Services_list".id_services_list) AND
+(public."Services_list".id_services = public."Services".id_services);</p>
+<p><img alt="" src="2.1.jpg" /></p>
+<h2 id="22">2.2</h2>
+<h2 id="_4">Вывести всех проживающих, которые получают услугу "Уборка комнаты"</h2>
+<p>SELECT public."Residing".id_residing, public."Residing".full_name AS residing_full_name,
+public."Services".type, public."Services_list".number_of_services
+FROM public."Residing", public."Accommodation", public."Order",
+public."Services_list", public."Services" WHERE
+(public."Residing".id_residing = public."Accommodation".id_residing) AND
+(public."Accommodation".id_order = public."Order".id_order) AND
+(public."Order".id_services_list = public."Services_list".id_services_list) AND
+(public."Services_list".id_services = public."Services".id_services) AND
+(public."Services".id_services = 6);</p>
+<p><img alt="" src="2.2.jpg" /></p>
+<h2 id="31">3.1</h2>
+<h2 id="20210110">Вывести всех проживающих, которые заехали после 2021.01.10 включительно</h2>
+<p>SELECT public."Residing".full_name AS residing_full_name, public."Accommodation".check_in_date,
+public."Accommodation".check_out_date FROM public."Residing", public."Accommodation" WHERE
+(public."Accommodation".check_in_date &gt;= '2021.01.10') AND
+(public."Residing".id_residing = public."Accommodation".id_residing);</p>
+<p><img alt="" src="3.1.jpg" /></p>
+<h2 id="32">3.2</h2>
+<h2 id="20210102-20210112">Вывести всех проживающих, которые заехали после 2021.01.02 включительно, а выехали до 2021.01.12 включительно</h2>
+<p>SELECT public."Residing".full_name AS residing_full_name, public."Accommodation".check_in_date,
+public."Accommodation".check_out_date FROM public."Residing", public."Accommodation" WHERE
+(public."Accommodation".check_in_date &gt;= '2021.01.02') AND
+(public."Accommodation".check_out_date &lt;= '2021.01.12') AND
+(public."Residing".id_residing = public."Accommodation".id_residing);</p>
+<p><img alt="" src="3.2.jpg" /></p>
+<h2 id="41">4.1</h2>
+<h2 id="_5">Вывести всех администраторов, заменив пробел в ФИО на нижнее подчеркивание</h2>
+<p>SELECT public."Admin".id_admin,  REPLACE(public."Admin".full_name,' ','_'),
+public."Admin".contact_details FROM public."Admin";</p>
+<p><img alt="" src="4.1.jpg" /></p>
+<h2 id="42">4.2</h2>
+<h2 id="_6">Вывести всех проживающих, отобразив ФИО в нижнем регистре</h2>
+<p>SELECT public."Residing".id_residing, LOWER (public."Residing".full_name),
+public."Residing".identity_data FROM public."Residing";</p>
+<p><img alt="" src="4.2.jpg" /></p>
+<h2 id="51">5.1</h2>
+<h2 id="_7">Вывести все услуги, которые заказывали более двух раз</h2>
+<p>SELECT public."Services".id_services, public."Services".type FROM public."Services"
+WHERE id_services IN (SELECT public."Services_list".id_services FROM public."Services_list"
+WHERE public."Services_list".number_of_services &gt; 2);</p>
+<p><img alt="" src="5.1.jpg" /></p>
+<h2 id="52">5.2</h2>
+<h2 id="_8">Вывести всех служащих, которые заключали договор с администратором Агаркова Алевтина Юрьевна</h2>
+<p>SELECT public."Clerk".id_clerk, public."Clerk".full_name AS clerk_full_name FROM public."Clerk"
+WHERE id_clerk IN (SELECT public."Contract".id_clerk FROM public."Contract"
+WHERE id_admin IN (SELECT public."Admin".id_admin FROM public."Admin"
+WHERE public."Admin".full_name = 'Агаркова Алевтина Юрьевна'));</p>
+<p><img alt="" src="5.2.jpg" /></p>
+<h2 id="61">6.1</h2>
+<h2 id="_9">Вывести среднюю цену за услугу гостиницы</h2>
+<p>SELECT AVG(public."Services".price) AS average_price FROM public."Services";</p>
+<p><img alt="" src="6.1.jpg" /></p>
+<h2 id="62">6.2</h2>
+<h2 id="151">Вывести минимальную и максимальную цену за услугу гостиницы для тех услуг, цена которых не ниже 151</h2>
+<p>SELECT MAX(public."Services".price) AS max_price, MIN(public."Services".price)
+AS min_price FROM public."Services" WHERE public."Services".price &gt; 151;</p>
+<p><img alt="" src="6.2.jpg" /></p>
+<h2 id="71">7.1</h2>
+<h2 id="1000">Вывести максимальную цену за услугу гостиницы, цена которой больше 1000, если такая есть</h2>
+<p>SELECT public."Services".type, MAX(public."Services".price) AS max_price
+FROM public."Services" GROUP BY public."Services".type HAVING MAX(public."Services".price) &gt; 1000;</p>
+<p><img alt="" src="7.1.jpg" /></p>
+<h2 id="72">7.2</h2>
+<h2 id="500">Вывести максимальную цену за услугу гостиницы, цена которой больше 500, если такая есть</h2>
+<p>SELECT public."Services".type, MAX(public."Services".price) AS max_price
+FROM public."Services" GROUP BY public."Services".type HAVING MAX(public."Services".price) &gt; 500;</p>
+<p><img alt="" src="7.2.jpg" /></p>
+<h2 id="81">8.1</h2>
+<h2 id="_10">Вывести информацию о служащих, если они убирают в понедельник</h2>
+<p>SELECT public."Clerk".id_clerk, public."Clerk".full_name AS clerk_full_name, public."Clerk".position
+FROM public."Clerk" WHERE EXISTS (SELECT * FROM public."Cleaning" WHERE
+(public."Clerk".id_clerk = public."Cleaning".id_clerk) AND
+(public."Cleaning".day_of_week = 'Понедельник'));</p>
+<p><img alt="" src="8.1.jpg" /></p>
+<h2 id="82">8.2</h2>
+<h2 id="2">Вывести информацию о проживающих, если они живут на 2 этаже</h2>
+<p>SELECT public."Residing".id_residing, public."Residing".full_name AS residing_full_name
+FROM public."Residing", public."Accommodation", public."Room"
+WHERE (public."Residing".id_residing = public."Accommodation".id_residing) AND
+(public."Accommodation".id_room = public."Room".id_room) AND public."Room".id_room = ANY
+(SELECT public."Room".id_room FROM public."Room" WHERE public."Room".floor = 2);</p>
+<p><img alt="" src="8.2.jpg" /></p>
+<h2 id="91">9.1</h2>
+<h2 id="_11">Вывести информацию об служащих и их графике уборки (операция декартова произведения)</h2>
+<p>SELECT * FROM public."Clerk", public."Cleaning" WHERE
+(public."Clerk".id_clerk = public."Cleaning".id_clerk);</p>
+<p><img alt="" src="9.1.jpg" /></p>
+<h2 id="92">9.2</h2>
+<h2 id="id">Вывести id только тех служащих, которые учавствуют в уборке (операция пересечения)</h2>
+<p>SELECT public."Clerk".id_clerk FROM public."Clerk" INTERSECT
+SELECT public."Cleaning".id_clerk FROM public."Cleaning";</p>
+<p><img alt="" src="9.2.jpg" /></p>
+<h2 id="101">10.1</h2>
+<h2 id="_12">Вывести только тех служащих, которые учавствуют в уборке</h2>
+<p>SELECT distinct public."Clerk".id_clerk, public."Clerk".full_name, public."Clerk".position
+AS clerk_full_name FROM public."Clerk" INNER JOIN public."Cleaning" ON
+public."Clerk".id_clerk = public."Cleaning".id_clerk;</p>
+<p><img alt="" src="10.1.jpg" /></p>
+<h2 id="102">10.2</h2>
+<h2 id="_13">Вывести только тех администраторов, которые назначают служащих</h2>
+<p>SELECT distinct public."Admin".id_admin, public."Admin".full_name
+AS admin_full_name FROM public."Admin" RIGHT OUTER JOIN public."Contract" ON
+public."Contract".id_admin = public."Admin".id_admin;</p>
+<p><img alt="" src="10.2.jpg" /></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

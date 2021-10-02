@@ -16,3 +16,5 @@ nav:
   - Code:
       - create: code/create.md
       - insert: code/insert.md
+  - Queries:
+      - queries: queries/queries.md
