@@ -1,0 +1,28 @@
+site_name: Poultry farm
+nav:
+  - Home: index.md
+  - Tables:
+      - worker: tables/worker.md
+      - serving: tables/servies.md
+      - breed: tables/breed.md
+      - chicken: tables/chicken.md
+      - cell: tables/cell.md
+      - stay: tables/stay.md
+      - diet: tables/diet.md
+      - workshop: tables/workshop.md
+
+  - Queries:
+      - queries: queries/queries.md
+  - Code:
+      - create: code/create.md
+      - insert: code/insert.md
+  - Lr6_PHP:
+      - config.php: 6lab/config.md
+      - delete.php: 6lab/delete.md
+      - form.php: 6lab/form.md
+      - index.php: 6lab/index.md
+      - save.php: 6lab/save.md
+      - table.php: 6lab/table.md
+  - Lr7_Mongodb:
+      - mongo: 7lab/mongo.md
+      - queries: 7lab/queries.md
